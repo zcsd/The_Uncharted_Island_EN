@@ -28,13 +28,13 @@
     "orientation": "portrait",
     "zip": false
   },
-  "startScene": "",
+  "startScene": "67d30f0b-3936-467d-9d9c-efb37041a7c4",
   "title": "The_Uncharted_Island",
   "webOrientation": "auto",
   "wechatgame": {
     "REMOTE_SERVER_ROOT": "",
     "appid": "wx6ac3f5090a6b99c5",
-    "orientation": "portrait",
+    "orientation": "landscape",
     "subContext": ""
   },
   "xxteaKey": "15162a28-05d6-49",
