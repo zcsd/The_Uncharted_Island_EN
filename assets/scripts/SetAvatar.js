@@ -25,11 +25,19 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    onLoad: function () {
+        // load default boy avatar image
+        var self = this;
+        cc.loader.loadRes("boy_0", cc.SpriteFrame, function (err, spriteFrame) {
+            self.frontSprite.spriteFrame = spriteFrame;
+        });
+    },
 
     changeAvatar: function () {
-        cc.log('change avatar function');
-        //this.frontSprite.spriteFrame.setTexture(cc.loader.load('res/boy.png'));
+        var self = this;
+        cc.loader.loadRes("girl_2", cc.SpriteFrame, function (err, spriteFrame) {
+            self.frontSprite.spriteFrame = spriteFrame;
+        });
     },
 
     start () {
