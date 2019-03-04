@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.5265304426308115,
-      "y": 0.5265304426308115,
+      "x": 0.5624825613839285,
+      "y": 0.5624825613839285,
       "z": 1
     },
     "_quat": {
@@ -2445,6 +2445,8 @@
     "frontSprite": {
       "__id__": 11
     },
+    "currentGender": "boy",
+    "currentImgPosition": 0,
     "_id": "003SJhj/RD4Y1bPAVuzhlj"
   }
 ]
