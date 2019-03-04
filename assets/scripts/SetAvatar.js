@@ -23,6 +23,7 @@ cc.Class({
         },
 
         currentGender: "boy",
+        //current index of avatar image in the list
         currentImgPosition: 0,
 
     },
@@ -30,8 +31,7 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad: function () {
-        //console.log(boyAvatarsDir[0]);
-        // load default boy avatar image
+        // load default avatar image
         var self = this;
         cc.loader.loadRes("boy_0", cc.SpriteFrame, function (err, spriteFrame) {
             self.frontSprite.spriteFrame = spriteFrame;
@@ -45,6 +45,7 @@ cc.Class({
 
         this.currentImgPosition += 1;
         if (this.currentImgPosition == boyAvatarsDir.length) {
+            // reset to 0 if bigger than max index 
             this.currentImgPosition = 0;
         }
 
@@ -60,9 +61,24 @@ cc.Class({
         } 
         
         var self = this;
+        // load image from resource folder
         cc.loader.loadRes(currentImgDir, cc.SpriteFrame, function (err, spriteFrame) {
             self.frontSprite.spriteFrame = spriteFrame;
         });
+    },
+
+    changeGenderToBoy: function () {
+        console.log("boy-gender was selected.");
+        this.currentGender = "boy";
+        this.currentImgPosition = -1; // to reset to 0. because +1 in changeAvatar function
+        this.changeAvatar();
+    },
+
+    changeGenderToGirl: function () {
+        console.log("girl-gender was selected.");
+        this.currentGender = "girl";
+        this.currentImgPosition = -1;
+        this.changeAvatar();
     },
 
     start () {
