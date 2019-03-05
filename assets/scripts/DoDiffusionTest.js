@@ -9,6 +9,11 @@ cc.Class({
 
     // onLoad () {},
 
+    backToAvatarScene: function () {
+        cc.director.loadScene("SetAvatar");
+
+    },
+
     start () {
 
     },

@@ -2,11 +2,6 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        changeButton: {
-            default: null,
-            type: cc.Button
-        },
-
         nameEditBox: {
             default: null,
             type: cc.EditBox
@@ -37,6 +32,10 @@ cc.Class({
             self.frontSprite.spriteFrame = spriteFrame;
         });
 
+    },
+
+    goToNextScene: function () {
+        cc.director.loadScene("DoDiffusionTest");
     },
 
     changeAvatar: function () {
