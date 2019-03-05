@@ -81,6 +81,11 @@ cc.Class({
         this.changeAvatar();
     },
 
+    resetScene: function () {
+        //this.changeGenderToBoy();
+        // clear name EditBox
+    },
+
     start () {
 
     },
