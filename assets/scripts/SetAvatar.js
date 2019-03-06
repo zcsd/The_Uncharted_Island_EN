@@ -32,6 +32,13 @@ cc.Class({
             self.frontSprite.spriteFrame = spriteFrame;
         });
 
+        this.nameEditBox.node.on('editing-did-ended', this.callback, this);
+
+    },
+
+    callback: function (event) {
+        var editbox = event.detail;
+        console.log(this.nameEditBox.string);
     },
 
     goToNextScene: function () {
