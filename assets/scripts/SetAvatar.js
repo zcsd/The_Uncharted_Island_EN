@@ -20,29 +20,18 @@ cc.Class({
         currentGender: "boy",
         //current index of avatar image in the list
         currentImgPosition: 0,
+        currentImgDir: "boy_0",
 
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad: function () {
-        // load default avatar image
-        var self = this;
-        cc.loader.loadRes("boy_0", cc.SpriteFrame, function (err, spriteFrame) {
-            self.frontSprite.spriteFrame = spriteFrame;
-        });
-
-        this.nameEditBox.node.on('editing-did-ended', this.callback, this);
-
+        this.resetScene();
     },
 
-    callback: function (event) {
-        var editbox = event.detail;
+    getInputName: function () {
         console.log(this.nameEditBox.string);
-    },
-
-    goToNextScene: function () {
-        cc.director.loadScene("DoDiffusionTest");
     },
 
     changeAvatar: function () {
@@ -55,41 +44,54 @@ cc.Class({
             this.currentImgPosition = 0;
         }
 
-        let currentImgDir = "";
         if (this.currentGender == "boy") {
-            currentImgDir = boyAvatarsDir[this.currentImgPosition];
+            this.currentImgDir = boyAvatarsDir[this.currentImgPosition];
         }
         else if (this.currentGender == "girl") {
-            currentImgDir = girlAvatarsDir[this.currentImgPosition];
+            this.currentImgDir = girlAvatarsDir[this.currentImgPosition];
         }
-        else {
-            console.log("Select Gender Wrongly.");
-        } 
         
         var self = this;
         // load image from resource folder
-        cc.loader.loadRes(currentImgDir, cc.SpriteFrame, function (err, spriteFrame) {
+        cc.loader.loadRes(this.currentImgDir, cc.SpriteFrame, function (err, spriteFrame) {
             self.frontSprite.spriteFrame = spriteFrame;
         });
     },
 
-    changeGenderToBoy: function () {
-        console.log("boy-gender was selected.");
-        this.currentGender = "boy";
+    changeGender: function () {
+        console.log("Change Gender");
+        if (this.genderToggleContainer.toggleItems[0].isChecked) {
+            this.currentGender = "boy";
+        }
+        else if (this.genderToggleContainer.toggleItems[1].isChecked) {
+            this.currentGender = "girl";
+        }
+
         this.currentImgPosition = -1; // to reset to 0. because +1 in changeAvatar function
         this.changeAvatar();
     },
 
-    changeGenderToGirl: function () {
-        console.log("girl-gender was selected.");
-        this.currentGender = "girl";
-        this.currentImgPosition = -1;
-        this.changeAvatar();
+    resetScene: function () {
+        this.currentGender = "boy";
+        this.currentImgPosition = 0;
+        this.currentImgDir = "boy_0";
+        this.nameEditBox.string = "";
+        this.genderToggleContainer.toggleItems[0].isChecked = true;
+        this.changeGender();
     },
 
-    resetScene: function () {
-        //this.changeGenderToBoy();
-        // clear name EditBox
+    goToNextScene: function () {
+        // TODO: check more special character
+        if (this.nameEditBox.string.length == 0 || this.nameEditBox.string.trim().length == 0) {
+            console.log("Empty name input.");
+        }
+        else {
+            console.log(this.nameEditBox.string);
+            console.log(this.currentGender);
+            console.log(this.currentImgDir);
+            cc.director.loadScene("DoDiffusionTest");
+        }
+
     },
 
     start () {
