@@ -17,6 +17,11 @@ cc.Class({
             type: cc.Sprite
         },
 
+        nextButton: {
+            default: null,
+            type: cc.Button
+        },
+
         currentGender: "boy",
         //current index of avatar image in the list
         currentImgPosition: 0,
@@ -78,6 +83,8 @@ cc.Class({
         this.nameEditBox.string = "";
         this.genderToggleContainer.toggleItems[0].isChecked = true;
         this.changeGender();
+        // set nextButton unclickable
+        this.nextButton.interactable = false;
     },
 
     goToNextScene: function () {
@@ -91,12 +98,20 @@ cc.Class({
             console.log(this.currentImgDir);
             cc.director.loadScene("DoDiffusionTest");
         }
-
     },
 
     start () {
 
     },
 
-    // update (dt) {},
+    update: function (dt) {
+        // determine whether can click nextButton
+        if (this.nameEditBox.string.length == 0 || this.nameEditBox.string.trim().length == 0) {
+            this.nextButton.interactable = false;
+        }
+        else {
+            this.nextButton.interactable = true;
+        }
+
+    },
 });

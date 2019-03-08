@@ -2,6 +2,10 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        diffusion: {
+            default: null,
+            type: cc.Node
+        }
 
     },
 
@@ -12,6 +16,15 @@ cc.Class({
     backToAvatarScene: function () {
         cc.director.loadScene("SetAvatar");
 
+    },
+
+    readyToDiffuse: function () {
+        var animationComponent = this.diffusion.getComponent(cc.Animation);
+        animationComponent.play("diffusionAni");
+    },
+
+    resetScene: function () {
+        
     },
 
     start () {
