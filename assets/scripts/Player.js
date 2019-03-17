@@ -9,17 +9,15 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    onLoad () {
+        cc.game.addPersistRootNode(this.node);
+    },
 
     start () {
 
     },
-    
+    /*
     update: function (dt) {
-        if (this.nickName != "") {
-            console.log(this.nickName);
-            console.log(this.gender);
-            console.log(this.avatarImgDir);
-        }
-    },
+
+    },*/
 });

@@ -102,7 +102,7 @@ cc.Class({
             this.player.nickName = this.nameEditBox.string;
             this.player.gender = this.currentGender;
             this.player.avatarImgDir = this.currentImgDir;
-            
+
             cc.director.loadScene("DoDiffusionTest");
         }
     },
