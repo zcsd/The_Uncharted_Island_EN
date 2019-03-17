@@ -22,6 +22,8 @@ cc.Class({
             type: cc.Button
         },
 
+        player: cc.Node,
+
         currentGender: "boy",
         //current index of avatar image in the list
         currentImgPosition: 0,
@@ -32,6 +34,7 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad: function () {
+        this.player = this.player.getComponent('Player');
         this.resetScene();
     },
 
@@ -96,6 +99,10 @@ cc.Class({
             console.log(this.nameEditBox.string);
             console.log(this.currentGender);
             console.log(this.currentImgDir);
+            this.player.nickName = this.nameEditBox.string;
+            this.player.gender = this.currentGender;
+            this.player.avatarImgDir = this.currentImgDir;
+            
             cc.director.loadScene("DoDiffusionTest");
         }
     },
