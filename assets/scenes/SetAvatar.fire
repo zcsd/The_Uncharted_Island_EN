@@ -44,8 +44,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.7318486752717391,
-      "y": 0.7318486752717391,
+      "x": 0.3307003806153496,
+      "y": 0.3307003806153496,
       "z": 1
     },
     "_quat": {
@@ -122,8 +122,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 736,
-      "height": 414
+      "width": 1334,
+      "height": 750
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -132,8 +132,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 368,
-      "y": 207,
+      "x": 667,
+      "y": 375,
       "z": 0
     },
     "_scale": {
@@ -264,8 +264,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 736,
-      "height": 414
+      "width": 1334,
+      "height": 750
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -352,8 +352,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 160,
-      "height": 45
+      "width": 240,
+      "height": 64
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -363,7 +363,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 155,
+      "y": 320,
       "z": 0
     },
     "_scale": {
@@ -397,8 +397,8 @@
     "_useOriginalSize": false,
     "_string": "创建角色",
     "_N$string": "创建角色",
-    "_fontSize": 40,
-    "_lineHeight": 45,
+    "_fontSize": 60,
+    "_lineHeight": 64,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -451,14 +451,14 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -234,
-      "y": 0,
+      "x": -355,
+      "y": 25,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
+      "x": 1.8,
+      "y": 1.8,
       "z": 1
     },
     "_rotationX": 0,
@@ -624,8 +624,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
-      "height": 40
+      "width": 200,
+      "height": 80
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -634,14 +634,14 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -235,
-      "y": -155,
+      "x": -357,
+      "y": -251,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1.2,
-      "y": 1.2,
+      "x": 1,
+      "y": 1,
       "z": 1
     },
     "_rotationX": 0,
@@ -684,8 +684,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
-      "height": 40
+      "width": 200,
+      "height": 80
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -729,8 +729,8 @@
     "_useOriginalSize": false,
     "_string": "更换人物",
     "_N$string": "更换人物",
-    "_fontSize": 20,
-    "_lineHeight": 40,
+    "_fontSize": 40,
+    "_lineHeight": 44,
     "_enableWrapText": false,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -891,8 +891,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 120,
-      "height": 45
+      "width": 135,
+      "height": 49
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -901,14 +901,14 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 18,
-      "y": -37,
+      "x": -4,
+      "y": -29,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.6,
-      "y": 0.6,
+      "x": 1,
+      "y": 1,
       "z": 1
     },
     "_rotationX": 0,
@@ -936,8 +936,8 @@
     "_useOriginalSize": false,
     "_string": "昵称：",
     "_N$string": "昵称：",
-    "_fontSize": 40,
-    "_lineHeight": 45,
+    "_fontSize": 45,
+    "_lineHeight": 49,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -976,8 +976,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 120,
-      "height": 45
+      "width": 135,
+      "height": 49
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -986,14 +986,14 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 16,
-      "y": 61,
+      "x": -5,
+      "y": 155,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.6,
-      "y": 0.61,
+      "x": 1,
+      "y": 1,
       "z": 1
     },
     "_rotationX": 0,
@@ -1021,8 +1021,8 @@
     "_useOriginalSize": false,
     "_string": "性别：",
     "_N$string": "性别：",
-    "_fontSize": 40,
-    "_lineHeight": 45,
+    "_fontSize": 45,
+    "_lineHeight": 49,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -1071,8 +1071,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 160,
-      "height": 40
+      "width": 300,
+      "height": 60
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1081,8 +1081,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 129,
-      "y": -36,
+      "x": 213,
+      "y": -30,
       "z": 0
     },
     "_scale": {
@@ -1131,8 +1131,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 160,
-      "height": 40
+      "width": 300,
+      "height": 60
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1219,8 +1219,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 158,
-      "height": 40
+      "width": 298,
+      "height": 60
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1229,8 +1229,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -78,
-      "y": 20,
+      "x": -148,
+      "y": 30,
       "z": 0
     },
     "_scale": {
@@ -1264,8 +1264,8 @@
     "_useOriginalSize": true,
     "_string": "",
     "_N$string": "",
-    "_fontSize": 20,
-    "_lineHeight": 40,
+    "_fontSize": 45,
+    "_lineHeight": 49,
     "_enableWrapText": false,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -1304,8 +1304,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 158,
-      "height": 40
+      "width": 298,
+      "height": 60
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1314,8 +1314,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -78,
-      "y": 20,
+      "x": -148,
+      "y": 30,
       "z": 0
     },
     "_scale": {
@@ -1347,10 +1347,10 @@
     },
     "_enabled": true,
     "_useOriginalSize": true,
-    "_string": "在这里输入...",
-    "_N$string": "在这里输入...",
-    "_fontSize": 20,
-    "_lineHeight": 40,
+    "_string": "点击这里输入...",
+    "_N$string": "点击这里输入...",
+    "_fontSize": 40,
+    "_lineHeight": 60,
     "_enableWrapText": false,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -1388,8 +1388,8 @@
     "_N$returnType": 0,
     "_N$inputFlag": 5,
     "_N$inputMode": 6,
-    "_N$fontSize": 20,
-    "_N$lineHeight": 40,
+    "_N$fontSize": 45,
+    "_N$lineHeight": 49,
     "_N$fontColor": {
       "__type__": "cc.Color",
       "r": 8,
@@ -1397,8 +1397,8 @@
       "b": 201,
       "a": 255
     },
-    "_N$placeholder": "在这里输入...",
-    "_N$placeholderFontSize": 20,
+    "_N$placeholder": "点击这里输入...",
+    "_N$placeholderFontSize": 40,
     "_N$placeholderFontColor": {
       "__type__": "cc.Color",
       "r": 253,
@@ -1463,14 +1463,14 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 128,
-      "y": -17,
+      "x": 185,
+      "y": 114,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
+      "x": 2,
+      "y": 2,
       "z": 1
     },
     "_rotationX": 0,
@@ -1533,8 +1533,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -49,
-      "y": 78,
+      "x": -42,
+      "y": 20,
       "z": 0
     },
     "_scale": {
@@ -1769,8 +1769,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 37,
-      "y": 4,
+      "x": 36,
+      "y": 2,
       "z": 0
     },
     "_scale": {
@@ -1941,8 +1941,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 28,
-      "y": 78,
+      "x": 34,
+      "y": 18,
       "z": 0
     },
     "_scale": {
@@ -2362,8 +2362,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
-      "height": 40
+      "width": 200,
+      "height": 60
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2372,8 +2372,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 31,
-      "y": -154,
+      "x": 92,
+      "y": -256,
       "z": 0
     },
     "_scale": {
@@ -2422,8 +2422,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
-      "height": 40
+      "width": 200,
+      "height": 60
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2467,8 +2467,8 @@
     "_useOriginalSize": false,
     "_string": "重置",
     "_N$string": "重置",
-    "_fontSize": 20,
-    "_lineHeight": 40,
+    "_fontSize": 40,
+    "_lineHeight": 44,
     "_enableWrapText": false,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -2636,8 +2636,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
-      "height": 40
+      "width": 200,
+      "height": 60
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2646,8 +2646,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 213,
-      "y": -154,
+      "x": 363,
+      "y": -255,
       "z": 0
     },
     "_scale": {
@@ -2696,8 +2696,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
-      "height": 40
+      "width": 200,
+      "height": 60
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2741,8 +2741,8 @@
     "_useOriginalSize": false,
     "_string": "下一步",
     "_N$string": "下一步",
-    "_fontSize": 20,
-    "_lineHeight": 40,
+    "_fontSize": 40,
+    "_lineHeight": 44,
     "_enableWrapText": false,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -2887,8 +2887,8 @@
     "_enabled": true,
     "_designResolution": {
       "__type__": "cc.Size",
-      "width": 736,
-      "height": 414
+      "width": 1334,
+      "height": 750
     },
     "_fitWidth": false,
     "_fitHeight": true,

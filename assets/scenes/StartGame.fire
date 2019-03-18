@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.46871512276785715,
-      "y": 0.46871512276785715,
+      "x": 0.2609015836306599,
+      "y": 0.2609015836306599,
       "z": 1
     },
     "_quat": {
@@ -98,8 +98,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 736,
-      "height": 414
+      "width": 1334,
+      "height": 750
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -108,8 +108,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 368,
-      "y": 207,
+      "x": 667,
+      "y": 375,
       "z": 0
     },
     "_scale": {
@@ -240,8 +240,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 736,
-      "height": 414
+      "width": 1334,
+      "height": 750
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -328,8 +328,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 480,
-      "height": 45
+      "width": 720,
+      "height": 64
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -339,7 +339,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": -12,
-      "y": -47,
+      "y": -96,
       "z": 0
     },
     "_scale": {
@@ -373,8 +373,8 @@
     "_useOriginalSize": false,
     "_string": "！！！这是游戏名字！！！",
     "_N$string": "！！！这是游戏名字！！！",
-    "_fontSize": 40,
-    "_lineHeight": 45,
+    "_fontSize": 60,
+    "_lineHeight": 64,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -431,13 +431,13 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 1,
-      "y": -114,
+      "y": -230,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.5,
-      "y": 0.4,
+      "x": 0.7,
+      "y": 0.6,
       "z": 1
     },
     "_rotationX": 0,
@@ -674,8 +674,8 @@
     "_enabled": true,
     "_designResolution": {
       "__type__": "cc.Size",
-      "width": 736,
-      "height": 414
+      "width": 1334,
+      "height": 750
     },
     "_fitWidth": false,
     "_fitHeight": true,
