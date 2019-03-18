@@ -16,7 +16,7 @@ cc.Class({
 
     goToNextScene: function () {
         if (this.isAvatarExisted) {
-            cc.log("Avatar is already created.");
+            console.log("Avatar is already created.");
         }
         else {
             cc.director.loadScene('SetAvatar');

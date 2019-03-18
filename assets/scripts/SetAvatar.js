@@ -34,12 +34,11 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad: function () {
-        this.player = this.player.getComponent('Player');
         this.resetScene();
     },
 
     getInputName: function () {
-        console.log(this.nameEditBox.string);
+        //console.log(this.nameEditBox.string);
     },
 
     changeAvatar: function () {
@@ -67,7 +66,7 @@ cc.Class({
     },
 
     changeGender: function () {
-        console.log("Change Gender");
+        //console.log("Change Gender");
         if (this.genderToggleContainer.toggleItems[0].isChecked) {
             this.currentGender = "boy";
         }
@@ -96,12 +95,10 @@ cc.Class({
             console.log("Empty name input.");
         }
         else {
-            console.log(this.nameEditBox.string);
-            console.log(this.currentGender);
-            console.log(this.currentImgDir);
-            this.player.nickName = this.nameEditBox.string;
-            this.player.gender = this.currentGender;
-            this.player.avatarImgDir = this.currentImgDir;
+            var player = cc.find('player').getComponent('Player');
+            player.nickName = this.nameEditBox.string;
+            player.gender = this.currentGender;
+            player.avatarImgDir = this.currentImgDir;
 
             cc.director.loadScene("DoDiffusionTest");
         }
