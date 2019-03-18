@@ -12,16 +12,11 @@ cc.Class({
             type: cc.Sprite
         },
 
-        diffusion: {
-            default: null,
-            type: cc.Node
-        }
-
     },
 
     // LIFE-CYCLE CALLBACKS:
 
-    onLoad () {
+    onLoad: function () {
         var player = cc.find('player').getComponent('Player');
         this.nameLabel.string = player.nickName;
 
@@ -32,22 +27,12 @@ cc.Class({
         });
     },
 
-    backToMapScene: function () {
-        cc.director.loadScene("LevelMap");
-
-    },
-
-    readyToDiffuse: function () {
-        var animationComponent = this.diffusion.getComponent(cc.Animation);
-        animationComponent.play("diffusionAni");
-    },
-
-    resetScene: function () {
-        
-    },
-
     start () {
 
+    },
+
+    goToDiffScene: function () {
+        cc.director.loadScene("DoDiffusionTest");
     },
 
     // update (dt) {},

@@ -100,7 +100,7 @@ cc.Class({
             player.gender = this.currentGender;
             player.avatarImgDir = this.currentImgDir;
 
-            cc.director.loadScene("DoDiffusionTest");
+            cc.director.loadScene("LevelMap");
         }
     },
 

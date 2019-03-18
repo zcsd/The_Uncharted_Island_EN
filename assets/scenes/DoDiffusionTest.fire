@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.330700380615349,
-      "y": 0.330700380615349,
+      "x": 0.45127436281859074,
+      "y": 0.45127436281859074,
       "z": 1
     },
     "_quat": {
@@ -371,8 +371,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
-      "height": 22
+      "width": 97.81,
+      "height": 26
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -414,10 +414,10 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_string": "",
-    "_N$string": "",
-    "_fontSize": 18,
-    "_lineHeight": 22,
+    "_string": "nickName",
+    "_N$string": "nickName",
+    "_fontSize": 22,
+    "_lineHeight": 26,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -467,13 +467,13 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": -580,
-      "y": 283,
+      "y": 266,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.5,
-      "y": 0.5,
+      "x": 0.7,
+      "y": 0.7,
       "z": 1
     },
     "_rotationX": 0,
@@ -498,7 +498,9 @@
       "__id__": 10
     },
     "_enabled": true,
-    "_spriteFrame": null,
+    "_spriteFrame": {
+      "__uuid__": "b48bd8a3-d187-4929-9600-e490fbf0465d"
+    },
     "_type": 0,
     "_sizeMode": 1,
     "_fillType": 0,
@@ -2759,7 +2761,7 @@
     },
     "component": "",
     "_componentId": "7f3d8aEJl9GmrTCiwVDYKcA",
-    "handler": "backToAvatarScene",
+    "handler": "backToMapScene",
     "customEventData": ""
   },
   {
