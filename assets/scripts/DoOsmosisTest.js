@@ -12,6 +12,11 @@ cc.Class({
             type: cc.Sprite
         },
 
+        osmosis: {
+            default: null,
+            type: cc.Node
+        }
+
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -31,12 +36,14 @@ cc.Class({
 
     },
 
-    goToDiffScene: function () {
-        cc.director.loadScene("DoDiffusionTest");
+    backToMapScene: function () {
+        cc.director.loadScene("LevelMap");
+
     },
 
-    goToOsmosisScene: function () {
-        cc.director.loadScene("DoOsmosisTest");
+    readyToOsmosis: function () {
+        var animationComponent = this.osmosis.getComponent(cc.Animation);
+        animationComponent.play("osmosisAni");
     },
 
     // update (dt) {},
