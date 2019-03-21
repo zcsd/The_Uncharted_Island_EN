@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.2609015836306599,
-      "y": 0.2609015836306599,
+      "x": 0.41511109736850577,
+      "y": 0.41511109736850577,
       "z": 1
     },
     "_quat": {
@@ -283,7 +283,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "94691e2e-a854-4f23-9c63-cdbb069f2841"
+      "__uuid__": "479cac7b-247e-40b3-b890-aba327d2a0c9"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -321,15 +321,15 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 192,
-      "g": 11,
-      "b": 157,
+      "r": 10,
+      "g": 9,
+      "b": 10,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 720,
-      "height": 64
+      "width": 280,
+      "height": 74
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -338,8 +338,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -12,
-      "y": -96,
+      "x": 0,
+      "y": 300,
       "z": 0
     },
     "_scale": {
@@ -371,10 +371,10 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_string": "！！！这是游戏名字！！！",
-    "_N$string": "！！！这是游戏名字！！！",
-    "_fontSize": 60,
-    "_lineHeight": 64,
+    "_string": "游戏名字",
+    "_N$string": "游戏名字",
+    "_fontSize": 70,
+    "_lineHeight": 74,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -403,9 +403,6 @@
     "_level": 2,
     "_components": [
       {
-        "__id__": 12
-      },
-      {
         "__id__": 13
       }
     ],
@@ -420,8 +417,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 358,
-      "height": 180
+      "width": 420,
+      "height": 136
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -430,14 +427,14 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 1,
-      "y": -230,
+      "x": 0,
+      "y": -273,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.7,
-      "y": 0.6,
+      "x": 1,
+      "y": 1,
       "z": 1
     },
     "_rotationX": 0,
@@ -452,36 +449,39 @@
     "_skewX": 0,
     "_skewY": 0,
     "groupIndex": 0,
-    "_id": "dcjdZ8/zVOOYCrkkv9aVrR"
+    "_id": "d6dOXu20RIdrqRuiX/JJbx"
   },
   {
     "__type__": "cc.Node",
-    "_name": "start",
+    "_name": "Background",
     "_objFlags": 0,
     "_parent": {
       "__id__": 9
     },
     "_children": [],
     "_active": true,
-    "_level": 3,
+    "_level": 2,
     "_components": [
       {
         "__id__": 11
+      },
+      {
+        "__id__": 12
       }
     ],
     "_prefab": null,
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 230,
+      "g": 230,
+      "b": 230,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 358,
-      "height": 180
+      "width": 420,
+      "height": 136
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -512,7 +512,7 @@
     "_skewX": 0,
     "_skewY": 0,
     "groupIndex": 0,
-    "_id": "7bQmZ5G4xGLZHYIe18eVLo"
+    "_id": "f7Zy9iVp5CxKgziWs9LqsO"
   },
   {
     "__type__": "cc.Sprite",
@@ -523,35 +523,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "b4885729-8b6c-46e9-b170-213d21c786c1"
-    },
-    "_type": 0,
-    "_sizeMode": 1,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_state": 0,
-    "_atlas": null,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_id": "2cmprvE8BBm5tv5DnqqQI6"
-  },
-  {
-    "__type__": "cc.Sprite",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 9
-    },
-    "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "f0048c10-f03e-4c97-b9d3-3506e1d58952"
+      "__uuid__": "9069b299-742b-45d7-a060-8db28d178e6a"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -568,7 +540,34 @@
     "_atlas": null,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_id": "cb/fhLSI1GRp8W2i3ZKXoe"
+    "_id": "e4k6QP35ZD4qBBoGJosyaN"
+  },
+  {
+    "__type__": "cc.Widget",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 10
+    },
+    "_enabled": true,
+    "alignMode": 0,
+    "_target": null,
+    "_alignFlags": 45,
+    "_left": 0,
+    "_right": 0,
+    "_top": 0,
+    "_bottom": 0,
+    "_verticalCenter": 0,
+    "_horizontalCenter": 0,
+    "_isAbsLeft": true,
+    "_isAbsRight": true,
+    "_isAbsTop": true,
+    "_isAbsBottom": true,
+    "_isAbsHorizontalCenter": true,
+    "_isAbsVerticalCenter": true,
+    "_originalWidth": 100,
+    "_originalHeight": 40,
+    "_id": "b4CXph8BhKXJUmaMHxznSs"
   },
   {
     "__type__": "cc.Button",
@@ -591,23 +590,23 @@
     "transition": 2,
     "_N$normalColor": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 230,
+      "g": 230,
+      "b": 230,
       "a": 255
     },
     "_N$pressedColor": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 200,
+      "g": 200,
+      "b": 200,
       "a": 255
     },
     "pressedColor": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
+      "r": 200,
+      "g": 200,
+      "b": 200,
       "a": 255
     },
     "_N$hoverColor": {
@@ -626,13 +625,13 @@
     },
     "_N$disabledColor": {
       "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
+      "r": 120,
+      "g": 120,
+      "b": 120,
+      "a": 200
     },
     "_N$normalSprite": {
-      "__uuid__": "f0048c10-f03e-4c97-b9d3-3506e1d58952"
+      "__uuid__": "9069b299-742b-45d7-a060-8db28d178e6a"
     },
     "_N$pressedSprite": {
       "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
@@ -650,9 +649,9 @@
       "__uuid__": "29158224-f8dd-4661-a796-1ffab537140e"
     },
     "_N$target": {
-      "__id__": 9
+      "__id__": 10
     },
-    "_id": "1c/M9TUBxPy7dJUl6oIldt"
+    "_id": "099IkWSLhLyLrA2qWQtBn8"
   },
   {
     "__type__": "cc.ClickEvent",
@@ -689,9 +688,7 @@
       "__id__": 2
     },
     "_enabled": true,
-    "startButton": {
-      "__id__": 13
-    },
+    "startButton": null,
     "isAvatarExisted": false,
     "_id": "89Y4JU38dNDal6w4z/L1/s"
   }

@@ -42,8 +42,8 @@ cc.Class({
     },
 
     changeAvatar: function () {
-        let boyAvatarsDir = ["boy_0", "boy_1", "boy_2"];
-        let girlAvatarsDir = ["girl_0", "girl_1", "girl_2"];
+        let boyAvatarsDir = ["boy_0", "boy_1"];
+        let girlAvatarsDir = ["girl_0", "girl_1"];
 
         this.currentImgPosition += 1;
         if (this.currentImgPosition == boyAvatarsDir.length) {
