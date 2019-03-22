@@ -24,11 +24,12 @@ cc.Class({
 
         player: cc.Node,
 
+        coinsLabel: cc.Label,
+
         currentGender: "boy",
         //current index of avatar image in the list
         currentImgPosition: 0,
         currentImgDir: "boy_0",
-
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -85,6 +86,9 @@ cc.Class({
         this.nameEditBox.string = "";
         this.genderToggleContainer.toggleItems[0].isChecked = true;
         this.changeGender();
+
+        this.coinsLabel.string = "200";
+
         // set nextButton unclickable
         this.nextButton.interactable = false;
     },
