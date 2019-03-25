@@ -27,7 +27,7 @@ cc.Class({
 
         var self = this;
         // load image from resource folder
-        cc.loader.loadRes(player.avatarImgDir, cc.SpriteFrame, function (err, spriteFrame) {
+        cc.loader.loadRes(player.avatarImgDir + '_s', cc.SpriteFrame, function (err, spriteFrame) {
             self.avatarSprite.spriteFrame = spriteFrame;
         });
     },
