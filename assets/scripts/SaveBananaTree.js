@@ -12,7 +12,7 @@ cc.Class({
             type: cc.Sprite
         },
 
-        standSprite: {
+        moveSprite: {
             default: null,
             type: cc.Sprite
         },
@@ -28,7 +28,7 @@ cc.Class({
         var self = this;
         // load image from resource folder
         cc.loader.loadRes(player.avatarImgDir, cc.SpriteFrame, function (err, spriteFrame) {
-            self.standSprite.spriteFrame = spriteFrame;
+            self.moveSprite.spriteFrame = spriteFrame;
         });
         cc.loader.loadRes(player.avatarImgDir + '_s', cc.SpriteFrame, function (err, spriteFrame) {
             self.avatarSprite.spriteFrame = spriteFrame;
@@ -39,16 +39,9 @@ cc.Class({
 
     },
 
-    goToDiffScene: function () {
-        cc.director.loadScene("DoDiffusionTest");
-    },
+    backToMapScene: function () {
+        cc.director.loadScene("LevelMap");
 
-    goToOsmosisScene: function () {
-        cc.director.loadScene("DoOsmosisTest");
-    },
-
-    goToBananaScene: function () {
-        cc.director.loadScene("SaveBananaTree");
     },
 
     // update (dt) {},
