@@ -53,7 +53,7 @@
       "w": 1
     },
     "groupIndex": 0,
-    "autoReleaseAssets": false,
+    "autoReleaseAssets": true,
     "_id": "67d30f0b-3936-467d-9d9c-efb37041a7c4"
   },
   {
