@@ -17,14 +17,14 @@ cc.Class({
             type: cc.Sprite
         },
 
-        spriteScale: 1,
-        spritePos: cc.v2(-435, -190),
-        leftLimit: -435,
-        rightLimit: 300,
+        spriteScale: 1.0,
+        spritePos: cc.Vec2,
+        spriteHalfWidth: 0,
+        leftLimit: 0, 
+        rightLimit: 0, 
         maxSpriteScale: 1.0,
         minSpriteScale: 0.2,
-        stepSize: 30,
-
+        stepSize: 50,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -41,6 +41,11 @@ cc.Class({
         cc.loader.loadRes(player.avatarImgDir + '_s', cc.SpriteFrame, function (err, spriteFrame) {
             self.avatarSprite.spriteFrame = spriteFrame;
         });
+
+        this.spritePos = cc.v2(this.moveSprite.node.x, this.moveSprite.node.y);
+        this.spriteHalfWidth = this.moveSprite.node.width / 2;
+        this.leftLimit = this.moveSprite.node.x - this.spriteHalfWidth;
+        this.rightLimit = 300 + this.spriteHalfWidth; // REMEMBER TO CHANGE 30 TO VARIABLE, Tree position
     },
 
     start () {
@@ -53,8 +58,8 @@ cc.Class({
         let x = this.spritePos.x;
         x -= this.stepSize * this.spriteScale;
 
-        if (x <= this.leftLimit) {
-            x = this.leftLimit
+        if ( (x - this.spriteHalfWidth * this.spriteScale)  < this.leftLimit) {
+            x = this.leftLimit + this.spriteHalfWidth * this.spriteScale;
         }
 
         this.spritePos = cc.v2(x, this.spritePos.y);
@@ -65,8 +70,8 @@ cc.Class({
         let x = this.spritePos.x;
         x += this.stepSize * this.spriteScale;
 
-        if (x >= this.rightLimit) {
-            x = this.rightLimit
+        if ( (x + this.spriteHalfWidth * this.spriteScale) > this.rightLimit) {
+            x = this.rightLimit - this.spriteHalfWidth * this.spriteScale;
         }
 
         this.spritePos = cc.v2(x, this.spritePos.y);
@@ -80,6 +85,15 @@ cc.Class({
         if (currentScale > this.maxSpriteScale) {
             currentScale = this.maxSpriteScale;
         }
+
+        if ( (this.spritePos.x + this.spriteHalfWidth * this.spriteScale) >= this.rightLimit) {
+            currentScale = this.moveSprite.node.scale;
+        }
+
+        if ( (this.spritePos.x - this.spriteHalfWidth * this.spriteScale)  <= this.leftLimit) {
+            currentScale = this.moveSprite.node.scale;
+        }
+
         this.spriteScale = currentScale;
         this.moveSprite.node.scale = this.spriteScale;
     },
@@ -91,6 +105,7 @@ cc.Class({
         if (currentScale < this.minSpriteScale) {
             currentScale = this.minSpriteScale;
         }
+
         this.spriteScale = currentScale;
         this.moveSprite.node.scale = this.spriteScale;
     },

@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.4902431596701649,
-      "y": 0.4902431596701649,
+      "x": 0.4242761431784108,
+      "y": 0.4242761431784108,
       "z": 1
     },
     "_quat": {
@@ -915,7 +915,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 300,
-      "height": 64
+      "height": 68
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -960,7 +960,7 @@
     "_string": "救助香蕉树",
     "_N$string": "救助香蕉树",
     "_fontSize": 60,
-    "_lineHeight": 64,
+    "_lineHeight": 68,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -2904,8 +2904,9 @@
       "x": -435,
       "y": -190
     },
-    "leftLimit": -435,
-    "rightLimit": 300,
+    "spriteHalfWidth": 112,
+    "leftLimit": -547,
+    "rightLimit": 412,
     "maxSpriteScale": 1,
     "minSpriteScale": 0.2,
     "stepSize": 30,
