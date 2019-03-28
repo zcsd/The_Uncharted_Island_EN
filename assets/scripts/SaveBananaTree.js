@@ -17,6 +17,11 @@ cc.Class({
             type: cc.Sprite
         },
 
+        leftButton: cc.Button,
+        rightButton: cc.Button,
+        increaseButton: cc.Button,
+        decreaseButton: cc.Button,
+
         spriteScale: 1.0,
         spritePos: cc.Vec2,
         spriteHalfWidth: 0,
@@ -24,7 +29,7 @@ cc.Class({
         rightLimit: 0, 
         maxSpriteScale: 1.0,
         minSpriteScale: 0.2,
-        stepSize: 50,
+        stepSize: 60,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -115,5 +120,35 @@ cc.Class({
 
     },
 
-    update (dt) {},
+    update: function (dt) {
+        if (this.spriteScale > this.minSpriteScale) {
+            this.decreaseButton.interactable = true;
+        }
+        else {
+            this.decreaseButton.interactable = false;
+        }
+
+        if (this.spriteScale < this.maxSpriteScale) {
+            this.increaseButton.interactable = true;
+        }
+        else {
+            this.increaseButton.interactable = false;
+        }
+
+        if ( (this.spritePos.x - this.spriteHalfWidth * this.spriteScale)  > this.leftLimit) {
+            this.leftButton.interactable = true;
+        }
+        else {
+            this.leftButton.interactable = false;
+            this.increaseButton.interactable = false;
+        }
+
+        if ( (this.spritePos.x + this.spriteHalfWidth * this.spriteScale)  < this.rightLimit) {
+            this.rightButton.interactable = true;
+        }
+        else {
+            this.rightButton.interactable = false;
+            this.increaseButton.interactable = false;
+        }
+    },
 });

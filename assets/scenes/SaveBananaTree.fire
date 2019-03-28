@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.4242761431784108,
-      "y": 0.4242761431784108,
+      "x": 0.4902431596701649,
+      "y": 0.4902431596701649,
       "z": 1
     },
     "_quat": {
@@ -1000,7 +1000,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 540,
-      "height": 64
+      "height": 128
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1042,8 +1042,8 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_string": "提示：按左右键行走",
-    "_N$string": "提示：按左右键行走",
+    "_string": "提示：按左右键行走\n按加减改变身体大小",
+    "_N$string": "提示：按左右键行走\n按加减改变身体大小",
     "_fontSize": 60,
     "_lineHeight": 64,
     "_enableWrapText": true,
@@ -1339,8 +1339,8 @@
     "clickEvents": [],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
-    "_N$transition": 2,
-    "transition": 2,
+    "_N$transition": 3,
+    "transition": 3,
     "_N$normalColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -1599,8 +1599,8 @@
     ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
-    "_N$transition": 2,
-    "transition": 2,
+    "_N$transition": 3,
+    "transition": 3,
     "_N$normalColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -1951,16 +1951,16 @@
     },
     "_enabled": true,
     "duration": 0.1,
-    "zoomScale": 1.2,
+    "zoomScale": 1.3,
     "clickEvents": [
       {
         "__id__": 44
       }
     ],
     "_N$interactable": true,
-    "_N$enableAutoGrayEffect": false,
-    "_N$transition": 2,
-    "transition": 2,
+    "_N$enableAutoGrayEffect": true,
+    "_N$transition": 3,
+    "transition": 3,
     "_N$normalColor": {
       "__type__": "cc.Color",
       "r": 230,
@@ -2227,16 +2227,16 @@
     },
     "_enabled": true,
     "duration": 0.1,
-    "zoomScale": 1.2,
+    "zoomScale": 1.3,
     "clickEvents": [
       {
         "__id__": 50
       }
     ],
     "_N$interactable": true,
-    "_N$enableAutoGrayEffect": false,
-    "_N$transition": 2,
-    "transition": 2,
+    "_N$enableAutoGrayEffect": true,
+    "_N$transition": 3,
+    "transition": 3,
     "_N$normalColor": {
       "__type__": "cc.Color",
       "r": 230,
@@ -2503,16 +2503,16 @@
     },
     "_enabled": true,
     "duration": 0.1,
-    "zoomScale": 1.2,
+    "zoomScale": 1.3,
     "clickEvents": [
       {
         "__id__": 56
       }
     ],
     "_N$interactable": true,
-    "_N$enableAutoGrayEffect": false,
-    "_N$transition": 2,
-    "transition": 2,
+    "_N$enableAutoGrayEffect": true,
+    "_N$transition": 3,
+    "transition": 3,
     "_N$normalColor": {
       "__type__": "cc.Color",
       "r": 230,
@@ -2779,16 +2779,16 @@
     },
     "_enabled": true,
     "duration": 0.1,
-    "zoomScale": 1.2,
+    "zoomScale": 1.3,
     "clickEvents": [
       {
         "__id__": 62
       }
     ],
     "_N$interactable": true,
-    "_N$enableAutoGrayEffect": false,
-    "_N$transition": 2,
-    "transition": 2,
+    "_N$enableAutoGrayEffect": true,
+    "_N$transition": 3,
+    "transition": 3,
     "_N$normalColor": {
       "__type__": "cc.Color",
       "r": 230,
@@ -2897,6 +2897,18 @@
     },
     "moveSprite": {
       "__id__": 38
+    },
+    "leftButton": {
+      "__id__": 43
+    },
+    "rightButton": {
+      "__id__": 49
+    },
+    "increaseButton": {
+      "__id__": 55
+    },
+    "decreaseButton": {
+      "__id__": 61
     },
     "spriteScale": 1,
     "spritePos": {

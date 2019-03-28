@@ -700,7 +700,7 @@
     },
     "_enabled": true,
     "duration": 0.1,
-    "zoomScale": 1.2,
+    "zoomScale": 1.12,
     "clickEvents": [
       {
         "__id__": 16
@@ -708,8 +708,8 @@
     ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
-    "_N$transition": 2,
-    "transition": 2,
+    "_N$transition": 3,
+    "transition": 3,
     "_N$normalColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -1240,7 +1240,7 @@
       "b": 149,
       "a": 255
     },
-    "_N$maxLength": 8,
+    "_N$maxLength": 6,
     "_N$stayOnTop": false,
     "_id": "d3Qet0lGpFHIyhXh1fo/su"
   },
@@ -2533,7 +2533,7 @@
     },
     "_enabled": true,
     "duration": 0.1,
-    "zoomScale": 1.2,
+    "zoomScale": 1.12,
     "clickEvents": [
       {
         "__id__": 56
@@ -2541,8 +2541,8 @@
     ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
-    "_N$transition": 2,
-    "transition": 2,
+    "_N$transition": 3,
+    "transition": 3,
     "_N$normalColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -2714,16 +2714,16 @@
     },
     "_enabled": true,
     "duration": 0.1,
-    "zoomScale": 1.2,
+    "zoomScale": 1.12,
     "clickEvents": [
       {
         "__id__": 60
       }
     ],
     "_N$interactable": true,
-    "_N$enableAutoGrayEffect": false,
-    "_N$transition": 2,
-    "transition": 2,
+    "_N$enableAutoGrayEffect": true,
+    "_N$transition": 3,
+    "transition": 3,
     "_N$normalColor": {
       "__type__": "cc.Color",
       "r": 255,
@@ -2769,17 +2769,11 @@
     "_N$normalSprite": {
       "__uuid__": "1ccc37f1-e930-45b8-b389-bcc4b7165f5e"
     },
-    "_N$pressedSprite": {
-      "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
-    },
-    "pressedSprite": {
-      "__uuid__": "e9ec654c-97a2-4787-9325-e6a10375219a"
-    },
+    "_N$pressedSprite": null,
+    "pressedSprite": null,
     "_N$hoverSprite": null,
     "hoverSprite": null,
-    "_N$disabledSprite": {
-      "__uuid__": "86b5636e-6a7b-4006-a04c-0463dc814936"
-    },
+    "_N$disabledSprite": null,
     "_N$target": {
       "__id__": 57
     },
