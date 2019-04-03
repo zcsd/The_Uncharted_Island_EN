@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "59d1f8a4-8497-4192-9b27-9855232981c8",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "BananaPlantBG": {
+      "ver": "1.0.3",
+      "uuid": "17418088-14fb-4b24-88f3-9a3ff771446c",
+      "rawTextureUuid": "59d1f8a4-8497-4192-9b27-9855232981c8",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 640,
+      "height": 360,
+      "rawWidth": 640,
+      "rawHeight": 360,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
