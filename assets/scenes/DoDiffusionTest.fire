@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.4151110973685042,
-      "y": 0.4151110973685042,
+      "x": 0.4902431596701649,
+      "y": 0.4902431596701649,
       "z": 1
     },
     "_quat": {
@@ -452,7 +452,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 107,
+      "width": 90,
       "height": 110
     },
     "_anchorPoint": {
@@ -1177,7 +1177,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 360,
+      "width": 440,
       "height": 44
     },
     "_anchorPoint": {
@@ -1187,7 +1187,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -209,
+      "x": -170,
       "y": -244,
       "z": 0
     },
@@ -1220,8 +1220,8 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_string": "购买你想使用的材料",
-    "_N$string": "购买你想使用的材料",
+    "_string": "点击购买你想使用的材料",
+    "_N$string": "点击购买你想使用的材料",
     "_fontSize": 40,
     "_lineHeight": 44,
     "_enableWrapText": true,
