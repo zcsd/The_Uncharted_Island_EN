@@ -40,6 +40,11 @@ cc.Class({
     readyToDiffuse: function () {
         var animationComponent = this.diffusion.getComponent(cc.Animation);
         animationComponent.play("diffusionAni");
+        Alert.show("balabala介绍啊", this.doTest(), null, 0.1);
+    },
+
+    doTest: function() {
+        console.log("I am callback function");
     },
 
     resetScene: function () {
