@@ -7,6 +7,8 @@ cc.Class({
             type: cc.Label
         },
 
+        coinLabel: cc.Label,
+
         avatarSprite: {
             default: null,
             type: cc.Sprite
@@ -24,6 +26,7 @@ cc.Class({
     onLoad: function () {
         var player = cc.find('player').getComponent('Player');
         this.nameLabel.string = player.nickName;
+        this.coinLabel.string = player.coinsOwned.toString();
 
         var self = this;
         // load image from resource folder

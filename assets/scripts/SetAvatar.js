@@ -103,6 +103,7 @@ cc.Class({
             player.nickName = this.nameEditBox.string;
             player.gender = this.currentGender;
             player.avatarImgDir = this.currentImgDir;
+            player.coinsOwned = 200;
 
             cc.director.loadScene("LevelMap");
         }

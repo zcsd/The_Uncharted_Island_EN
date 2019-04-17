@@ -1,6 +1,8 @@
 var Alert = {
     _alert: null,           // prefab
+    _titleLabel:    null,   //标题
     _detailLabel:   null,   // 内容
+    _alertBg:       null,
     _cancelButton:  null,   // 确定按钮
     _enterButton:   null,   // 取消按钮
     _enterCallBack: null,   // 回调事件
@@ -8,12 +10,14 @@ var Alert = {
 };
 
 /**
+ * typeNum:        窗口类型 int
+ * titleString:    标题 string 类型.
  * detailString :   内容 string 类型.
  * enterCallBack:   确定点击事件回调  function 类型.
  * neeCancel:       是否展示取消按钮 bool 类型 default YES.
  * duration:        动画速度 default = 0.3.
 */
-Alert.show = function (detailString, enterCallBack, needCancel, animSpeed) {
+Alert.show = function (typeNum, titleString, detailString, enterCallBack, needCancel, animSpeed) {
 
     // 引用
     var self = this;
@@ -45,9 +49,23 @@ Alert.show = function (detailString, enterCallBack, needCancel, animSpeed) {
         self.actionFadeOut = cc.sequence(cc.spawn(cc.fadeTo(Alert._animSpeed, 0), cc.scaleTo(Alert._animSpeed, 2.0)), cbFadeOut);
 
         // 获取子节点
+        Alert._alertBg = cc.find("alertBackground", alert);
+        Alert._titleLabel = cc.find("alertBackground/titleLabel", alert).getComponent(cc.Label);
         Alert._detailLabel = cc.find("alertBackground/detailLabel", alert).getComponent(cc.Label);
         Alert._cancelButton = cc.find("alertBackground/cancelButton", alert);
         Alert._enterButton = cc.find("alertBackground/enterButton", alert);
+
+        Alert._alertBg.setScale(typeNum);
+        //Alert._titleLabel.setScale(1 / typeNum);
+        //Alert._detailLabel.setScale(1 / typeNum);
+        //Alert._cancelButton.setScale(1 / typeNum);
+        if (typeNum != 1) {
+            //Alert._titleLabel.setScale(1/typeNum);
+            Alert._cancelButton.setScale(1/typeNum);
+            Alert._enterButton.setScale(1/typeNum);
+        }
+        
+
 
         // 添加点击事件
         Alert._enterButton.on('click', self.onButtonClicked, self);
@@ -60,16 +78,18 @@ Alert.show = function (detailString, enterCallBack, needCancel, animSpeed) {
         self.startFadeIn();
 
         // 参数
-        self.configAlert(detailString, enterCallBack, needCancel, animSpeed);
+        self.configAlert(titleString, detailString, enterCallBack, needCancel, animSpeed);
         
     });
 
     // 参数
-    self.configAlert = function (detailString, enterCallBack, needCancel, animSpeed) {
+    self.configAlert = function (titleString, detailString, enterCallBack, needCancel, animSpeed) {
 
         // 回调
         Alert._enterCallBack = enterCallBack;
 
+        // 标题
+        Alert._titleLabel.string = titleString;
         // 内容
         Alert._detailLabel.string = detailString;
         // 是否需要取消按钮
@@ -121,6 +141,7 @@ Alert.show = function (detailString, enterCallBack, needCancel, animSpeed) {
         Alert._alert.destroy();
         Alert._enterCallBack = null;
         Alert._alert = null;
+        Alert._titleLabel = null;
         Alert._detailLabel = null;
         Alert._cancelButton = null;
         Alert._enterButton = null;

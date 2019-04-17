@@ -5,6 +5,7 @@ cc.Class({
         nickName: "",
         gender: "boy",
         avatarImgDir: "boy_0",
+        coinsOwned: 200,
     },
 
     // LIFE-CYCLE CALLBACKS:
