@@ -37,14 +37,24 @@ cc.Class({
 
     },
 
+    readyToBuyMaterial: function (event, customEventData) {
+        var materialInfo = customEventData.split("_", 2);
+        var displayInfo = "你要花费" + materialInfo[0] + "金币购买" + materialInfo[1] + "吗？";
+
+        var self = this;
+        Alert.show(displayInfo, function(){
+            console.log("确定按钮被点击！");
+            self.doTest();
+        });
+    },
+
     readyToDiffuse: function () {
         var animationComponent = this.diffusion.getComponent(cc.Animation);
         animationComponent.play("diffusionAni");
-        Alert.show("balabala介绍啊", this.doTest(), null, 0.1);
     },
 
     doTest: function() {
-        console.log("I am callback function");
+        console.log("确定按钮被点击! in outside");
     },
 
     resetScene: function () {
