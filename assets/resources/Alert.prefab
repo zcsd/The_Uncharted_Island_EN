@@ -850,7 +850,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 80,
-      "height": 40
+      "height": 46
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -895,7 +895,7 @@
     "_string": "购买",
     "_N$string": "购买",
     "_fontSize": 40,
-    "_lineHeight": 40,
+    "_lineHeight": 46,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,

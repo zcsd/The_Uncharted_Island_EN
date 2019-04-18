@@ -56,11 +56,10 @@ Alert.show = function (typeNum, titleString, detailString, enterCallBack, needCa
         Alert._enterButton = cc.find("alertBackground/enterButton", alert);
 
         Alert._alertBg.setScale(typeNum);
-        //Alert._titleLabel.setScale(1 / typeNum);
-        //Alert._detailLabel.setScale(1 / typeNum);
-        //Alert._cancelButton.setScale(1 / typeNum);
+
         if (typeNum != 1) {
-            //Alert._titleLabel.setScale(1/typeNum);
+            cc.find("alertBackground/titleLabel", alert).setScale(1/typeNum);
+            cc.find("alertBackground/detailLabel", alert).setScale(1/typeNum);
             Alert._cancelButton.setScale(1/typeNum);
             Alert._enterButton.setScale(1/typeNum);
         }

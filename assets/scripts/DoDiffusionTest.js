@@ -33,7 +33,8 @@ cc.Class({
         cc.loader.loadRes(player.avatarImgDir + '_s', cc.SpriteFrame, function (err, spriteFrame) {
             self.avatarSprite.spriteFrame = spriteFrame;
         });
-        Alert.show(2, "提示", "123", null, false);
+        var introduction = "扩散作用是指物质分子从高浓度区域向低浓度区域转移的现象。这个实验balabala"
+        Alert.show(2, "扩散作用", introduction, null, false);
     },
 
     backToMapScene: function () {
