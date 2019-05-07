@@ -451,8 +451,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 180,
-      "height": 70
+      "width": 150,
+      "height": 82
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -462,7 +462,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 119.99999999999989,
-      "y": -75.50000000000006,
+      "y": -90,
       "z": 0
     },
     "_scale": {
@@ -494,7 +494,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "e4de196e-de54-4bd2-9e85-539b4bb79c5e"
+      "__uuid__": "da741b3b-8a94-481e-bf84-dfcad806c31d"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -595,7 +595,7 @@
     "_left": 0,
     "_right": 464,
     "_top": 0,
-    "_bottom": 47.99999999999994,
+    "_bottom": 27.5,
     "_verticalCenter": 0,
     "_horizontalCenter": 120,
     "_isAbsLeft": true,
@@ -653,8 +653,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 180,
-      "height": 70
+      "width": 150,
+      "height": 82
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -664,7 +664,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": -120,
-      "y": -75.50000000000006,
+      "y": -90,
       "z": 0
     },
     "_scale": {
@@ -696,7 +696,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "8cba795f-f946-41c7-bd49-cc859d0b2897"
+      "__uuid__": "3dea9edd-f51d-4b1b-9657-a430c0a49f06"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -797,7 +797,7 @@
     "_left": 464,
     "_right": 0,
     "_top": 0,
-    "_bottom": 47.99999999999994,
+    "_bottom": 27.5,
     "_verticalCenter": 0,
     "_horizontalCenter": -120,
     "_isAbsLeft": true,
@@ -842,9 +842,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 234,
-      "g": 6,
-      "b": 127,
+      "r": 15,
+      "g": 15,
+      "b": 14,
       "a": 255
     },
     "_contentSize": {
@@ -928,7 +928,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "f226510d-f7be-44b7-b506-46f7302f67bd"
+      "__uuid__": "22edcc59-d9d7-46a5-8dac-a21149f3b7f1"
     },
     "_type": 1,
     "_sizeMode": 0,

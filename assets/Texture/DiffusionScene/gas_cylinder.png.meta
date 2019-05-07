@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "3b9b57fd-3c57-4f81-bae1-ecc8cad70c78",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "gas_cylinder": {
+      "ver": "1.0.3",
+      "uuid": "d3193311-9ff5-4bac-9ded-20f8f44fe8aa",
+      "rawTextureUuid": "3b9b57fd-3c57-4f81-bae1-ecc8cad70c78",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 36,
+      "height": 103,
+      "rawWidth": 36,
+      "rawHeight": 103,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
