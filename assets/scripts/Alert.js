@@ -17,6 +17,7 @@ var Alert = {
  * neeCancel:       是否展示取消按钮 bool 类型 default YES.
  * duration:        动画速度 default = 0.3.
 */
+
 Alert.show = function (typeNum, titleString, detailString, enterCallBack, needCancel, animSpeed) {
 
     // 引用
@@ -148,4 +149,4 @@ Alert.show = function (typeNum, titleString, detailString, enterCallBack, needCa
     };
 };
 
-
+window.Alert = Alert; // must add for WeChat build

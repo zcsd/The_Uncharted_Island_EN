@@ -33,7 +33,7 @@ cc.Class({
         cc.loader.loadRes(player.avatarImgDir + '_s', cc.SpriteFrame, function (err, spriteFrame) {
             self.avatarSprite.spriteFrame = spriteFrame;
         });
-        var introduction = "扩散作用是指物质分子从高浓度区域向低浓度区域转移的现象。这个实验balabala"
+        var introduction = "扩散作用是指物质（固体，液体，气体）分子从高浓度区域向低浓度区域转移的现象，直到物体内各部分的密度相间为止，主要由于浓度差或温度差所引起。"
         Alert.show(2, "扩散作用", introduction, null, false);
     },
 
