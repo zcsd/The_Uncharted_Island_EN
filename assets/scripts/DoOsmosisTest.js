@@ -39,7 +39,6 @@ cc.Class({
 
     backToMapScene: function () {
         cc.director.loadScene("LevelMap");
-
     },
 
     readyToBuyMaterial: function (event, customEventData) {

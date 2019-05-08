@@ -64,6 +64,12 @@ cc.Class({
         var player = cc.find('player').getComponent('Player');
         player.coinsOwned = player.coinsOwned - cost;
         this.coinLabel.string = player.coinsOwned.toString();
+
+        var materialNodePath = 'Canvas/materialBackground/m' + code.toString() + 'Button';
+        var isOwnedNode = cc.find((materialNodePath + '/isOwned'));
+        isOwnedNode.active = true;
+        var materialButton = cc.find(materialNodePath).getComponent(cc.Button);
+        materialButton.interactable = false;
     },
 
     resetScene: function () {
