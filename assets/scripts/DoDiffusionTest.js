@@ -70,6 +70,11 @@ cc.Class({
         isOwnedNode.active = true;
         var materialButton = cc.find(materialNodePath).getComponent(cc.Button);
         materialButton.interactable = false;
+
+        if (code == 1) {
+            var tubeNode = cc.find('Canvas/tube');
+            tubeNode.active = true;
+        }
     },
 
     resetScene: function () {

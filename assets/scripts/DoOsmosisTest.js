@@ -42,6 +42,7 @@ cc.Class({
     },
 
     readyToBuyMaterial: function (event, customEventData) {
+        console.log(event.target);
         var materialInfo = customEventData.split("_", 3);
         var materialCost = Number(materialInfo[0]);
         var materialName = materialInfo[1];
@@ -64,6 +65,17 @@ cc.Class({
         var player = cc.find('player').getComponent('Player');
         player.coinsOwned = player.coinsOwned - cost;
         this.coinLabel.string = player.coinsOwned.toString();
+
+        var materialNodePath = 'Canvas/materialBackground/m' + code.toString() + 'Button';
+        var isOwnedNode = cc.find((materialNodePath + '/isOwned'));
+        isOwnedNode.active = true;
+        var materialButton = cc.find(materialNodePath).getComponent(cc.Button);
+        materialButton.interactable = false;
+
+        if (code == 1) {
+            var tubeNode = cc.find('Canvas/tube');
+            tubeNode.active = true;
+        }
     },
 
     // update (dt) {},
