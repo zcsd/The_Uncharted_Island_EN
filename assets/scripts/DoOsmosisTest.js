@@ -35,6 +35,7 @@ cc.Class({
         });
         var introduction = "渗透作用是指两种不同浓度的溶液隔以半透膜（允许溶剂分子通过，不允许溶质分子通过的膜），水分子或其它溶剂分子从低浓度的溶液通过半透膜进入高浓度溶液中的现象。"
         Alert.show(2, "渗透作用", introduction, null, false);
+        this.checkMaterial();
     },
 
     backToMapScene: function () {
@@ -66,16 +67,28 @@ cc.Class({
         player.coinsOwned = player.coinsOwned - cost;
         this.coinLabel.string = player.coinsOwned.toString();
 
+        this.setMaterialOwned(code);
+        /*
+        if (code == 1) {
+            var tubeNode = cc.find('Canvas/tube');
+            tubeNode.active = true;
+        }*/
+    },
+
+    checkMaterial: function() {
+        var player = cc.find('player').getComponent('Player');
+        var i;
+        for (i = 0; i < player.materialOwned.length; i++) {
+            this.setMaterialOwned(player.materialOwned[i]);
+        }
+    },
+
+    setMaterialOwned: function(code) {
         var materialNodePath = 'Canvas/materialBackground/m' + code.toString() + 'Button';
         var isOwnedNode = cc.find((materialNodePath + '/isOwned'));
         isOwnedNode.active = true;
         var materialButton = cc.find(materialNodePath).getComponent(cc.Button);
         materialButton.interactable = false;
-
-        if (code == 1) {
-            var tubeNode = cc.find('Canvas/tube');
-            tubeNode.active = true;
-        }
     },
 
     // update (dt) {},
