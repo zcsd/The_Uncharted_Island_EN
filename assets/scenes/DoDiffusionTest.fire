@@ -828,8 +828,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 387,
-      "height": 120
+      "width": 271,
+      "height": 84
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -838,14 +838,14 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 349,
-      "y": 304,
+      "x": 350,
+      "y": 305,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.7,
-      "y": 0.7,
+      "x": 1,
+      "y": 1,
       "z": 1
     },
     "_rotationX": 0,
@@ -874,7 +874,7 @@
       "__uuid__": "50cf97e6-9c21-4e7b-b1a6-79e5d32b4799"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -4729,8 +4729,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 14,
-      "height": 100
+      "width": 100,
+      "height": 69
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -5116,7 +5116,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "6643abd9-818d-4e5b-b94f-52267d557c3a"
+      "__uuid__": "40789065-fdf4-4387-92c4-4d7a399f8aa6"
     },
     "_type": 1,
     "_sizeMode": 1,
@@ -5227,7 +5227,7 @@
     "component": "",
     "_componentId": "7f3d8aEJl9GmrTCiwVDYKcA",
     "handler": "readyToBuyMaterial",
-    "customEventData": "5_全透膜_7"
+    "customEventData": "5_盐_7"
   },
   {
     "__type__": "cc.Node",
@@ -7197,8 +7197,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 70,
-      "height": 18
+      "width": 77,
+      "height": 19
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -7240,7 +7240,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "e4f12e4e-0593-4ac1-a78f-a97cc1abd859"
+      "__uuid__": "e28471a2-ec21-4ee4-b797-3558fee2984d"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -7461,8 +7461,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 70,
-      "height": 24
+      "width": 77,
+      "height": 26
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -7504,7 +7504,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "df74a46c-b0a9-46d9-90b3-e4d90fea5064"
+      "__uuid__": "9a25c55f-472e-4716-94c4-5e873873204d"
     },
     "_type": 0,
     "_sizeMode": 1,
