@@ -65,6 +65,7 @@ cc.Class({
         console.log("确定按钮被点击!");
         var player = cc.find('player').getComponent('Player');
         player.coinsOwned = player.coinsOwned - cost;
+        player.materialOwned.add(code);
         this.coinLabel.string = player.coinsOwned.toString();
 
         this.setMaterialOwned(code);
@@ -77,9 +78,8 @@ cc.Class({
 
     checkMaterial: function() {
         var player = cc.find('player').getComponent('Player');
-        var i;
-        for (i = 0; i < player.materialOwned.length; i++) {
-            this.setMaterialOwned(player.materialOwned[i]);
+        for (var i of player.materialOwned) {
+            this.setMaterialOwned(i);
         }
     },
 

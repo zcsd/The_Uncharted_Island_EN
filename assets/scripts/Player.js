@@ -6,13 +6,16 @@ cc.Class({
         gender: "boy",
         avatarImgDir: "boy_0",
         coinsOwned: 200,
-        materialOwned: [],
+        materialOwned: null,
+        materialUsed: null,
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
         cc.game.addPersistRootNode(this.node);
+        this.materialOwned = new Set();
+        this.materialUsed = new Set();
     },
 
     start () {
