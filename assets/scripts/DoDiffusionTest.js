@@ -52,6 +52,11 @@ cc.Class({
         if (player.materialOwned.has(materialCode)) {
             if (player.materialUsed.has(materialCode)) {
                 console.log("is used");
+                var displayInfo = "你要收回" + materialInfo[1]  + "吗？";
+                var self = this;
+                Alert.show(1, "收回", displayInfo, function(){
+                    self.afterBacking(materialCode);
+                });
             }
             else {
                 console.log("owned, but not used");
@@ -70,7 +75,6 @@ cc.Class({
                 self.afterBuying(materialCost, materialCode);
             });
         }
-
     },
 
     readyToDiffuse: function () {
@@ -95,10 +99,18 @@ cc.Class({
     },
 
     afterUsing: function(code) {
-        console.log("function after using");
         this.setMaterialUsed(code);
         var player = cc.find('player').getComponent('Player');
         player.materialUsed.add(code);
+    },
+
+    afterBacking: function(code) {
+        var materialNodePath = 'Canvas/materialBackground/m' + code.toString() + 'Button';
+        var isOwnedNode = cc.find((materialNodePath + '/isOwned'));
+        isOwnedNode.getComponent(cc.Sprite).setState(0);
+
+        var player = cc.find('player').getComponent('Player');
+        player.materialUsed.delete(code);
     },
 
     checkMaterial: function() {
@@ -122,8 +134,6 @@ cc.Class({
         var materialNodePath = 'Canvas/materialBackground/m' + code.toString() + 'Button';
         var isOwnedNode = cc.find((materialNodePath + '/isOwned'));
         isOwnedNode.getComponent(cc.Sprite).setState(1);
-        var materialButton = cc.find(materialNodePath).getComponent(cc.Button);
-        materialButton.interactable = false;
     },
 
     resetScene: function () {
