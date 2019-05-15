@@ -39,6 +39,7 @@ cc.Class({
     },
 
     backToMapScene: function () {
+        this.resetScene();
         cc.director.loadScene("LevelMap");
     },
 
@@ -90,17 +91,17 @@ cc.Class({
         this.coinLabel.string = player.coinsOwned.toString();
 
         this.setMaterialOwned(code);
-        /*
-        if (code == 1) {
-            var tubeNode = cc.find('Canvas/tube');
-            tubeNode.active = true;
-        }*/
     },
 
     afterUsing: function(code) {
         this.setMaterialUsed(code);
         var player = cc.find('player').getComponent('Player');
         player.materialUsed.add(code);
+        
+        if (code == 1) {
+            var tubeNode = cc.find('Canvas/tube');
+            tubeNode.active = true;
+        }
     },
 
     afterBacking: function(code) {
@@ -110,6 +111,11 @@ cc.Class({
 
         var player = cc.find('player').getComponent('Player');
         player.materialUsed.delete(code);
+
+        if (code == 1) {
+            var tubeNode = cc.find('Canvas/tube');
+            tubeNode.active = false;
+        }
     },
 
     checkMaterial: function() {
@@ -133,6 +139,11 @@ cc.Class({
         var materialNodePath = 'Canvas/materialBackground/m' + code.toString() + 'Button';
         var isOwnedNode = cc.find((materialNodePath + '/isOwned'));
         isOwnedNode.getComponent(cc.Sprite).setState(1);
+    },
+
+    resetScene: function () {
+        var player = cc.find('player').getComponent('Player');
+        player.materialUsed.clear(); 
     },
 
     // update (dt) {},

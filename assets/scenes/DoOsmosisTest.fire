@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.5479642991004499,
-      "y": 0.5479642991004499,
+      "x": 0.49325337331334324,
+      "y": 0.49325337331334324,
       "z": 1
     },
     "_quat": {
@@ -2348,7 +2348,7 @@
     "component": "",
     "_componentId": "643fdDwJdxFvLqYaBj6333z",
     "handler": "readyToBuyMaterial",
-    "customEventData": "10_U型管_1"
+    "customEventData": "10_U型管_1_a"
   },
   {
     "__type__": "cc.Node",
@@ -2888,7 +2888,7 @@
     "component": "",
     "_componentId": "643fdDwJdxFvLqYaBj6333z",
     "handler": "readyToBuyMaterial",
-    "customEventData": "10_烧杯_2"
+    "customEventData": "10_烧杯_2_a"
   },
   {
     "__type__": "cc.Node",
@@ -3428,7 +3428,7 @@
     "component": "",
     "_componentId": "643fdDwJdxFvLqYaBj6333z",
     "handler": "readyToBuyMaterial",
-    "customEventData": "10_集气瓶_3"
+    "customEventData": "10_集气瓶_3_a"
   },
   {
     "__type__": "cc.Node",
@@ -3966,7 +3966,7 @@
     "component": "",
     "_componentId": "7f3d8aEJl9GmrTCiwVDYKcA",
     "handler": "readyToBuyMaterial",
-    "customEventData": "5_绿色墨水_4"
+    "customEventData": "5_绿色墨水_4_c"
   },
   {
     "__type__": "cc.Node",
@@ -4506,7 +4506,7 @@
     "component": "",
     "_componentId": "643fdDwJdxFvLqYaBj6333z",
     "handler": "readyToBuyMaterial",
-    "customEventData": "5_玻璃片_5"
+    "customEventData": "5_玻璃片_5_b"
   },
   {
     "__type__": "cc.Node",
@@ -5048,7 +5048,7 @@
     "component": "",
     "_componentId": "643fdDwJdxFvLqYaBj6333z",
     "handler": "readyToBuyMaterial",
-    "customEventData": "5_半透膜_6"
+    "customEventData": "5_半透膜_6_b"
   },
   {
     "__type__": "cc.Node",
@@ -5590,7 +5590,7 @@
     "component": "",
     "_componentId": "643fdDwJdxFvLqYaBj6333z",
     "handler": "readyToBuyMaterial",
-    "customEventData": "5_盐_7"
+    "customEventData": "5_盐_7_c"
   },
   {
     "__type__": "cc.Node",
@@ -6132,7 +6132,7 @@
     "component": "",
     "_componentId": "643fdDwJdxFvLqYaBj6333z",
     "handler": "readyToBuyMaterial",
-    "customEventData": "10_粗试管_8"
+    "customEventData": "10_粗试管_8_a"
   },
   {
     "__type__": "cc.Node",
@@ -6674,7 +6674,7 @@
     "component": "",
     "_componentId": "643fdDwJdxFvLqYaBj6333z",
     "handler": "readyToBuyMaterial",
-    "customEventData": "10_集气瓶(棕色气体)_9"
+    "customEventData": "10_集气瓶(棕色气体)_9_c"
   },
   {
     "__type__": "cc.Sprite",
