@@ -44,10 +44,13 @@ cc.Class({
     },
 
     readyToBuyMaterial: function (event, customEventData) {
-        var materialInfo = customEventData.split("_", 3);
+        var materialInfo = customEventData.split("_", 4);
         var materialCost = Number(materialInfo[0]);
         var materialName = materialInfo[1];
         var materialCode = Number(materialInfo[2]);
+        var materialClass = materialInfo[3];
+
+        
 
         var player = cc.find('player').getComponent('Player');
         if (player.materialOwned.has(materialCode)) {
@@ -56,16 +59,24 @@ cc.Class({
                 var displayInfo = "你要收回" + materialInfo[1]  + "吗？";
                 var self = this;
                 Alert.show(1, "收回", displayInfo, function(){
-                    self.afterBacking(materialCode);
+                    self.afterBacking(materialCode, materialClass);
                 });
             }
             else {
-                console.log("owned, but not used");
-                var displayInfo = "你要使用" + materialInfo[1]  + "吗？";
-                var self = this;
-                Alert.show(1, "使用", displayInfo, function(){
-                    self.afterUsing(materialCode);
-                });
+                if (player.materialUsedClass.has(materialClass)) {
+                    console.log("owned, can not used");
+                    var displayInfo = "你已使用同类物品，请收回后再使用该物品。";
+                    var self = this;
+                    Alert.show(1, "提示", displayInfo, null, false);
+                }
+                else {
+                    console.log("owned, can use, but not used");
+                    var displayInfo = "你要使用" + materialInfo[1]  + "吗？";
+                    var self = this;
+                    Alert.show(1, "使用", displayInfo, function(){
+                        self.afterUsing(materialCode, materialClass);
+                    });
+                }
             }
         }
         else {
@@ -78,9 +89,9 @@ cc.Class({
         }
     },
 
-    readyToOsmosis: function () {
-        var animationComponent = this.osmosis.getComponent(cc.Animation);
-        animationComponent.play("osmosisAni");
+    readyToDiffuse: function () {
+        var animationComponent = this.diffusion.getComponent(cc.Animation);
+        animationComponent.play("diffusionAni");
     },
 
     afterBuying: function(cost, code) {
@@ -93,24 +104,26 @@ cc.Class({
         this.setMaterialOwned(code);
     },
 
-    afterUsing: function(code) {
+    afterUsing: function(code, mClass) {
         this.setMaterialUsed(code);
         var player = cc.find('player').getComponent('Player');
         player.materialUsed.add(code);
-        
+        player.materialUsedClass.add(mClass);
+
         if (code == 1) {
             var tubeNode = cc.find('Canvas/tube');
             tubeNode.active = true;
         }
     },
 
-    afterBacking: function(code) {
+    afterBacking: function(code, mClass) {
         var materialNodePath = 'Canvas/materialBackground/m' + code.toString() + 'Button';
         var isOwnedNode = cc.find((materialNodePath + '/isOwned'));
         isOwnedNode.getComponent(cc.Sprite).setState(0);
 
         var player = cc.find('player').getComponent('Player');
         player.materialUsed.delete(code);
+        player.materialUsedClass.delete(mClass);
 
         if (code == 1) {
             var tubeNode = cc.find('Canvas/tube');
@@ -144,6 +157,11 @@ cc.Class({
     resetScene: function () {
         var player = cc.find('player').getComponent('Player');
         player.materialUsed.clear(); 
+        player.materialUsedClass.clear();
+    },
+
+    start () {
+
     },
 
     // update (dt) {},

@@ -8,6 +8,7 @@ cc.Class({
         coinsOwned: 200,
         materialOwned: null,
         materialUsed: null,
+        materialUsedClass: null,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -16,6 +17,7 @@ cc.Class({
         cc.game.addPersistRootNode(this.node);
         this.materialOwned = new Set();
         this.materialUsed = new Set();
+        this.materialUsedClass = new Set();
     },
 
     start () {
