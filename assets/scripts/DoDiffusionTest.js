@@ -108,9 +108,10 @@ cc.Class({
         player.materialUsed.add(code);
         player.materialUsedClass.add(mClass);
 
-        if (code == 1) {
-            var tubeNode = cc.find('Canvas/tube');
-            tubeNode.active = true;
+        if (mClass == 'a') {
+            var nodePath = 'Canvas/container/c' + code.toString();
+            var containerNode = cc.find(nodePath);
+            containerNode.active = true;
         }
     },
 
@@ -123,9 +124,10 @@ cc.Class({
         player.materialUsed.delete(code);
         player.materialUsedClass.delete(mClass);
 
-        if (code == 1) {
-            var tubeNode = cc.find('Canvas/tube');
-            tubeNode.active = false;
+        if (mClass == 'a') {
+            var nodePath = 'Canvas/container/c' + code.toString();
+            var containerNode = cc.find(nodePath);
+            containerNode.active = false;
         }
     },
 

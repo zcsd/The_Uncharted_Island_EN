@@ -14,11 +14,6 @@ cc.Class({
             type: cc.Sprite
         },
 
-        standSprite: {
-            default: null,
-            type: cc.Sprite
-        },
-
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -27,13 +22,6 @@ cc.Class({
         var player = cc.find('player').getComponent('Player');
         this.nameLabel.string = player.nickName;
         this.coinLabel.string = player.coinsOwned.toString();
-
-        if (player.coinsOwned > 160) {
-            cc.find('Canvas/quizButton').getComponent(cc.Button).interactable = false;
-        }
-        else {
-            cc.find('Canvas/quizButton').getComponent(cc.Button).interactable = true;
-        }
 
         var self = this;
         // load image from resource folder
@@ -49,21 +37,9 @@ cc.Class({
 
     },
 
-    goToDiffScene: function () {
-        cc.director.loadScene("DoDiffusionTest");
+    backToMapScene: function () {
+        cc.director.loadScene("LevelMap");
     },
-
-    goToOsmosisScene: function () {
-        cc.director.loadScene("DoOsmosisTest");
-    },
-
-    goToBananaScene: function () {
-        cc.director.loadScene("SaveBananaTree");
-    },
-
-    goToQuizScene: function () {
-        cc.director.loadScene("DoQuiz");
-    }
 
     // update (dt) {},
 });
