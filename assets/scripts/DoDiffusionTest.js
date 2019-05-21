@@ -115,6 +115,9 @@ cc.Class({
             var nodePath = 'Canvas/container/c' + code.toString();
             var containerNode = cc.find(nodePath);
             containerNode.active = true;
+            if (code == 1) {
+                this.progressBar.progress += 0.5;
+            }
         }
     },
 
@@ -131,6 +134,9 @@ cc.Class({
             var nodePath = 'Canvas/container/c' + code.toString();
             var containerNode = cc.find(nodePath);
             containerNode.active = false;
+            if (code == 1) {
+                this.progressBar.progress -= 0.5;
+            }
         }
     },
 

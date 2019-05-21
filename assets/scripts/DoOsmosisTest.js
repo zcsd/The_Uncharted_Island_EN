@@ -54,8 +54,6 @@ cc.Class({
         var materialCode = Number(materialInfo[2]);
         var materialClass = materialInfo[3];
 
-        
-
         var player = cc.find('player').getComponent('Player');
         if (player.materialOwned.has(materialCode)) {
             if (player.materialUsed.has(materialCode)) {
@@ -118,6 +116,9 @@ cc.Class({
             var nodePath = 'Canvas/container/c' + code.toString();
             var containerNode = cc.find(nodePath);
             containerNode.active = true;
+            if (code == 2) {
+                this.progressBar.progress += 0.33;
+            }
         }
     },
 
@@ -134,6 +135,9 @@ cc.Class({
             var nodePath = 'Canvas/container/c' + code.toString();
             var containerNode = cc.find(nodePath);
             containerNode.active = false;
+            if (code == 2) {
+                this.progressBar.progress -= 0.33;
+            }
         }
     },
 
