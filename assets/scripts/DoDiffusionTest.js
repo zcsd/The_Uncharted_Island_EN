@@ -67,7 +67,7 @@ cc.Class({
                 if (player.materialUsedClass.has(materialClass)) {
                     console.log("owned, can not used");
                     var displayInfo = "你已使用同类物品，请收回后再使用该物品。";
-                    var self = this;
+                    //var self = this;
                     Alert.show(1, "提示", displayInfo, null, false);
                 }
                 else {
@@ -106,23 +106,36 @@ cc.Class({
     },
 
     afterUsing: function(code, mClass) {
-        this.setMaterialUsed(code);
         var player = cc.find('player').getComponent('Player');
-        player.materialUsed.add(code);
-        player.materialUsedClass.add(mClass);
 
         if (mClass == 'a') {
-            var nodePath = 'Canvas/container/c' + code.toString();
-            var containerNode = cc.find(nodePath);
-            containerNode.active = true;
             if (code == 1) {
+                this.setMaterialUsed(code);
+                player.materialUsed.add(code);
+                player.materialUsedClass.add(mClass);
+                var nodePath = 'Canvas/container/c' + code.toString();
+                var containerNode = cc.find(nodePath);
+                containerNode.active = true;
                 this.progressBar.progress += 0.5;
+            }
+            else {
+                console.log("fsfgsf");
+                //var displayInfo = "此实验器具不符合要求，试试其他器具吧";
             }
         }
 
         if (mClass == 'c') {
-            var animationComponent = this.diffusion.getComponent(cc.Animation);
-            animationComponent.play("uDiffAni");
+            if (player.materialUsed.has(1)) {
+                this.setMaterialUsed(code);
+                player.materialUsed.add(code);
+                player.materialUsedClass.add(mClass);
+                var animationComponent = this.diffusion.getComponent(cc.Animation);
+                animationComponent.play("uDiffAni");
+                this.progressBar.progress += 0.5;
+            }
+            else {
+                var displayInfo = "请先挑选使用合适的实验器具";
+            }           
         }
     },
 
