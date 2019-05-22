@@ -92,7 +92,7 @@ cc.Class({
 
     readyToDiffuse: function () {
         var animationComponent = this.diffusion.getComponent(cc.Animation);
-        animationComponent.play("diffusionAni");
+        animationComponent.play("uDiffAni");
     },
 
     afterBuying: function(cost, code) {
@@ -118,6 +118,11 @@ cc.Class({
             if (code == 1) {
                 this.progressBar.progress += 0.5;
             }
+        }
+
+        if (mClass == 'c') {
+            var animationComponent = this.diffusion.getComponent(cc.Animation);
+            animationComponent.play("uDiffAni");
         }
     },
 
