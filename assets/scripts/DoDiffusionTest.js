@@ -9,6 +9,8 @@ cc.Class({
 
         coinLabel: cc.Label,
 
+        hintLabel: cc.Label,
+
         progressBar: cc.ProgressBar,
 
         avatarSprite: {
@@ -38,6 +40,8 @@ cc.Class({
         var introduction = "扩散作用是指物质（固体，液体，气体）分子从高浓度区域向低浓度区域转移的现象，直到物体内各部分的密度相间为止，主要由于浓度差或温度差所引起。"
         Alert.show(2, "扩散作用", introduction, null, false);
         this.progressBar.progress = 0;
+        this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
+        this.hintLabel.string = "请购买使用合适的仪器和溶质";
         this.checkMaterial();
     },
 
@@ -116,11 +120,13 @@ cc.Class({
                 var nodePath = 'Canvas/container/c' + code.toString();
                 var containerNode = cc.find(nodePath);
                 containerNode.active = true;
+                this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
+                this.hintLabel.string = "请挑选使用合适的溶质";
                 this.progressBar.progress += 0.5;
             }
             else {
-                console.log("fsfgsf");
-                //var displayInfo = "此实验器具不符合要求，试试其他器具吧";
+                this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
+                this.hintLabel.string = "此仪器不符合要求，试试其他的吧";
             }
         }
 
@@ -132,10 +138,18 @@ cc.Class({
                 var animationComponent = this.diffusion.getComponent(cc.Animation);
                 animationComponent.play("uDiffAni");
                 this.progressBar.progress += 0.5;
+                this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
+                this.hintLabel.string = "做的好，扩散实验完成";
             }
             else {
-                var displayInfo = "请先挑选使用合适的实验器具";
+                this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
+                this.hintLabel.string = "请先挑选使用合适的实验仪器";
             }           
+        }
+
+        if (mClass == 'b') {
+            this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
+            this.hintLabel.string = "该实验不需要此材料";
         }
     },
 

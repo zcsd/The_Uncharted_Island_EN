@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.5479642991004499,
-      "y": 0.5479642991004499,
+      "x": 0.424287856071964,
+      "y": 0.424287856071964,
       "z": 1
     },
     "_quat": {
@@ -572,12 +572,12 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
+      "x": 0,
       "y": 0.5
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -410,
+      "x": -518,
       "y": 295,
       "z": 0
     },
@@ -1081,14 +1081,14 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 4,
-      "y": -208,
+      "x": 0,
+      "y": -200,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.6,
-      "y": 0.6,
+      "x": 0.5,
+      "y": 0.5,
       "z": 1
     },
     "_rotationX": 0,
@@ -1204,18 +1204,18 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 440,
-      "height": 44
+      "width": 352,
+      "height": 36
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
+      "x": 0,
       "y": 0.5
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -170,
-      "y": -244,
+      "x": -432,
+      "y": -230,
       "z": 0
     },
     "_scale": {
@@ -1247,10 +1247,10 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_string": "点击购买你想使用的材料",
-    "_N$string": "点击购买你想使用的材料",
-    "_fontSize": 40,
-    "_lineHeight": 44,
+    "_string": "点击购买使用相应的材料",
+    "_N$string": "点击购买使用相应的材料",
+    "_fontSize": 32,
+    "_lineHeight": 36,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -6744,14 +6744,14 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -439,
-      "y": -240,
+      "x": -472,
+      "y": -227,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.6,
-      "y": 0.6,
+      "x": 0.5,
+      "y": 0.5,
       "z": 1
     },
     "_rotationX": 0,
@@ -8390,6 +8390,9 @@
     },
     "coinLabel": {
       "__id__": 14
+    },
+    "hintLabel": {
+      "__id__": 27
     },
     "progressBar": {
       "__id__": 25

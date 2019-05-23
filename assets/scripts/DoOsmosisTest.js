@@ -9,6 +9,8 @@ cc.Class({
 
         coinLabel: cc.Label,
 
+        hintLabel: cc.Label,
+
         progressBar: cc.ProgressBar,
 
         avatarSprite: {
