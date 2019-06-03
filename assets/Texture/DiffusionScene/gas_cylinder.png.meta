@@ -7,7 +7,7 @@
   "premultiplyAlpha": false,
   "subMetas": {
     "gas_cylinder": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "d3193311-9ff5-4bac-9ded-20f8f44fe8aa",
       "rawTextureUuid": "3b9b57fd-3c57-4f81-bae1-ecc8cad70c78",
       "trimType": "auto",
