@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.304204898941888,
-      "y": 0.304204898941888,
+      "x": 0.6988793339931719,
+      "y": 0.6988793339931719,
       "z": 1
     },
     "_quat": {
@@ -921,7 +921,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": -431,
-      "y": -230,
+      "y": -232,
       "z": 0
     },
     "_scale": {
@@ -3648,9 +3648,11 @@
   },
   {
     "__type__": "cc.ClickEvent",
-    "target": null,
+    "target": {
+      "__id__": 2
+    },
     "component": "",
-    "_componentId": "7f3d8aEJl9GmrTCiwVDYKcA",
+    "_componentId": "643fdDwJdxFvLqYaBj6333z",
     "handler": "readyToBuyMaterial",
     "customEventData": "5_绿色墨水_4_c"
   },
@@ -7219,7 +7221,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": -472,
-      "y": -227,
+      "y": -229,
       "z": 0
     },
     "_scale": {
@@ -7916,7 +7918,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -3,
+      "x": -2,
       "y": -29,
       "z": 0
     },
@@ -8428,7 +8430,12 @@
     "avatarSprite": {
       "__id__": 10
     },
-    "osmosis": null,
+    "osmosisLeft": {
+      "__id__": 175
+    },
+    "osmosisRight": {
+      "__id__": 178
+    },
     "_id": "e8WBKbUvFBZb2Bjy1cAAxS"
   }
 ]

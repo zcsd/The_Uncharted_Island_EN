@@ -18,7 +18,12 @@ cc.Class({
             type: cc.Sprite
         },
 
-        osmosis: {
+        osmosisLeft: {
+            default: null,
+            type: cc.Node
+        },
+
+        osmosisRight: {
             default: null,
             type: cc.Node
         }
@@ -109,19 +114,71 @@ cc.Class({
     },
 
     afterUsing: function(code, mClass) {
-        this.setMaterialUsed(code);
         var player = cc.find('player').getComponent('Player');
-        player.materialUsed.add(code);
-        player.materialUsedClass.add(mClass);
 
         if (mClass == 'a') {
-            var nodePath = 'Canvas/container/c' + code.toString();
-            var containerNode = cc.find(nodePath);
-            containerNode.active = true;
             if (code == 2) {
+                this.setMaterialUsed(code);
+                player.materialUsed.add(code);
+                player.materialUsedClass.add(mClass);
+                var nodePath = 'Canvas/container/c' + code.toString();
+                var containerNode = cc.find(nodePath);
+                containerNode.active = true;
+                this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
+                this.hintLabel.string = "请继续挑选使用合适的材料";
                 this.progressBar.progress += 0.33;
             }
+            else {
+                this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
+                this.hintLabel.string = "此仪器不符合要求，试试其他的吧";
+            }
         }
+
+        if (mClass == 'b') {
+            if(player.materialUsed.has(2)) {
+                if (code == 6) {
+                    this.setMaterialUsed(code);
+                    player.materialUsed.add(code);
+                    player.materialUsedClass.add(mClass);
+                    var nodePath = 'Canvas/container/c2/membrane';
+                    cc.find(nodePath).active = true;
+                    this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
+                    this.hintLabel.string = "请继续挑选使用合适的溶质";
+                    this.progressBar.progress += 0.33;
+                }
+                else {
+                    this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
+                    this.hintLabel.string = "此材料不符合要求，试试其他的吧";
+                }
+            }
+            else {
+                this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
+                this.hintLabel.string = "请先挑选使用合适的实验容器";
+            }
+        }
+
+        if (mClass == 'c') {
+            if (player.materialUsed.has(6)) {
+                if (code == 7) {
+                    this.setMaterialUsed(code);
+                    player.materialUsed.add(code);
+                    player.materialUsedClass.add(mClass);
+                    this.osmosisLeft.getComponent(cc.Animation).play("leftAni");
+                    this.osmosisRight.getComponent(cc.Animation).play("rightAni");
+                    this.progressBar.progress = 1.0;
+                    this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
+                    this.hintLabel.string = "做的好，渗透实验完成";
+                }
+                else {
+                    this.hintLabel.string = "此材料不符合要求，试试其他的吧";
+                }
+            }
+            else {
+                this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
+                this.hintLabel.string = "请先挑选使用合适的实验容器或者材料";
+            }
+        }
+
     },
 
     afterBacking: function(code, mClass) {

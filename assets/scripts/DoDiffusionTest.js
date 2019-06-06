@@ -121,7 +121,7 @@ cc.Class({
                 var containerNode = cc.find(nodePath);
                 containerNode.active = true;
                 this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
-                this.hintLabel.string = "请挑选使用合适的溶质";
+                this.hintLabel.string = "请继续挑选使用合适的溶质";
                 this.progressBar.progress += 0.5;
             }
             else {
@@ -132,14 +132,20 @@ cc.Class({
 
         if (mClass == 'c') {
             if (player.materialUsed.has(1)) {
-                this.setMaterialUsed(code);
-                player.materialUsed.add(code);
-                player.materialUsedClass.add(mClass);
-                var animationComponent = this.diffusion.getComponent(cc.Animation);
-                animationComponent.play("uDiffAni");
-                this.progressBar.progress += 0.5;
-                this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
-                this.hintLabel.string = "做的好，扩散实验完成";
+                if (code == 4) {
+                    this.setMaterialUsed(code);
+                    player.materialUsed.add(code);
+                    player.materialUsedClass.add(mClass);
+                    var animationComponent = this.diffusion.getComponent(cc.Animation);
+                    animationComponent.play("uDiffAni");
+                    this.progressBar.progress += 0.5;
+                    this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
+                    this.hintLabel.string = "做的好，扩散实验完成";
+                }
+                else {
+                    this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
+                    this.hintLabel.string = "此材料不符合要求，试试其他的吧";
+                }
             }
             else {
                 this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
