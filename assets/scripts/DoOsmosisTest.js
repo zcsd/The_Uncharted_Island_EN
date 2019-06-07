@@ -26,6 +26,11 @@ cc.Class({
         osmosisRight: {
             default: null,
             type: cc.Node
+        },
+
+        sodium: {
+            default: null,
+            type: cc.Node
         }
 
     },
@@ -165,6 +170,7 @@ cc.Class({
                     player.materialUsedClass.add(mClass);
                     this.osmosisLeft.getComponent(cc.Animation).play("leftAni");
                     this.osmosisRight.getComponent(cc.Animation).play("rightAni");
+                    this.sodium.getComponent(cc.Animation).play("sodiumAni");
                     this.progressBar.progress = 1.0;
                     this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
                     this.hintLabel.string = "做的好，渗透实验完成";
