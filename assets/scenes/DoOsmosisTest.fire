@@ -2034,7 +2034,7 @@
     "component": "",
     "_componentId": "643fdDwJdxFvLqYaBj6333z",
     "handler": "readyToBuyMaterial",
-    "customEventData": "10_U型管_1_a"
+    "customEventData": "50_U型管_1_a"
   },
   {
     "__type__": "cc.Node",
@@ -2574,7 +2574,7 @@
     "component": "",
     "_componentId": "643fdDwJdxFvLqYaBj6333z",
     "handler": "readyToBuyMaterial",
-    "customEventData": "10_烧杯_2_a"
+    "customEventData": "50_烧杯_2_a"
   },
   {
     "__type__": "cc.Node",
@@ -3114,7 +3114,7 @@
     "component": "",
     "_componentId": "643fdDwJdxFvLqYaBj6333z",
     "handler": "readyToBuyMaterial",
-    "customEventData": "10_集气瓶_3_a"
+    "customEventData": "50_集气瓶_3_a"
   },
   {
     "__type__": "cc.Node",
@@ -3654,7 +3654,7 @@
     "component": "",
     "_componentId": "643fdDwJdxFvLqYaBj6333z",
     "handler": "readyToBuyMaterial",
-    "customEventData": "5_绿色墨水_4_c"
+    "customEventData": "50_绿色墨水_4_c"
   },
   {
     "__type__": "cc.Node",
@@ -4194,7 +4194,7 @@
     "component": "",
     "_componentId": "643fdDwJdxFvLqYaBj6333z",
     "handler": "readyToBuyMaterial",
-    "customEventData": "5_玻璃片_5_b"
+    "customEventData": "30_玻璃片_5_b"
   },
   {
     "__type__": "cc.Node",
@@ -4736,7 +4736,7 @@
     "component": "",
     "_componentId": "643fdDwJdxFvLqYaBj6333z",
     "handler": "readyToBuyMaterial",
-    "customEventData": "5_半透膜_6_b"
+    "customEventData": "30_半透膜_6_b"
   },
   {
     "__type__": "cc.Node",
@@ -5278,7 +5278,7 @@
     "component": "",
     "_componentId": "643fdDwJdxFvLqYaBj6333z",
     "handler": "readyToBuyMaterial",
-    "customEventData": "5_盐_7_c"
+    "customEventData": "50_盐_7_c"
   },
   {
     "__type__": "cc.Node",
@@ -5820,7 +5820,7 @@
     "component": "",
     "_componentId": "643fdDwJdxFvLqYaBj6333z",
     "handler": "readyToBuyMaterial",
-    "customEventData": "10_粗试管_8_a"
+    "customEventData": "50_粗试管_8_a"
   },
   {
     "__type__": "cc.Node",
@@ -6362,7 +6362,7 @@
     "component": "",
     "_componentId": "643fdDwJdxFvLqYaBj6333z",
     "handler": "readyToBuyMaterial",
-    "customEventData": "10_集气瓶(棕色气体)_9_c"
+    "customEventData": "50_集气瓶(棕色气体)_9_c"
   },
   {
     "__type__": "cc.Sprite",

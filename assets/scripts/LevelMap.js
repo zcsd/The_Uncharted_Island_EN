@@ -28,7 +28,7 @@ cc.Class({
         this.nameLabel.string = player.nickName;
         this.coinLabel.string = player.coinsOwned.toString();
 
-        if (player.coinsOwned > 160) {
+        if (player.coinsOwned > 151) {
             cc.find('Canvas/quizButton').getComponent(cc.Button).interactable = false;
         }
         else {

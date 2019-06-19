@@ -76,11 +76,11 @@ cc.Class({
                 }
                 else {
                     console.log("owned, can use, but not used");
-                    var displayInfo = "你要使用" + materialInfo[1]  + "吗？";
+                    var displayInfo = "你要花费20金币使用" + materialInfo[1]  + "吗？";
                     var self = this;
                     Alert.show(1, "使用", displayInfo, function(){
                         self.afterUsing(materialCode, materialClass);
-                    });
+                    })
                 }
             }
         }
@@ -111,6 +111,8 @@ cc.Class({
 
     afterUsing: function(code, mClass) {
         var player = cc.find('player').getComponent('Player');
+        player.coinsOwned = player.coinsOwned - 20;
+        this.coinLabel.string = player.coinsOwned.toString();
 
         if (mClass == 'a') {
             if (code == 1) {
@@ -141,6 +143,8 @@ cc.Class({
                     this.progressBar.progress += 0.5;
                     this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
                     this.hintLabel.string = "做的好，扩散实验完成";
+                    player.coinsOwned = player.coinsOwned + 250;
+                    this.coinLabel.string = player.coinsOwned.toString();
                 }
                 else {
                     this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
