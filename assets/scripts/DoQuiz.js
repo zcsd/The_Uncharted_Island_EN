@@ -14,7 +14,7 @@ cc.Class({
             type: cc.Sprite
         },
 
-        userAnswerChoice: 1, // user choice
+        userAnswerChoice: 0, // user choice
 
         questionLabel: cc.Label,
 
@@ -71,8 +71,12 @@ cc.Class({
         this.option3Label.string = this.mcqData.json[order].option3;
         this.option4Label.string = this.mcqData.json[order].option4;
 
-        //cc.find('Canvas/answerToggleContainer/toggle4/checkmark').active = false;
-        //cc.find('Canvas/answerToggleContainer/toggle1/checkmark').active = true;
+        cc.find('Canvas/answerToggleContainer/toggle1').getComponent(cc.Toggle).isChecked = false;
+        cc.find('Canvas/answerToggleContainer/toggle2').getComponent(cc.Toggle).isChecked = false;
+        cc.find('Canvas/answerToggleContainer/toggle3').getComponent(cc.Toggle).isChecked = false;
+        cc.find('Canvas/answerToggleContainer/toggle4').getComponent(cc.Toggle).isChecked = false;
+
+        this.userAnswerChoice = 0;
     },
 
     submitAnswer: function () {
@@ -82,12 +86,14 @@ cc.Class({
             console.log("答对了");
             player.coinsOwned += 50;
             this.coinLabel.string = player.coinsOwned.toString();
+            cc.find("Canvas/submitButton").getComponent(cc.Button).interactable = false;
         }
-        else {
+        else if (this.userAnswerChoice == 0) {
+            Alert.show(1, "提示", "请选择一个答案", null, false);
+        } else {
             console.log("答错了");
+            cc.find("Canvas/submitButton").getComponent(cc.Button).interactable = false;
         }
-        
-        cc.find("Canvas/submitButton").getComponent(cc.Button).interactable = false;
     },
 
     goToNextQuestion: function () {

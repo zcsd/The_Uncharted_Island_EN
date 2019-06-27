@@ -2734,7 +2734,7 @@
       "__id__": 23
     },
     "_enabled": true,
-    "allowSwitchOff": false,
+    "allowSwitchOff": true,
     "checkEvents": [
       {
         "__id__": 57
