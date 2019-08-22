@@ -1,26 +1,34 @@
 {
 "1":{
-    "question": "1 + 1 = ?",
-    "answerOrder": 4,
-    "option1": "1",
-    "option2": "4",
-    "option3": "3",
-    "option4": "2"
+    "question": "下列事例中，属于扩散现象的是",
+    "answerOrder": 2,
+    "option1": "冷空气下沉，热空气上升",
+    "option2": "长时间堆放煤的墙角，墙壁内部会变黑",
+    "option3": "扫地时，太阳光下能看到大量灰尘在空中飞舞",
+    "option4": "放在炉火上加热的冷水过一段时间烧开了"
     },
 "2":{
-    "question": "2 + 1 = ?",
-    "answerOrder": 2,
-    "option1": "2",
-    "option2": "3",
-    "option3": "1",
-    "option4": "4"
+    "question": "扩散现象",
+    "answerOrder": 4,
+    "option1": "只发生在气体之间",
+    "option2": "只发生在液体之间",
+    "option3": "只发生在固体之间",
+    "option4": "可以发生在任何物体之间"
     },
 "3":{
-    "question": "1 + 3 = ?",
+    "question": "关于扩散作用，下列说法错误的是",
     "answerOrder": 3,
-    "option1": "3",
-    "option2": "1",
-    "option3": "4",
-    "option4": "2"
+    "option1": "温度越高扩散现象越明显",
+    "option2": "扩散现象是永不停息的",
+    "option3": "扩散方向不受物质浓度梯度影响",
+    "option4": "两边浓度相差越大，则扩散速率越快"
+    },
+"4":{
+    "question": "关于渗透作用，下列说法错误的是",
+    "answerOrder": 3,
+    "option1": "渗透作用发生必须要有半透膜存在",
+    "option2": "水分子或者溶剂分子从低浓度溶液向高浓度溶液转移",
+    "option3": "钾离子通过细胞膜属于渗透作用",
+    "option4": "渗透是一种特殊的扩散现象"
     }
 }
