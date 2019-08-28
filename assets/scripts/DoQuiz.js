@@ -14,6 +14,8 @@ cc.Class({
             type: cc.Sprite
         },
 
+        hintLabel: cc.Label,
+
         userAnswerChoice: 0, // user choice
 
         questionLabel: cc.Label,
@@ -41,6 +43,8 @@ cc.Class({
         var player = cc.find('player').getComponent('Player');
         this.nameLabel.string = player.nickName;
         this.coinLabel.string = player.coinsOwned.toString();
+
+        this.hintLabel.string = '';
 
         var self = this;
         // load image from resource folder
@@ -83,7 +87,8 @@ cc.Class({
         var player = cc.find('player').getComponent('Player');
         
         if (this.userAnswerChoice == this.mcqData.json[this.currentOrder].answerOrder) {
-            console.log("答对了");
+            //console.log("答对了");
+            this.hintLabel.string = this.mcqData.json[this.currentOrder].correctHint;
             player.coinsOwned += 50;
             this.coinLabel.string = player.coinsOwned.toString();
             cc.find("Canvas/submitButton").getComponent(cc.Button).interactable = false;
@@ -91,12 +96,14 @@ cc.Class({
         else if (this.userAnswerChoice == 0) {
             Alert.show(1, "提示", "请选择一个答案", null, false);
         } else {
-            console.log("答错了");
+            //console.log("答错了");
+            this.hintLabel.string = this.mcqData.json[this.currentOrder].wrongHint;
             cc.find("Canvas/submitButton").getComponent(cc.Button).interactable = false;
         }
     },
 
     goToNextQuestion: function () {
+        this.hintLabel.string = '';
         this.currentOrder += 1;
         this.loadMCQ(this.currentOrder);
         cc.find("Canvas/submitButton").getComponent(cc.Button).interactable = true;
