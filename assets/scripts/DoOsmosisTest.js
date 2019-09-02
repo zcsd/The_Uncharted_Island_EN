@@ -110,6 +110,7 @@ cc.Class({
 
     afterBuying: function(cost, code) {
         console.log("购买确定按钮被点击!");
+        this.coinAnimation();
         var player = cc.find('player').getComponent('Player');
         player.coinsOwned = player.coinsOwned - cost;
         player.materialOwned.add(code);
@@ -120,6 +121,7 @@ cc.Class({
 
     afterUsing: function(code, mClass) {
         var player = cc.find('player').getComponent('Player');
+        this.coinAnimation();
         player.coinsOwned = player.coinsOwned - 20;
         this.coinLabel.string = player.coinsOwned.toString();
 
@@ -231,6 +233,12 @@ cc.Class({
         var materialNodePath = 'Canvas/materialBackground/m' + code.toString() + 'Button';
         var isOwnedNode = cc.find((materialNodePath + '/isOwned'));
         isOwnedNode.getComponent(cc.Sprite).setState(1);
+    },
+
+    coinAnimation: function () {
+        var coinNode = cc.find("Canvas/coin");
+        var seq = cc.sequence(cc.scaleTo(0.3, 0.7), cc.scaleTo(0.3, 1), cc.scaleTo(0.3, 0.7), cc.scaleTo(0.3, 1) );
+        coinNode.runAction(seq);
     },
 
     resetScene: function () {

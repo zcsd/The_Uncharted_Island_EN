@@ -89,6 +89,7 @@ cc.Class({
         if (this.userAnswerChoice == this.mcqData.json[this.currentOrder].answerOrder) {
             //console.log("答对了");
             this.hintLabel.string = this.mcqData.json[this.currentOrder].correctHint;
+            this.coinAnimation();
             player.coinsOwned += 50;
             this.coinLabel.string = player.coinsOwned.toString();
             cc.find("Canvas/submitButton").getComponent(cc.Button).interactable = false;
@@ -100,6 +101,12 @@ cc.Class({
             this.hintLabel.string = this.mcqData.json[this.currentOrder].wrongHint;
             cc.find("Canvas/submitButton").getComponent(cc.Button).interactable = false;
         }
+    },
+
+    coinAnimation: function () {
+        var coinNode = cc.find("Canvas/coin");
+        var seq = cc.sequence(cc.scaleTo(0.3, 0.7), cc.scaleTo(0.3, 1), cc.scaleTo(0.3, 0.7), cc.scaleTo(0.3, 1) );
+        coinNode.runAction(seq);
     },
 
     goToNextQuestion: function () {
