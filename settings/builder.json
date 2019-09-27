@@ -7,6 +7,13 @@
     "scheme": "https",
     "skipRecord": false
   },
+  "appBundle": false,
+  "baidugame": {
+    "REMOTE_SERVER_ROOT": "",
+    "appid": "testappid",
+    "orientation": "portrait",
+    "subContext": ""
+  },
   "encryptJs": true,
   "excludeScenes": [],
   "fb-instant-games": {},
@@ -33,17 +40,10 @@
   "webOrientation": "portrait",
   "wechatgame": {
     "REMOTE_SERVER_ROOT": "",
-    "appid": "wx6ac3f5090a6b99c5",
-    "orientation": "landscape",
+    "appid": "wxfa39eea630eecb10",
+    "orientation": "landscapeRight",
     "subContext": ""
   },
   "xxteaKey": "15162a28-05d6-49",
-  "zipCompressJs": true,
-  "baidugame": {
-    "appid": "testappid",
-    "orientation": "portrait",
-    "REMOTE_SERVER_ROOT": "",
-    "subContext": ""
-  },
-  "appBundle": false
+  "zipCompressJs": true
 }
