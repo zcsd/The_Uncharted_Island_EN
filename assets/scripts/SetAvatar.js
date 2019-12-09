@@ -22,8 +22,6 @@ cc.Class({
             type: cc.Button
         },
 
-        player: cc.Node,
-
         coinsLabel: cc.Label,
 
         currentGender: "boy",
@@ -105,7 +103,21 @@ cc.Class({
             player.avatarImgDir = this.currentImgDir;
             player.coinsOwned = 200;
 
-            cc.director.loadScene("LevelMap");
+            G.user.nickname = player.nickName;
+            G.user.sex = player.gender;
+            G.user.coins = player.coinsOwned.toString();
+            G.user.whichavatar = player.avatarImgDir.substring(player.avatarImgDir.length-1);
+            
+            G.globalSocket.emit('newUser', G.user);
+
+            G.globalSocket.on('newUser', function(msg) {
+                if (msg == "success"){
+                    cc.director.loadScene("LevelMap");
+                }else if (msg == "failure"){
+                    cc.log("Fail to register, try again later.");
+                }
+            });
+            
         }
     },
 
