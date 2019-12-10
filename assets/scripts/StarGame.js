@@ -16,6 +16,23 @@ cc.Class({
 
     onLoad: function () {
         G.globalSocket = io.connect("http://13.229.231.71:3000", {'reconnect': true});
+        
+        G.globalSocket.on('connect', function(){
+            console.log('You have been connected');
+        });
+
+        G.globalSocket.on('disconnect', function(){
+            console.log('You have been disconnected');
+        });
+
+        G.globalSocket.on('reconnect', function(){
+            console.log('You have been reconnected');
+        });
+
+        G.globalSocket.on('reconnect_error', function(){
+            console.log('Attempt to reconnect has failed');
+        });
+
         var User = require('user');
         G.user = new User('', '', '', '', '');
     },
