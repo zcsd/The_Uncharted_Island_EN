@@ -68,6 +68,12 @@ cc.Class({
             }else if (msg == 'multiple') {
                 // imposssible condition
                 console.log("Multiple userinfor are detected.");
+            }else if (msg == 'reject') {
+                // the user existed in socketmap already, only allow one place login
+                console.log("This username is used by others now, please change another one.");
+                cc.find("Canvas/usernameEditBox").getComponent(cc.EditBox).string = '';
+                cc.find("Canvas/usernameEditBox").getComponent(cc.EditBox).blur();
+                cc.find("Canvas/usernameEditBox").getComponent(cc.EditBox).focus();
             }else { // one userinfor detected
                 console.log("user existed.");
                 G.user.username = msg.username;
