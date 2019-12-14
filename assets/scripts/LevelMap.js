@@ -28,6 +28,10 @@ cc.Class({
         this.nameLabel.string = player.nickName;
         this.coinLabel.string = player.coinsOwned.toString();
 
+        G.globalSocket.on('receive private msg', function(msg){
+            console.log('msg from AI user: ', msg);
+        });
+
         if (player.coinsOwned > 151) {
             cc.find('Canvas/quizButton').getComponent(cc.Button).interactable = false;
         }
@@ -63,7 +67,11 @@ cc.Class({
 
     goToQuizScene: function () {
         cc.director.loadScene("DoQuiz");
-    }
+    },
+
+    sendSignalToAI: function(){
+        G.globalSocket.emit('user send private msg', 'Hi, I am gameuser.');
+    },
 
     // update (dt) {},
 });
