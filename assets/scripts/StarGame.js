@@ -15,6 +15,10 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad: function () {
+
+        //window.io = require('socket.io');
+        //G.globalSocket = window.io("http://13.229.231.71:3000");
+
         G.globalSocket = io.connect("http://13.229.231.71:3000", {'reconnect': true});
         
         G.globalSocket.on('connect', function(){
