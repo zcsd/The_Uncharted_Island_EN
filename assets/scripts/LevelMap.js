@@ -47,6 +47,8 @@ cc.Class({
         cc.loader.loadRes(player.avatarImgDir + '_s', cc.SpriteFrame, function (err, spriteFrame) {
             self.avatarSprite.spriteFrame = spriteFrame;
         });
+        //socket, username, sequenceID, stage, actionType, operatedItem, rewardType, rewardQty, totalCoins
+        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "levelmap", "system", "na", "na", 0, G.user.coins);
     },
 
     start () {
