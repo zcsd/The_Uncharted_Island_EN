@@ -43,6 +43,9 @@ cc.Class({
         this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
         this.hintLabel.string = "请购买使用合适的仪器和溶质";
         this.checkMaterial();
+
+        //socket, username, sequenceID, stage, actionType, operatedItem, rewardType, rewardQty, totalCoins
+        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "init", "na", "na", 0, G.user.coins);
     },
 
     backToMapScene: function () {

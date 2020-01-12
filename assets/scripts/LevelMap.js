@@ -48,7 +48,7 @@ cc.Class({
             self.avatarSprite.spriteFrame = spriteFrame;
         });
         //socket, username, sequenceID, stage, actionType, operatedItem, rewardType, rewardQty, totalCoins
-        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "levelmap", "system", "na", "na", 0, G.user.coins);
+        //insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "levelmap", "system", "na", "na", 0, G.user.coins);
     },
 
     start () {
