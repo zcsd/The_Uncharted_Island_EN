@@ -37,20 +37,23 @@ cc.Class({
         cc.loader.loadRes(player.avatarImgDir + '_s', cc.SpriteFrame, function (err, spriteFrame) {
             self.avatarSprite.spriteFrame = spriteFrame;
         });
+        //socket, username, sequenceID, stage, actionType, operatedItem, rewardType, rewardQty, totalCoins
+        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "init", "na", "na", 0, G.user.coins);
+        
         var introduction = "扩散作用是指物质（固体，液体，气体）分子从高浓度区域向低浓度区域转移的现象，直到物体内各部分的密度相间为止，主要由于浓度差或温度差所引起。"
-        Alert.show(2, "扩散作用", introduction, null, false);
+        Alert.show(2, "扩散作用", introduction, function(){
+            insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "read", "introduction", "na", 0, G.user.coins);
+        }, false);
         this.progressBar.progress = 0;
         this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
         this.hintLabel.string = "请购买使用合适的仪器和溶质";
         this.checkMaterial();
-
-        //socket, username, sequenceID, stage, actionType, operatedItem, rewardType, rewardQty, totalCoins
-        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "init", "na", "na", 0, G.user.coins);
     },
 
     backToMapScene: function () {
         this.resetScene();
         cc.director.loadScene("LevelMap");
+        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "back", "na", "na", 0, G.user.coins);
     },
 
     readyToBuyMaterial: function (event, customEventData) {
@@ -68,6 +71,7 @@ cc.Class({
                 var self = this;
                 Alert.show(1, "收回", displayInfo, function(){
                     self.afterBacking(materialCode, materialClass);
+                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "takeback", materialInfo[1], "na", 0, G.user.coins);
                 });
             }
             else {
@@ -75,15 +79,17 @@ cc.Class({
                     console.log("owned, can not used");
                     var displayInfo = "你已使用同类物品，请收回后再使用该物品。";
                     //var self = this;
-                    Alert.show(1, "提示", displayInfo, null, false);
+                    Alert.show(1, "提示", displayInfo, function(){
+                        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "refuseusing", materialInfo[1], "na", 0, G.user.coins);
+                    }, false);
                 }
                 else {
                     console.log("owned, can use, but not used");
                     var displayInfo = "你要花费20金币使用" + materialInfo[1]  + "吗？";
                     var self = this;
                     Alert.show(1, "使用", displayInfo, function(){
-                        self.afterUsing(materialCode, materialClass);
-                    })
+                        self.afterUsing(materialCode, materialInfo[1], materialClass);    
+                    });
                 }
             }
         }
@@ -93,6 +99,7 @@ cc.Class({
             var self = this;
             Alert.show(1, "购买", displayInfo, function(){
                 self.afterBuying(materialCost, materialCode);
+                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "buy", materialInfo[1], "penalty", materialCost, G.user.coins);
             });
         }
     },
@@ -106,17 +113,19 @@ cc.Class({
         console.log("购买确定按钮被点击!");
         this.coinAnimation();
         var player = cc.find('player').getComponent('Player');
-        player.coinsOwned = player.coinsOwned - cost;
+        player.updateCoins(cost*(-1));
+        //player.coinsOwned = player.coinsOwned - cost;
         player.materialOwned.add(code);
         this.coinLabel.string = player.coinsOwned.toString();
 
         this.setMaterialOwned(code);
     },
 
-    afterUsing: function(code, mClass) {
+    afterUsing: function(code, material, mClass) {
         var player = cc.find('player').getComponent('Player');
         this.coinAnimation();
-        player.coinsOwned = player.coinsOwned - 20;
+        //player.coinsOwned = player.coinsOwned - 20;
+        player.updateCoins(-20);
         this.coinLabel.string = player.coinsOwned.toString();
 
         if (mClass == 'a') {
@@ -130,16 +139,19 @@ cc.Class({
                 this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
                 this.hintLabel.string = "请继续挑选使用合适的溶质";
                 this.progressBar.progress += 0.5;
+                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "use", material, "penalty", 20, G.user.coins); 
             }
             else {
                 this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
                 this.hintLabel.string = "此仪器不符合要求，试试其他的吧";
+                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 20, G.user.coins); 
             }
         }
 
         if (mClass == 'c') {
             if (player.materialUsed.has(1)) {
                 if (code == 4) {
+                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "use", material, "penalty", 20, G.user.coins); 
                     this.setMaterialUsed(code);
                     player.materialUsed.add(code);
                     player.materialUsedClass.add(mClass);
@@ -148,12 +160,16 @@ cc.Class({
                     this.progressBar.progress += 0.5;
                     this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
                     this.hintLabel.string = "做的好，扩散实验完成";
-                    player.coinsOwned = player.coinsOwned + 250;
+                    //player.coinsOwned = player.coinsOwned + 250;
+                    player.updateCoins(250);
                     this.coinLabel.string = player.coinsOwned.toString();
+                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "finish", "na", "reward", 250, G.user.coins);
+                    
                 }
                 else {
                     this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
                     this.hintLabel.string = "此材料不符合要求，试试其他的吧";
+                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 20, G.user.coins); 
                 }
             }
             else {
@@ -165,6 +181,7 @@ cc.Class({
         if (mClass == 'b') {
             this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
             this.hintLabel.string = "该实验不需要此材料";
+            insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 20, G.user.coins); 
         }
     },
 
@@ -220,6 +237,7 @@ cc.Class({
         var player = cc.find('player').getComponent('Player');
         player.materialUsed.clear(); 
         player.materialUsedClass.clear();
+        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "reset", "na", "na", 0, G.user.coins);
     },
 
     start () {

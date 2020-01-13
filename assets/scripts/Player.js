@@ -23,8 +23,12 @@ cc.Class({
     start () {
 
     },
-    /*
-    update: function (dt) {
 
+    updateCoins: function(change){
+        this.coinsOwned = this.coinsOwned + change;
+        G.user.coins = this.coinsOwned;
+    },
+    /*
+    update: function () {   
     },*/
 });
