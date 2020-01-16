@@ -7,8 +7,6 @@ cc.Class({
             type: cc.Button
         },
 
-        //player: cc.Node,
-
         textLabel: cc.Label,
     },
 
@@ -19,6 +17,11 @@ cc.Class({
         
         G.globalSocket.on('connect', function(){
             console.log('You have been connected');
+        });
+
+        G.globalSocket.on('connect_error', function(){
+            console.log('connect_error');
+            Alert.show(1, "网络错误", "后台服务器已关闭，请联系管理员", null, false);
         });
 
         G.globalSocket.on('disconnect', function(){

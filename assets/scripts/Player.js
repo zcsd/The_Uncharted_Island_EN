@@ -27,6 +27,7 @@ cc.Class({
     updateCoins: function(change){
         this.coinsOwned = this.coinsOwned + change;
         G.user.coins = this.coinsOwned;
+        G.globalSocket.emit("updateCoins", {username: G.user.username, coins: G.user.coins});
     },
     /*
     update: function () {   

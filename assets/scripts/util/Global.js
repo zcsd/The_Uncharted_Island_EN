@@ -10,7 +10,7 @@ window.insertNewAction = function(socket, username, sequenceID, stage, actionTyp
     var activity = {username: username, sequenceID: sequenceID, stage: stage, actionType: actionType,
                     operatedItem: operatedItem, rewardType: rewardType, rewardQty: rewardQty, totalCoins: totalCoins};
    
-    console.log(activity);
+    //console.log(activity);
     socket.emit("newAction", activity);
     G.sequenceCnt = sequenceID + 1;
 };
