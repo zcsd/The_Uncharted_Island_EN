@@ -160,6 +160,7 @@ cc.Class({
                     this.progressBar.progress += 0.5;
                     this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
                     this.hintLabel.string = "做的好，扩散实验完成";
+                    G.isDiffDone = true;
                     //player.coinsOwned = player.coinsOwned + 250;
                     player.updateCoins(250);
                     this.coinLabel.string = player.coinsOwned.toString();

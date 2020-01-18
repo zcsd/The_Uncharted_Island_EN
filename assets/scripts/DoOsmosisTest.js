@@ -178,6 +178,7 @@ cc.Class({
                     this.progressBar.progress = 1.0;
                     this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
                     this.hintLabel.string = "做的好，渗透实验完成";
+                    GainNode.isOsmoDone = true;
                     player.coinsOwned = player.coinsOwned + 250;
                     this.coinLabel.string = player.coinsOwned.toString();
                 }

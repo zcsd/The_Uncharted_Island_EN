@@ -67,6 +67,7 @@ cc.Class({
 
         G.globalSocket.on('login', function(msg) {
             if (msg == 'new') { // no userinfo detected
+                G.isNewUser = true;
                 cc.director.loadScene('SetAvatar');
             }else if (msg == 'multiple') {
                 // imposssible condition
@@ -79,6 +80,7 @@ cc.Class({
                 cc.find("Canvas/usernameEditBox").getComponent(cc.EditBox).focus();
             }else { // one userinfor detected
                 console.log("user existed.");
+                G.isNewPlayer = false;
                 G.user.username = msg.username;
                 G.user.nickname = msg.nickname;
                 G.user.sex = msg.sex;

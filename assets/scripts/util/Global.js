@@ -1,7 +1,11 @@
 window.G = {
     globalSocket: null,
     user: null,
-    sequenceCnt: 0
+    sequenceCnt: 0,
+    isNewUser: false,
+    isDiffDone: false,
+    isOsmoDone: false,
+    isBanaDone: false
 }
 
 window.insertNewAction = function(socket, username, sequenceID, stage, actionType,
