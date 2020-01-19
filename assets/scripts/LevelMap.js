@@ -62,15 +62,27 @@ cc.Class({
     levelAnimation: function () {
         var levelNode = null;
         if(!G.isDiffDone){
-            levelNode = cc.find("Canvas/diffButton/Background");
+            levelNode = "Canvas/diffButton/Background";
+            console.log("diff");
         }else if (!G.isOsmoDone){
-            levelNode = cc.find("Canvas/osButton/Background");
+            cc.find("Canvas/diffButton/done").active = true;
+            levelNode = "Canvas/osButton/Background";
+            console.log("osmo");
         }else if(!G.isBanaDone){
-            levelNode = cc.find("Canvas/bananaButton/Background");
+            cc.find("Canvas/diffButton/done").active = true;
+            cc.find("Canvas/osButton/done").active = true;
+            levelNode = "Canvas/bananaButton/Background";
+        }else{
+            cc.find("Canvas/diffButton/done").active = true;
+            cc.find("Canvas/osButton/done").active = true;
+            cc.find("Canvas/bananaButton/done").active = true;
         }
         
         var seq = cc.repeatForever(cc.sequence(cc.scaleTo(1, 0.9), cc.scaleTo(1, 1)));
-        levelNode.runAction(seq);
+        cc.find(levelNode).runAction(seq);
+
+        var sunSeq = cc.repeatForever(cc.sequence(cc.moveBy(2, cc.v2(-8, -3)), cc.moveBy(2, cc.v2(8, 3))));
+        cc.find("Canvas/cloudsSunBg").runAction(sunSeq);
     },
 
     goToDiffScene: function () {
