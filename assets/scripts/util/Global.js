@@ -5,7 +5,8 @@ window.G = {
     isNewUser: false,
     isDiffDone: false,
     isOsmoDone: false,
-    isBanaDone: false
+    isBanaDone: false,
+    isQuizOpen: false,
 }
 
 window.insertNewAction = function(socket, username, sequenceID, stage, actionType,

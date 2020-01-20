@@ -29,10 +29,10 @@ cc.Class({
         this.coinLabel.string = player.coinsOwned.toString();
 
         if (player.coinsOwned > 151) {
-            cc.find('Canvas/quizButton').getComponent(cc.Button).interactable = false;
+            G.isQuizOpen = false;
         }
         else {
-            cc.find('Canvas/quizButton').getComponent(cc.Button).interactable = true;
+            G.isQuizOpen = true;
         }
 
         var self = this;
@@ -78,11 +78,20 @@ cc.Class({
             cc.find("Canvas/bananaButton/done").active = true;
         }
         
-        var seq = cc.repeatForever(cc.sequence(cc.scaleTo(1, 0.9), cc.scaleTo(1, 1)));
+        var seq = cc.repeatForever(cc.sequence(cc.scaleTo(1.5, 0.9), cc.scaleTo(1.5, 0.95)));
         cc.find(levelNode).runAction(seq);
 
         var sunSeq = cc.repeatForever(cc.sequence(cc.moveBy(2, cc.v2(-8, -3)), cc.moveBy(2, cc.v2(8, 3))));
         cc.find("Canvas/cloudsSunBg").runAction(sunSeq);
+
+        var quizSeq = cc.repeatForever(cc.sequence(cc.scaleTo(1.5, 0.85), cc.scaleTo(1.5, 0.95)));
+
+        if(G.isQuizOpen){
+            cc.find('Canvas/quizButton').getComponent(cc.Button).interactable = true;
+            cc.find('Canvas/quizButton').runAction(quizSeq);
+        }else{
+            cc.find('Canvas/quizButton').getComponent(cc.Button).interactable = false;
+        }
     },
 
     goToDiffScene: function () {

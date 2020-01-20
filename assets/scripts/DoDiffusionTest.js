@@ -40,8 +40,8 @@ cc.Class({
         //socket, username, sequenceID, stage, actionType, operatedItem, rewardType, rewardQty, totalCoins
         insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "init", "na", "na", 0, G.user.coins);
         
-        var introduction = "扩散作用是指物质（固体，液体，气体）分子从高浓度区域向低浓度区域转移的现象，直到物体内各部分的密度相间为止，主要由于浓度差或温度差所引起。"
-        Alert.show(2, "扩散作用", introduction, function(){
+        var introduction = "欢迎来到扩散实验室！接下来请用U型管完成一个液体扩散实验，完成实验将有丰厚金币奖励。购买、使用材料均需花费金币，考虑后再做选择哦。";
+        Alert.show(1.6, "扩散实验", introduction, function(){
             insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "read", "introduction", "na", 0, G.user.coins);
         }, false);
         this.progressBar.progress = 0;
