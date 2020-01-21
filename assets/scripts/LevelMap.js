@@ -63,11 +63,9 @@ cc.Class({
         var levelNode = null;
         if(!G.isDiffDone){
             levelNode = "Canvas/diffButton/Background";
-            console.log("diff");
         }else if (!G.isOsmoDone){
             cc.find("Canvas/diffButton/done").active = true;
             levelNode = "Canvas/osButton/Background";
-            console.log("osmo");
         }else if(!G.isBanaDone){
             cc.find("Canvas/diffButton/done").active = true;
             cc.find("Canvas/osButton/done").active = true;

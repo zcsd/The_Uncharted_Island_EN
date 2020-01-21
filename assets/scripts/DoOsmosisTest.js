@@ -51,6 +51,8 @@ cc.Class({
         Alert.show(2, "渗透作用", introduction, null, false);
 
         this.progressBar.progress = 0;
+        this.hintLabel.node.color = new cc.color(83,111, 122, 255);
+        this.hintLabel.string = "请购买使用合适的仪器和溶质";
         this.checkMaterial();
     },
 

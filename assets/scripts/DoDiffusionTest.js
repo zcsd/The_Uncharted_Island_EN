@@ -45,7 +45,7 @@ cc.Class({
             insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "read", "introduction", "na", 0, G.user.coins);
         }, false);
         this.progressBar.progress = 0;
-        this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
+        this.hintLabel.node.color = new cc.color(83,111, 122, 255);
         this.hintLabel.string = "请购买使用合适的仪器和溶质";
         this.checkMaterial();
     },
