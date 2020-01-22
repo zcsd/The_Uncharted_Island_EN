@@ -113,7 +113,7 @@ cc.Class({
 
     afterBuying: function(cost, code) {
         console.log("购买确定按钮被点击!");
-        this.coinAnimation();
+        this.coinAnimation(-1);
         var player = cc.find('player').getComponent('Player');
         player.updateCoins(cost*(-1));
         //player.coinsOwned = player.coinsOwned - cost;
@@ -125,7 +125,7 @@ cc.Class({
 
     afterUsing: function(code, material, mClass) {
         var player = cc.find('player').getComponent('Player');
-        this.coinAnimation();
+        this.coinAnimation(-1);
         //player.coinsOwned = player.coinsOwned - 20;
         player.updateCoins(-20);
         this.coinLabel.string = player.coinsOwned.toString();
@@ -164,6 +164,7 @@ cc.Class({
                     this.hintLabel.string = "做的好，扩散实验完成";
                     G.isDiffDone = true;
                     //player.coinsOwned = player.coinsOwned + 250;
+                    this.coinAnimation(1);
                     player.updateCoins(250);
                     this.coinLabel.string = player.coinsOwned.toString();
                     insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "finish", "na", "reward", 250, G.user.coins);
@@ -230,10 +231,24 @@ cc.Class({
         isOwnedNode.getComponent(cc.Sprite).setState(1);
     },
 
-    coinAnimation: function () {
-        var coinNode = cc.find("Canvas/coin");
-        var seq = cc.sequence(cc.scaleTo(0.3, 0.7), cc.scaleTo(0.3, 1), cc.scaleTo(0.3, 0.7), cc.scaleTo(0.3, 1) );
-        coinNode.runAction(seq);
+    coinAnimation: function (type) {
+        //var coinNode = cc.find("Canvas/coin");
+        //var seq = cc.sequence(cc.scaleTo(0.3, 0.7), cc.scaleTo(0.3, 1), cc.scaleTo(0.3, 0.7), cc.scaleTo(0.3, 1) );
+        //coinNode.runAction(seq);
+        cc.find("Canvas/coin").active = false;
+        if(type == 1){
+            cc.find("Canvas/coinRotate").active = true;
+            var coinRotComponent = this.coinRotate.getComponent(cc.Animation);
+            coinRotComponent.on('finished', function(){cc.find("Canvas/coinRotate").active = false;}, this);
+            coinRotComponent.on('finished', function(){cc.find("Canvas/coin").active = true;}, this);
+            coinRotComponent.play("coinRotAni");
+        }else{
+            cc.find("Canvas/coinShine").active = true;
+            var coinShnComponent = this.coinShine.getComponent(cc.Animation);
+            coinShnComponent.on('finished', function(){cc.find("Canvas/coinShine").active = false;}, this);
+            coinShnComponent.on('finished', function(){cc.find("Canvas/coin").active = true;}, this);
+            coinShnComponent.play("coinShineAni");
+        }
     },
 
     resetScene: function () {
