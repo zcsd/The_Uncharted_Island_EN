@@ -1,0 +1,34 @@
+{
+  "ver": "2.3.3",
+  "uuid": "5b928184-85d4-44bc-9ef6-abfe77cec217",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "platformSettings": {},
+  "subMetas": {
+    "star coin rotate 4": {
+      "ver": "1.0.4",
+      "uuid": "2d8a1b11-375e-4a79-8e1b-563530c177eb",
+      "rawTextureUuid": "5b928184-85d4-44bc-9ef6-abfe77cec217",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 9,
+      "height": 60,
+      "rawWidth": 9,
+      "rawHeight": 60,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

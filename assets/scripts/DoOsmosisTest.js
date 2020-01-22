@@ -48,7 +48,7 @@ cc.Class({
             self.avatarSprite.spriteFrame = spriteFrame;
         });
         var introduction = "渗透作用是指两种不同浓度的溶液隔以半透膜（允许溶剂分子通过，不允许溶质分子通过的膜），水分子或其它溶剂分子从低浓度的溶液通过半透膜进入高浓度溶液中的现象。"
-        Alert.show(2, "渗透作用", introduction, null, false);
+        Alert.show(1.6, "渗透实验", introduction, null, false);
 
         this.progressBar.progress = 0;
         this.hintLabel.node.color = new cc.color(83,111, 122, 255);

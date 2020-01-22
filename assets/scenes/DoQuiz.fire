@@ -207,7 +207,7 @@
       "array": [
         0,
         0,
-        458.9934640057525,
+        505.7588358101122,
         0,
         0,
         0,
@@ -574,7 +574,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 233.31,
-      "height": 57.96
+      "height": 63
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -627,7 +627,7 @@
     "_string": "昵称abc      ",
     "_N$string": "昵称abc      ",
     "_fontSize": 42,
-    "_lineHeight": 46,
+    "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
@@ -668,18 +668,18 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 121.8,
-      "height": 57.96
+      "height": 63
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
+      "x": 0,
       "y": 0.5
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -173,
+        -247,
         298,
         0,
         0,
@@ -721,7 +721,7 @@
     "_string": "200  ",
     "_N$string": "200  ",
     "_fontSize": 42,
-    "_lineHeight": 46,
+    "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
@@ -761,8 +761,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 55,
-      "height": 63
+      "width": 60,
+      "height": 60
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -773,8 +773,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -263,
-        294,
+        -280,
+        297,
         0,
         0,
         0,
@@ -814,7 +814,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "0c5e4bbc-887a-4564-ae8d-25399d1a6b58"
+      "__uuid__": "6bf2eb03-2803-416a-99fa-bdec83d38358"
     },
     "_type": 0,
     "_sizeMode": 0,

@@ -21,8 +21,10 @@ cc.Class({
         diffusion: {
             default: null,
             type: cc.Node
-        }
+        },
 
+        coinRotate: cc.Node,
+        coinShine: cc.Node
     },
 
     // LIFE-CYCLE CALLBACKS:

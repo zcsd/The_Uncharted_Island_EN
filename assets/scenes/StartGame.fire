@@ -268,7 +268,7 @@
       "array": [
         0,
         0,
-        505.8129623978487,
+        505.7588358101122,
         0,
         0,
         0,
@@ -439,15 +439,15 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 66,
-      "g": 151,
-      "b": 39,
+      "r": 82,
+      "g": 131,
+      "b": 66,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 280,
-      "height": 95.76
+      "width": 300,
+      "height": 107.1
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -499,8 +499,8 @@
     "_useOriginalSize": false,
     "_string": "无尽之岛",
     "_N$string": "无尽之岛",
-    "_fontSize": 70,
-    "_lineHeight": 76,
+    "_fontSize": 75,
+    "_lineHeight": 85,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
@@ -1095,7 +1095,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -273,
+        -272,
         40,
         0,
         0,
@@ -1189,7 +1189,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -273,
+        -270,
         40,
         0,
         0,
@@ -1417,9 +1417,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 49,
-      "g": 48,
-      "b": 48,
+      "r": 83,
+      "g": 111,
+      "b": 122,
       "a": 255
     },
     "_contentSize": {

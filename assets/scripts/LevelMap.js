@@ -46,7 +46,7 @@ cc.Class({
         
         if(G.isNewUser){
             console.log("fsdfsdf");
-            Alert.show(1.5, "欢迎来到无尽之岛", "无尽之岛包含三个关卡，请从扩散实验开始玩起，赚取你的金币吧。如金币不够，可以做测验得金币哦。", null, false);
+            Alert.show(1.5, "欢迎来到无尽之岛", "无尽之岛包含三个关卡，请从扩散实验开始玩起，赚取你的金币吧，点击关卡图标开启游戏。如金币不够，可以做测验得金币哦。", null, false);
         }
         
         //socket, username, sequenceID, stage, actionType, operatedItem, rewardType, rewardQty, totalCoins
@@ -76,13 +76,13 @@ cc.Class({
             cc.find("Canvas/bananaButton/done").active = true;
         }
         
-        var seq = cc.repeatForever(cc.sequence(cc.scaleTo(1.5, 0.9), cc.scaleTo(1.5, 0.95)));
+        var seq = cc.repeatForever(cc.sequence(cc.scaleTo(1.3, 0.9), cc.scaleTo(1.3, 0.95)));
         cc.find(levelNode).runAction(seq);
 
-        var sunSeq = cc.repeatForever(cc.sequence(cc.moveBy(2, cc.v2(-8, -3)), cc.moveBy(2, cc.v2(8, 3))));
+        var sunSeq = cc.repeatForever(cc.sequence(cc.moveBy(2, cc.v2(-8, -4)), cc.moveBy(2, cc.v2(8, 4))));
         cc.find("Canvas/cloudsSunBg").runAction(sunSeq);
 
-        var quizSeq = cc.repeatForever(cc.sequence(cc.scaleTo(1.5, 0.85), cc.scaleTo(1.5, 0.95)));
+        var quizSeq = cc.repeatForever(cc.sequence(cc.scaleTo(1.4, 0.85), cc.scaleTo(1.4, 0.95)));
 
         if(G.isQuizOpen){
             cc.find('Canvas/quizButton').getComponent(cc.Button).interactable = true;
