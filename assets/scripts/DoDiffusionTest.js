@@ -118,7 +118,7 @@ cc.Class({
         player.updateCoins(cost*(-1));
         //player.coinsOwned = player.coinsOwned - cost;
         player.materialOwned.add(code);
-        this.coinLabel.string = player.coinsOwned.toString();
+        //this.coinLabel.string = player.coinsOwned.toString();
 
         this.setMaterialOwned(code);
     },
@@ -128,7 +128,7 @@ cc.Class({
         this.coinAnimation(-1);
         //player.coinsOwned = player.coinsOwned - 20;
         player.updateCoins(-20);
-        this.coinLabel.string = player.coinsOwned.toString();
+        //this.coinLabel.string = player.coinsOwned.toString();
 
         if (mClass == 'a') {
             if (code == 1) {
@@ -157,18 +157,20 @@ cc.Class({
                     this.setMaterialUsed(code);
                     player.materialUsed.add(code);
                     player.materialUsedClass.add(mClass);
-                    var animationComponent = this.diffusion.getComponent(cc.Animation);
-                    animationComponent.play("uDiffAni");
                     this.progressBar.progress += 0.5;
-                    this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
-                    this.hintLabel.string = "做的好，扩散实验完成";
-                    G.isDiffDone = true;
-                    //player.coinsOwned = player.coinsOwned + 250;
-                    this.coinAnimation(1);
-                    player.updateCoins(250);
-                    this.coinLabel.string = player.coinsOwned.toString();
-                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "finish", "na", "reward", 250, G.user.coins);
                     
+                    var diffAniComponent = this.diffusion.getComponent(cc.Animation);
+                    diffAniComponent.on('finished', function() {
+                        var self = this;
+                        player.updateCoins(250);
+                        G.isDiffDone = true;
+                        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "finish", "na", "reward", 250, G.user.coins);
+                        Alert.show(1, "实验完成", "做得好,你已经完成扩散实验,请点击确定获取你的奖励250金币吧！", function(){
+                            self.coinAnimation(1);
+                        }, false);
+                    }, this);
+
+                    diffAniComponent.play("uDiffAni");
                 }
                 else {
                     this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
@@ -232,21 +234,24 @@ cc.Class({
     },
 
     coinAnimation: function (type) {
-        //var coinNode = cc.find("Canvas/coin");
-        //var seq = cc.sequence(cc.scaleTo(0.3, 0.7), cc.scaleTo(0.3, 1), cc.scaleTo(0.3, 0.7), cc.scaleTo(0.3, 1) );
-        //coinNode.runAction(seq);
         cc.find("Canvas/coin").active = false;
         if(type == 1){
             cc.find("Canvas/coinRotate").active = true;
             var coinRotComponent = this.coinRotate.getComponent(cc.Animation);
-            coinRotComponent.on('finished', function(){cc.find("Canvas/coinRotate").active = false;}, this);
-            coinRotComponent.on('finished', function(){cc.find("Canvas/coin").active = true;}, this);
+            coinRotComponent.on('finished', function(){
+                cc.find("Canvas/coinRotate").active = false;
+                cc.find("Canvas/coin").active = true;
+                this.coinLabel.string = G.user.coins.toString();
+            }, this);
             coinRotComponent.play("coinRotAni");
         }else{
             cc.find("Canvas/coinShine").active = true;
             var coinShnComponent = this.coinShine.getComponent(cc.Animation);
-            coinShnComponent.on('finished', function(){cc.find("Canvas/coinShine").active = false;}, this);
-            coinShnComponent.on('finished', function(){cc.find("Canvas/coin").active = true;}, this);
+            coinShnComponent.on('finished', function(){
+                cc.find("Canvas/coinShine").active = false;
+                cc.find("Canvas/coin").active = true;
+                this.coinLabel.string = G.user.coins.toString();
+            }, this);
             coinShnComponent.play("coinShineAni");
         }
     },
