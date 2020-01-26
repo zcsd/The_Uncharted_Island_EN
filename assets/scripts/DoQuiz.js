@@ -15,26 +15,20 @@ cc.Class({
         },
 
         hintLabel: cc.Label,
-
         userAnswerChoice: 0, // user choice
-
         questionLabel: cc.Label,
-
         option1Label: cc.Label,
-
         option2Label: cc.Label,
-
         option3Label: cc.Label,
-
         option4Label: cc.Label,
-
         currentOrder: 1,
-
         answerToggleContainer: cc.ToggleContainer,
-
         mcqData: cc.JsonAsset,
-
         currentAnswerChoice: 1, // correct choice
+
+        coinRotate: cc.Node,
+        coinShine: cc.Node,
+        coinBlink: cc.Node
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -43,6 +37,9 @@ cc.Class({
         var player = cc.find('player').getComponent('Player');
         this.nameLabel.string = player.nickName;
         this.coinLabel.string = player.coinsOwned.toString();
+
+        //socket, username, sequenceID, stage, actionType, operatedItem, rewardType, rewardQty, totalCoins
+        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "quiz", "init", "na", "na", 0, G.user.coins);
 
         this.hintLabel.string = '';
 
@@ -62,11 +59,13 @@ cc.Class({
             }
         });
 
+        var introduction = "欢迎来到答题赢金币！请开始做你的小测验吧，答对题目有奖励哦。";
+        Alert.show(1.2, "答题赢金币", introduction, function(){
+            self.coinAnimation(0);
+        }, false);
     },
 
-    start () {
-
-    },
+    //start () {},
 
     loadMCQ: function (order) {
         this.questionLabel.string = this.mcqData.json[order].question;
@@ -89,9 +88,9 @@ cc.Class({
         if (this.userAnswerChoice == this.mcqData.json[this.currentOrder].answerOrder) {
             //console.log("答对了");
             this.hintLabel.string = this.mcqData.json[this.currentOrder].correctHint;
-            this.coinAnimation();
-            player.coinsOwned += 50;
-            this.coinLabel.string = player.coinsOwned.toString();
+            this.coinAnimation(1);
+            player.updateCoins(50);
+            //this.coinLabel.string = player.coinsOwned.toString();
             cc.find("Canvas/submitButton").getComponent(cc.Button).interactable = false;
         }
         else if (this.userAnswerChoice == 0) {
@@ -103,12 +102,6 @@ cc.Class({
         }
     },
 
-    coinAnimation: function () {
-        var coinNode = cc.find("Canvas/coin");
-        var seq = cc.sequence(cc.scaleTo(0.3, 0.7), cc.scaleTo(0.3, 1), cc.scaleTo(0.3, 0.7), cc.scaleTo(0.3, 1) );
-        coinNode.runAction(seq);
-    },
-
     goToNextQuestion: function () {
         this.hintLabel.string = '';
         this.currentOrder += 1;
@@ -118,6 +111,37 @@ cc.Class({
 
     changeAnswer: function (event, customEventData) {
         this.userAnswerChoice = event.node._name.replace('toggle', '');
+    },
+
+    coinAnimation: function (type) {
+        cc.find("Canvas/coin").active = false;
+        if(type == 1){
+            cc.find("Canvas/coinRotate").active = true;
+            var coinRotComponent = this.coinRotate.getComponent(cc.Animation);
+            coinRotComponent.on('finished', function(){
+                cc.find("Canvas/coinRotate").active = false;
+                cc.find("Canvas/coin").active = true;
+                this.coinLabel.string = G.user.coins.toString();
+            }, this);
+            coinRotComponent.play("coinRotAni");
+        }else if(type == -1){
+            cc.find("Canvas/coinShine").active = true;
+            var coinShnComponent = this.coinShine.getComponent(cc.Animation);
+            coinShnComponent.on('finished', function(){
+                cc.find("Canvas/coinShine").active = false;
+                cc.find("Canvas/coin").active = true;
+                this.coinLabel.string = G.user.coins.toString();
+            }, this);
+            coinShnComponent.play("coinShineAni");
+        }else if(type == 0){
+            cc.find("Canvas/coinBlink").active = true;
+            var coinBlkComponent = this.coinBlink.getComponent(cc.Animation);
+            coinBlkComponent.on('finished', function(){
+                cc.find("Canvas/coinBlink").active = false;
+                cc.find("Canvas/coin").active = true;
+            }, this);
+            coinBlkComponent.play("coinBlkAni");
+        }
     },
 
     backToMapScene: function () {

@@ -3,8 +3,8 @@
   "_name": "coinBlkAni",
   "_objFlags": 0,
   "_native": "",
-  "_duration": 1.55,
-  "sample": 20,
+  "_duration": 2.5833333333333335,
+  "sample": 12,
   "speed": 1,
   "wrapMode": 1,
   "curveData": {
@@ -18,25 +18,13 @@
             }
           },
           {
-            "frame": 0.25,
+            "frame": 0.4166666666666667,
             "value": {
               "__uuid__": "7b5330ef-bc8a-4a95-8619-317d4742b7ab"
             }
           },
           {
-            "frame": 0.5,
-            "value": {
-              "__uuid__": "b9147314-f80d-4076-8d00-d0c1394b575c"
-            }
-          },
-          {
-            "frame": 0.75,
-            "value": {
-              "__uuid__": "7b5330ef-bc8a-4a95-8619-317d4742b7ab"
-            }
-          },
-          {
-            "frame": 1.05,
+            "frame": 0.8333333333333334,
             "value": {
               "__uuid__": "b9147314-f80d-4076-8d00-d0c1394b575c"
             }
@@ -48,7 +36,19 @@
             }
           },
           {
-            "frame": 1.5,
+            "frame": 1.75,
+            "value": {
+              "__uuid__": "b9147314-f80d-4076-8d00-d0c1394b575c"
+            }
+          },
+          {
+            "frame": 2.0833333333333335,
+            "value": {
+              "__uuid__": "7b5330ef-bc8a-4a95-8619-317d4742b7ab"
+            }
+          },
+          {
+            "frame": 2.5,
             "value": {
               "__uuid__": "b9147314-f80d-4076-8d00-d0c1394b575c"
             }

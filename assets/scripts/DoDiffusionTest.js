@@ -44,7 +44,7 @@ cc.Class({
         insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "init", "na", "na", 0, G.user.coins);
         
         var introduction = "欢迎来到扩散实验室！接下来请用U型管完成一个液体扩散实验，完成实验将有丰厚金币奖励。购买、使用材料均需花费金币，考虑后再做选择哦。";
-        Alert.show(1.6, "扩散实验", introduction, function(){
+        Alert.show(1.4, "扩散实验", introduction, function(){
             self.coinAnimation(0);
             insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "read", "introduction", "na", 0, G.user.coins);
         }, false);

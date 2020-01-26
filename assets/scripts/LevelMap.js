@@ -46,7 +46,7 @@ cc.Class({
         
         if(G.isNewUser){
             console.log("fsdfsdf");
-            Alert.show(1.5, "欢迎来到无尽之岛", "无尽之岛包含三个关卡，请从扩散实验开始玩起，赚取你的金币吧，点击关卡图标开启游戏。如金币不够，可以做测验得金币哦。", null, false);
+            Alert.show(1.4, "欢迎来到无尽之岛", "无尽之岛包含三个关卡，请从扩散实验开始玩起，赚取你的金币吧，点击关卡图标开启游戏。如金币不够，可以做测验得金币哦。", null, false);
         }
         
         //socket, username, sequenceID, stage, actionType, operatedItem, rewardType, rewardQty, totalCoins

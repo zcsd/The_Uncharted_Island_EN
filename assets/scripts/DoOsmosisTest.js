@@ -56,7 +56,7 @@ cc.Class({
         insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "init", "na", "na", 0, G.user.coins);
         
         var introduction = "欢迎来到渗透实验室！接下来请用大烧杯完成一个渗透实验，完成实验将有丰厚金币奖励。购买、使用材料均需花费金币，考虑后再做选择哦。";
-        Alert.show(1.6, "渗透实验", introduction, function(){
+        Alert.show(1.4, "渗透实验", introduction, function(){
             self.coinAnimation(0);
             insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "read", "introduction", "na", 0, G.user.coins);
         }, false);
