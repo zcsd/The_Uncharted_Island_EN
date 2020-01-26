@@ -24,7 +24,8 @@ cc.Class({
         },
 
         coinRotate: cc.Node,
-        coinShine: cc.Node
+        coinShine: cc.Node,
+        coinBlink: cc.Node
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -44,6 +45,7 @@ cc.Class({
         
         var introduction = "欢迎来到扩散实验室！接下来请用U型管完成一个液体扩散实验，完成实验将有丰厚金币奖励。购买、使用材料均需花费金币，考虑后再做选择哦。";
         Alert.show(1.6, "扩散实验", introduction, function(){
+            self.coinAnimation(0);
             insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "read", "introduction", "na", 0, G.user.coins);
         }, false);
         this.progressBar.progress = 0;
@@ -54,9 +56,9 @@ cc.Class({
 
     backToMapScene: function () {
         this.resetScene();
-        cc.director.loadScene("LevelMap");
         insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "back", "na", "na", 0, G.user.coins);
-    },
+		 cc.director.loadScene("LevelMap");
+	},
 
     readyToBuyMaterial: function (event, customEventData) {
         var materialInfo = customEventData.split("_", 4);
@@ -244,7 +246,7 @@ cc.Class({
                 this.coinLabel.string = G.user.coins.toString();
             }, this);
             coinRotComponent.play("coinRotAni");
-        }else{
+        }else if(type == -1){
             cc.find("Canvas/coinShine").active = true;
             var coinShnComponent = this.coinShine.getComponent(cc.Animation);
             coinShnComponent.on('finished', function(){
@@ -253,6 +255,14 @@ cc.Class({
                 this.coinLabel.string = G.user.coins.toString();
             }, this);
             coinShnComponent.play("coinShineAni");
+        }else if(type == 0){
+            cc.find("Canvas/coinBlink").active = true;
+            var coinBlkComponent = this.coinBlink.getComponent(cc.Animation);
+            coinBlkComponent.on('finished', function(){
+                cc.find("Canvas/coinBlink").active = false;
+                cc.find("Canvas/coin").active = true;
+            }, this);
+            coinBlkComponent.play("coinBlkAni");
         }
     },
 
@@ -263,9 +273,7 @@ cc.Class({
         insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "reset", "na", "na", 0, G.user.coins);
     },
 
-    start () {
-
-    },
+    //start () {},
 
     // update (dt) {},
 });
