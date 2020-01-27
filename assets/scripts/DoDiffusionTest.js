@@ -25,7 +25,10 @@ cc.Class({
 
         coinRotate: cc.Node,
         coinShine: cc.Node,
-        coinBlink: cc.Node
+        coinBlink: cc.Node,
+
+        isShowCongra: false,
+        showCount: 0
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -159,10 +162,10 @@ cc.Class({
                     this.setMaterialUsed(code);
                     player.materialUsed.add(code);
                     player.materialUsedClass.add(mClass);
-                    this.progressBar.progress += 0.5;
                     
                     var diffAniComponent = this.diffusion.getComponent(cc.Animation);
                     diffAniComponent.on('finished', function() {
+                        this.progressBar.progress += 0.5;
                         var self = this;
                         player.updateCoins(250);
                         G.isDiffDone = true;
@@ -244,6 +247,10 @@ cc.Class({
                 cc.find("Canvas/coinRotate").active = false;
                 cc.find("Canvas/coin").active = true;
                 this.coinLabel.string = G.user.coins.toString();
+
+                this.isShowCongra = true;
+                cc.find("Canvas/singleColor").active = true;
+                cc.find("Canvas/congraluation").active = true;
             }, this);
             coinRotComponent.play("coinRotAni");
         }else if(type == -1){
@@ -275,5 +282,14 @@ cc.Class({
 
     //start () {},
 
-    // update (dt) {},
+    update: function () {
+        if (this.showCount >= 180){
+            this.isShowCongra = false;
+            this.showCount = 0;
+            cc.find("Canvas/singleColor").active = false;
+            cc.find("Canvas/congraluation").active = false;
+        }else if (this.showCount < 180 && this.isShowCongra == true) {
+            this.showCount++;
+        }
+    },
 });
