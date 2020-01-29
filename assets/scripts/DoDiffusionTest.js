@@ -28,7 +28,9 @@ cc.Class({
         coinBlink: cc.Node,
 
         isShowCongra: false,
-        showCount: 0
+        showCount: 0,
+
+        isShowQuiz: false
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -254,12 +256,19 @@ cc.Class({
             }, this);
             coinRotComponent.play("coinRotAni");
         }else if(type == -1){
+            console.log("123");
             cc.find("Canvas/coinShine").active = true;
             var coinShnComponent = this.coinShine.getComponent(cc.Animation);
             coinShnComponent.on('finished', function(){
                 cc.find("Canvas/coinShine").active = false;
                 cc.find("Canvas/coin").active = true;
                 this.coinLabel.string = G.user.coins.toString();
+                console.log("456");
+                
+                if(G.user.coins <= 100 && this.isShowQuiz == false){
+                    this.isShowQuiz = true;
+                    console.log("789");
+                }
             }, this);
             coinShnComponent.play("coinShineAni");
         }else if(type == 0){

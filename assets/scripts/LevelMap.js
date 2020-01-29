@@ -76,13 +76,13 @@ cc.Class({
             cc.find("Canvas/bananaButton/done").active = true;
         }
         
-        var seq = cc.repeatForever(cc.sequence(cc.scaleTo(1.3, 0.9), cc.scaleTo(1.3, 0.95)));
+        var seq = cc.repeatForever(cc.sequence(cc.scaleTo(1.3, 0.9), cc.scaleTo(1.3, 1)));
         cc.find(levelNode).runAction(seq);
 
-        var sunSeq = cc.repeatForever(cc.sequence(cc.moveBy(2, cc.v2(-8, -4)), cc.moveBy(2, cc.v2(8, 4))));
+        var sunSeq = cc.repeatForever(cc.sequence(cc.moveBy(2, cc.v2(-9, -5)), cc.moveBy(2, cc.v2(9, 5))));
         cc.find("Canvas/cloudsSunBg").runAction(sunSeq);
 
-        var quizSeq = cc.repeatForever(cc.sequence(cc.scaleTo(1.4, 0.85), cc.scaleTo(1.4, 0.95)));
+        var quizSeq = cc.repeatForever(cc.sequence(cc.scaleTo(1.4, 0.8), cc.scaleTo(1.4, 0.95)));
 
         if(G.isQuizOpen){
             cc.find('Canvas/quizButton').getComponent(cc.Button).interactable = true;
