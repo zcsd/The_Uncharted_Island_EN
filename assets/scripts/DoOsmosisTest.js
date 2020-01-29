@@ -304,6 +304,14 @@ cc.Class({
             }, this);
             coinBlkComponent.play("coinBlkAni");
         }
+
+        if (G.isQuizOpen){
+            var quizSeq = cc.repeatForever(cc.sequence(cc.scaleTo(1.4, 0.8), cc.scaleTo(1.4, 0.95)));
+            cc.find('Canvas/quizButton').getComponent(cc.Button).interactable = true;
+            cc.find('Canvas/quizButton').runAction(quizSeq);
+        }else{
+            cc.find('Canvas/quizButton').getComponent(cc.Button).interactable = false;
+        }
     },
 
     resetScene: function () {
@@ -311,6 +319,10 @@ cc.Class({
         player.materialUsed.clear(); 
         player.materialUsedClass.clear();
         insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "reset", "na", "na", 0, G.user.coins);
+    },
+
+    goToQuizScene: function() {
+        cc.director.loadScene("DoQuiz");
     },
 
     //start () {},

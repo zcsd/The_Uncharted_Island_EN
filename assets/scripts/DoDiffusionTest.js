@@ -29,8 +29,6 @@ cc.Class({
 
         isShowCongra: false,
         showCount: 0,
-
-        isShowQuiz: false
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -256,19 +254,12 @@ cc.Class({
             }, this);
             coinRotComponent.play("coinRotAni");
         }else if(type == -1){
-            console.log("123");
             cc.find("Canvas/coinShine").active = true;
             var coinShnComponent = this.coinShine.getComponent(cc.Animation);
             coinShnComponent.on('finished', function(){
                 cc.find("Canvas/coinShine").active = false;
                 cc.find("Canvas/coin").active = true;
                 this.coinLabel.string = G.user.coins.toString();
-                console.log("456");
-                
-                if(G.user.coins <= 100 && this.isShowQuiz == false){
-                    this.isShowQuiz = true;
-                    console.log("789");
-                }
             }, this);
             coinShnComponent.play("coinShineAni");
         }else if(type == 0){
@@ -280,6 +271,14 @@ cc.Class({
             }, this);
             coinBlkComponent.play("coinBlkAni");
         }
+
+        if (G.isQuizOpen){
+            var quizSeq = cc.repeatForever(cc.sequence(cc.scaleTo(1.4, 0.8), cc.scaleTo(1.4, 0.95)));
+            cc.find('Canvas/quizButton').getComponent(cc.Button).interactable = true;
+            cc.find('Canvas/quizButton').runAction(quizSeq);
+        }else{
+            cc.find('Canvas/quizButton').getComponent(cc.Button).interactable = false;
+        }
     },
 
     resetScene: function () {
@@ -287,6 +286,10 @@ cc.Class({
         player.materialUsed.clear(); 
         player.materialUsedClass.clear();
         insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "reset", "na", "na", 0, G.user.coins);
+    },
+
+    goToQuizScene: function() {
+        cc.director.loadScene("DoQuiz");
     },
 
     //start () {},

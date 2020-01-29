@@ -28,7 +28,7 @@ cc.Class({
         this.nameLabel.string = player.nickName;
         this.coinLabel.string = player.coinsOwned.toString();
 
-        if (player.coinsOwned > 151) {
+        if (G.user.coins > 100) {
             G.isQuizOpen = false;
         }
         else {

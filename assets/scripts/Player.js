@@ -28,6 +28,13 @@ cc.Class({
         this.coinsOwned = this.coinsOwned + change;
         G.user.coins = this.coinsOwned;
         G.globalSocket.emit("updateCoins", {username: G.user.username, coins: G.user.coins});
+    
+        if (G.user.coins > 100) {
+            G.isQuizOpen = false;
+        }
+        else {
+            G.isQuizOpen = true;
+        }
     },
     /*
     update: function () {   
