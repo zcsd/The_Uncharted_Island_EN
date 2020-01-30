@@ -38,7 +38,9 @@ cc.Class({
         coinBlink: cc.Node,
 
         isShowCongra: false,
-        showCount: 0
+        showCount: 0,
+
+        pressAni: cc.Node,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -60,6 +62,7 @@ cc.Class({
         var introduction = "欢迎来到渗透实验室！接下来请用大烧杯完成一个渗透实验，完成实验将有丰厚金币奖励。购买、使用材料均需花费金币，考虑后再做选择哦。";
         Alert.show(1.4, "渗透实验", introduction, function(){
             self.coinAnimation(0);
+            self.pressQuizAnimation();
             insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "read", "introduction", "na", 0, G.user.coins);
         }, false);
 
@@ -293,6 +296,7 @@ cc.Class({
                 cc.find("Canvas/coinShine").active = false;
                 cc.find("Canvas/coin").active = true;
                 this.coinLabel.string = G.user.coins.toString();
+                this.pressQuizAnimation();
             }, this);
             coinShnComponent.play("coinShineAni");
         }else if(type == 0){
@@ -304,16 +308,26 @@ cc.Class({
             }, this);
             coinBlkComponent.play("coinBlkAni");
         }
+    },
 
-        if (G.isQuizOpen){
-            var quizSeq = cc.repeatForever(cc.sequence(cc.scaleTo(1.4, 0.8), cc.scaleTo(1.4, 0.95)));
+    pressQuizAnimation: function(){
+        if(G.isQuizOpen){
+            cc.find("Canvas/quizButton").active = true;
             cc.find('Canvas/quizButton').getComponent(cc.Button).interactable = true;
-            cc.find('Canvas/quizButton').runAction(quizSeq);
+            cc.find("Canvas/pressAni").active = true;
+            var pressQuizComponent = this.pressAni.getComponent(cc.Animation);
+            pressQuizComponent.on('finished', function(){
+                cc.find("Canvas/pressAni").active = false;
+                var quizSeq = cc.repeatForever(cc.sequence(cc.scaleTo(1.4, 0.68), cc.scaleTo(1.4, 0.72)));
+                cc.find('Canvas/quizButton').runAction(quizSeq);
+            }, this);
+            pressQuizComponent.play("pressAni");
         }else{
+            cc.find("Canvas/quizButton").active = false;
             cc.find('Canvas/quizButton').getComponent(cc.Button).interactable = false;
         }
     },
-
+    
     resetScene: function () {
         var player = cc.find('player').getComponent('Player');
         player.materialUsed.clear(); 

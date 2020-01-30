@@ -1,0 +1,85 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "pressAni",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 3.4,
+  "sample": 15,
+  "speed": 0.5,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "7ad537d5-38c4-4779-aabc-c1b0216b556e"
+            }
+          },
+          {
+            "frame": 0.3333333333333333,
+            "value": {
+              "__uuid__": "6b9d97fd-b48c-495e-a8cc-4552ba7da20c"
+            }
+          },
+          {
+            "frame": 0.6666666666666666,
+            "value": {
+              "__uuid__": "7ad537d5-38c4-4779-aabc-c1b0216b556e"
+            }
+          },
+          {
+            "frame": 1,
+            "value": {
+              "__uuid__": "6b9d97fd-b48c-495e-a8cc-4552ba7da20c"
+            }
+          },
+          {
+            "frame": 1.3333333333333333,
+            "value": {
+              "__uuid__": "7ad537d5-38c4-4779-aabc-c1b0216b556e"
+            }
+          },
+          {
+            "frame": 1.6666666666666667,
+            "value": {
+              "__uuid__": "6b9d97fd-b48c-495e-a8cc-4552ba7da20c"
+            }
+          },
+          {
+            "frame": 2,
+            "value": {
+              "__uuid__": "7ad537d5-38c4-4779-aabc-c1b0216b556e"
+            }
+          },
+          {
+            "frame": 2.3333333333333335,
+            "value": {
+              "__uuid__": "6b9d97fd-b48c-495e-a8cc-4552ba7da20c"
+            }
+          },
+          {
+            "frame": 2.6666666666666665,
+            "value": {
+              "__uuid__": "7ad537d5-38c4-4779-aabc-c1b0216b556e"
+            }
+          },
+          {
+            "frame": 3,
+            "value": {
+              "__uuid__": "6b9d97fd-b48c-495e-a8cc-4552ba7da20c"
+            }
+          },
+          {
+            "frame": 3.3333333333333335,
+            "value": {
+              "__uuid__": "7ad537d5-38c4-4779-aabc-c1b0216b556e"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

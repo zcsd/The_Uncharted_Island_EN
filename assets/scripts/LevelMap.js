@@ -19,6 +19,7 @@ cc.Class({
             type: cc.Sprite
         },
 
+        pressAni: cc.Node,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -53,6 +54,7 @@ cc.Class({
         //insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "levelmap", "system", "na", "na", 0, G.user.coins);
         G.isNewUser = false;
         this.levelAnimation();
+        this.pressQuizAnimation();
     },
 
     start () {
@@ -81,12 +83,19 @@ cc.Class({
 
         var sunSeq = cc.repeatForever(cc.sequence(cc.moveBy(2, cc.v2(-9, -5)), cc.moveBy(2, cc.v2(9, 5))));
         cc.find("Canvas/cloudsSunBg").runAction(sunSeq);
+    },
 
-        var quizSeq = cc.repeatForever(cc.sequence(cc.scaleTo(1.4, 0.8), cc.scaleTo(1.4, 0.95)));
-
+    pressQuizAnimation: function(){
         if(G.isQuizOpen){
-            cc.find('Canvas/quizButton').getComponent(cc.Button).interactable = true;
-            cc.find('Canvas/quizButton').runAction(quizSeq);
+            cc.find("Canvas/pressAni").active = true;
+            var pressQuizComponent = this.pressAni.getComponent(cc.Animation);
+            pressQuizComponent.on('finished', function(){
+                cc.find("Canvas/pressAni").active = false;
+                cc.find('Canvas/quizButton').getComponent(cc.Button).interactable = true;
+                var quizSeq = cc.repeatForever(cc.sequence(cc.scaleTo(1.4, 0.68), cc.scaleTo(1.4, 0.72)));
+                cc.find('Canvas/quizButton').runAction(quizSeq);
+            }, this);
+            pressQuizComponent.play("pressAni");
         }else{
             cc.find('Canvas/quizButton').getComponent(cc.Button).interactable = false;
         }
