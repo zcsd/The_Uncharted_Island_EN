@@ -134,8 +134,8 @@ cc.Class({
     afterUsing: function(code, material, mClass) {
         var player = cc.find('player').getComponent('Player');
         this.coinAnimation(-1);
-        //player.coinsOwned = player.coinsOwned - 20;
-        player.updateCoins(-20);
+        //player.coinsOwned = player.coinsOwned - 10;
+        player.updateCoins(-10);
         //this.coinLabel.string = player.coinsOwned.toString();
 
         if (mClass == 'a') {
