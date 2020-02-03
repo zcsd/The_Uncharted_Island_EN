@@ -110,7 +110,7 @@ cc.Class({
     },
 
     goToBananaScene: function () {
-        cc.director.loadScene("SaveBananaTree");
+        //cc.director.loadScene("SaveBananaTree");
     },
 
     goToQuizScene: function () {
