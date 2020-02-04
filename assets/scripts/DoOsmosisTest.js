@@ -136,7 +136,7 @@ cc.Class({
                 }else{
                     if(G.user.coins >0){
                         G.isQuizOpen = true;
-                        this.pressQuizAnimation();
+                        self.pressQuizAnimation();
                     }
                     self.hintLabel.node.color = new cc.color(230, 0, 0, 255);
                     self.hintLabel.string = "金币已不足，无法购买材料，点击右上角参与答题赢取金币吧";

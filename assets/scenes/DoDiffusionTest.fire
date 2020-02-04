@@ -4489,7 +4489,7 @@
     "component": "",
     "_componentId": "7f3d8aEJl9GmrTCiwVDYKcA",
     "handler": "readyToBuyMaterial",
-    "customEventData": "30_玻璃片_5_b"
+    "customEventData": "50_玻璃片_5_b"
   },
   {
     "__type__": "cc.Node",
@@ -5152,7 +5152,7 @@
     "component": "",
     "_componentId": "7f3d8aEJl9GmrTCiwVDYKcA",
     "handler": "readyToBuyMaterial",
-    "customEventData": "30_半透膜_6_b"
+    "customEventData": "50_半透膜_6_b"
   },
   {
     "__type__": "cc.Node",
