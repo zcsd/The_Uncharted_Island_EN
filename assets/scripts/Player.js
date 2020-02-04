@@ -29,7 +29,7 @@ cc.Class({
         G.user.coins = this.coinsOwned;
         G.globalSocket.emit("updateCoins", {username: G.user.username, coins: G.user.coins});
     
-        if (G.user.coins > 100) {
+        if (G.user.coins > 0) {
             G.isQuizOpen = false;
         }
         else {

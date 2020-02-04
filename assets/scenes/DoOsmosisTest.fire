@@ -1000,8 +1000,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 281.6,
-      "height": 46.62
+      "width": 246.4,
+      "height": 39.06
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1012,8 +1012,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -431,
-        -232,
+        -470.727,
+        -243.364,
         0,
         0,
         0,
@@ -1053,8 +1053,8 @@
     "_useOriginalSize": false,
     "_string": "点击购买使用相应的材料",
     "_N$string": "点击购买使用相应的材料",
-    "_fontSize": 32,
-    "_lineHeight": 37,
+    "_fontSize": 28,
+    "_lineHeight": 31,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "a979e849-2637-420f-873a-2e4cdcdcee7a"
@@ -9408,8 +9408,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 96,
-      "height": 50.4
+      "width": 78,
+      "height": 37.8
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -9420,8 +9420,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -458.168,
-        -229.073,
+        -493,
+        -240,
         0,
         0,
         0,
@@ -9461,8 +9461,8 @@
     "_useOriginalSize": false,
     "_string": "提示：",
     "_N$string": "提示：",
-    "_fontSize": 32,
-    "_lineHeight": 40,
+    "_fontSize": 26,
+    "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"

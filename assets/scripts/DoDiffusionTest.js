@@ -55,8 +55,15 @@ cc.Class({
             insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "read", "introduction", "na", 0, G.user.coins);
         }, false);
         this.progressBar.progress = 0;
-        this.hintLabel.node.color = new cc.color(83,111, 122, 255);
-        this.hintLabel.string = "请购买使用合适的仪器和溶质";
+
+        if(G.user.coins <= 0){
+            this.hintLabel.node.color = new cc.color(230,0,0,255);
+            this.hintLabel.string = "金币已不足，无法继续游戏，点击右上角参与答题赢取金币吧";
+        }else{
+            this.hintLabel.node.color = new cc.color(83,111,122,255);
+            this.hintLabel.string = "请购买使用合适的仪器和溶质";
+        }
+
         this.checkMaterial();
     },
 
@@ -95,10 +102,15 @@ cc.Class({
                 }
                 else {
                     console.log("owned, can use, but not used");
-                    var displayInfo = "你要花费20金币使用" + materialInfo[1]  + "吗？";
+                    var displayInfo = "你要花费10金币使用" + materialInfo[1]  + "吗？";
                     var self = this;
-                    Alert.show(1, "使用", displayInfo, function(){
-                        self.afterUsing(materialCode, materialInfo[1], materialClass);    
+                    Alert.show(1, "使用", displayInfo, function(){ 
+                        if(self.checkCoinEnough(10)){
+                            self.afterUsing(materialCode, materialInfo[1], materialClass);
+                        }else{
+                            self.hintLabel.node.color = new cc.color(230, 0, 0, 255);
+                            self.hintLabel.string = "金币已不足，无法使用材料，点击右上角参与答题赢取金币吧";
+                        }            
                     });
                 }
             }
@@ -108,8 +120,17 @@ cc.Class({
             var displayInfo = "你要花费" + materialInfo[0] + "金币购买" + materialInfo[1] + "吗？";
             var self = this;
             Alert.show(1, "购买", displayInfo, function(){
-                self.afterBuying(materialCost, materialCode);
-                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "buy", materialInfo[1], "penalty", materialCost, G.user.coins);
+                if(self.checkCoinEnough(50)){
+                    self.afterBuying(materialCost, materialCode);
+                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "buy", materialInfo[1], "penalty", materialCost, G.user.coins);
+                }else{
+                    if(G.user.coins >0){
+                        G.isQuizOpen = true;
+                        this.pressQuizAnimation();
+                    }
+                    self.hintLabel.node.color = new cc.color(230, 0, 0, 255);
+                    self.hintLabel.string = "金币已不足，无法购买材料，点击右上角参与答题赢取金币吧";
+                } 
             });
         }
     },
@@ -124,21 +145,17 @@ cc.Class({
         this.coinAnimation(-1);
         var player = cc.find('player').getComponent('Player');
         player.updateCoins(cost*(-1));
-        //player.coinsOwned = player.coinsOwned - cost;
         player.materialOwned.add(code);
-        //this.coinLabel.string = player.coinsOwned.toString();
 
         this.setMaterialOwned(code);
     },
 
     afterUsing: function(code, material, mClass) {
         var player = cc.find('player').getComponent('Player');
-        this.coinAnimation(-1);
-        //player.coinsOwned = player.coinsOwned - 10;
-        player.updateCoins(-10);
-        //this.coinLabel.string = player.coinsOwned.toString();
 
         if (mClass == 'a') {
+            this.coinAnimation(-1);
+            player.updateCoins(-10);
             if (code == 1) {
                 this.setMaterialUsed(code);
                 player.materialUsed.add(code);
@@ -149,19 +166,22 @@ cc.Class({
                 this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
                 this.hintLabel.string = "请继续挑选使用合适的溶质";
                 this.progressBar.progress += 0.5;
-                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "use", material, "penalty", 20, G.user.coins); 
+                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "use", material, "penalty", 10, G.user.coins); 
             }
             else {
                 this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
                 this.hintLabel.string = "此仪器不符合要求，试试其他的吧";
-                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 20, G.user.coins); 
+                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 10, G.user.coins); 
             }
         }
 
         if (mClass == 'c') {
             if (player.materialUsed.has(1)) {
                 if (code == 4) {
-                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "use", material, "penalty", 20, G.user.coins); 
+                    G.isDiffDone = true;
+                    this.coinAnimation(-1);
+                    player.updateCoins(-10);
+                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "use", material, "penalty", 10, G.user.coins); 
                     this.setMaterialUsed(code);
                     player.materialUsed.add(code);
                     player.materialUsedClass.add(mClass);
@@ -171,7 +191,6 @@ cc.Class({
                         this.progressBar.progress += 0.5;
                         var self = this;
                         player.updateCoins(250);
-                        G.isDiffDone = true;
                         insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "finish", "na", "reward", 250, G.user.coins);
                         Alert.show(1, "实验完成", "做得好,你已经完成扩散实验,请点击确定获取你的奖励250金币吧！", function(){
                             self.coinAnimation(1);
@@ -181,9 +200,11 @@ cc.Class({
                     diffAniComponent.play("uDiffAni");
                 }
                 else {
+                    this.coinAnimation(-1);
+                    player.updateCoins(-10);
                     this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
                     this.hintLabel.string = "此材料不符合要求，试试其他的吧";
-                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 20, G.user.coins); 
+                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 10, G.user.coins); 
                 }
             }
             else {
@@ -193,9 +214,11 @@ cc.Class({
         }
 
         if (mClass == 'b') {
+            this.coinAnimation(-1);
+            player.updateCoins(-10);
             this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
             this.hintLabel.string = "该实验不需要此材料";
-            insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 20, G.user.coins); 
+            insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 10, G.user.coins); 
         }
     },
 
@@ -241,6 +264,15 @@ cc.Class({
         isOwnedNode.getComponent(cc.Sprite).setState(1);
     },
 
+    checkCoinEnough: function(cost) {
+        var tempCoins = G.user.coins - cost;
+        if (tempCoins >= 0){
+            return true;
+        }else{
+            return false;
+        }
+    },
+
     coinAnimation: function (type) {
         cc.find("Canvas/coin").active = false;
         if(type == 1){
@@ -263,6 +295,10 @@ cc.Class({
                 cc.find("Canvas/coinShine").active = false;
                 cc.find("Canvas/coin").active = true;
                 this.coinLabel.string = G.user.coins.toString();
+                if(G.user.coins <= 0 && G.isDiffDone == false){
+                    this.hintLabel.node.color = new cc.color(230, 0, 0, 255);
+                    this.hintLabel.string = "金币已不足，无法继续试验，点击右上角参与答题赢取金币吧";
+                }
                 this.pressQuizAnimation();
             }, this);
             coinShnComponent.play("coinShineAni");
