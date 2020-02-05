@@ -258,7 +258,7 @@
       "array": [
         0,
         0,
-        493.63448015713004,
+        510.0889628290344,
         0,
         0,
         0,
@@ -1215,7 +1215,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 246.4,
+      "width": 228.8,
       "height": 39.06
     },
     "_anchorPoint": {
@@ -1227,7 +1227,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -470.294,
+        -473.294,
         -243.909,
         0,
         0,
@@ -1268,7 +1268,7 @@
     "_useOriginalSize": false,
     "_string": "点击购买使用相应的材料",
     "_N$string": "点击购买使用相应的材料",
-    "_fontSize": 28,
+    "_fontSize": 26,
     "_lineHeight": 31,
     "_enableWrapText": true,
     "_N$file": {
@@ -8974,7 +8974,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 408,
+      "width": 380.8,
       "height": 44.1
     },
     "_anchorPoint": {
@@ -8986,8 +8986,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        156.325,
-        -318.849,
+        160.325,
+        -316.849,
         0,
         0,
         0,
@@ -9027,7 +9027,7 @@
     "_useOriginalSize": false,
     "_string": "点击图标来购买、使用、收回相应材料",
     "_N$string": "点击图标来购买、使用、收回相应材料",
-    "_fontSize": 30,
+    "_fontSize": 28,
     "_lineHeight": 35,
     "_enableWrapText": true,
     "_N$file": {

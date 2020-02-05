@@ -65,10 +65,15 @@ cc.Class({
         var levelNode = null;
         if(!G.isDiffDone){
             levelNode = "Canvas/diffButton/Background";
+            cc.find('Canvas/diffButton').getComponent(cc.Button).interactable = true;
+            cc.find('Canvas/osButton').getComponent(cc.Button).interactable = false;
+            cc.find('Canvas/bananaButton').getComponent(cc.Button).interactable = false;
         }else if (!G.isOsmoDone){
             cc.find("Canvas/diffButton/done").active = true;
+            cc.find('Canvas/osButton').getComponent(cc.Button).interactable = true;
             levelNode = "Canvas/osButton/Background";
         }else if(!G.isBanaDone){
+            //cc.find('Canvas/bananaButton').getComponent(cc.Button).interactable = true;
             cc.find("Canvas/diffButton/done").active = true;
             cc.find("Canvas/osButton/done").active = true;
             levelNode = "Canvas/bananaButton/Background";

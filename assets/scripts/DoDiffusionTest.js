@@ -48,22 +48,31 @@ cc.Class({
         //socket, username, sequenceID, stage, actionType, operatedItem, rewardType, rewardQty, totalCoins
         insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "init", "na", "na", 0, G.user.coins);
         
-        var introduction = "欢迎来到扩散实验室！接下来请用U型管完成一个液体扩散实验，完成实验将有丰厚金币奖励。购买、使用材料均需花费金币，考虑后再做选择哦。";
-        Alert.show(1.4, "扩散实验", introduction, function(){
-            self.coinAnimation(0);
-            self.pressQuizAnimation();
-            insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "read", "introduction", "na", 0, G.user.coins);
-        }, false);
-        this.progressBar.progress = 0;
-
-        if(G.user.coins <= 0){
-            this.hintLabel.node.color = new cc.color(230,0,0,255);
-            this.hintLabel.string = "金币已不足，无法继续游戏，点击右上角参与答题赢取金币吧";
+        if(G.isDiffDone){
+            var introduction = "欢迎来到扩散实验室！恭喜你已经成功完成了扩散实验，再次完成实验将没有奖励。";
+            Alert.show(1.4, "扩散实验", introduction, function(){
+                self.coinAnimation(0);
+                self.pressQuizAnimation();
+                self.hintLabel.node.color = new cc.color(150,100,100,255);
+                self.hintLabel.string = "本次完成实验将没有奖励";
+            }, false);
         }else{
-            this.hintLabel.node.color = new cc.color(83,111,122,255);
-            this.hintLabel.string = "请购买使用合适的仪器和溶质";
+            var introduction = "欢迎来到扩散实验室！接下来请用U型管完成一个液体扩散实验，完成实验将有丰厚金币奖励。购买、使用材料均需花费金币，考虑后再做选择哦。";
+            Alert.show(1.4, "扩散实验", introduction, function(){
+                self.coinAnimation(0);
+                self.pressQuizAnimation();
+                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "read", "introduction", "na", 0, G.user.coins);
+            }, false);
+            if(G.user.coins <= 0){
+                this.hintLabel.node.color = new cc.color(230,0,0,255);
+                this.hintLabel.string = "金币已不足，无法继续游戏，点击右上角参与答题赢取金币吧";
+            }else{
+                this.hintLabel.node.color = new cc.color(83,111,122,255);
+                this.hintLabel.string = "请购买使用合适的仪器和溶质";
+            }
         }
 
+        this.progressBar.progress = 0;
         this.checkMaterial();
     },
 
@@ -81,8 +90,8 @@ cc.Class({
         var materialClass = materialInfo[3];
 
         var player = cc.find('player').getComponent('Player');
-        if (player.materialOwned.has(materialCode)) {
-            if (player.materialUsed.has(materialCode)) {
+        if (player.diffMaterialOwned.has(materialCode)) {
+            if (player.diffMaterialUsed.has(materialCode)) {
                 console.log("is used");
                 var displayInfo = "你要收回" + materialInfo[1]  + "吗？";
                 var self = this;
@@ -92,7 +101,7 @@ cc.Class({
                 });
             }
             else {
-                if (player.materialUsedClass.has(materialClass)) {
+                if (player.diffMaterialUsedClass.has(materialClass)) {
                     console.log("owned, can not used");
                     var displayInfo = "你已使用同类物品，请收回后再使用该物品。";
                     //var self = this;
@@ -145,7 +154,7 @@ cc.Class({
         this.coinAnimation(-1);
         var player = cc.find('player').getComponent('Player');
         player.updateCoins(cost*(-1));
-        player.materialOwned.add(code);
+        player.diffMaterialOwned.add(code);
 
         this.setMaterialOwned(code);
     },
@@ -158,8 +167,8 @@ cc.Class({
             player.updateCoins(-10);
             if (code == 1) {
                 this.setMaterialUsed(code);
-                player.materialUsed.add(code);
-                player.materialUsedClass.add(mClass);
+                player.diffMaterialUsed.add(code);
+                player.diffMaterialUsedClass.add(mClass);
                 var nodePath = 'Canvas/container/c' + code.toString();
                 var containerNode = cc.find(nodePath);
                 containerNode.active = true;
@@ -176,25 +185,39 @@ cc.Class({
         }
 
         if (mClass == 'c') {
-            if (player.materialUsed.has(1)) {
+            if (player.diffMaterialUsed.has(1)) {
                 if (code == 4) {
                     G.isDiffDone = true;
                     this.coinAnimation(-1);
                     player.updateCoins(-10);
                     insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "use", material, "penalty", 10, G.user.coins); 
                     this.setMaterialUsed(code);
-                    player.materialUsed.add(code);
-                    player.materialUsedClass.add(mClass);
+                    player.diffMaterialUsed.add(code);
+                    player.diffMaterialUsedClass.add(mClass);
                     
                     var diffAniComponent = this.diffusion.getComponent(cc.Animation);
                     diffAniComponent.on('finished', function() {
                         this.progressBar.progress += 0.5;
                         var self = this;
-                        player.updateCoins(250);
-                        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "finish", "na", "reward", 250, G.user.coins);
-                        Alert.show(1, "实验完成", "做得好,你已经完成扩散实验,请点击确定获取你的奖励250金币吧！", function(){
-                            self.coinAnimation(1);
-                        }, false);
+                        if(G.isDiffRewarded){
+                            Alert.show(1, "实验完成", "做得好,你已经完成扩散实验,本次无奖励！", function(){
+                                player.diffMaterialOwned.clear();
+                                player.diffMaterialUsed.clear(); 
+                                player.diffMaterialUsedClass.clear();
+                                self.hintLabel.string = "实验已完成";
+                            }, false);
+                        }else{
+                            player.updateCoins(250);
+                            G.isDiffRewarded = true;
+                            insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "finish", "na", "reward", 250, G.user.coins);
+                            Alert.show(1, "实验完成", "做得好,你已经完成扩散实验,请点击确定获取你的奖励250金币吧！", function(){
+                                self.coinAnimation(1);
+                                player.diffMaterialOwned.clear();
+                                player.diffMaterialUsed.clear(); 
+                                player.diffMaterialUsedClass.clear();
+                                self.hintLabel.string = "实验已完成";
+                            }, false);
+                        }
                     }, this);
 
                     diffAniComponent.play("uDiffAni");
@@ -228,8 +251,8 @@ cc.Class({
         isOwnedNode.getComponent(cc.Sprite).setState(0);
 
         var player = cc.find('player').getComponent('Player');
-        player.materialUsed.delete(code);
-        player.materialUsedClass.delete(mClass);
+        player.diffMaterialUsed.delete(code);
+        player.diffMaterialUsedClass.delete(mClass);
 
         if (mClass == 'a') {
             var nodePath = 'Canvas/container/c' + code.toString();
@@ -243,11 +266,11 @@ cc.Class({
 
     checkMaterial: function() {
         var player = cc.find('player').getComponent('Player');
-        for (var i of player.materialOwned) {
+        for (var i of player.diffMaterialOwned) {
             this.setMaterialOwned(i);
         }
 
-        for (var i of player.materialUsed) {
+        for (var i of player.diffMaterialUsed) {
             this.setMaterialUsed(i);
         }
     },
@@ -333,8 +356,8 @@ cc.Class({
 
     resetScene: function () {
         var player = cc.find('player').getComponent('Player');
-        player.materialUsed.clear(); 
-        player.materialUsedClass.clear();
+        player.diffMaterialUsed.clear(); 
+        player.diffMaterialUsedClass.clear();
         insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "reset", "na", "na", 0, G.user.coins);
     },
 
@@ -345,12 +368,12 @@ cc.Class({
     //start () {},
 
     update: function () {
-        if (this.showCount >= 180){
+        if (this.showCount >= 150){
             this.isShowCongra = false;
             this.showCount = 0;
             cc.find("Canvas/singleColor").active = false;
             cc.find("Canvas/congraluation").active = false;
-        }else if (this.showCount < 180 && this.isShowCongra == true) {
+        }else if (this.showCount < 150 && this.isShowCongra == true) {
             this.showCount++;
         }
     },
