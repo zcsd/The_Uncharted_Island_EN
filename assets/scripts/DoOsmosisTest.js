@@ -325,6 +325,7 @@ cc.Class({
         if (tempCoins >= 0){
             return true;
         }else{
+            insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "bankrupt", "na", "na", 0, G.user.coins);
             return false;
         }
     },
@@ -352,8 +353,8 @@ cc.Class({
                 cc.find("Canvas/coin").active = true;
                 this.coinLabel.string = G.user.coins.toString();
                 if(G.user.coins <= 0 && G.isOsmoDone == false){
-                    this.hintLabel.node.color = new cc.color(230, 0, 0, 255);
-                    this.hintLabel.string = "金币已不足，无法继续试验，点击右上角参与答题赢取金币吧";
+                    //this.hintLabel.node.color = new cc.color(230, 0, 0, 255);
+                    //this.hintLabel.string = "金币已不足，无法继续试验，点击右上角参与答题赢取金币吧";
                 }
                 this.pressQuizAnimation();
             }, this);
