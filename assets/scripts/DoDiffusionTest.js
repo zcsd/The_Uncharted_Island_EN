@@ -57,7 +57,7 @@ cc.Class({
                 self.hintLabel.string = "本次完成实验将没有奖励";
             }, false);
         }else{
-            var introduction = "欢迎来到扩散实验室！接下来请用U型管完成一个液体扩散实验，完成实验将有丰厚金币奖励。购买、使用材料均需花费金币，考虑后再做选择哦。";
+            var introduction = "欢迎来到扩散实验室！接下来请用U型管完成一个液体扩散实验，完成实验将有丰厚金币奖励。实验开始时，你会有180金币，购买、使用材料均需花费金币，考虑后再做选择哦。";
             Alert.show(1.4, "扩散实验", introduction, function(){
                 self.coinAnimation(0);
                 self.pressQuizAnimation();

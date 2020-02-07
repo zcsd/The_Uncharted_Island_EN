@@ -68,7 +68,7 @@ cc.Class({
                 self.hintLabel.string = "本次完成实验将没有奖励";
             }, false);
         }else{
-            var introduction = "欢迎来到渗透实验室！接下来请用大烧杯完成一个渗透实验，完成实验将有丰厚金币奖励。购买、使用材料均需花费金币，考虑后再做选择哦。";
+            var introduction = "欢迎来到渗透实验室！接下来请用大烧杯完成一个渗透实验，完成实验将有丰厚金币奖励。实验开始时，你会有240金币，购买、使用材料均需花费金币，考虑后再做选择哦。";
             Alert.show(1.4, "渗透实验", introduction, function(){
                 self.coinAnimation(0);
                 self.pressQuizAnimation();
