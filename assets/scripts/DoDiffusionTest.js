@@ -57,7 +57,7 @@ cc.Class({
                 self.hintLabel.string = "本次完成实验将没有奖励";
             }, false);
         }else{
-            var introduction = "欢迎来到扩散实验室！接下来请用U型管完成一个液体扩散实验，完成实验将有丰厚金币奖励。实验开始时，你会有180金币，购买、使用材料均需花费金币，考虑后再做选择哦。";
+            var introduction = "欢迎来到扩散实验室！接下来请用U型管完成一个液体扩散实验，完成实验将有丰厚金币奖励。实验开始时，你会有200金币，购买、使用材料均需花费金币，考虑后再做选择哦。";
             Alert.show(1.4, "扩散实验", introduction, function(){
                 self.coinAnimation(0);
                 self.pressQuizAnimation();
@@ -74,6 +74,7 @@ cc.Class({
 
         this.progressBar.progress = 0;
         this.checkMaterial();
+        G.isDiffEnter = true;
     },
 
     backToMapScene: function () {
@@ -207,10 +208,10 @@ cc.Class({
                                 self.hintLabel.string = "实验已完成";
                             }, false);
                         }else{
-                            player.updateCoins(250);
+                            player.updateCoins(300);
                             G.isDiffRewarded = true;
-                            insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "finish", "na", "reward", 250, G.user.coins);
-                            Alert.show(1, "实验完成", "做得好,你已经完成扩散实验,请点击确定获取你的奖励250金币吧！", function(){
+                            insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "finish", "na", "reward", 300, G.user.coins);
+                            Alert.show(1, "实验完成", "做得好,你已经完成扩散实验,请点击确定获取你的奖励300金币吧！", function(){
                                 self.coinAnimation(1);
                                 player.diffMaterialOwned.clear();
                                 player.diffMaterialUsed.clear(); 

@@ -68,7 +68,7 @@ cc.Class({
                 self.hintLabel.string = "本次完成实验将没有奖励";
             }, false);
         }else{
-            var introduction = "欢迎来到渗透实验室！接下来请用大烧杯完成一个渗透实验，完成实验将有丰厚金币奖励。实验开始时，你会有240金币，购买、使用材料均需花费金币，考虑后再做选择哦。";
+            var introduction = "欢迎来到渗透实验室！接下来请用大烧杯完成一个渗透实验，完成实验将有丰厚金币奖励。实验开始时，你会有250金币，购买、使用材料均需花费金币，考虑后再做选择哦。";
             Alert.show(1.4, "渗透实验", introduction, function(){
                 self.coinAnimation(0);
                 self.pressQuizAnimation();
@@ -86,6 +86,7 @@ cc.Class({
 
         this.progressBar.progress = 0;
         this.checkMaterial();
+        G.isOsmoEnter = true;
     },
 
     backToMapScene: function () {
@@ -245,10 +246,10 @@ cc.Class({
                                 self.hintLabel.string = "实验已完成";
                             }, false);
                         }else{
-                            player.updateCoins(350);
+                            player.updateCoins(400);
                             G.isOsmoRewarded = true;
-                            insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "finish", "na", "reward", 350, G.user.coins);
-                            Alert.show(1, "实验完成", "做得好,你已经完成渗透实验,请点击确定获取你的奖励350金币吧！", function(){
+                            insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "finish", "na", "reward", 400, G.user.coins);
+                            Alert.show(1, "实验完成", "做得好,你已经完成渗透实验,请点击确定获取你的奖励400金币吧！", function(){
                                 self.coinAnimation(1);
                                 player.osmoMaterialOwned.clear();
                                 player.osmoMaterialUsed.clear(); 

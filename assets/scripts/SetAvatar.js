@@ -78,6 +78,8 @@ cc.Class({
     },
 
     resetScene: function () {
+        var player = cc.find('player').getComponent('Player');
+
         this.currentGender = "boy";
         this.currentImgPosition = 0;
         this.currentImgDir = "boy_0";
@@ -85,7 +87,7 @@ cc.Class({
         this.genderToggleContainer.toggleItems[0].isChecked = true;
         this.changeGender();
 
-        this.coinsLabel.string = "200";
+        this.coinsLabel.string = player.coinsOwned.toString();
 
         // set nextButton unclickable
         this.nextButton.interactable = false;
@@ -101,7 +103,6 @@ cc.Class({
             player.nickName = this.nameEditBox.string;
             player.gender = this.currentGender;
             player.avatarImgDir = this.currentImgDir;
-            player.coinsOwned = 200;
 
             G.user.nickname = player.nickName;
             G.user.sex = player.gender;

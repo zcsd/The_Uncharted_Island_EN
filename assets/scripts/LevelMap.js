@@ -111,6 +111,14 @@ cc.Class({
     },
 
     goToOsmosisScene: function () {
+        var player = cc.find('player').getComponent('Player');
+        /* TEMP CHANGE */ 
+        // force coins to 250 for osmosis
+        if(!G.isOsmoDone && !G.isOsmoEnter){
+            player.coinsOwned = 250;
+            G.user.coins = player.coinsOwned;
+        }
+        /* TEMP CHANGE */ 
         cc.director.loadScene("DoOsmosisTest");
     },
 

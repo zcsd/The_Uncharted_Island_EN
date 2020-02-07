@@ -9,6 +9,8 @@ window.G = {
     isQuizOpen: false,
     isDiffRewarded: false,
     isOsmoRewarded: false,
+    isDIffEnter: false,
+    isOsmoEnter: false,
 }
 
 window.insertNewAction = function(socket, username, sequenceID, stage, actionType,
