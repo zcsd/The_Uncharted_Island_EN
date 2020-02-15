@@ -7,29 +7,24 @@ cc.Class({
             type: cc.Label
         },
 
+        coinLabel: cc.Label,
+        hintLabel: cc.Label,
+
         avatarSprite: {
             default: null,
             type: cc.Sprite
         },
 
-        moveSprite: {
+        bodySprite: {
             default: null,
             type: cc.Sprite
         },
 
-        leftButton: cc.Button,
-        rightButton: cc.Button,
-        increaseButton: cc.Button,
-        decreaseButton: cc.Button,
+        coinRotate: cc.Node,
+        coinShine: cc.Node,
+        coinBlink: cc.Node,
 
-        spriteScale: 1.0,
-        spritePos: cc.Vec2,
-        spriteHalfWidth: 0,
-        leftLimit: 0, 
-        rightLimit: 0, 
-        maxSpriteScale: 1.0,
-        minSpriteScale: 0.2,
-        stepSize: 60,
+        walkAni: cc.Node,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -37,26 +32,54 @@ cc.Class({
     onLoad: function () {
         var player = cc.find('player').getComponent('Player');
         this.nameLabel.string = player.nickName;
+        this.coinLabel.string = player.coinsOwned.toString();
 
         var self = this;
         // load image from resource folder
         cc.loader.loadRes(player.avatarImgDir, cc.SpriteFrame, function (err, spriteFrame) {
-            self.moveSprite.spriteFrame = spriteFrame;
+            self.bodySprite.spriteFrame = spriteFrame;
         });
         cc.loader.loadRes(player.avatarImgDir + '_s', cc.SpriteFrame, function (err, spriteFrame) {
             self.avatarSprite.spriteFrame = spriteFrame;
         });
 
-        this.spritePos = cc.v2(this.moveSprite.node.x, this.moveSprite.node.y);
-        this.spriteHalfWidth = this.moveSprite.node.width / 2;
-        this.leftLimit = this.moveSprite.node.x - this.spriteHalfWidth;
-        this.rightLimit = 300 + this.spriteHalfWidth; // REMEMBER TO CHANGE 30 TO VARIABLE, Tree position
+        var sunSeq = cc.repeatForever(cc.sequence(cc.moveBy(2, cc.v2(-10, -6)), cc.moveBy(2, cc.v2(10, 6))));
+        cc.find("Canvas/CloudsSun").runAction(sunSeq);
     },
 
-    start () {
-
+    shrinkBody: function () {
+        this.hintLabel.string = "即将缩小身体进入洞穴";
+        cc.find('Canvas/shrinkButton').active = false;
+        //cc.find('Canvas/shrinkButton').getComponent(cc.Button).interactable = false;
+        var seq = cc.sequence(cc.scaleTo(1.0, 0.85), cc.scaleTo(0.85, 0.7), cc.scaleTo(0.7, 0.55), cc.scaleTo(0.55, 0.4),
+        cc.callFunc(function(){
+            cc.find("Canvas/bodySprite").active = false;
+            var walkAniComponent = this.walkAni.getComponent(cc.Animation);
+            walkAniComponent.on('finished', function(){
+                setTimeout(function(){
+                    cc.director.loadScene("SaveBananaTree01");
+                }, 1500);
+                
+                /*
+                Alert.show(1, "即将进入洞穴", "准备进入微观世界，救活这棵香蕉树吧！", function(){
+                    cc.director.loadScene("SaveBananaTree01");
+                }, false);
+                */
+            }, this);
+            walkAniComponent.play("walkAni");
+        }, this));
+        cc.find("Canvas/bodySprite").runAction(seq);
     },
 
+    backToMapScene: function () {
+        cc.director.loadScene("LevelMap");
+    },
+
+    start () {},
+
+    update: function (dt) {},
+
+    /*
     moveToLeft: function () {
         //var spriteNode = cc.find('Canvas/moveSprite');
         //spriteNode.position = this.spritePos;
@@ -117,7 +140,6 @@ cc.Class({
 
     backToMapScene: function () {
         cc.director.loadScene("LevelMap");
-
     },
 
     update: function (dt) {
@@ -150,5 +172,5 @@ cc.Class({
             this.rightButton.interactable = false;
             this.increaseButton.interactable = false;
         }
-    },
+    }, */
 });

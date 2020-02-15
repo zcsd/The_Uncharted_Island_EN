@@ -73,7 +73,7 @@ cc.Class({
             cc.find('Canvas/osButton').getComponent(cc.Button).interactable = true;
             levelNode = "Canvas/osButton/Background";
         }else if(!G.isBanaDone){
-            //cc.find('Canvas/bananaButton').getComponent(cc.Button).interactable = true;
+            cc.find('Canvas/bananaButton').getComponent(cc.Button).interactable = true;
             cc.find("Canvas/diffButton/done").active = true;
             cc.find("Canvas/osButton/done").active = true;
             levelNode = "Canvas/bananaButton/Background";
@@ -123,7 +123,7 @@ cc.Class({
     },
 
     goToBananaScene: function () {
-        //cc.director.loadScene("SaveBananaTree");
+        cc.director.loadScene("SaveBananaTree");
     },
 
     goToQuizScene: function () {
