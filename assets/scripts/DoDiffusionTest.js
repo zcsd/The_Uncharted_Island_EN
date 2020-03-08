@@ -75,6 +75,11 @@ cc.Class({
         this.progressBar.progress = 0;
         this.checkMaterial();
         G.isDiffEnter = true;
+
+        G.globalSocket.on('diffusion', function(msg){
+            console.log('diffusion hint: ', msg);
+            self.hintLabel.string = msg;
+        });
     },
 
     backToMapScene: function () {

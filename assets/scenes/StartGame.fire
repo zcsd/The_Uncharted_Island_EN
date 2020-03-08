@@ -137,9 +137,12 @@
     "gender": "boy",
     "avatarImgDir": "boy_0",
     "coinsOwned": 200,
-    "materialOwned": null,
-    "materialUsed": null,
-    "materialUsedClass": null,
+    "diffMaterialOwned": null,
+    "diffMaterialUsed": null,
+    "diffMaterialUsedClass": null,
+    "osmoMaterialOwned": null,
+    "osmoMaterialUsed": null,
+    "osmoMaterialUsedClass": null,
     "_id": "7dYbQnQbdA8pmj8N6VnMv3"
   },
   {
@@ -268,7 +271,7 @@
       "array": [
         0,
         0,
-        510.0889628290344,
+        507.4908866176811,
         0,
         0,
         0,
