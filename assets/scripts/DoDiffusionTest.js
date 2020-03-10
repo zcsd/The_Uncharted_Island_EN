@@ -46,7 +46,7 @@ cc.Class({
             self.avatarSprite.spriteFrame = spriteFrame;
         });
         //socket, username, sequenceID, stage, actionType, operatedItem, rewardType, rewardQty, totalCoins
-        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "init", "na", "na", 0, G.user.coins);
+        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "init", "na", "na", 0, G.user.coins, G.itemsState);
         
         if(G.isDiffDone){
             var introduction = "欢迎来到扩散实验室！恭喜你已经成功完成了扩散实验，再次完成实验将没有奖励。";
@@ -61,7 +61,7 @@ cc.Class({
             Alert.show(1.4, "扩散实验", introduction, function(){
                 self.coinAnimation(0);
                 self.pressQuizAnimation();
-                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "read", "introduction", "na", 0, G.user.coins);
+                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "read", "introduction", "na", 0, G.user.coins, G.itemsState);
             }, false);
             if(G.user.coins <= 0){
                 this.hintLabel.node.color = new cc.color(230,0,0,255);
@@ -84,7 +84,7 @@ cc.Class({
 
     backToMapScene: function () {
         this.resetScene();
-        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "back", "na", "na", 0, G.user.coins);
+        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "back", "na", "na", 0, G.user.coins, G.itemsState);
 		 cc.director.loadScene("LevelMap");
 	},
 
@@ -103,7 +103,7 @@ cc.Class({
                 var self = this;
                 Alert.show(1, "收回", displayInfo, function(){
                     self.afterBacking(materialCode, materialClass);
-                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "takeback", materialInfo[1], "na", 0, G.user.coins);
+                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "takeback", materialInfo[1], "na", 0, G.user.coins, G.itemsState);
                 });
             }
             else {
@@ -112,7 +112,7 @@ cc.Class({
                     var displayInfo = "你已使用同类物品，请收回后再使用该物品。";
                     //var self = this;
                     Alert.show(1, "提示", displayInfo, function(){
-                        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "refuseusing", materialInfo[1], "na", 0, G.user.coins);
+                        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "refuseusing", materialInfo[1], "na", 0, G.user.coins, G.itemsState);
                     }, false);
                 }
                 else {
@@ -137,7 +137,7 @@ cc.Class({
             Alert.show(1, "购买", displayInfo, function(){
                 if(self.checkCoinEnough(50)){
                     self.afterBuying(materialCost, materialCode);
-                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "buy", materialInfo[1], "penalty", materialCost, G.user.coins);
+                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "buy", materialInfo[1], "penalty", materialCost, G.user.coins, G.itemsState);
                 }else{
                     if(G.user.coins >0){
                         G.isQuizOpen = true;
@@ -160,7 +160,8 @@ cc.Class({
         this.coinAnimation(-1);
         var player = cc.find('player').getComponent('Player');
         player.updateCoins(cost*(-1));
-        player.diffMaterialOwned.add(code);
+        //player.diffMaterialOwned.add(code);
+        player.updateInventory('diff', 'buy', code);
 
         this.setMaterialOwned(code);
     },
@@ -173,20 +174,21 @@ cc.Class({
             player.updateCoins(-10);
             if (code == 1) {
                 this.setMaterialUsed(code);
-                player.diffMaterialUsed.add(code);
-                player.diffMaterialUsedClass.add(mClass);
+                //player.diffMaterialUsed.add(code);
+                //player.diffMaterialUsedClass.add(mClass);
+                player.updateInventory('diff', 'use', code, mClass);
                 var nodePath = 'Canvas/container/c' + code.toString();
                 var containerNode = cc.find(nodePath);
                 containerNode.active = true;
                 this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
                 this.hintLabel.string = "请继续挑选使用合适的溶质";
                 this.progressBar.progress += 0.5;
-                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "use", material, "penalty", 10, G.user.coins); 
+                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "use", material, "penalty", 10, G.user.coins, G.itemsState); 
             }
             else {
                 this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
                 this.hintLabel.string = "此仪器不符合要求，试试其他的吧";
-                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 10, G.user.coins); 
+                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
             }
         }
 
@@ -196,31 +198,34 @@ cc.Class({
                     G.isDiffDone = true;
                     this.coinAnimation(-1);
                     player.updateCoins(-10);
-                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "use", material, "penalty", 10, G.user.coins); 
                     this.setMaterialUsed(code);
-                    player.diffMaterialUsed.add(code);
-                    player.diffMaterialUsedClass.add(mClass);
-                    
+                    //player.diffMaterialUsed.add(code);
+                    //player.diffMaterialUsedClass.add(mClass);
+                    player.updateInventory('diff', 'use', code, mClass);
+                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "use", material, "penalty", 10, G.user.coins, G.itemsState); 
+    
                     var diffAniComponent = this.diffusion.getComponent(cc.Animation);
                     diffAniComponent.on('finished', function() {
                         this.progressBar.progress += 0.5;
                         var self = this;
                         if(G.isDiffRewarded){
                             Alert.show(1, "实验完成", "做得好,你已经完成扩散实验,本次无奖励！", function(){
-                                player.diffMaterialOwned.clear();
-                                player.diffMaterialUsed.clear(); 
-                                player.diffMaterialUsedClass.clear();
+                                //player.diffMaterialOwned.clear();
+                                //player.diffMaterialUsed.clear(); 
+                                //player.diffMaterialUsedClass.clear();
+                                player.updateInventory('diff', 'clear', 0);
                                 self.hintLabel.string = "实验已完成";
                             }, false);
                         }else{
                             player.updateCoins(300);
                             G.isDiffRewarded = true;
-                            insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "finish", "na", "reward", 300, G.user.coins);
+                            insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "finish", "na", "reward", 300, G.user.coins, G.itemsState);
                             Alert.show(1, "实验完成", "做得好,你已经完成扩散实验,请点击确定获取你的奖励300金币吧！", function(){
                                 self.coinAnimation(1);
-                                player.diffMaterialOwned.clear();
-                                player.diffMaterialUsed.clear(); 
-                                player.diffMaterialUsedClass.clear();
+                                //player.diffMaterialOwned.clear();
+                                //player.diffMaterialUsed.clear(); 
+                                //player.diffMaterialUsedClass.clear();
+                                player.updateInventory('diff', 'clear', 0);
                                 self.hintLabel.string = "实验已完成";
                             }, false);
                         }
@@ -233,7 +238,7 @@ cc.Class({
                     player.updateCoins(-10);
                     this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
                     this.hintLabel.string = "此材料不符合要求，试试其他的吧";
-                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 10, G.user.coins); 
+                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
                 }
             }
             else {
@@ -247,7 +252,7 @@ cc.Class({
             player.updateCoins(-10);
             this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
             this.hintLabel.string = "该实验不需要此材料";
-            insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 10, G.user.coins); 
+            insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
         }
     },
 
@@ -257,8 +262,9 @@ cc.Class({
         isOwnedNode.getComponent(cc.Sprite).setState(0);
 
         var player = cc.find('player').getComponent('Player');
-        player.diffMaterialUsed.delete(code);
-        player.diffMaterialUsedClass.delete(mClass);
+        //player.diffMaterialUsed.delete(code);
+        //player.diffMaterialUsedClass.delete(mClass);
+        player.updateInventory('diff', 'takeback', code, mClass);
 
         if (mClass == 'a') {
             var nodePath = 'Canvas/container/c' + code.toString();
@@ -298,7 +304,7 @@ cc.Class({
         if (tempCoins >= 0){
             return true;
         }else{
-            insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "bankrupt", "na", "na", 0, G.user.coins);
+            insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "bankrupt", "na", "na", 0, G.user.coins, G.itemsState);
             return false;
         }
     },
@@ -363,9 +369,10 @@ cc.Class({
 
     resetScene: function () {
         var player = cc.find('player').getComponent('Player');
-        player.diffMaterialUsed.clear(); 
-        player.diffMaterialUsedClass.clear();
-        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "reset", "na", "na", 0, G.user.coins);
+        //player.diffMaterialUsed.clear(); 
+        //player.diffMaterialUsedClass.clear();
+        player.updateInventory('diff', 'clear', 0);
+        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "reset", "na", "na", 0, G.user.coins, G.itemsState);
     },
 
     goToQuizScene: function() {
