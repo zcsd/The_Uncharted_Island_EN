@@ -57,7 +57,7 @@ cc.Class({
         });
 
         //socket, username, sequenceID, stage, actionType, operatedItem, rewardType, rewardQty, totalCoins
-        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "init", "na", "na", 0, G.user.coins);
+        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "init", "na", "na", 0, G.user.coin, G.itemsState);
         
         if(G.isOsmoDone){
             var introduction = "欢迎来到渗透实验室！恭喜你已经成功完成了扩散实验，再次完成实验将没有奖励。";
@@ -72,7 +72,7 @@ cc.Class({
             Alert.show(1.4, "渗透实验", introduction, function(){
                 self.coinAnimation(0);
                 self.pressQuizAnimation();
-                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "read", "introduction", "na", 0, G.user.coins);
+                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "read", "introduction", "na", 0, G.user.coins, G.itemsState);
             }, false);
 
             if(G.user.coins <= 0){
@@ -84,15 +84,14 @@ cc.Class({
             }
         }
 
+        G.globalSocket.on('osmosis', function(msg){
+            console.log('osmosis hint: ', msg);
+            self.hintLabel.string = msg;
+        });
+
         this.progressBar.progress = 0;
         this.checkMaterial();
         G.isOsmoEnter = true;
-    },
-
-    backToMapScene: function () {
-        this.resetScene();
-        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "back", "na", "na", 0, G.user.coins);
-        cc.director.loadScene("LevelMap");
     },
 
     readyToBuyMaterial: function (event, customEventData) {
@@ -110,7 +109,7 @@ cc.Class({
                 var self = this;
                 Alert.show(1, "收回", displayInfo, function(){
                     self.afterBacking(materialCode, materialClass);
-                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "takeback", materialInfo[1], "na", 0, G.user.coins);
+                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "takeback", materialInfo[1], "na", 0, G.user.coins, G.itemsState);
                 });
             }
             else {
@@ -118,7 +117,7 @@ cc.Class({
                     console.log("owned, can not used");
                     var displayInfo = "你已使用同类物品，请收回后再使用该物品。";
                     Alert.show(1, "提示", displayInfo, function(){
-                        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "refuseusing", materialInfo[1], "na", 0, G.user.coins);
+                        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "refuseusing", materialInfo[1], "na", 0, G.user.coins, G.itemsState);
                     }, false);
                 }
                 else {
@@ -143,7 +142,7 @@ cc.Class({
             Alert.show(1, "购买", displayInfo, function(){
                 if(self.checkCoinEnough(50)){
                     self.afterBuying(materialCost, materialCode);
-                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "buy", materialInfo[1], "penalty", materialCost, G.user.coins);
+                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "buy", materialInfo[1], "penalty", materialCost, G.user.coins, G.itemsState);
                 }else{
                     if(G.user.coins >0){
                         G.isQuizOpen = true;
@@ -166,7 +165,8 @@ cc.Class({
         this.coinAnimation(-1);
         var player = cc.find('player').getComponent('Player');
         player.updateCoins(cost*(-1));
-        player.osmoMaterialOwned.add(code);
+        //player.osmoMaterialOwned.add(code);
+        player.updateInventory('osmo', 'buy', code);
 
         this.setMaterialOwned(code);
     },
@@ -179,20 +179,21 @@ cc.Class({
             player.updateCoins(-10);
             if (code == 2) {
                 this.setMaterialUsed(code);
-                player.osmoMaterialUsed.add(code);
-                player.osmoMaterialUsedClass.add(mClass);
+                //player.osmoMaterialUsed.add(code);
+                //player.osmoMaterialUsedClass.add(mClass);
+                player.updateInventory('osmo', 'use', code, mClass);
                 var nodePath = 'Canvas/container/c' + code.toString();
                 var containerNode = cc.find(nodePath);
                 containerNode.active = true;
                 this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
                 this.hintLabel.string = "请继续挑选使用合适的材料";
                 this.progressBar.progress += 0.33;
-                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "use", material, "penalty", 10, G.user.coins); 
+                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "use", material, "penalty", 10, G.user.coins, G.itemsState); 
             }
             else {
                 this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
                 this.hintLabel.string = "此仪器不符合要求，试试其他的吧";
-                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "wronguse", material, "penalty", 10, G.user.coins); 
+                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
             }
         }
 
@@ -201,10 +202,11 @@ cc.Class({
                 this.coinAnimation(-1);
                 player.updateCoins(-10);
                 if (code == 6) {
-                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "use", material, "penalty", 10, G.user.coins); 
+                    //player.osmoMaterialUsed.add(code);
+                    //player.osmoMaterialUsedClass.add(mClass);
+                    player.updateInventory('osmo', 'use', code, mClass);
+                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "use", material, "penalty", 10, G.user.coins, G.itemsState); 
                     this.setMaterialUsed(code);
-                    player.osmoMaterialUsed.add(code);
-                    player.osmoMaterialUsedClass.add(mClass);
                     var nodePath = 'Canvas/container/c2/membrane';
                     cc.find(nodePath).active = true;
                     this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
@@ -212,7 +214,7 @@ cc.Class({
                     this.progressBar.progress += 0.33;
                 }
                 else {
-                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "wronguse", material, "penalty", 10, G.user.coins); 
+                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
                     this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
                     this.hintLabel.string = "此材料不符合要求，试试其他的吧";
                 }
@@ -229,10 +231,11 @@ cc.Class({
                     G.isOsmoDone = true;
                     this.coinAnimation(-1);
                     player.updateCoins(-10);
-                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "use", material, "penalty", 10, G.user.coins); 
                     this.setMaterialUsed(code);
-                    player.osmoMaterialUsed.add(code);
-                    player.osmoMaterialUsedClass.add(mClass);
+                    //player.osmoMaterialUsed.add(code);
+                    //player.osmoMaterialUsedClass.add(mClass);
+                    player.updateInventory('osmo', 'use', code, mClass);
+                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "use", material, "penalty", 10, G.user.coins, G.itemsState); 
 
                     var sodAniComponent = this.sodium.getComponent(cc.Animation);
                     sodAniComponent.on('finished', function() {
@@ -240,20 +243,22 @@ cc.Class({
                         var self = this;
                         if(G.isOsmoRewarded){
                             Alert.show(1, "实验完成", "做得好,你已经完成渗透实验,本次无奖励！", function(){
-                                player.osmoMaterialOwned.clear();
-                                player.osmoMaterialUsed.clear(); 
-                                player.osmoMaterialUsedClass.clear();
+                                //player.osmoMaterialOwned.clear();
+                                //player.osmoMaterialUsed.clear(); 
+                                //player.osmoMaterialUsedClass.clear();
+                                player.updateInventory('osmo', 'clear', 0);
                                 self.hintLabel.string = "实验已完成";
                             }, false);
                         }else{
                             player.updateCoins(400);
                             G.isOsmoRewarded = true;
-                            insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "finish", "na", "reward", 400, G.user.coins);
+                            insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "finish", "na", "reward", 400, G.user.coins, G.itemsState);
                             Alert.show(1, "实验完成", "做得好,你已经完成渗透实验,请点击确定获取你的奖励400金币吧！", function(){
                                 self.coinAnimation(1);
-                                player.osmoMaterialOwned.clear();
-                                player.osmoMaterialUsed.clear(); 
-                                player.osmoMaterialUsedClass.clear();
+                                //player.osmoMaterialOwned.clear();
+                                //player.osmoMaterialUsed.clear(); 
+                                //player.osmoMaterialUsedClass.clear();
+                                player.updateInventory('osmo', 'clear', 0);
                                 self.hintLabel.string = "实验已完成";
                             }, false);
                         }
@@ -268,7 +273,7 @@ cc.Class({
                     player.updateCoins(-10);
                     this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
                     this.hintLabel.string = "此材料不符合要求，试试其他的吧";
-                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "wronguse", material, "penalty", 10, G.user.coins); 
+                    insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
                 }
             }
             else {
@@ -285,8 +290,9 @@ cc.Class({
         isOwnedNode.getComponent(cc.Sprite).setState(0);
 
         var player = cc.find('player').getComponent('Player');
-        player.osmoMaterialUsed.delete(code);
-        player.osmoMaterialUsedClass.delete(mClass);
+        //player.osmoMaterialUsed.delete(code);
+        //player.osmoMaterialUsedClass.delete(mClass);
+        player.updateInventory('osmo', 'takeback', code, mClass);
 
         if (mClass == 'a') {
             var nodePath = 'Canvas/container/c' + code.toString();
@@ -326,7 +332,7 @@ cc.Class({
         if (tempCoins >= 0){
             return true;
         }else{
-            insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "bankrupt", "na", "na", 0, G.user.coins);
+            insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "bankrupt", "na", "na", 0, G.user.coins, G.itemsState);
             return false;
         }
     },
@@ -388,15 +394,24 @@ cc.Class({
             cc.find('Canvas/quizButton').getComponent(cc.Button).interactable = false;
         }
     },
+
+    backToMapScene: function () {
+        this.resetScene();
+        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "back", "na", "na", 0, G.user.coins, G.itemsState);
+        cc.director.loadScene("LevelMap");
+    },
     
     resetScene: function () {
+        G.globalSocket.removeAllListeners("osmosis");
         var player = cc.find('player').getComponent('Player');
-        player.osmoMaterialUsed.clear(); 
-        player.osmoMaterialUsedClass.clear();
-        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "reset", "na", "na", 0, G.user.coins);
+        //player.osmoMaterialUsed.clear(); 
+        //player.osmoMaterialUsedClass.clear();
+        player.updateInventory('osmo', 'clear', 0);
+        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "reset", "na", "na", 0, G.user.coins, G.itemsState);
     },
 
     goToQuizScene: function() {
+        this.resetScene();
         cc.director.loadScene("DoQuiz");
     },
 

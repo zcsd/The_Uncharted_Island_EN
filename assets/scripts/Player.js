@@ -54,11 +54,12 @@ cc.Class({
                 this.diffMaterialOwned.clear();
                 this.diffMaterialUsed.clear(); 
                 this.diffMaterialUsedClass.clear();
-                this.diffMaterialState[code-1] = '001';
+                this.diffMaterialState = ['001','001','001','001','001','001','001','001','001'];
+                G.itemsState = ['001001001001001001001001001'];
             }
             
             var state = '';
-            for (i = 0; i < this.diffMaterialState.length; i++){
+            for (var i = 0; i < this.diffMaterialState.length; i++){
                 state = state.concat(this.diffMaterialState[i]);
             }
             G.itemsState = state;
@@ -78,11 +79,12 @@ cc.Class({
                 this.osmoMaterialOwned.clear();
                 this.osmoMaterialUsed.clear(); 
                 this.osmoMaterialUsedClass.clear();
-                this.osmoMaterialState[code-1] = '001';
+                this.osmoMaterialState = ['001','001','001','001','001','001','001','001','001'];
+                G.itemsState = ['001001001001001001001001001'];
             } 
 
             var state = '';
-            for (i = 0; i < this.osmoMaterialState.length; i++){
+            for (var i = 0; i < this.osmoMaterialState.length; i++){
                 state = state.concat(this.osmoMaterialState[i]);
             }
             G.itemsState = state;

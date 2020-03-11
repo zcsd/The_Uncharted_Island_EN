@@ -72,21 +72,15 @@ cc.Class({
             }
         }
 
-        this.progressBar.progress = 0;
-        this.checkMaterial();
-        G.isDiffEnter = true;
-
         G.globalSocket.on('diffusion', function(msg){
             console.log('diffusion hint: ', msg);
             self.hintLabel.string = msg;
         });
-    },
 
-    backToMapScene: function () {
-        this.resetScene();
-        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "back", "na", "na", 0, G.user.coins, G.itemsState);
-		 cc.director.loadScene("LevelMap");
-	},
+        this.progressBar.progress = 0;
+        this.checkMaterial();
+        G.isDiffEnter = true;
+    },
 
     readyToBuyMaterial: function (event, customEventData) {
         var materialInfo = customEventData.split("_", 4);
@@ -367,7 +361,14 @@ cc.Class({
         }
     },
 
+    backToMapScene: function () {
+        this.resetScene();
+        insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "back", "na", "na", 0, G.user.coins, G.itemsState);
+		 cc.director.loadScene("LevelMap");
+	},
+
     resetScene: function () {
+        G.globalSocket.removeAllListeners("diffusion");
         var player = cc.find('player').getComponent('Player');
         //player.diffMaterialUsed.clear(); 
         //player.diffMaterialUsedClass.clear();
@@ -376,6 +377,7 @@ cc.Class({
     },
 
     goToQuizScene: function() {
+        this.resetScene();
         cc.director.loadScene("DoQuiz");
     },
 
