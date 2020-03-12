@@ -55,7 +55,7 @@ cc.Class({
                 this.diffMaterialUsed.clear(); 
                 this.diffMaterialUsedClass.clear();
                 this.diffMaterialState = ['001','001','001','001','001','001','001','001','001'];
-                G.itemsState = ['001001001001001001001001001'];
+                G.itemsState = '001001001001001001001001001';
             }
             
             var state = '';
@@ -80,7 +80,7 @@ cc.Class({
                 this.osmoMaterialUsed.clear(); 
                 this.osmoMaterialUsedClass.clear();
                 this.osmoMaterialState = ['001','001','001','001','001','001','001','001','001'];
-                G.itemsState = ['001001001001001001001001001'];
+                G.itemsState = '001001001001001001001001001';
             } 
 
             var state = '';

@@ -11,7 +11,7 @@ window.G = {
     isOsmoRewarded: false,
     isDiffEnter: false,
     isOsmoEnter: false,
-    itemsState: ['001001001001001001001001001'],
+    itemsState: '001001001001001001001001001',
 }
 
 window.insertNewAction = function(socket, username, sequenceID, stage, actionType,
