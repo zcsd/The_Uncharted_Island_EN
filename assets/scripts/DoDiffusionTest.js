@@ -18,10 +18,8 @@ cc.Class({
             type: cc.Sprite
         },
 
-        diffusion: {
-            default: null,
-            type: cc.Node
-        },
+        diffusion: cc.Node,
+        freemove: cc.Node,
 
         coinRotate: cc.Node,
         coinShine: cc.Node,
@@ -146,7 +144,9 @@ cc.Class({
 
     readyToDiffuse: function () {
         var animationComponent = this.diffusion.getComponent(cc.Animation);
-        animationComponent.play("uDiffAni");
+        var animState = animationComponent.play("uDiffAni");
+        animState.wrapMode = cc.WrapMode.Loop;
+        animState.repeatCount = 2;
     },
 
     afterBuying: function(cost, code) {
@@ -199,7 +199,14 @@ cc.Class({
                     insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "use", material, "penalty", 10, G.user.coins, G.itemsState); 
     
                     var diffAniComponent = this.diffusion.getComponent(cc.Animation);
+                    
                     diffAniComponent.on('finished', function() {
+                        cc.find('Canvas/container/c1/diff').active = false;
+                        var freemoveAniComponent = this.freemove.getComponent(cc.Animation);
+                        var freemoveAnimState = freemoveAniComponent.play("freemoveAni");
+                        freemoveAnimState.wrapMode = cc.WrapMode.Loop;
+                        freemoveAnimState.repeatCount = Infinity;
+
                         this.progressBar.progress += 0.5;
                         var self = this;
                         if(G.isDiffRewarded){
@@ -225,7 +232,9 @@ cc.Class({
                         }
                     }, this);
 
-                    diffAniComponent.play("uDiffAni");
+                    var animState = diffAniComponent.play("uDiffAni");
+                    //animState.wrapMode = cc.WrapMode.Loop;
+                    //animState.repeatCount = Infinity;
                 }
                 else {
                     this.coinAnimation(-1);
