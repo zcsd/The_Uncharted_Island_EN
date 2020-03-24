@@ -29,6 +29,8 @@ cc.Class({
         showCount: 0,
 
         pressAni: cc.Node,
+        freemoveAniComponent: cc.Animation,
+        diffAniComponent: cc.Animation,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -70,6 +72,9 @@ cc.Class({
             }
         }
 
+        this.freemoveAniComponent = this.freemove.getComponent(cc.Animation);
+        this.diffAniComponent = this.diffusion.getComponent(cc.Animation);
+
         G.globalSocket.on('diffusion', function(msg){
             console.log('diffusion hint: ', msg);
             self.hintLabel.string = msg;
@@ -78,6 +83,22 @@ cc.Class({
         this.progressBar.progress = 0;
         this.checkMaterial();
         G.isDiffEnter = true;
+    },
+
+    changeToCold: function(event, customEventData) {
+        this.freemoveAniComponent.stop("freemoveAni");
+        cc.find('Canvas/hightempature').active = false;
+        cc.find('Canvas/lowtempature').active = true;
+        var animState = this.freemoveAniComponent.play("freemoveAni");
+        animState.speed = 0.15;
+    },
+
+    changeToHot: function(event, customEventData) {
+        this.freemoveAniComponent.stop("freemoveAni");
+        cc.find('Canvas/hightempature').active = true;
+        cc.find('Canvas/lowtempature').active = false;
+        var animState = this.freemoveAniComponent.play("freemoveAni");
+        animState.speed = 0.8;
     },
 
     readyToBuyMaterial: function (event, customEventData) {
@@ -143,8 +164,7 @@ cc.Class({
     },
 
     readyToDiffuse: function () {
-        var animationComponent = this.diffusion.getComponent(cc.Animation);
-        var animState = animationComponent.play("uDiffAni");
+        var animState = this.diffAniComponent.play("uDiffAni");
         animState.wrapMode = cc.WrapMode.Loop;
         animState.repeatCount = 2;
     },
@@ -198,12 +218,10 @@ cc.Class({
                     player.updateInventory('diff', 'use', code, mClass);
                     insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "use", material, "penalty", 10, G.user.coins, G.itemsState); 
     
-                    var diffAniComponent = this.diffusion.getComponent(cc.Animation);
-                    
-                    diffAniComponent.on('finished', function() {
+                    this.diffAniComponent.on('finished', function() {
                         cc.find('Canvas/container/c1/diff').active = false;
-                        var freemoveAniComponent = this.freemove.getComponent(cc.Animation);
-                        var freemoveAnimState = freemoveAniComponent.play("freemoveAni");
+
+                        var freemoveAnimState = this.freemoveAniComponent.play("freemoveAni");
                         freemoveAnimState.wrapMode = cc.WrapMode.Loop;
                         freemoveAnimState.repeatCount = Infinity;
 
@@ -232,7 +250,7 @@ cc.Class({
                         }
                     }, this);
 
-                    var animState = diffAniComponent.play("uDiffAni");
+                    var animState = this.diffAniComponent.play("uDiffAni");
                     //animState.wrapMode = cc.WrapMode.Loop;
                     //animState.repeatCount = Infinity;
                 }
@@ -323,8 +341,8 @@ cc.Class({
                 this.coinLabel.string = G.user.coins.toString();
 
                 this.isShowCongra = true;
-                cc.find("Canvas/singleColor").active = true;
-                cc.find("Canvas/congraluation").active = true;
+                //cc.find("Canvas/singleColor").active = true;
+                //cc.find("Canvas/congraluation").active = true;
             }, this);
             coinRotComponent.play("coinRotAni");
         }else if(type == -1){
@@ -396,8 +414,8 @@ cc.Class({
         if (this.showCount >= 150){
             this.isShowCongra = false;
             this.showCount = 0;
-            cc.find("Canvas/singleColor").active = false;
-            cc.find("Canvas/congraluation").active = false;
+            //cc.find("Canvas/singleColor").active = false;
+            //cc.find("Canvas/congraluation").active = false;
         }else if (this.showCount < 150 && this.isShowCongra == true) {
             this.showCount++;
         }
