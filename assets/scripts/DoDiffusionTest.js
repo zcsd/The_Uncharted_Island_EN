@@ -80,6 +80,16 @@ cc.Class({
             self.hintLabel.string = msg;
         });
 
+        G.globalSocket.on('command', function(msg){
+            console.log('command received: ', msg);
+            
+            if (msg == 'colder'){
+                this.changeToCold();
+            }else if (msg == 'hotter'){
+                this.changeToHot();
+            }
+        });
+
         this.progressBar.progress = 0;
         this.checkMaterial();
         G.isDiffEnter = true;
