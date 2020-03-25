@@ -84,9 +84,9 @@ cc.Class({
             console.log('command received: ', msg);
             
             if (msg == 'colder'){
-                this.changeToCold();
+                self.changeToCold();
             }else if (msg == 'hotter'){
-                this.changeToHot();
+                self.changeToHot();
             }
         });
 
@@ -95,7 +95,7 @@ cc.Class({
         G.isDiffEnter = true;
     },
 
-    changeToCold: function(event, customEventData) {
+    changeToCold: function() {
         this.freemoveAniComponent.stop("freemoveAni");
         cc.find('Canvas/hightempature').active = false;
         cc.find('Canvas/lowtempature').active = true;
@@ -103,7 +103,7 @@ cc.Class({
         animState.speed = 0.15;
     },
 
-    changeToHot: function(event, customEventData) {
+    changeToHot: function() {
         this.freemoveAniComponent.stop("freemoveAni");
         cc.find('Canvas/hightempature').active = true;
         cc.find('Canvas/lowtempature').active = false;
