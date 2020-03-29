@@ -220,6 +220,7 @@ cc.Class({
                 }
             }
             else {
+                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
                 this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
                 this.hintLabel.string = "请先挑选使用合适的实验容器";
             }
@@ -277,6 +278,7 @@ cc.Class({
                 }
             }
             else {
+                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
                 this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
                 this.hintLabel.string = "请先挑选使用合适的实验容器或者材料";
             }
