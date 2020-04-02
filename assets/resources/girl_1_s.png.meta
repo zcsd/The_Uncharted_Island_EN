@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "0f2e1619-7dcb-4b7e-814f-d913106081b0",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 70,
+  "height": 70,
   "platformSettings": {},
   "subMetas": {
     "girl_1_s": {

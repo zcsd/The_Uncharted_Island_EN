@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "55a14aad-ff81-4547-ac45-5bd18c0d3919",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 70,
+  "height": 24,
   "platformSettings": {},
   "subMetas": {
     "tube_label": {

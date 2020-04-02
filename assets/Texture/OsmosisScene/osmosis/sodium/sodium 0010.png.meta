@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "6de306ab-7f72-4117-9e16-d93f70efb86c",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 230,
+  "height": 157,
   "platformSettings": {},
   "subMetas": {
     "sodium 0010": {

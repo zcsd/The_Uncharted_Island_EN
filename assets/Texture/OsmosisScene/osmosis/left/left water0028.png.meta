@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "d4bdaa45-60f5-4636-b025-301aef49da9c",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 140,
+  "height": 176,
   "platformSettings": {},
   "subMetas": {
     "left water0028": {

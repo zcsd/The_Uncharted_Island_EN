@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "92dea2dd-66f2-4131-949f-ff1307c14b8b",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 462,
+  "height": 105,
   "platformSettings": {},
   "subMetas": {
     "CloudsSun": {

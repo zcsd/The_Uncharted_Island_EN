@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "e90fbd81-19ac-4742-b1d5-35301049e553",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 550,
+  "height": 318,
   "platformSettings": {},
   "subMetas": {
     "Yellow BG Small": {

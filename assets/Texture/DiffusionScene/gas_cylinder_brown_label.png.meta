@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "84fabe59-3d60-49d3-8575-26107288b9e6",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 70,
+  "height": 37,
   "platformSettings": {},
   "subMetas": {
     "gas_cylinder_brown_label": {

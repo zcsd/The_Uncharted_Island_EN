@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "3044962a-712c-4e53-98de-28483c9e45ee",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 75,
+  "height": 75,
   "platformSettings": {},
   "subMetas": {
     "radiobuttonOn": {

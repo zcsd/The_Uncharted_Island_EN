@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.3",
+  "ver": "2.3.4",
   "uuid": "cddce7d1-4a9b-4142-b33f-83d524247c47",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -7,6 +7,8 @@
   "premultiplyAlpha": false,
   "genMipmaps": false,
   "packable": true,
+  "width": 52,
+  "height": 60,
   "platformSettings": {},
   "subMetas": {
     "star coin rotate 2": {
