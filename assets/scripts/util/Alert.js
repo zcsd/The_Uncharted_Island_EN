@@ -103,8 +103,9 @@ Alert.show = function (typeNum, titleString, detailString, enterCallBack, needCa
 
     // 执行弹进动画
     self.startFadeIn = function () {
-        cc.eventManager.pauseTarget(Alert._alert, true);
-        Alert._alert.position = cc.p(0, 0);
+        //cc.eventManager.pauseTarget(Alert._alert, true);
+        Alert._alert.pauseSystemEvents(true);
+        Alert._alert.position = cc.Vec2(0, 0);
         Alert._alert.setScale(2);
         Alert._alert.opacity = 0;
         Alert._alert.runAction(self.actionFadeIn);
@@ -112,13 +113,15 @@ Alert.show = function (typeNum, titleString, detailString, enterCallBack, needCa
 
     // 执行弹出动画
     self.startFadeOut = function () {
-        cc.eventManager.pauseTarget(Alert._alert, true);
+        //cc.eventManager.pauseTarget(Alert._alert, true);
+        Alert._alert.pauseSystemEvents(true);
         Alert._alert.runAction(self.actionFadeOut);
     };
 
     // 弹进动画完成回调
     self.onFadeInFinish = function () {
-        cc.eventManager.resumeTarget(Alert._alert, true);
+        //cc.eventManager.resumeTarget(Alert._alert, true);
+        Alert._alert.resumeSystemEvents(true);
     };
 
     // 弹出动画完成回调

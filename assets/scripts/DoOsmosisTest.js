@@ -2,36 +2,19 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        nameLabel: {
-            default: null,
-            type: cc.Label
-        },
-
+        nameLabel: cc.Label,
         coinLabel: cc.Label,
-
         hintLabel: cc.Label,
-
         progressBar: cc.ProgressBar,
+        avatarSprite: cc.Sprite,
 
-        avatarSprite: {
-            default: null,
-            type: cc.Sprite
-        },
+        osmosisLeft: cc.Node,
+        osmosisRight: cc.Node,
+        sodium: cc.Node,
 
-        osmosisLeft: {
-            default: null,
-            type: cc.Node
-        },
-
-        osmosisRight: {
-            default: null,
-            type: cc.Node
-        },
-
-        sodium: {
-            default: null,
-            type: cc.Node
-        },
+        osmosisLeft1: cc.Node,
+        osmosisRight1: cc.Node,
+        sodium1: cc.Node,
 
         coinRotate: cc.Node,
         coinShine: cc.Node,
@@ -41,6 +24,14 @@ cc.Class({
         showCount: 0,
 
         pressAni: cc.Node,
+
+        sodAni: cc.Animation,
+        leftAni: cc.Animation,
+        rightAni: cc.Animation,
+
+        sod1Ani: cc.Animation,
+        left1Ani: cc.Animation,
+        right1Ani: cc.Animation,
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -84,6 +75,14 @@ cc.Class({
             }
         }
 
+        this.sodAni = this.sodium.getComponent(cc.Animation);
+        this.leftAni = this.osmosisLeft.getComponent(cc.Animation);
+        this.rightAni = this.osmosisRight.getComponent(cc.Animation);
+
+        this.sod1Ani = this.sodium1.getComponent(cc.Animation);
+        this.left1Ani = this.osmosisLeft1.getComponent(cc.Animation);
+        this.right1Ani = this.osmosisRight1.getComponent(cc.Animation);
+
         G.globalSocket.on('osmosis', function(msg){
             console.log('osmosis hint: ', msg);
             self.hintLabel.string = msg;
@@ -92,6 +91,24 @@ cc.Class({
         this.progressBar.progress = 0;
         this.checkMaterial();
         G.isOsmoEnter = true;
+    },
+
+    addSaltToLeft: function () {
+        this.sodAni.stop("sodiumAni");
+        cc.find('Canvas/container/c2/left').active = false;
+        cc.find('Canvas/container/c2/right').active = false;
+        cc.find('Canvas/container/c2/sodium').active = false;
+
+        cc.find('Canvas/container/c2/left1').active = true;
+        cc.find('Canvas/container/c2/right1').active = true;
+        cc.find('Canvas/container/c2/sodium1').active = true;
+
+        var sod1State = this.sod1Ani.play('sodium1Ani');
+        sod1State.wrapMode = cc.WrapMode.Loop;
+        sod1State.repeatCount = Infinity;
+
+        this.left1Ani.play('left1Ani');
+        this.right1Ani.play('right1Ani');
     },
 
     readyToBuyMaterial: function (event, customEventData) {
@@ -238,8 +255,7 @@ cc.Class({
                     player.updateInventory('osmo', 'use', code, mClass);
                     insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "use", material, "penalty", 10, G.user.coins, G.itemsState); 
 
-                    var sodAniComponent = this.sodium.getComponent(cc.Animation);
-                    sodAniComponent.on('finished', function() {
+                    this.sodAni.on('finished', function() {
                         this.progressBar.progress = 1.0;
                         var self = this;
                         if(G.isOsmoRewarded){
@@ -265,9 +281,12 @@ cc.Class({
                         }
                     }, this);
 
-                    sodAniComponent.play("sodiumAni");
-                    this.osmosisLeft.getComponent(cc.Animation).play("leftAni");
-                    this.osmosisRight.getComponent(cc.Animation).play("rightAni");
+                    var sodAniState = this.sodAni.play("sodiumAni");
+                    sodAniState.wrapMode = cc.WrapMode.Loop;
+                    sodAniState.repeatCount = Infinity;
+
+                    this.leftAni.play("leftAni");
+                    this.rightAni.play("rightAni");
                 }
                 else {
                     this.coinAnimation(-1);
@@ -283,7 +302,6 @@ cc.Class({
                 this.hintLabel.string = "请先挑选使用合适的实验容器或者材料";
             }
         }
-
     },
 
     afterBacking: function(code, mClass) {
@@ -326,7 +344,7 @@ cc.Class({
     setMaterialUsed: function(code) {
         var materialNodePath = 'Canvas/materialBackground/m' + code.toString() + 'Button';
         var isOwnedNode = cc.find((materialNodePath + '/isOwned'));
-        isOwnedNode.getComponent(cc.Sprite).setState(1);
+        isOwnedNode.getComponent(cc.Sprite).setMaterial(1);
     },
 
     checkCoinEnough: function(cost) {

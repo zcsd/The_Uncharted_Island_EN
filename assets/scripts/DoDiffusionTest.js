@@ -328,7 +328,7 @@ cc.Class({
     setMaterialUsed: function(code) {
         var materialNodePath = 'Canvas/materialBackground/m' + code.toString() + 'Button';
         var isOwnedNode = cc.find((materialNodePath + '/isOwned'));
-        isOwnedNode.getComponent(cc.Sprite).setState(1);
+        isOwnedNode.getComponent(cc.Sprite).setMaterial(1);
     },
 
     checkCoinEnough: function(cost) {
