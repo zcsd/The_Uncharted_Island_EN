@@ -34,8 +34,6 @@ cc.Class({
         right1Ani: cc.Animation,
     },
 
-    // LIFE-CYCLE CALLBACKS:
-
     onLoad: function () {
         var player = cc.find('player').getComponent('Player');
         this.nameLabel.string = player.nickName;
@@ -86,6 +84,14 @@ cc.Class({
         G.globalSocket.on('osmosis', function(msg){
             console.log('osmosis hint: ', msg);
             self.hintLabel.string = msg;
+        });
+
+        G.globalSocket.on('command', function(msg){
+            console.log('command received: ', msg);
+            
+            if (msg == 'leftsalt'){
+                self.addSaltToLeft();
+            }
         });
 
         this.progressBar.progress = 0;
@@ -255,7 +261,7 @@ cc.Class({
                     player.updateInventory('osmo', 'use', code, mClass);
                     insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "use", material, "penalty", 10, G.user.coins, G.itemsState); 
 
-                    this.sodAni.on('finished', function() {
+                    this.leftAni.on('finished', function() {
                         this.progressBar.progress = 1.0;
                         var self = this;
                         if(G.isOsmoRewarded){
@@ -281,9 +287,11 @@ cc.Class({
                         }
                     }, this);
 
-                    var sodAniState = this.sodAni.play("sodiumAni");
-                    sodAniState.wrapMode = cc.WrapMode.Loop;
-                    sodAniState.repeatCount = Infinity;
+                    
+
+                    var sodiAniState = this.sodAni.play("sodiumAni");
+                    sodiAniState.wrapMode = cc.WrapMode.Loop;
+                    sodiAniState.repeatCount = Infinity;
 
                     this.leftAni.play("leftAni");
                     this.rightAni.play("rightAni");
@@ -368,8 +376,8 @@ cc.Class({
                 this.coinLabel.string = G.user.coins.toString();
 
                 this.isShowCongra = true;
-                cc.find("Canvas/singleColor").active = true;
-                cc.find("Canvas/congraluation").active = true;
+                //cc.find("Canvas/singleColor").active = true;
+                //cc.find("Canvas/congraluation").active = true;
             }, this);
             coinRotComponent.play("coinRotAni");
         }else if(type == -1){
@@ -423,6 +431,7 @@ cc.Class({
     
     resetScene: function () {
         G.globalSocket.removeAllListeners("osmosis");
+        G.globalSocket.removeAllListeners("command");
         var player = cc.find('player').getComponent('Player');
         //player.osmoMaterialUsed.clear(); 
         //player.osmoMaterialUsedClass.clear();

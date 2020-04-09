@@ -2,21 +2,11 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        nameLabel: {
-            default: null,
-            type: cc.Label
-        },
-
+        nameLabel: cc.Label,
         coinLabel: cc.Label,
-
         hintLabel: cc.Label,
-
         progressBar: cc.ProgressBar,
-
-        avatarSprite: {
-            default: null,
-            type: cc.Sprite
-        },
+        avatarSprite: cc.Sprite,
 
         diffusion: cc.Node,
         freemove: cc.Node,
@@ -29,11 +19,10 @@ cc.Class({
         showCount: 0,
 
         pressAni: cc.Node,
+
         freemoveAniComponent: cc.Animation,
         diffAniComponent: cc.Animation,
     },
-
-    // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
         var player = cc.find('player').getComponent('Player');
@@ -407,6 +396,7 @@ cc.Class({
 
     resetScene: function () {
         G.globalSocket.removeAllListeners("diffusion");
+        G.globalSocket.removeAllListeners("command");
         var player = cc.find('player').getComponent('Player');
         //player.diffMaterialUsed.clear(); 
         //player.diffMaterialUsedClass.clear();
