@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "736932cd-fbc0-4c97-bb59-426436155890",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 200,
+  "height": 123,
+  "platformSettings": {},
+  "subMetas": {
+    "red molecule0141-1": {
+      "ver": "1.0.4",
+      "uuid": "3ee6d059-2ff3-41e1-860f-c2bc6da7326b",
+      "rawTextureUuid": "736932cd-fbc0-4c97-bb59-426436155890",
+      "trimType": "auto",
+      "trimThreshold": 0,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 200,
+      "height": 123,
+      "rawWidth": 200,
+      "rawHeight": 123,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
