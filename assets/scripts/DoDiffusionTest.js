@@ -10,6 +10,8 @@ cc.Class({
 
         diffusion: cc.Node,
         freemove: cc.Node,
+        red_diffusion: cc.Node,
+        red_freemove: cc.Node,
 
         coinRotate: cc.Node,
         coinShine: cc.Node,
@@ -22,6 +24,13 @@ cc.Class({
 
         freemoveAniComponent: cc.Animation,
         diffAniComponent: cc.Animation,
+        red_freemoveAniComponent: cc.Animation,
+        red_diffAniComponent: cc.Animation,
+
+        current_freemoveAni: cc.Animation,
+        current_diffAni: cc.Animation,
+
+        currentAniChoice: 'ugreen',
     },
 
     onLoad () {
@@ -63,6 +72,8 @@ cc.Class({
 
         this.freemoveAniComponent = this.freemove.getComponent(cc.Animation);
         this.diffAniComponent = this.diffusion.getComponent(cc.Animation);
+        this.red_freemoveAniComponent = this.red_freemove.getComponent(cc.Animation);
+        this.red_diffAniComponent = this.red_diffusion.getComponent(cc.Animation);
 
         G.globalSocket.on('diffusion', function(msg){
             console.log('diffusion hint: ', msg);
@@ -85,19 +96,34 @@ cc.Class({
     },
 
     changeToCold: function() {
-        this.freemoveAniComponent.stop("freemoveAni");
         cc.find('Canvas/hightempature').active = false;
         cc.find('Canvas/lowtempature').active = true;
-        var animState = this.freemoveAniComponent.play("freemoveAni");
-        animState.speed = 0.15;
+
+        if(this.currentAniChoice == 'ugreen'){
+            this.freemoveAniComponent.stop("freemoveAni");
+            var animState = this.freemoveAniComponent.play("freemoveAni");
+            animState.speed = 0.15;
+        }else if(this.currentAniChoice == 'ured'){
+            this.red_freemoveAniComponent.stop("redFreemoveAni");
+            var animState = this.red_freemoveAniComponent.play("redFreemoveAni");
+            animState.speed = 0.15;
+        }
+
     },
 
     changeToHot: function() {
-        this.freemoveAniComponent.stop("freemoveAni");
         cc.find('Canvas/hightempature').active = true;
         cc.find('Canvas/lowtempature').active = false;
-        var animState = this.freemoveAniComponent.play("freemoveAni");
-        animState.speed = 0.8;
+
+        if(this.currentAniChoice == 'ugreen'){
+            this.freemoveAniComponent.stop("freemoveAni");
+            var animState = this.freemoveAniComponent.play("freemoveAni");
+            animState.speed = 0.8;
+        }else if(this.currentAniChoice == 'ured'){
+            this.red_freemoveAniComponent.stop("redFreemoveAni");
+            var animState = this.red_freemoveAniComponent.play("redFreemoveAni");
+            animState.speed = 0.8;
+        }
     },
 
     readyToBuyMaterial: function (event, customEventData) {
@@ -207,7 +233,7 @@ cc.Class({
 
         if (mClass == 'c') {
             if (player.diffMaterialUsed.has(1)) {
-                if (code == 4) {
+                if (code == 4 || code == 5) {
                     G.isDiffDone = true;
                     this.coinAnimation(-1);
                     player.updateCoins(-10);
@@ -216,42 +242,85 @@ cc.Class({
                     //player.diffMaterialUsedClass.add(mClass);
                     player.updateInventory('diff', 'use', code, mClass);
                     insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "use", material, "penalty", 10, G.user.coins, G.itemsState); 
+                    
+                    if(code == 4){
+                        // green ink used
+                        this.currentAniChoice = 'ugreen';
+                        this.current_diffAni = this.diffAniComponent;
+                        this.current_freemoveAni = this.freemoveAniComponent;
+                        this.diffAniComponent.on('finished', function() {
+                            cc.find('Canvas/container/c1/diff').active = false;
     
-                    this.diffAniComponent.on('finished', function() {
-                        cc.find('Canvas/container/c1/diff').active = false;
-
-                        var freemoveAnimState = this.freemoveAniComponent.play("freemoveAni");
-                        freemoveAnimState.wrapMode = cc.WrapMode.Loop;
-                        freemoveAnimState.repeatCount = Infinity;
-
-                        this.progressBar.progress += 0.5;
-                        var self = this;
-                        if(G.isDiffRewarded){
-                            Alert.show(1, "实验完成", "做得好,你已经完成扩散实验,本次无奖励！", function(){
-                                //player.diffMaterialOwned.clear();
-                                //player.diffMaterialUsed.clear(); 
-                                //player.diffMaterialUsedClass.clear();
-                                player.updateInventory('diff', 'clear', 0);
-                                self.hintLabel.string = "实验已完成";
-                            }, false);
-                        }else{
-                            player.updateCoins(300);
-                            G.isDiffRewarded = true;
-                            insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "finish", "na", "reward", 300, G.user.coins, G.itemsState);
-                            Alert.show(1, "实验完成", "做得好,你已经完成扩散实验,请点击确定获取你的奖励300金币吧！", function(){
-                                self.coinAnimation(1);
-                                //player.diffMaterialOwned.clear();
-                                //player.diffMaterialUsed.clear(); 
-                                //player.diffMaterialUsedClass.clear();
-                                player.updateInventory('diff', 'clear', 0);
-                                self.hintLabel.string = "实验已完成";
-                            }, false);
-                        }
-                    }, this);
-
-                    var animState = this.diffAniComponent.play("uDiffAni");
-                    //animState.wrapMode = cc.WrapMode.Loop;
-                    //animState.repeatCount = Infinity;
+                            var freemoveAnimState = this.freemoveAniComponent.play("freemoveAni");
+                            freemoveAnimState.wrapMode = cc.WrapMode.Loop;
+                            freemoveAnimState.repeatCount = Infinity;
+    
+                            this.progressBar.progress += 0.5;
+                            var self = this;
+                            if(G.isDiffRewarded){
+                                Alert.show(1, "实验完成", "做得好,你已经完成扩散实验,本次无奖励！", function(){
+                                    //player.diffMaterialOwned.clear();
+                                    //player.diffMaterialUsed.clear(); 
+                                    //player.diffMaterialUsedClass.clear();
+                                    player.updateInventory('diff', 'clear', 0);
+                                    self.hintLabel.string = "实验已完成";
+                                }, false);
+                            }else{
+                                player.updateCoins(300);
+                                G.isDiffRewarded = true;
+                                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "finish", "na", "reward", 300, G.user.coins, G.itemsState);
+                                Alert.show(1, "实验完成", "做得好,你已经完成扩散实验,请点击确定获取你的奖励300金币吧！", function(){
+                                    self.coinAnimation(1);
+                                    //player.diffMaterialOwned.clear();
+                                    //player.diffMaterialUsed.clear(); 
+                                    //player.diffMaterialUsedClass.clear();
+                                    player.updateInventory('diff', 'clear', 0);
+                                    self.hintLabel.string = "实验已完成";
+                                }, false);
+                            }
+                        }, this);
+    
+                        var animState = this.diffAniComponent.play("uDiffAni");
+                    }else if (code ==5){
+                        // red ink used
+                        this.currentAniChoice = 'ured';
+                        this.current_diffAni = this.red_diffAniComponent;
+                        this.current_freemoveAni = this.red_freemoveAniComponent;
+                        this.red_diffAniComponent.on('finished', function() {
+                            cc.find('Canvas/container/c1/diff_red').active = false;
+    
+                            var freemoveAnimState = this.red_freemoveAniComponent.play("redFreemoveAni");
+                            freemoveAnimState.wrapMode = cc.WrapMode.Loop;
+                            freemoveAnimState.repeatCount = Infinity;
+    
+                            this.progressBar.progress += 0.5;
+                            var self = this;
+                            if(G.isDiffRewarded){
+                                Alert.show(1, "实验完成", "做得好,你已经完成扩散实验,本次无奖励！", function(){
+                                    //player.diffMaterialOwned.clear();
+                                    //player.diffMaterialUsed.clear(); 
+                                    //player.diffMaterialUsedClass.clear();
+                                    player.updateInventory('diff', 'clear', 0);
+                                    self.hintLabel.string = "实验已完成";
+                                }, false);
+                            }else{
+                                player.updateCoins(300);
+                                G.isDiffRewarded = true;
+                                insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "finish", "na", "reward", 300, G.user.coins, G.itemsState);
+                                Alert.show(1, "实验完成", "做得好,你已经完成扩散实验,请点击确定获取你的奖励300金币吧！", function(){
+                                    self.coinAnimation(1);
+                                    //player.diffMaterialOwned.clear();
+                                    //player.diffMaterialUsed.clear(); 
+                                    //player.diffMaterialUsedClass.clear();
+                                    player.updateInventory('diff', 'clear', 0);
+                                    self.hintLabel.string = "实验已完成";
+                                }, false);
+                            }
+                        }, this);
+    
+                        var animState = this.red_diffAniComponent.play("redDiffAni");
+                    }
+                    
                 }
                 else {
                     this.coinAnimation(-1);
