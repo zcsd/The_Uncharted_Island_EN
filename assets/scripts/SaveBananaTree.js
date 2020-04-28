@@ -2,23 +2,11 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        nameLabel: {
-            default: null,
-            type: cc.Label
-        },
-
+        nameLabel:cc.Label,
         coinLabel: cc.Label,
         hintLabel: cc.Label,
-
-        avatarSprite: {
-            default: null,
-            type: cc.Sprite
-        },
-
-        bodySprite: {
-            default: null,
-            type: cc.Sprite
-        },
+        avatarSprite:cc.Sprite,
+        bodySprite: cc.Sprite,
 
         coinRotate: cc.Node,
         coinShine: cc.Node,

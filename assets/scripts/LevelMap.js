@@ -67,7 +67,7 @@ cc.Class({
             levelNode = "Canvas/diffButton/Background";
             cc.find('Canvas/diffButton').getComponent(cc.Button).interactable = true;
             cc.find('Canvas/osButton').getComponent(cc.Button).interactable = false;
-            cc.find('Canvas/bananaButton').getComponent(cc.Button).interactable = false;
+            cc.find('Canvas/bananaButton').getComponent(cc.Button).interactable = true;//edit here
         }else if (!G.isOsmoDone){
             cc.find("Canvas/diffButton/done").active = true;
             cc.find('Canvas/osButton').getComponent(cc.Button).interactable = true;
