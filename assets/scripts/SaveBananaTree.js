@@ -46,7 +46,7 @@ cc.Class({
             walkAniComponent.on('finished', function(){
                 setTimeout(function(){
                     cc.director.loadScene("SaveBananaTree01");
-                }, 1500);
+                }, 800);
                 
                 /*
                 Alert.show(1, "即将进入洞穴", "准备进入微观世界，救活这棵香蕉树吧！", function(){

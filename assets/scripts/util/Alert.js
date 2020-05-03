@@ -14,7 +14,7 @@ var Alert = {
  * titleString:    标题 string 类型.
  * detailString :   内容 string 类型.
  * enterCallBack:   确定点击事件回调  function 类型.
- * neeCancel:       是否展示取消按钮 bool 类型 default YES.
+ * needCancel:       是否展示取消按钮 bool 类型 default YES.
  * duration:        动画速度 default = 0.3.
 */
 
@@ -142,6 +142,7 @@ Alert.show = function (typeNum, titleString, detailString, enterCallBack, needCa
     // 销毁 alert (内存管理还没搞懂，暂且这样写吧~v~)
     self.onDestory = function () {
         Alert._alert.destroy();
+        Alert._alert.removeFromParent();
         Alert._enterCallBack = null;
         Alert._alert = null;
         Alert._titleLabel = null;
