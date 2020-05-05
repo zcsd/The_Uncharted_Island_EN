@@ -18,6 +18,7 @@ cc.Class({
         isMinsaltFirst: true,
         isH2OFirst: true,
         currentQStage: "",
+        currentBtnNode: "",
 
         questionLabel: cc.Label,
         qhintLabel: cc.Label,
@@ -26,6 +27,8 @@ cc.Class({
         qanswer3Label: cc.Label,
         qanswer: 0,
         userAnswerChoice: 0, // user choice
+
+        manwalk: cc.Node,
     },
 
     onLoad: function () {
@@ -94,11 +97,13 @@ cc.Class({
     },
 
     collectMolecues: function(event, btnName) {
-        cc.find(btnName).active = false;
-        cc.find(btnName).getComponent(cc.Button).interactable = false;
+        //cc.find(btnName).active = false;
+        //cc.find(btnName).getComponent(cc.Button).interactable = false;
+        this.currentBtnNode = btnName;
         cc.find("Canvas/collectBox").active = true;
     
-        if(btnName.includes("salt")){
+        if(this.currentBtnNode.includes("salt")){
+            this.currentQStage = "minsalt";
             if (this.isMinsaltFirst){
                 cc.find("Canvas/questionAlert").active = true;
                 this.questionLabel.string = "问题：无机盐主要是通过下列哪种方式被植物的根吸收？";
@@ -111,14 +116,12 @@ cc.Class({
                 this.qhintLabel.string = "";
                 this.qanswer = 2;
                 this.userAnswerChoice = 0;
-                this.isMinsaltFirst = false;
-                this.currentQStage = "minsalt";
+                this.isMinsaltFirst = false; 
             }else{
-                cc.find("Canvas/minSaltOwned").active = true;
-                var seq = cc.sequence(cc.scaleBy(0.5, 1.2), cc.scaleBy(0.5, 0.833), cc.scaleBy(0.5, 1.11));
-                cc.find("Canvas/minSaltOwned").runAction(seq);
+                this.goIntoBox();
             }
-        }else if(btnName.includes("h2o")){
+        }else if(this.currentBtnNode.includes("h2o")){
+            this.currentQStage = "h2o";
             if (this.isH2OFirst){
                 cc.find("Canvas/questionAlert").active = true;
                 this.questionLabel.string = "问题：水分子主要是通过下列哪种方式被植物的根吸收?";
@@ -132,22 +135,44 @@ cc.Class({
                 this.qanswer = 1;
                 this.userAnswerChoice = 0;
                 this.isH2OFirst = false;
-                this.currentQStage = "h2o";
             }else{
-                cc.find("Canvas/h2oOwned").active = true;
-                var seq = cc.sequence(cc.scaleBy(0.5, 1.2), cc.scaleBy(0.5, 0.833), cc.scaleBy(0.5, 1.11));
-                cc.find("Canvas/h2oOwned").runAction(seq);
+                this.goIntoBox();
             }
         }
 
         this.numCollect += 1;
         if(this.numCollect >= 7 ){
             this.hintLabel.string = "收集完成，现在带着水和无机盐准备进入根毛里面吧!";
+            cc.find("Canvas/gotoinsiderootButton").interactable = true;
+            cc.find("Canvas/gotoinsiderootButton").active = true;
         }
     },
 
     goIntoBox: function(){
-
+        cc.find(this.currentBtnNode).getComponent(cc.Button).interactable = false;
+        var self = this;
+        
+        if (this.currentBtnNode.includes('salt')){
+            var finished0 = cc.callFunc(function(){
+                cc.find(self.currentBtnNode).active = false;
+                cc.find("Canvas/minSaltOwned").active = true;
+                var seq0 = cc.sequence(cc.scaleBy(0.15, 1.2), cc.scaleBy(0.15, 0.833), cc.scaleBy(0.15, 1.11));
+                cc.find("Canvas/minSaltOwned").runAction(seq0);
+                self.currentBtnNode = "";
+            }, this);
+            var seq1 = cc.sequence(cc.moveTo(1.0, -108, -285), finished0);
+            cc.find(this.currentBtnNode).runAction(seq1);
+        }else if (this.currentBtnNode.includes('h2o')){
+            var finished1 = cc.callFunc(function(){
+                cc.find(self.currentBtnNode).active = false;
+                cc.find("Canvas/h2oOwned").active = true;
+                var seq2 = cc.sequence(cc.scaleBy(0.15, 1.2), cc.scaleBy(0.15, 0.833), cc.scaleBy(0.15, 1.11));
+                cc.find("Canvas/h2oOwned").runAction(seq2);
+                self.currentBtnNode = "";
+            }, this);
+            var seq3 = cc.sequence(cc.moveTo(1.0, -171, -286), finished1);
+            cc.find(this.currentBtnNode).runAction(seq3);
+        }
     },
 
     submitQAnswer: function(){
@@ -162,15 +187,11 @@ cc.Class({
             setTimeout(function(){
                 cc.find("Canvas/questionAlert").active = false;
                 if(self.currentQStage == "minsalt"){
-                    cc.find("Canvas/minSaltOwned").active = true;
-                    var seq = cc.sequence(cc.scaleBy(0.5, 1.2), cc.scaleBy(0.5, 0.833), cc.scaleBy(0.5, 1.11));
-                    cc.find("Canvas/minSaltOwned").runAction(seq);
+                    self.goIntoBox();
                 }else if(self.currentQStage == "h2o"){
-                    cc.find("Canvas/h2oOwned").active = true;
-                    var seq = cc.sequence(cc.scaleBy(0.5, 1.2), cc.scaleBy(0.5, 0.833), cc.scaleBy(0.5, 1.11));
-                    cc.find("Canvas/h2oOwned").runAction(seq);
+                    self.goIntoBox();
                 }
-            }, 1500);
+            }, 1200);
         }
         else if (this.userAnswerChoice == 0) {
             this.qhintLabel.string = "请选择一个答案";
@@ -185,17 +206,6 @@ cc.Class({
 
     changeAnswer: function (event, customEventData) {
         this.userAnswerChoice = event.node._name.replace('toggle', '');
-    },
-
-    goIntoHole: function(){
-        var finished = cc.callFunc(function(){
-            cc.find("Canvas/minSaltOwned").active = false;
-            cc.find("Canvas/h2oOwned").active = false;
-        }, this);;
-        var seq1 = cc.sequence(cc.scaleBy(0.2, 1.8), cc.moveTo(2.2, -394, 33), finished);
-        var seq2 = cc.sequence(cc.scaleBy(0.2, 1.8), cc.moveTo(2.2, -144, 88));
-        cc.find("Canvas/minSaltOwned").runAction(seq1);
-        cc.find("Canvas/h2oOwned").runAction(seq2);
     },
 
     floatingAction: function(){
@@ -264,13 +274,29 @@ cc.Class({
         }
     },
 
-    backToMapScene: function () {
-        //cc.director.loadScene("LevelMap");
+    goIntoHole: function(){
+        //self = this;
+        var finished = cc.callFunc(function(){
+            cc.find("Canvas/minSaltOwned").active = false;
+            cc.find("Canvas/h2oOwned").active = false;
+            var walkAniComponent = this.manwalk.getComponent(cc.Animation);
+            walkAniComponent.on('finished', function(){
+                cc.director.loadScene("SaveBananaTree02");
+            }, this);
+            walkAniComponent.play("walktohole");
+        }, this);;
+        var seq1 = cc.sequence(cc.scaleBy(0.2, 1.8), cc.moveTo(2.2, -394, 33), finished);
+        var seq2 = cc.sequence(cc.scaleBy(0.2, 1.8), cc.moveTo(2.2, -144, 88));
+        cc.find("Canvas/minSaltOwned").runAction(seq1);
+        cc.find("Canvas/h2oOwned").runAction(seq2);
+
+    },
+
+    goToRootInsideScene: function () {
         this.goIntoHole();
     },
 
     onEnable : function(){
-
         this.mask.on('touchstart',function(event){
             event.stopPropagation();
         });
