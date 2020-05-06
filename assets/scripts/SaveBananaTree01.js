@@ -60,7 +60,7 @@ cc.Class({
         console.log(this.binRead);
         if((this.binRead & 0b111) == 0b111) {
             this.setMolecueStatus(true);
-            this.hintLabel.string = "开始点击水分子和无机盐来收集它们吧，植物生长需要它们。";
+            this.hintLabel.string = "开始点击水分子和无机盐来收集它们吧，请收集全部，植物生长需要它们。";
         }
     },
 
@@ -76,7 +76,7 @@ cc.Class({
         console.log(this.binRead);
         if((this.binRead & 0b111) == 0b111) {
             this.setMolecueStatus(true);
-            this.hintLabel.string = "开始点击水分子和无机盐来收集它们吧，植物生长需要它们。";
+            this.hintLabel.string = "开始点击水分子和无机盐来收集它们吧，请收集全部，植物生长需要它们。";
         }
     },
 
@@ -106,6 +106,7 @@ cc.Class({
             this.currentQStage = "minsalt";
             if (this.isMinsaltFirst){
                 cc.find("Canvas/questionAlert").active = true;
+                cc.find("Canvas/questionAlert/contentBg/submitButton").getComponent(cc.Button).interactable = true;
                 this.questionLabel.string = "问题：无机盐主要是通过下列哪种方式被植物的根吸收？";
                 this.qanswer1Label.string = "自由扩散";
                 this.qanswer2Label.string = "协助扩散";
@@ -124,6 +125,7 @@ cc.Class({
             this.currentQStage = "h2o";
             if (this.isH2OFirst){
                 cc.find("Canvas/questionAlert").active = true;
+                cc.find("Canvas/questionAlert/contentBg/submitButton").getComponent(cc.Button).interactable = true;
                 this.questionLabel.string = "问题：水分子主要是通过下列哪种方式被植物的根吸收?";
                 this.qanswer1Label.string = "自由扩散";
                 this.qanswer2Label.string = "协助扩散";
@@ -179,10 +181,10 @@ cc.Class({
         var player = cc.find('player').getComponent('Player');
         
         if (this.userAnswerChoice == this.qanswer) {
+            cc.find("Canvas/questionAlert/contentBg/submitButton").getComponent(cc.Button).interactable = false;
             this.qhintLabel.string = "恭喜你答对了";
             this.coinAnimation(1);
             player.updateCoins(50);
-            //cc.find("Canvas/submitButton").getComponent(cc.Button).interactable = false;
             self = this;
             setTimeout(function(){
                 cc.find("Canvas/questionAlert").active = false;
@@ -195,13 +197,13 @@ cc.Class({
         }
         else if (this.userAnswerChoice == 0) {
             this.qhintLabel.string = "请选择一个答案";
+            cc.find("Canvas/questionAlert/contentBg/submitButton").getComponent(cc.Button).interactable = true;
         } else {
             this.coinAnimation(-1);
-            player.updateCoins(50);
+            player.updateCoins(-50);
             this.qhintLabel.string = "选择错误，重新选择一个答案吧！";
-            //cc.find("Canvas/submitButton").getComponent(cc.Button).interactable = false;
+            cc.find("Canvas/questionAlert/contentBg/submitButton").getComponent(cc.Button).interactable = true;
         }
-
     },
 
     changeAnswer: function (event, customEventData) {
@@ -305,7 +307,6 @@ cc.Class({
             event.stopPropagation();
         });
     },
-
         
     onDisable : function(){
 
