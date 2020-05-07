@@ -289,9 +289,9 @@ cc.Class({
         }, this);;
         var seq1 = cc.sequence(cc.scaleBy(0.2, 1.8), cc.moveTo(2.2, -394, 33), finished);
         var seq2 = cc.sequence(cc.scaleBy(0.2, 1.8), cc.moveTo(2.2, -144, 88));
-        cc.find("Canvas/minSaltOwned").runAction(seq1);
-        cc.find("Canvas/h2oOwned").runAction(seq2);
-
+        cc.find("Canvas/h2oOwned").runAction(seq1);
+        cc.find("Canvas/minSaltOwned").runAction(seq2);
+        cc.find("Canvas/collectBox").active = false;
     },
 
     goToRootInsideScene: function () {

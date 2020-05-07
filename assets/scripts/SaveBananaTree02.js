@@ -12,6 +12,7 @@ cc.Class({
         coinBlink: cc.Node,
 
         mask: cc.Node,
+        manwalk: cc.Node,
 
         binRead: 0b00, //how many holes read
 
@@ -42,6 +43,7 @@ cc.Class({
 
         this.floatingAction();
         this.hintLabel.string = "现在点击跳动的导管和筛管，了解一下它们吧！";
+        //this.guide();
     },
 
     selectDaoguan: function(){
@@ -58,7 +60,7 @@ cc.Class({
             //this.setMolecueStatus(true);
             this.hintLabel.string = "现在对导管和筛管有所了解了。马上点击答题按钮然后继续任务吧！";
             cc.find("Canvas/goToQuizButton").active = true;
-            cc.find("Canvas/gotoinsiderootButton").active = false;
+            cc.find("Canvas/walkingButton").active = false;
         }
     },
 
@@ -76,7 +78,7 @@ cc.Class({
             //this.setMolecueStatus(true);
             this.hintLabel.string = "现在对导管和筛管有所了解了。马上点击答题按钮然后继续任务吧！";
             cc.find("Canvas/goToQuizButton").active = true;
-            cc.find("Canvas/gotoinsiderootButton").active = false;
+            cc.find("Canvas/walkingButton").active = false;
         }
     },
 
@@ -149,10 +151,55 @@ cc.Class({
     },
 
     startWalking: function(){
-        cc.find("Canvas/background_daoguan").active = true;
-        cc.find("Canvas/allParts").active = false;
-        cc.find("Canvas/daoguandetailLabel").active = true;
-        this.posDetailLabel.string = "导管内";
+        cc.find("Canvas/walkingButton").active = false;
+        this.hintLabel.string = "正在导管内运输，即将到达叶子";
+
+        var finished = cc.callFunc(function(){
+            cc.find("Canvas/background_daoguan").active = true;
+            cc.find("Canvas/allParts").active = false;
+            this.posDetailLabel.string = "导管内";
+            var t = 4.92;
+    
+            var moveSeq = cc.spawn(cc.scaleBy(t, 0.6, 0.6), cc.moveTo(t, cc.v2(350,150)));
+            var moveSeq1 = cc.spawn(cc.scaleBy(t, 0.6, 0.6), cc.moveTo(t, cc.v2(340,155)));
+            var moveSeq2 = cc.spawn(cc.scaleBy(t, 0.6, 0.6), cc.moveTo(t, cc.v2(355,145)));
+            var moveSeq3 = cc.spawn(cc.scaleBy(t, 0.6, 0.6), cc.moveTo(t, cc.v2(320,130)));
+            var moveSeq4 = cc.spawn(cc.scaleBy(t, 0.6, 0.6), cc.moveTo(t, cc.v2(360,120)));
+            var moveSeq5 = cc.spawn(cc.scaleBy(t, 0.6, 0.6), cc.moveTo(t, cc.v2(350,140)));
+            var moveSeq6 = cc.spawn(cc.scaleBy(t, 0.6, 0.6), cc.moveTo(t, cc.v2(330,170)));
+    
+            cc.find("Canvas/minsaltBtn").runAction(moveSeq);
+            cc.find("Canvas/minsalt1Btn").runAction(moveSeq1);
+            cc.find("Canvas/minsalt2btn").runAction(moveSeq2);
+            cc.find("Canvas/minsalt3btn").runAction(moveSeq3);
+            cc.find("Canvas/h2obtn").runAction(moveSeq4);
+            cc.find("Canvas/h2o1btn").runAction(moveSeq5);
+            cc.find("Canvas/h2o2btn").runAction(moveSeq6);
+    
+            var walkAni = this.manwalk.getComponent(cc.Animation);
+            walkAni.on('finished', function(){
+                cc.director.loadScene("SaveBananaTree03");
+            }, this);
+            walkAni.play("walkinroot");
+        }, this);
+
+        cc.find("Canvas/posMan").runAction(cc.moveTo(6.4, cc.v2(592, -130)));
+
+        var seq0 = cc.sequence(cc.moveTo(1.5, cc.v2(-95,-31)), finished);
+
+        cc.find("Canvas/minsaltBtn").runAction(seq0);
+        cc.find("Canvas/minsalt1Btn").runAction(cc.moveTo(1.5, cc.v2(-95,-31)));
+        cc.find("Canvas/minsalt2btn").runAction(cc.moveTo(1.5, cc.v2(-24,110)));
+        cc.find("Canvas/minsalt3btn").runAction(cc.moveTo(1.5, cc.v2(96,0)));
+        cc.find("Canvas/h2obtn").runAction(cc.moveTo(1.5, cc.v2(96,0)));
+        cc.find("Canvas/h2o1btn").runAction(cc.moveTo(1.5, cc.v2(-24,110)));
+        cc.find("Canvas/h2o2btn").runAction(cc.moveTo(1.5, cc.v2(-95,-31)));
+    },
+
+    guide: function(){
+        var seq = cc.repeatForever(cc.sequence(cc.scaleTo(1, 0.9, 0.9), cc.scaleTo(1, 1.1, 1.1)));
+        cc.find("Canvas/guide/pointer").runAction(seq);
+
     },
 
     floatingAction: function(){
