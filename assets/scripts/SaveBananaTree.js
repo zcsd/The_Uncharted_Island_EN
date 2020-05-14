@@ -39,7 +39,7 @@ cc.Class({
         this.hintLabel.string = "即将缩小身体进入洞穴";
         cc.find('Canvas/shrinkButton').active = false;
         //cc.find('Canvas/shrinkButton').getComponent(cc.Button).interactable = false;
-        var seq = cc.sequence(cc.scaleTo(1.0, 0.85), cc.scaleTo(0.85, 0.7), cc.scaleTo(0.7, 0.55), cc.scaleTo(0.55, 0.4),
+        var seq = cc.sequence(cc.scaleTo(0.7, 0.85), cc.scaleTo(0.5, 0.7), cc.scaleTo(0.5, 0.55), cc.scaleTo(0.4, 0.4),
         cc.callFunc(function(){
             cc.find("Canvas/bodySprite").active = false;
             var walkAniComponent = this.walkAni.getComponent(cc.Animation);

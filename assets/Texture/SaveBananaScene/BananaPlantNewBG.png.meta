@@ -1,6 +1,6 @@
 {
   "ver": "2.3.4",
-  "uuid": "c2695e39-f12d-447a-99f0-e6f5af99ac46",
+  "uuid": "52cf7f97-dbdf-44d6-a0f3-eb6aaaf931dd",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -8,13 +8,13 @@
   "genMipmaps": false,
   "packable": true,
   "width": 640,
-  "height": 365,
+  "height": 360,
   "platformSettings": {},
   "subMetas": {
-    "daoguaninside": {
+    "BananaPlantNewBG": {
       "ver": "1.0.4",
-      "uuid": "4a32acd1-15a0-482d-b9ee-c113b29893fd",
-      "rawTextureUuid": "c2695e39-f12d-447a-99f0-e6f5af99ac46",
+      "uuid": "959b98aa-20ff-44c7-ad03-1872eae8a871",
+      "rawTextureUuid": "52cf7f97-dbdf-44d6-a0f3-eb6aaaf931dd",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
@@ -23,9 +23,9 @@
       "trimX": 0,
       "trimY": 0,
       "width": 640,
-      "height": 365,
+      "height": 360,
       "rawWidth": 640,
-      "rawHeight": 365,
+      "rawHeight": 360,
       "borderTop": 0,
       "borderBottom": 0,
       "borderLeft": 0,
