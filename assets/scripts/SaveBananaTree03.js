@@ -41,6 +41,8 @@ cc.Class({
         var seq = cc.repeatForever(cc.sequence(cc.scaleTo(0.8, 0.93, 0.93), cc.scaleTo(1, 1, 1)));
         cc.find("Canvas/yelvtiButton/Background").runAction(seq);
 
+        KT.lastScene = 'SaveBananaTree03';
+
         this.resetToOriPos();
         this.floatingAction();
         this.setMolecueStatus(false);

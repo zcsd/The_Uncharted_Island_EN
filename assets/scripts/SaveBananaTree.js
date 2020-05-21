@@ -33,6 +33,8 @@ cc.Class({
 
         var sunSeq = cc.repeatForever(cc.sequence(cc.moveBy(2, cc.v2(-10, -6)), cc.moveBy(2, cc.v2(10, 6))));
         cc.find("Canvas/CloudsSun").runAction(sunSeq);
+
+        KT.lastScene = 'SaveBananaTree';
     },
 
     shrinkBody: function () {
@@ -57,6 +59,10 @@ cc.Class({
             walkAniComponent.play("walkAni");
         }, this));
         cc.find("Canvas/bodySprite").runAction(seq);
+    },
+
+    goToKtScene: function () {
+        cc.director.loadScene("KnowledgeTree");
     },
 
     backToMapScene: function () {

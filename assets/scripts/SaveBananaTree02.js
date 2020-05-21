@@ -41,6 +41,8 @@ cc.Class({
             self.avatarSprite.spriteFrame = spriteFrame;
         });
 
+        KT.lastScene = 'SaveBananaTree02';
+
         this.floatingAction();
         this.hintLabel.string = "现在点击跳动的导管和筛管，了解一下它们吧！";
         //this.guide();

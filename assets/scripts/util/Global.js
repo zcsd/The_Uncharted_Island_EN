@@ -14,6 +14,15 @@ window.G = {
     itemsState: '001001001001001001001001001',
 }
 
+window.KT = {
+    doneSize: 22,
+    done: {'check1': false, 'check2': false, 'check3': false, 'check4': false, 'check5': false,
+    'check6': false,'check7': false,'check8': false,'check9': false,'check10': false,'check11': false,
+    'check12': false,'check13': false,'check14': false,'check15': false,'check16': false,'check17': false,
+    'check18': false,'check19': false,'check20': false,'check21': false,'check22': false},
+    lastScene: 'LevelMap',
+}
+
 window.insertNewAction = function(socket, username, sequenceID, stage, actionType,
     operatedItem, rewardType, rewardQty, totalCoins, itemsState = '001001001001001001001001001'){
 

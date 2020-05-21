@@ -73,6 +73,8 @@ cc.Class({
             }
         }
 
+        KT.lastScene = 'DoOsmosisTest';
+
         this.sodAni = this.sodium.getComponent(cc.Animation);
         this.leftAni = this.osmosisLeft.getComponent(cc.Animation);
         this.rightAni = this.osmosisRight.getComponent(cc.Animation);

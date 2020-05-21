@@ -38,6 +38,8 @@ cc.Class({
             self.avatarSprite.spriteFrame = spriteFrame;
         });
 
+        KT.lastScene = 'SaveBananaTree04';
+
         this.floatingAction();
         this.hintLabel.string = "你现在要帮忙把有机物从叶子运输到其他部位，请点击选择它要经过的通道：导管或筛管。";
         //this.guide();

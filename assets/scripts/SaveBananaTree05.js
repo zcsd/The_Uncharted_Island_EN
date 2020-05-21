@@ -33,6 +33,8 @@ cc.Class({
 
         var sunSeq = cc.repeatForever(cc.sequence(cc.moveBy(2, cc.v2(-10, -6)), cc.moveBy(2, cc.v2(10, 6))));
         cc.find("Canvas/CloudsSun").runAction(sunSeq);
+
+        KT.lastScene = 'SaveBananaTree05';
     },
 
     expandBody: function (){

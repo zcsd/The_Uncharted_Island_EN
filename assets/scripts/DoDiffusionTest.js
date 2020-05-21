@@ -90,6 +90,8 @@ cc.Class({
             }
         });
 
+        KT.lastScene = 'DoDiffusionTest';
+
         this.progressBar.progress = 0;
         this.checkMaterial();
         G.isDiffEnter = true;
