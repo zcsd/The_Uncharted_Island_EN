@@ -38,6 +38,12 @@ cc.Class({
 
         var User = require('user');
         G.user = new User('', '', '', '', '');
+        // For browser, automaticlly fill in username
+        if(cc.sys.isBrowser && cc.sys.localStorage.getItem('gameID') != null){
+            cc.find('Canvas/usernameEditBox').getComponent(cc.EditBox).string = cc.sys.localStorage.getItem('gameID');
+            this.onTextChanged();
+            cc.sys.localStorage.removeItem('gameID');
+        }
     },
 
     onTextChanged: function(event, customEventData) {
