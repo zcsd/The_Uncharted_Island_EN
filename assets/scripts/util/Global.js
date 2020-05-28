@@ -15,11 +15,22 @@ window.G = {
 }
 
 window.KT = {
-    doneSize: 22,
-    done: {'check1': false, 'check2': false, 'check3': false, 'check4': false, 'check5': false,
+    branchSize: 21,
+    check: {'check1': false, 'check2': false, 'check3': false, 'check4': false, 'check5': false,
     'check6': false,'check7': false,'check8': false,'check9': false,'check10': false,'check11': false,
     'check12': false,'check13': false,'check14': false,'check15': false,'check16': false,'check17': false,
-    'check18': false,'check19': false,'check20': false,'check21': false,'check22': false},
+    'check18': false,'check19': false,'check20': false,'check21': false},
+
+    attention: {'attention1': false, 'attention2': false, 'attention3': false, 'attention4': false, 'attention5': false,
+    'attention6': false,'attention7': false,'attention8': false,'attention9': false,'attention10': false,'attention11': false,
+    'attention12': false,'attention13': false,'attention14': false,'attention15': false,'attention16': false,'attention17': false,
+    'attention18': false,'attention19': false,'attention20': false,'attention21': false},
+
+    toStart: {'start1': true, 'start2': true, 'start3': true, 'start4': true, 'start5': true,
+    'start6': true,'start7': true,'start8': true,'start9': true,'start10': true,'start11': true,
+    'start12': true,'start13': true,'start14': true,'start15': true,'start16': true,'start17': true,
+    'start18': true,'start19': true,'start20': true,'start21': true},
+
     lastScene: 'LevelMap',
 }
 

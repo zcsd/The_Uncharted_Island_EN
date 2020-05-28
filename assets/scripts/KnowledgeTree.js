@@ -27,25 +27,55 @@ cc.Class({
             self.avatarSprite.spriteFrame = spriteFrame;
         });
 
-        this.checkDone();
+        this.checkKT();
         
         //socket, username, sequenceID, stage, actionType, operatedItem, rewardType, rewardQty, totalCoins
         //insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "levelmap", "system", "na", "na", 0, G.user.coins);
     },
 
-    checkDone: function () {
-        for (var i = 0; i < KT.doneSize; i++) {
-            var key = 'check' + (i+1).toString();
-            if (KT.done[key]) {
-                cc.find('Canvas/ktScrollView/view/content/ktBg/checkGroup/' + key).active = true;
+    checkKT: function () {
+        for (var i = 0; i < KT.branchSize; i++) {
+            var keyStart = 'start' + (i+1).toString();
+            var keyCheck = 'check' + (i+1).toString();
+            var keyAttention = 'attention' + (i+1).toString();
+
+            if (KT.toStart[keyStart]) {
+                cc.find('Canvas/ktScrollView/view/content/ktBg/startGroup/' + keyStart).active = true;
+                cc.find('Canvas/ktScrollView/view/content/ktBg/attentionGroup/' + keyAttention).active = false;
+                cc.find('Canvas/ktScrollView/view/content/ktBg/checkGroup/' + keyCheck).active = false;
             }else {
-                cc.find('Canvas/ktScrollView/view/content/ktBg/checkGroup/' + key).active = false;
+                cc.find('Canvas/ktScrollView/view/content/ktBg/startGroup/' + keyStart).active = false;
             }
-        }
+
+            if (KT.check[keyCheck]) {
+                cc.find('Canvas/ktScrollView/view/content/ktBg/checkGroup/' + keyCheck).active = true;
+                cc.find('Canvas/ktScrollView/view/content/ktBg/attentionGroup/' + keyAttention).active = false;
+                cc.find('Canvas/ktScrollView/view/content/ktBg/startGroup/' + keyStart).active = false;
+            }else {
+                cc.find('Canvas/ktScrollView/view/content/ktBg/checkGroup/' + keyCheck).active = false;
+            }
+
+            if (KT.attention[keyAttention]) {
+                cc.find('Canvas/ktScrollView/view/content/ktBg/attentionGroup/' + keyAttention).active = true;
+                cc.find('Canvas/ktScrollView/view/content/ktBg/checkGroup/' + keyCheck).active = false;
+                cc.find('Canvas/ktScrollView/view/content/ktBg/startGroup/' + keyStart).active = false;
+            }else {
+                cc.find('Canvas/ktScrollView/view/content/ktBg/attentionGroup/' + keyAttention).active = false;
+            }
+        }  
     },
 
-    pressButton: function(){
-        console.log('abcd')
+    pressButton: function(event, customData){
+        if (event.target._name.includes('start')){
+            Alert.show(1.2, customData, '你还未学习相关知识点', null, false);
+
+        }else if (event.target._name.includes('check')) {
+            Alert.show(1.2, customData, '你已掌握相关知识点', null, false);
+
+        }else if (event.target._name.includes('attention')){
+            Alert.show(1.2, customData, '你对于该知识点掌握的不太好，建议加强', null, false);
+        }
+
     },
 
     backToLastScene: function(){

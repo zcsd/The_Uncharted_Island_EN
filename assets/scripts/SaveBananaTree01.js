@@ -55,8 +55,10 @@ cc.Class({
         Alert.show(1.3, "自由扩散", "自由扩散是小分子物质从浓度高的一侧通过细胞膜向浓度低的一侧转运，不需要载体，不需要消耗能量，属于被动运输的一种，是最简单的运输方式之一。", null, false);
 
         cc.find("Canvas/freeDiffHole/Background").stopAllActions();
-        KT.done['check1'] = true;
-        KT.done['check2'] = true;
+        KT.check['check1'] = true;
+        KT.check['check2'] = true;
+        KT.toStart['start1'] = false;
+        KT.toStart['start2'] = false;
 
         if ((this.binRead & 0b001) == 0b000) {
             this.binRead = this.binRead | 0b001;
@@ -73,8 +75,10 @@ cc.Class({
         Alert.show(1.3, "协助扩散", "协助扩散也称促进扩散，是大分子物质从浓度高的一侧通过细胞膜上的特殊载体向浓度低的一侧转运，不需要消耗能量，属于被动运输的一种。", null, false);
         
         cc.find("Canvas/faciDiffHole/Background").stopAllActions();
-        KT.done['check7'] = true;
-        KT.done['check8'] = true;
+        KT.check['check7'] = true;
+        KT.check['check8'] = true;
+        KT.toStart['start7'] = false;
+        KT.toStart['start8'] = false;
 
         if ((this.binRead & 0b010) == 0b000) {
             this.binRead = this.binRead | 0b010;
@@ -91,8 +95,10 @@ cc.Class({
         Alert.show(1.3, "主动运输", "主动运输是物质从浓度低的一侧通过细胞膜上的特殊载体向浓度高的一侧转运, 需要消耗能量，常见的有钠离子钾离子进出细胞膜。", null, false);
         
         cc.find("Canvas/actTranHole/Background").stopAllActions();
-        KT.done['check9'] = true;
-        KT.done['check10'] = true;
+        KT.check['check9'] = true;
+        KT.check['check10'] = true;
+        KT.toStart['start9'] = false;
+        KT.toStart['start10'] = false;
         
         if ((this.binRead & 0b100) == 0b000) {
             this.binRead = this.binRead | 0b100;
@@ -211,6 +217,13 @@ cc.Class({
             player.updateCoins(-50);
             this.qhintLabel.string = "选择错误，重新选择一个答案吧！";
             cc.find("Canvas/questionAlert/contentBg/submitButton").getComponent(cc.Button).interactable = true;
+            if (this.currentQStage == 'h2o'){
+                KT.check['check1'] = false;
+                KT.attention['attention1'] = true;
+            }else if (this.currentQStage == 'minsalt'){
+                KT.check['check7'] = false;
+                KT.attention['attention7'] = true;
+            }
         }
     },
 
