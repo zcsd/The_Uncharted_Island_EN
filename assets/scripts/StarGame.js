@@ -43,7 +43,24 @@ cc.Class({
             cc.find('Canvas/usernameEditBox').getComponent(cc.EditBox).string = cc.sys.localStorage.getItem('gameID');
             this.onTextChanged();
             cc.sys.localStorage.removeItem('gameID');
+
+            if(cc.sys.localStorage.getItem('learningStyle') != null) {
+                G.style = cc.sys.localStorage.getItem('learningStyle');
+                cc.sys.localStorage.removeItem('learningStyle');
+                console.log('Learning Style - ', G.style[0], ': ',G.style[1], ' ', G.style[3], ': ', G.style[4]); //A R S I 
+                this.checkStyle();
+            }
         }
+    },
+
+    checkStyle: function() {
+        var style = G.style;
+        if (parseInt(style[1]) >= parseInt(style[4])) {
+            G.finalStyle = style[0];
+        }else {
+            G.finalStyle = style[3];
+        }
+        console.log(G.finalStyle, ' is used.');
     },
 
     onTextChanged: function(event, customEventData) {

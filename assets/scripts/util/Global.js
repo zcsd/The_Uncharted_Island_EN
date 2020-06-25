@@ -12,6 +12,8 @@ window.G = {
     isDiffEnter: false,
     isOsmoEnter: false,
     itemsState: '001001001001001001001001001',
+    style: 'A_S',
+    finalStyle: 'I',
 }
 
 window.KT = {

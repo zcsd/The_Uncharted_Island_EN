@@ -1,0 +1,30 @@
+{
+  "diff":{
+      "zero":{
+        "con": "泡茶",
+        "abs": "溶质分子从高浓度移动到低浓度"
+      },
+      "water":{
+        "con": "从水变成茶水",
+        "abs": "改变液体浓度"
+      },
+      "dye":{
+        "con": "从茶叶变成茶水",
+        "abs": "得到较高浓度的溶质分子"
+      }
+  },
+  "osmo":{
+      "zero":{
+        "con": "xxxcon",
+        "abs": "xxxabs"
+      },
+      "utube":{
+        "con": "conxxx",
+        "abs": "absxxx"   
+      },
+      "utubemembrane":{
+        "con": "con---",
+        "abs": "abs---"     
+      }
+  }
+}

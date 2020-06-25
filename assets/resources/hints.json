@@ -1,0 +1,66 @@
+{
+  "diff":{
+      "zero":{
+        "A": "回想一下向热水里放入茶包产生的变化吧",
+        "R": "思考一下扩散的定义，然后选择材料吧",
+        "S": "做实验时，溶质通常需要放进什么里面",
+        "I": "考虑关键字：分子运动，溶质分子浓度平衡"
+      },
+      "water":{
+        "A": "想一下水怎样才会变颜色呢",
+        "R": "想一下扩散定义，怎样才会出现溶质浓度变化",
+        "S": "在水中加入什么，我们可以看到它的运动呢",
+        "I": "考虑关键字：分子跨浓度梯度运动"
+      },
+      "dye":{
+        "A": "diff_dyexxxxA",
+        "R": "diff_dyexxxxB",
+        "S": "diff_dyexxxxS",
+        "I": "diff_dyexxxxI"
+      }
+  },
+  "osmo":{
+      "zero":{
+        "A": "回想一下植物根部从土里吸收水分",
+        "R": "考虑一下扩散和渗透有什么区别呢",
+        "S": "渗透实验需要什么器材？它们如何影响分子运动",
+        "I": "考虑关键字：分子运动，阻隔，浓度梯度"
+      },
+      "utube":{
+        "A": "想像一下，红细胞放入水中为什么会破裂",
+        "R": "请仔细回忆渗透作用的定义",
+        "S": "什么在水中可以作为一道阻隔呢？",
+        "I": "考虑关键字：阻隔，创造浓度梯度"          
+      },
+      "utubemembrane":{
+        "A": "半透膜会阻隔大分子物质",
+        "R": "什么分子可以穿过半透膜呢？",
+        "S": "半透膜两边怎样产生不同浓度",
+        "I": "考虑关键字：创造浓度梯度"          
+      },
+      "sodium":{ 
+        "A": "osmo_sodiumxxxxA",
+        "R": "osmo_sodiumxxxxB",
+        "S": "osmo_sodiumxxxxS",
+        "I": "osmo_sodiumxxxxI"
+      },
+      "sodiumutube":{
+        "A": "osmo_sodiumutubexxxxA",
+        "R": "osmo_sodiumutubexxxxB",
+        "S": "osmo_sodiumutubexxxxS",
+        "I": "osmo_sodiumutubexxxxI"          
+      },
+      "sodiummembrane":{
+        "A": "osmo_sodiummembranexxxxA",
+        "R": "osmo_sodiummembranexxxxB",
+        "S": "osmo_sodiummembranexxxxS",
+        "I": "osmo_sodiummembranexxxxI"          
+      },
+      "membrane":{
+        "A": "osmo_membranexxxxA",
+        "R": "osmo_membranexxxxB",
+        "S": "osmo_membranexxxxS",
+        "I": "osmo_membranexxxxI"          
+      }
+  }
+}

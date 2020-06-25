@@ -8,6 +8,8 @@ cc.Class({
         progressBar: cc.ProgressBar,
         avatarSprite: cc.Sprite,
 
+        hints: cc.JsonAsset,
+
         diffusion: cc.Node,
         freemove: cc.Node,
         red_diffusion: cc.Node,
@@ -31,6 +33,8 @@ cc.Class({
         current_diffAni: cc.Animation,
 
         currentAniChoice: 'ugreen',
+        mask: cc.Node,
+        alertHint: cc.Label,
     },
 
     onLoad () {
@@ -42,6 +46,16 @@ cc.Class({
         // load image from resource folder
         cc.loader.loadRes(player.avatarImgDir + '_s', cc.SpriteFrame, function (err, spriteFrame) {
             self.avatarSprite.spriteFrame = spriteFrame;
+        });
+
+        // load hints from json
+        cc.loader.loadRes('hints2', function (err, data) {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                self.hints = data;
+            }
         });
         //socket, username, sequenceID, stage, actionType, operatedItem, rewardType, rewardQty, totalCoins
         insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "init", "na", "na", 0, G.user.coins, G.itemsState);
@@ -128,6 +142,64 @@ cc.Class({
         }
     },
 
+    changeHint: function(){
+        var player = cc.find('player').getComponent('Player');
+        var used = player.diffMaterialUsed;
+
+        var situation = '';
+
+        if (used.size == 0){
+            situation = 'zero';
+        } else if (used.has(1) && used.size == 1){
+            situation = 'water';
+        } else if (used.has(4) && used.size == 1){
+            situation = 'dye';
+        }
+        
+        //for hints2
+        var finalHint;
+
+        if(G.finalStyle == 'A' || G.finalStyle == 'S'){
+            var keywords = this.hints.json["diff"][situation]['con'];
+            if(G.finalStyle == 'A'){
+                finalHint = keywords + '与当前的实验如何关联？';
+            }else if(G.finalStyle == 'S'){
+                finalHint = '可以考虑一下这个实验与' + keywords + '的关联'; 
+            }
+        }else if(G.finalStyle == 'R' || G.finalStyle == 'I'){
+            var keywords = this.hints.json["diff"][situation]['abs'];
+            if(G.finalStyle == 'R'){
+                finalHint = '可以考虑一下' + keywords;
+            }else if(G.finalStyle == 'I'){
+                finalHint = '怎样' + keywords + '？'; 
+            }
+        }
+        console.log(finalHint);
+        this.hintLabel.node.color = new cc.color(83, 111, 122, 255);
+        this.hintLabel.string = '操作错误。 ' + finalHint;
+
+        G.globalSocket.emit('hintAlert', '操作错误。提示，' + finalHint);
+
+        var self = this;
+        setTimeout(function(){
+            cc.find("Canvas/hintAlert").active = true;
+            finalHint = '操作错误。 ' + finalHint;
+            self.alertHint.string = finalHint;
+        }, 600);
+
+        //END hints2
+        /*
+        console.log(this.hints.json["diff"][situation][G.finalStyle]);
+        this.hintLabel.node.color = new cc.color(83, 111, 122, 255);
+        this.hintLabel.string = this.hints.json["diff"][situation][G.finalStyle];
+        */
+    },
+
+    removeHintAlert: function(){
+        this.alertHint.string = '';
+        cc.find("Canvas/hintAlert").active = false;
+    },
+
     readyToBuyMaterial: function (event, customEventData) {
         var materialInfo = customEventData.split("_", 4);
         var materialCost = Number(materialInfo[0]);
@@ -150,6 +222,7 @@ cc.Class({
                 if (player.diffMaterialUsedClass.has(materialClass)) {
                     console.log("owned, can not used");
                     var displayInfo = "你已使用同类物品，请收回后再使用该物品。";
+                    this.changeHint();
                     //var self = this;
                     Alert.show(1, "提示", displayInfo, function(){
                         insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "refuseusing", materialInfo[1], "na", 0, G.user.coins, G.itemsState);
@@ -221,14 +294,15 @@ cc.Class({
                 var nodePath = 'Canvas/container/c' + code.toString();
                 var containerNode = cc.find(nodePath);
                 containerNode.active = true;
-                this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
-                this.hintLabel.string = "请继续挑选使用合适的溶质";
+                //this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
+                //this.hintLabel.string = "请继续挑选使用合适的溶质";
                 this.progressBar.progress += 0.5;
                 insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "use", material, "penalty", 10, G.user.coins, G.itemsState); 
             }
             else {
                 this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
                 this.hintLabel.string = "此仪器不符合要求，试试其他的吧";
+                this.changeHint();
                 insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
             }
         }
@@ -322,13 +396,13 @@ cc.Class({
     
                         var animState = this.red_diffAniComponent.play("redDiffAni");
                     }
-                    
                 }
                 else {
                     this.coinAnimation(-1);
                     player.updateCoins(-10);
                     this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
                     this.hintLabel.string = "此材料不符合要求，试试其他的吧";
+                    this.changeHint();
                     insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
                 }
             }
@@ -336,6 +410,7 @@ cc.Class({
                 insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
                 this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
                 this.hintLabel.string = "请先挑选使用合适的实验仪器";
+                this.changeHint();
             }           
         }
 
@@ -344,6 +419,7 @@ cc.Class({
             player.updateCoins(-10);
             this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
             this.hintLabel.string = "该实验不需要此材料";
+            this.changeHint();
             insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
         }
     },
@@ -478,6 +554,26 @@ cc.Class({
     goToQuizScene: function() {
         this.resetScene();
         cc.director.loadScene("DoQuiz");
+    },
+
+    onEnable : function(){
+        this.mask.on('touchstart',function(event){
+            event.stopPropagation();
+        });
+
+        this.mask.on('touchend', function (event) {
+            event.stopPropagation();
+        });
+    },
+        
+    onDisable : function(){
+
+        this.mask.off('touchstart',function(event){
+            event.stopPropagation();
+        });
+        this.mask.off('touchend', function (event) {
+            event.stopPropagation();
+        });
     },
 
     //start () {},

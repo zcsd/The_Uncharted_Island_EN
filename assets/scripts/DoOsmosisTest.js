@@ -8,6 +8,8 @@ cc.Class({
         progressBar: cc.ProgressBar,
         avatarSprite: cc.Sprite,
 
+        hints: cc.JsonAsset,
+
         osmosisLeft: cc.Node,
         osmosisRight: cc.Node,
         sodium: cc.Node,
@@ -43,6 +45,15 @@ cc.Class({
         // load image from resource folder
         cc.loader.loadRes(player.avatarImgDir + '_s', cc.SpriteFrame, function (err, spriteFrame) {
             self.avatarSprite.spriteFrame = spriteFrame;
+        });
+        // load hints from json
+        cc.loader.loadRes('hints', function (err, data) {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                self.hints = data;
+            }
         });
 
         //socket, username, sequenceID, stage, actionType, operatedItem, rewardType, rewardQty, totalCoins
@@ -117,6 +128,25 @@ cc.Class({
 
         this.left1Ani.play('left1Ani');
         this.right1Ani.play('right1Ani');
+    },
+
+    changeHint: function(){
+        var player = cc.find('player').getComponent('Player');
+        var used = player.osmoMaterialUsed;
+
+        var situation = '';
+
+        if (used.size == 0){
+            situation = 'zero';
+        } else if (used.size == 1 && used.has(2)){
+            situation = 'utube';
+        } else if (used.size == 2 && used.has(2) && used.has(6)){
+            situation = 'utubemembrane';
+        }
+
+        console.log(this.hints.json["osmo"][situation][G.finalStyle]);
+        this.hintLabel.node.color = new cc.color(83, 111, 122, 255);
+        this.hintLabel.string = this.hints.json["osmo"][situation][G.finalStyle];
     },
 
     readyToBuyMaterial: function (event, customEventData) {
