@@ -5,7 +5,7 @@ cc.Class({
         nickName: "",
         gender: "boy",
         avatarImgDir: "boy_0",
-        coinsOwned: 200,
+        coinsOwned: 250,
 
         diffMaterialOwned: null,
         diffMaterialUsed: null,
@@ -20,6 +20,8 @@ cc.Class({
 
     onLoad () {
         cc.game.addPersistRootNode(this.node);
+
+        this.coinsOwned = 250;
 
         this.diffMaterialOwned = new Set();
         this.diffMaterialUsed = new Set();

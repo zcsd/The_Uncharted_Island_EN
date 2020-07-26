@@ -303,7 +303,7 @@
       "array": [
         0,
         0,
-        570.1559435696457,
+        568.4238927620768,
         0,
         0,
         0,
@@ -490,15 +490,15 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 73,
-      "g": 190,
-      "b": 215,
+      "r": 41,
+      "g": 149,
+      "b": 173,
       "a": 255
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 325,
-      "height": 88.2
+      "width": 395.91,
+      "height": 60.48
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -548,18 +548,18 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "救助香蕉树",
-    "_N$string": "救助香蕉树",
-    "_fontSize": 65,
-    "_lineHeight": 70,
+    "_string": "Save Banana Tree",
+    "_N$string": "Save Banana Tree",
+    "_fontSize": 45,
+    "_lineHeight": 48,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "92820d17-2e6a-47d3-b44a-4c1524cac3ed"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
@@ -781,8 +781,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 233.31,
-      "height": 63
+      "width": 176.43,
+      "height": 47.88
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -832,18 +832,18 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "昵称abc      ",
-    "_N$string": "昵称abc      ",
-    "_fontSize": 42,
-    "_lineHeight": 50,
+    "_string": "nickname ",
+    "_N$string": "nickname ",
+    "_fontSize": 35,
+    "_lineHeight": 38,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
@@ -877,8 +877,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100.8,
-      "height": 63
+      "width": 67.72,
+      "height": 47.88
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -890,7 +890,7 @@
       "ctor": "Float64Array",
       "array": [
         -247,
-        298,
+        297,
         0,
         0,
         0,
@@ -930,16 +930,16 @@
     "_useOriginalSize": false,
     "_string": "200",
     "_N$string": "200",
-    "_fontSize": 42,
-    "_lineHeight": 50,
+    "_fontSize": 35,
+    "_lineHeight": 38,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
@@ -1785,7 +1785,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 135,
+      "width": 251.82,
       "height": 63
     },
     "_anchorPoint": {
@@ -1836,18 +1836,18 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "叶绿体",
-    "_N$string": "叶绿体",
+    "_string": "Chloroplast",
+    "_N$string": "Chloroplast",
     "_fontSize": 45,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
@@ -2155,8 +2155,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 60,
-      "height": 50.4
+      "width": 74.37,
+      "height": 41.58
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2206,18 +2206,18 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "光能",
-    "_N$string": "光能",
+    "_string": "Light",
+    "_N$string": "Light",
     "_fontSize": 30,
-    "_lineHeight": 40,
+    "_lineHeight": 33,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
@@ -3531,9 +3531,7 @@
     "_fontSize": 30,
     "_lineHeight": 33,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
-    },
+    "_N$file": null,
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
@@ -4728,8 +4726,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 160,
-      "height": 56.7
+      "width": 167.3,
+      "height": 50.4
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4779,13 +4777,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "开始答题",
-    "_N$string": "开始答题",
-    "_fontSize": 40,
-    "_lineHeight": 45,
+    "_string": "Start quiz",
+    "_N$string": "Start quiz",
+    "_fontSize": 35,
+    "_lineHeight": 40,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "92820d17-2e6a-47d3-b44a-4c1524cac3ed"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -5023,8 +5021,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 165,
-      "height": 46.62
+      "width": 117.48,
+      "height": 54.24
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -5074,13 +5072,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "运输有机物",
-    "_N$string": "运输有机物",
-    "_fontSize": 33,
-    "_lineHeight": 37,
+    "_string": "Transport \nOrganic",
+    "_N$string": "Transport \nOrganic",
+    "_fontSize": 23,
+    "_lineHeight": 24.8,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "92820d17-2e6a-47d3-b44a-4c1524cac3ed"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -5318,8 +5316,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 160,
-      "height": 56.7
+      "width": 141.68,
+      "height": 47.88
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -5369,13 +5367,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "开始合成",
-    "_N$string": "开始合成",
-    "_fontSize": 40,
-    "_lineHeight": 45,
+    "_string": "Produce",
+    "_N$string": "Produce",
+    "_fontSize": 35,
+    "_lineHeight": 38,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "92820d17-2e6a-47d3-b44a-4c1524cac3ed"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -5548,7 +5546,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 140,
+      "width": 122.88,
       "height": 31.5
     },
     "_anchorPoint": {
@@ -5610,8 +5608,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 40,
-      "height": 50.4
+      "width": 116.56,
+      "height": 27.72
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -5622,8 +5620,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        59.045,
-        0.18599999999999994,
+        63.299,
+        -0.665,
         0,
         0,
         0,
@@ -5661,13 +5659,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "叶内",
-    "_N$string": "叶内",
+    "_string": "Inside of leaf",
+    "_N$string": "Inside of leaf",
     "_fontSize": 20,
-    "_lineHeight": 40,
+    "_lineHeight": 22,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -5695,13 +5693,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "我所在的位置：",
-    "_N$string": "我所在的位置：",
+    "_string": "My Position:",
+    "_N$string": "My Position:",
     "_fontSize": 20,
     "_lineHeight": 25,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -5740,7 +5738,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 75,
+      "width": 52.87,
       "height": 37.8
     },
     "_anchorPoint": {
@@ -5752,8 +5750,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -550.211,
-        -349.696,
+        -556.211,
+        -350.295,
         0,
         0,
         0,
@@ -5791,18 +5789,18 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "提示：",
-    "_N$string": "提示：",
+    "_string": "Hint:",
+    "_N$string": "Hint:",
     "_fontSize": 25,
     "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
@@ -5836,7 +5834,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 69.4,
+      "width": 106.45,
       "height": 37.8
     },
     "_anchorPoint": {
@@ -5848,7 +5846,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -528.452,
+        -527.452,
         -350.696,
         0,
         0,
@@ -5887,13 +5885,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "xxxx",
-    "_N$string": "xxxx",
+    "_string": "xxxxxabc",
+    "_N$string": "xxxxxabc",
     "_fontSize": 25,
     "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -8491,8 +8489,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 600,
-      "height": 41.58
+      "width": 817.93,
+      "height": 35.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -8542,13 +8540,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "正确回答下面的问题，就可以成功完成任务啦！",
-    "_N$string": "正确回答下面的问题，就可以成功完成任务啦！",
-    "_fontSize": 30,
-    "_lineHeight": 33,
+    "_string": "You can collect it by answering the following question correctly.",
+    "_N$string": "You can collect it by answering the following question correctly.",
+    "_fontSize": 26,
+    "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -8587,20 +8585,20 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 810,
-      "height": 41.58
+      "width": 800,
+      "height": 80
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 0.5
+      "y": 1
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
         -415,
-        171,
+        186,
         0,
         0,
         0,
@@ -8638,23 +8636,23 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "问题：水分子主要是通过下列哪种运输方式被植物的根吸收？",
-    "_N$string": "问题：水分子主要是通过下列哪种运输方式被植物的根吸收？",
-    "_fontSize": 30,
-    "_lineHeight": 33,
+    "_string": "Q: This is question template ....?",
+    "_N$string": "Q: This is question template ....?",
+    "_fontSize": 25,
+    "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
-    "_N$horizontalAlign": 1,
-    "_N$verticalAlign": 1,
+    "_N$horizontalAlign": 0,
+    "_N$verticalAlign": 0,
     "_N$fontFamily": "Arial",
-    "_N$overflow": 0,
+    "_N$overflow": 1,
     "_N$cacheMode": 0,
     "_id": "20F+jj8KpNpor6qHQByvsT"
   },
@@ -8683,8 +8681,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 209.25,
-      "height": 35.28
+      "width": 223.54,
+      "height": 31.5
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -8734,13 +8732,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "答案提示ABC123",
-    "_N$string": "答案提示ABC123",
-    "_fontSize": 25,
-    "_lineHeight": 28,
+    "_string": "Answer Hint template",
+    "_N$string": "Answer Hint template",
+    "_fontSize": 23,
+    "_lineHeight": 25,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -9111,8 +9109,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 64.8,
-      "height": 41.58
+      "width": 102.4,
+      "height": 35.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -9162,13 +9160,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "答案 1",
-    "_N$string": "答案 1",
-    "_fontSize": 30,
-    "_lineHeight": 33,
+    "_string": "answer 1",
+    "_N$string": "answer 1",
+    "_fontSize": 25,
+    "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "a979e849-2637-420f-873a-2e4cdcdcee7a"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -9539,8 +9537,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 72.66,
-      "height": 41.58
+      "width": 102.4,
+      "height": 35.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -9590,13 +9588,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "答案 2",
-    "_N$string": "答案 2",
-    "_fontSize": 30,
-    "_lineHeight": 33,
+    "_string": "answer 2",
+    "_N$string": "answer 2",
+    "_fontSize": 25,
+    "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "a979e849-2637-420f-873a-2e4cdcdcee7a"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -9967,8 +9965,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 72.12,
-      "height": 41.58
+      "width": 102.4,
+      "height": 35.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -10018,13 +10016,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "答案 3",
-    "_N$string": "答案 3",
-    "_fontSize": 30,
-    "_lineHeight": 33,
+    "_string": "answer 3",
+    "_N$string": "answer 3",
+    "_fontSize": 25,
+    "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "a979e849-2637-420f-873a-2e4cdcdcee7a"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -10234,8 +10232,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 60,
-      "height": 44.1
+      "width": 87.5,
+      "height": 35.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -10247,7 +10245,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        4,
+        2,
         0,
         0,
         0,
@@ -10285,18 +10283,18 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "提交",
-    "_N$string": "提交",
-    "_fontSize": 30,
-    "_lineHeight": 35,
+    "_string": "Submit",
+    "_N$string": "Submit",
+    "_fontSize": 25,
+    "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "92820d17-2e6a-47d3-b44a-4c1524cac3ed"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,

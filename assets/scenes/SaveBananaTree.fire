@@ -225,7 +225,7 @@
       "array": [
         0,
         0,
-        569.2899181658613,
+        568.4238927620768,
         0,
         0,
         0,
@@ -513,8 +513,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 325,
-      "height": 88.2
+      "width": 395.91,
+      "height": 60.48
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -564,18 +564,18 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "救助香蕉树",
-    "_N$string": "救助香蕉树",
-    "_fontSize": 65,
-    "_lineHeight": 70,
+    "_string": "Save Banana Tree",
+    "_N$string": "Save Banana Tree",
+    "_fontSize": 45,
+    "_lineHeight": 48,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "92820d17-2e6a-47d3-b44a-4c1524cac3ed"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
@@ -715,8 +715,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        464,
-        69,
+        470.583,
+        65.276,
         0,
         0,
         0,
@@ -1097,8 +1097,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 233.31,
-      "height": 63
+      "width": 176.43,
+      "height": 47.88
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1148,18 +1148,18 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "昵称abc      ",
-    "_N$string": "昵称abc      ",
-    "_fontSize": 42,
-    "_lineHeight": 50,
+    "_string": "nickname ",
+    "_N$string": "nickname ",
+    "_fontSize": 35,
+    "_lineHeight": 38,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
@@ -1193,8 +1193,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100.8,
-      "height": 63
+      "width": 67.72,
+      "height": 47.88
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1206,7 +1206,7 @@
       "ctor": "Float64Array",
       "array": [
         -247,
-        298,
+        297,
         0,
         0,
         0,
@@ -1246,16 +1246,16 @@
     "_useOriginalSize": false,
     "_string": "200",
     "_N$string": "200",
-    "_fontSize": 42,
-    "_lineHeight": 50,
+    "_fontSize": 35,
+    "_lineHeight": 38,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
@@ -1788,8 +1788,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 90,
-      "height": 63
+      "width": 95.28,
+      "height": 56.7
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1801,7 +1801,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        6,
+        5,
         0,
         0,
         0,
@@ -1839,13 +1839,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "返回",
-    "_N$string": "返回",
-    "_fontSize": 45,
-    "_lineHeight": 50,
+    "_string": "Back",
+    "_N$string": "Back",
+    "_fontSize": 40,
+    "_lineHeight": 45,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "92820d17-2e6a-47d3-b44a-4c1524cac3ed"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -2081,8 +2081,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 70,
-      "height": 50.4
+      "width": 84.08,
+      "height": 39.06
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2094,7 +2094,7 @@
       "ctor": "Float64Array",
       "array": [
         -1,
-        6,
+        1.6550000000000002,
         0,
         0,
         0,
@@ -2132,13 +2132,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "变身",
-    "_N$string": "变身",
-    "_fontSize": 35,
-    "_lineHeight": 40,
+    "_string": "Shrink",
+    "_N$string": "Shrink",
+    "_fontSize": 26,
+    "_lineHeight": 31,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "92820d17-2e6a-47d3-b44a-4c1524cac3ed"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -2307,7 +2307,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 320,
+      "width": 325,
       "height": 281.7
     },
     "_anchorPoint": {
@@ -2319,7 +2319,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        304.454,
+        307.454,
         239.224,
         0,
         0,
@@ -2358,23 +2358,23 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "这棵香蕉树根部有蚂蚁\n洞，影响了水分和无机\n盐的吸收，已经奄奄一\n息了，现在利用你的知\n识，点击变身按钮进入\n洞穴来救助香蕉树吧！",
-    "_N$string": "这棵香蕉树根部有蚂蚁\n洞，影响了水分和无机\n盐的吸收，已经奄奄一\n息了，现在利用你的知\n识，点击变身按钮进入\n洞穴来救助香蕉树吧！",
-    "_fontSize": 40,
-    "_lineHeight": 45,
+    "_string": "There is an ant hole in the root, which affects absorption of water and mineral, the tree is going to die. Now press the shrink button to go into the hole to save the tree with your knowledge.",
+    "_N$string": "There is an ant hole in the root, which affects absorption of water and mineral, the tree is going to die. Now press the shrink button to go into the hole to save the tree with your knowledge.",
+    "_fontSize": 28,
+    "_lineHeight": 31,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "a979e849-2637-420f-873a-2e4cdcdcee7a"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
     "_styleFlags": 0,
     "_underlineHeight": 0,
-    "_N$horizontalAlign": 0,
+    "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
-    "_N$overflow": 0,
+    "_N$overflow": 1,
     "_N$cacheMode": 0,
     "_id": "8aLOukUH5Pt4VlmusRW2rN"
   },
@@ -2419,8 +2419,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -55.992,
-        305.56,
+        -32,
+        307.56,
         0,
         0,
         0,
@@ -2538,7 +2538,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
+      "width": 160,
       "height": 40
     },
     "_anchorPoint": {
@@ -2550,7 +2550,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -10,
+        -5,
         -40,
         0,
         0,
@@ -2589,18 +2589,18 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "知识树",
-    "_N$string": "知识树",
-    "_fontSize": 18,
-    "_lineHeight": 23,
+    "_string": "Knowledge Tree",
+    "_N$string": "Knowledge Tree",
+    "_fontSize": 17,
+    "_lineHeight": 18,
     "_enableWrapText": false,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,

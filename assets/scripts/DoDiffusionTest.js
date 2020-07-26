@@ -61,27 +61,24 @@ cc.Class({
         insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "init", "na", "na", 0, G.user.coins, G.itemsState);
         
         if(G.isDiffDone){
-            var introduction = "欢迎来到扩散实验室！恭喜你已经成功完成了扩散实验，再次完成实验将没有奖励。";
-            Alert.show(1.4, "扩散实验", introduction, function(){
+            var introduction = "Welcome to diffusion lab！You have finished diffusion experiment. There is no more reward for finishing the experiment again.";
+            Alert.show(1.3, "Diffusion", introduction, function(){
                 self.coinAnimation(0);
                 self.pressQuizAnimation();
-                self.hintLabel.node.color = new cc.color(150,100,100,255);
-                self.hintLabel.string = "本次完成实验将没有奖励";
+                self.showHint(0, "There is no more reward for finishing the experiment again.");
             }, false);
         }else{
-            var introduction = "欢迎来到扩散实验室！接下来请用U型管完成一个液体扩散实验，完成实验将有丰厚金币奖励。实验开始时，你会有200金币，购买、使用材料均需花费金币，考虑后再做选择哦。";
-            Alert.show(1.4, "扩散实验", introduction, function(){
+            var introduction = "Welcome to diffusion lab! Please do a liquid diffusion experiment using U-tube. You need to spend coins to buy or use material. Make your choice after consideration.";
+            Alert.show(1.3, "Diffusion", introduction, function(){
                 self.coinAnimation(0);
                 self.pressQuizAnimation();
                 insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "read", "introduction", "na", 0, G.user.coins, G.itemsState);
+                if(G.user.coins <= 0){
+                    self.showHint(0, "Coins are not enough for playing game, click the quiz icon to do quiz to win more coins.");                                                                                                                                   
+                }else{
+                    self.showHint(0, "Please buy or use suitable instrument and solute.");
+                }
             }, false);
-            if(G.user.coins <= 0){
-                this.hintLabel.node.color = new cc.color(230,0,0,255);
-                this.hintLabel.string = "金币已不足，无法继续游戏，点击右上角参与答题赢取金币吧";
-            }else{
-                this.hintLabel.node.color = new cc.color(83,111,122,255);
-                this.hintLabel.string = "请购买使用合适的仪器和溶质";
-            }
         }
 
         this.freemoveAniComponent = this.freemove.getComponent(cc.Animation);
@@ -111,6 +108,32 @@ cc.Class({
         G.isDiffEnter = true;
     },
 
+    showHint: function(method, content) {
+        //method: how to show hint content
+        //        0 - default
+        //        1 - popup window
+        //        2 - speech T2S
+        if(method == 0){
+            cc.find("Canvas/hintIconLabel").active = true;
+            cc.find("Canvas/hintLabel").active = true;
+            this.hintLabel.node.color = new cc.color(0,0,0,255);
+            this.hintLabel.string = content;
+            var blink = cc.blink(3, 4);
+            this.hintLabel.node.runAction(blink);   
+        }else if (method == 1){
+            cc.find("Canvas/hintIconLabel").active = false;
+            cc.find("Canvas/hintLabel").active = false;
+
+            var self = this;
+            setTimeout(function(){
+                cc.find("Canvas/hintAlert").active = true;
+                self.alertHint.string = content;
+            }, 600);
+        }else if(method == 2){
+            console.log('22');
+        }
+    },
+
     changeToCold: function() {
         cc.find('Canvas/hightempature').active = false;
         cc.find('Canvas/lowtempature').active = true;
@@ -125,6 +148,7 @@ cc.Class({
             animState.speed = 0.15;
         }
 
+        this.showHint(0,"The rate of diffusion is lower at colder temperature, molecules move slower. Now you can try hotter or back to main." );
     },
 
     changeToHot: function() {
@@ -140,6 +164,8 @@ cc.Class({
             var animState = this.red_freemoveAniComponent.play("redFreemoveAni");
             animState.speed = 0.8;
         }
+
+        this.showHint(0, "The rate of diffusion is higher at hotter temperature, molecules move faster. Now you can try colder or back to main.");
     },
 
     changeHint: function(){
@@ -162,37 +188,25 @@ cc.Class({
         if(G.finalStyle == 'A' || G.finalStyle == 'S'){
             var keywords = this.hints.json["diff"][situation]['con'];
             if(G.finalStyle == 'A'){
-                finalHint = keywords + '与当前的实验如何关联？';
+                finalHint = 'How can ' + keywords + ' relate to this?';
             }else if(G.finalStyle == 'S'){
-                finalHint = '可以考虑一下这个实验与' + keywords + '的关联'; 
+                finalHint = 'Think about the realtions to ' + keywords + '.'; 
             }
         }else if(G.finalStyle == 'R' || G.finalStyle == 'I'){
             var keywords = this.hints.json["diff"][situation]['abs'];
             if(G.finalStyle == 'R'){
-                finalHint = '可以考虑一下' + keywords;
+                finalHint = 'Think about how' + keywords + '.';
             }else if(G.finalStyle == 'I'){
-                finalHint = '怎样' + keywords + '？'; 
+                finalHint = 'How can there be ' + keywords + '?'; 
             }
         }
-        console.log(finalHint);
-        this.hintLabel.node.color = new cc.color(83, 111, 122, 255);
-        this.hintLabel.string = '操作错误。 ' + finalHint;
+        //console.log(finalHint);
+        
+        G.globalSocket.emit('hintAlert', '操作错误，提示，' + finalHint);
 
-        G.globalSocket.emit('hintAlert', '操作错误。提示，' + finalHint);
+        finalHint = 'You did wrongly. ' + finalHint;
 
-        var self = this;
-        setTimeout(function(){
-            cc.find("Canvas/hintAlert").active = true;
-            finalHint = '操作错误。 ' + finalHint;
-            self.alertHint.string = finalHint;
-        }, 600);
-
-        //END hints2
-        /*
-        console.log(this.hints.json["diff"][situation][G.finalStyle]);
-        this.hintLabel.node.color = new cc.color(83, 111, 122, 255);
-        this.hintLabel.string = this.hints.json["diff"][situation][G.finalStyle];
-        */
+        this.showHint(1, finalHint);
     },
 
     removeHintAlert: function(){
@@ -207,13 +221,16 @@ cc.Class({
         var materialCode = Number(materialInfo[2]);
         var materialClass = materialInfo[3];
 
+        cc.find("Canvas/hintIconLabel").active = false;
+        cc.find("Canvas/hintLabel").active = false;
+
         var player = cc.find('player').getComponent('Player');
         if (player.diffMaterialOwned.has(materialCode)) {
             if (player.diffMaterialUsed.has(materialCode)) {
                 console.log("is used");
-                var displayInfo = "你要收回" + materialInfo[1]  + "吗？";
+                var displayInfo = "Do you want to take back " + materialInfo[1]  + "?";
                 var self = this;
-                Alert.show(1, "收回", displayInfo, function(){
+                Alert.show(1, "Take Back", displayInfo, function(){
                     self.afterBacking(materialCode, materialClass);
                     insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "takeback", materialInfo[1], "na", 0, G.user.coins, G.itemsState);
                 });
@@ -221,23 +238,25 @@ cc.Class({
             else {
                 if (player.diffMaterialUsedClass.has(materialClass)) {
                     console.log("owned, can not used");
-                    var displayInfo = "你已使用同类物品，请收回后再使用该物品。";
-                    this.changeHint();
+                    var displayInfo = "You have used the item of same category. Please use it after taking the original back.";
+                    //this.changeHint();
                     //var self = this;
-                    Alert.show(1, "提示", displayInfo, function(){
+                    Alert.show(1, "Warning", displayInfo, function(){
                         insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "refuseusing", materialInfo[1], "na", 0, G.user.coins, G.itemsState);
                     }, false);
                 }
                 else {
                     console.log("owned, can use, but not used");
-                    var displayInfo = "你要花费10金币使用" + materialInfo[1]  + "吗？";
+                    var displayInfo = "Do you want to spend 10 coins to use " + materialInfo[1]  + "?";
                     var self = this;
-                    Alert.show(1, "使用", displayInfo, function(){ 
+                    Alert.show(1, "Use", displayInfo, function(){ 
                         if(self.checkCoinEnough(10)){
                             self.afterUsing(materialCode, materialInfo[1], materialClass);
                         }else{
+                            cc.find("Canvas/hintIconLabel").active = true;
+                            cc.find("Canvas/hintLabel").active = true;
                             self.hintLabel.node.color = new cc.color(230, 0, 0, 255);
-                            self.hintLabel.string = "金币已不足，无法使用材料，点击右上角参与答题赢取金币吧";
+                            self.hintLabel.string = "You don't have enough coins to use material, click quiz icon to win coins.";
                         }            
                     });
                 }
@@ -245,9 +264,9 @@ cc.Class({
         }
         else {
             console.log("Not owned.");
-            var displayInfo = "你要花费" + materialInfo[0] + "金币购买" + materialInfo[1] + "吗？";
+            var displayInfo = "Do you want to spend " + materialInfo[0] + " coins to buy " + materialInfo[1] + "?";
             var self = this;
-            Alert.show(1, "购买", displayInfo, function(){
+            Alert.show(1, "Buy", displayInfo, function(){
                 if(self.checkCoinEnough(50)){
                     self.afterBuying(materialCost, materialCode);
                     insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "buy", materialInfo[1], "penalty", materialCost, G.user.coins, G.itemsState);
@@ -256,8 +275,10 @@ cc.Class({
                         G.isQuizOpen = true;
                         self.pressQuizAnimation();
                     }
+                    cc.find("Canvas/hintIconLabel").active = true;
+                    cc.find("Canvas/hintLabel").active = true;
                     self.hintLabel.node.color = new cc.color(230, 0, 0, 255);
-                    self.hintLabel.string = "金币已不足，无法购买材料，点击右上角参与答题赢取金币吧";
+                    self.hintLabel.string = "You don't have enough coins to buy material, click quiz icon to win coins.";
                 } 
             });
         }
@@ -300,8 +321,8 @@ cc.Class({
                 insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "use", material, "penalty", 10, G.user.coins, G.itemsState); 
             }
             else {
-                this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
-                this.hintLabel.string = "此仪器不符合要求，试试其他的吧";
+                //this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
+                //this.hintLabel.string = "This instrument is not suitable, Please try another one.";
                 this.changeHint();
                 insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
             }
@@ -334,24 +355,38 @@ cc.Class({
                             this.progressBar.progress += 0.5;
                             var self = this;
                             if(G.isDiffRewarded){
-                                Alert.show(1, "实验完成", "做得好,你已经完成扩散实验,本次无奖励！", function(){
+                                Alert.show(1.2, "Achievement", "Well done! You have finised the experiment, no reward.", function(){
                                     //player.diffMaterialOwned.clear();
                                     //player.diffMaterialUsed.clear(); 
                                     //player.diffMaterialUsedClass.clear();
                                     player.updateInventory('diff', 'clear', 0);
-                                    self.hintLabel.string = "实验已完成";
+
+                                    cc.find("Canvas/Cold").active = true;
+                                    cc.find("Canvas/Hot").active = true;
+                                    cc.find("Canvas/hintIconLabel").active = true;
+                                    cc.find("Canvas/hintLabel").active = true;
+
+                                    self.hintLabel.node.color = new cc.color(83,111,122,255);
+                                    self.hintLabel.string = "Now click below button to select Colder or Hotter temperature for experiment, observe the change.";
                                 }, false);
                             }else{
                                 player.updateCoins(300);
                                 G.isDiffRewarded = true;
                                 insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "finish", "na", "reward", 300, G.user.coins, G.itemsState);
-                                Alert.show(1, "实验完成", "做得好,你已经完成扩散实验,请点击确定获取你的奖励300金币吧！", function(){
+                                Alert.show(1.2, "Achievement", "Well done! You have finished the experiment, click ok to get 300 coins！", function(){
                                     self.coinAnimation(1);
                                     //player.diffMaterialOwned.clear();
                                     //player.diffMaterialUsed.clear(); 
                                     //player.diffMaterialUsedClass.clear();
                                     player.updateInventory('diff', 'clear', 0);
-                                    self.hintLabel.string = "实验已完成";
+
+                                    cc.find("Canvas/Cold").active = true;
+                                    cc.find("Canvas/Hot").active = true;
+                                    cc.find("Canvas/hintIconLabel").active = true;
+                                    cc.find("Canvas/hintLabel").active = true;
+
+                                    self.hintLabel.node.color = new cc.color(83,111,122,255);
+                                    self.hintLabel.string = "Now click below button to select Colder or Hotter temperature for experiment, observe the change.";
                                 }, false);
                             }
                         }, this);
@@ -372,24 +407,38 @@ cc.Class({
                             this.progressBar.progress += 0.5;
                             var self = this;
                             if(G.isDiffRewarded){
-                                Alert.show(1, "实验完成", "做得好,你已经完成扩散实验,本次无奖励！", function(){
+                                Alert.show(1, "Achievement", "Well done, you have finised the experiment, no reward.", function(){
                                     //player.diffMaterialOwned.clear();
                                     //player.diffMaterialUsed.clear(); 
                                     //player.diffMaterialUsedClass.clear();
                                     player.updateInventory('diff', 'clear', 0);
-                                    self.hintLabel.string = "实验已完成";
+
+                                    cc.find("Canvas/Cold").active = true;
+                                    cc.find("Canvas/Hot").active = true;
+                                    cc.find("Canvas/hintIconLabel").active = true;
+                                    cc.find("Canvas/hintLabel").active = true;
+
+                                    self.hintLabel.node.color = new cc.color(83,111,122,255);
+                                    self.hintLabel.string = "Now click below button to select Colder or Hotter temperature for experiment, observe the change.";
                                 }, false);
                             }else{
                                 player.updateCoins(300);
                                 G.isDiffRewarded = true;
                                 insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "finish", "na", "reward", 300, G.user.coins, G.itemsState);
-                                Alert.show(1, "实验完成", "做得好,你已经完成扩散实验,请点击确定获取你的奖励300金币吧！", function(){
+                                Alert.show(1, "Achievement", "Well done, you have finished the experiment. Click ok to get 300 coins！", function(){
                                     self.coinAnimation(1);
                                     //player.diffMaterialOwned.clear();
                                     //player.diffMaterialUsed.clear(); 
                                     //player.diffMaterialUsedClass.clear();
                                     player.updateInventory('diff', 'clear', 0);
-                                    self.hintLabel.string = "实验已完成";
+
+                                    cc.find("Canvas/Cold").active = true;
+                                    cc.find("Canvas/Hot").active = true;
+                                    cc.find("Canvas/hintIconLabel").active = true;
+                                    cc.find("Canvas/hintLabel").active = true;
+
+                                    self.hintLabel.node.color = new cc.color(83,111,122,255);
+                                    self.hintLabel.string = "Now click below button to select Colder or Hotter temperature for experiment, observe the change.";
                                 }, false);
                             }
                         }, this);
@@ -400,16 +449,16 @@ cc.Class({
                 else {
                     this.coinAnimation(-1);
                     player.updateCoins(-10);
-                    this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
-                    this.hintLabel.string = "此材料不符合要求，试试其他的吧";
+                    //this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
+                    //this.hintLabel.string = "This material is not suitable, Please try another one.";
                     this.changeHint();
                     insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
                 }
             }
             else {
                 insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
-                this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
-                this.hintLabel.string = "请先挑选使用合适的实验仪器";
+                //this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
+                //this.hintLabel.string = "Please choose to use suitable instrument.";
                 this.changeHint();
             }           
         }
@@ -417,8 +466,8 @@ cc.Class({
         if (mClass == 'b') {
             this.coinAnimation(-1);
             player.updateCoins(-10);
-            this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
-            this.hintLabel.string = "该实验不需要此材料";
+            //this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
+            //this.hintLabel.string = "The experiment doesn't require this material.";
             this.changeHint();
             insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
         }

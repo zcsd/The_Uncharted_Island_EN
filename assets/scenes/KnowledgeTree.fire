@@ -198,7 +198,7 @@
       "array": [
         0,
         0,
-        569.8357581210633,
+        568.4238927620768,
         0,
         0,
         0,
@@ -564,8 +564,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 233.31,
-      "height": 63
+      "width": 166.56,
+      "height": 50.4
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -615,18 +615,18 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "昵称abc      ",
-    "_N$string": "昵称abc      ",
-    "_fontSize": 42,
-    "_lineHeight": 50,
+    "_string": "nickname",
+    "_N$string": "nickname",
+    "_fontSize": 35,
+    "_lineHeight": 40,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
@@ -660,8 +660,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 195,
-      "height": 88.2
+      "width": 359.77,
+      "height": 60.48
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -711,13 +711,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "知识树",
-    "_N$string": "知识树",
-    "_fontSize": 65,
-    "_lineHeight": 70,
+    "_string": "Knowledge Tree",
+    "_N$string": "Knowledge Tree",
+    "_fontSize": 45,
+    "_lineHeight": 48,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "92820d17-2e6a-47d3-b44a-4c1524cac3ed"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -756,8 +756,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 121.8,
-      "height": 63
+      "width": 87.46,
+      "height": 50.4
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -769,7 +769,7 @@
       "ctor": "Float64Array",
       "array": [
         -247,
-        298,
+        297,
         0,
         0,
         0,
@@ -809,16 +809,16 @@
     "_useOriginalSize": false,
     "_string": "200  ",
     "_N$string": "200  ",
-    "_fontSize": 42,
-    "_lineHeight": 50,
+    "_fontSize": 35,
+    "_lineHeight": 40,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
@@ -19649,7 +19649,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 90,
+      "width": 107.19,
       "height": 63
     },
     "_anchorPoint": {
@@ -19700,18 +19700,18 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "返回",
-    "_N$string": "返回",
+    "_string": "Back",
+    "_N$string": "Back",
     "_fontSize": 45,
     "_lineHeight": 50,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "92820d17-2e6a-47d3-b44a-4c1524cac3ed"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,

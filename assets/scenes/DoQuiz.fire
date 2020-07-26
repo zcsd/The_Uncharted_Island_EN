@@ -219,7 +219,7 @@
       "array": [
         0,
         0,
-        493.63448015713004,
+        568.4238927620768,
         0,
         0,
         0,
@@ -585,8 +585,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 233.31,
-      "height": 63
+      "width": 166.56,
+      "height": 50.4
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -636,17 +636,19 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "昵称abc      ",
-    "_N$string": "昵称abc      ",
-    "_fontSize": 42,
-    "_lineHeight": 50,
+    "_string": "nickname",
+    "_N$string": "nickname",
+    "_fontSize": 35,
+    "_lineHeight": 40,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 1,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -679,8 +681,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 121.8,
-      "height": 63
+      "width": 87.46,
+      "height": 50.4
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -691,8 +693,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -247,
-        298,
+        -248.401,
+        297,
         0,
         0,
         0,
@@ -732,15 +734,17 @@
     "_useOriginalSize": false,
     "_string": "200  ",
     "_N$string": "200  ",
-    "_fontSize": 42,
-    "_lineHeight": 50,
+    "_fontSize": 35,
+    "_lineHeight": 40,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 1,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -936,8 +940,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 90,
-      "height": 63
+      "width": 95.28,
+      "height": 56.7
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -987,17 +991,19 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "返回",
-    "_N$string": "返回",
-    "_fontSize": 45,
-    "_lineHeight": 50,
+    "_string": "Back",
+    "_N$string": "Back",
+    "_fontSize": 40,
+    "_lineHeight": 45,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "92820d17-2e6a-47d3-b44a-4c1524cac3ed"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -1158,7 +1164,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 280,
+      "width": 513.72,
       "height": 55.44
     },
     "_anchorPoint": {
@@ -1209,17 +1215,19 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "这是问题模板？",
-    "_N$string": "这是问题模板？",
+    "_string": "This is question template?",
+    "_N$string": "This is question template?",
     "_fontSize": 40,
     "_lineHeight": 44,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -1252,8 +1260,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 300,
-      "height": 80.64
+      "width": 112.18,
+      "height": 60.48
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1303,17 +1311,19 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "答题赢金币",
-    "_N$string": "答题赢金币",
-    "_fontSize": 60,
-    "_lineHeight": 64,
+    "_string": "Quiz ",
+    "_N$string": "Quiz ",
+    "_fontSize": 45,
+    "_lineHeight": 48,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "92820d17-2e6a-47d3-b44a-4c1524cac3ed"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 1,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -1346,8 +1356,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 168,
-      "height": 47.88
+      "width": 285.44,
+      "height": 44.1
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1397,17 +1407,19 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "答案提示模板",
-    "_N$string": "答案提示模板",
-    "_fontSize": 35,
-    "_lineHeight": 38,
+    "_string": "this is hint template",
+    "_N$string": "this is hint template",
+    "_fontSize": 32,
+    "_lineHeight": 35,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "a979e849-2637-420f-873a-2e4cdcdcee7a"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -1775,8 +1787,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 86.4,
-      "height": 55.44
+      "width": 143.36,
+      "height": 47.88
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1826,17 +1838,19 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "答案 1",
-    "_N$string": "答案 1",
-    "_fontSize": 40,
-    "_lineHeight": 44,
+    "_string": "answer 1",
+    "_N$string": "answer 1",
+    "_fontSize": 35,
+    "_lineHeight": 38,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "a979e849-2637-420f-873a-2e4cdcdcee7a"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -2201,8 +2215,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 96.88,
-      "height": 55.44
+      "width": 143.36,
+      "height": 47.88
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2252,17 +2266,19 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "答案 2",
-    "_N$string": "答案 2",
-    "_fontSize": 40,
-    "_lineHeight": 44,
+    "_string": "answer 2",
+    "_N$string": "answer 2",
+    "_fontSize": 35,
+    "_lineHeight": 38,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "a979e849-2637-420f-873a-2e4cdcdcee7a"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -2627,8 +2643,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 96.16,
-      "height": 55.44
+      "width": 143.36,
+      "height": 47.88
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2678,17 +2694,19 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "答案 3",
-    "_N$string": "答案 3",
-    "_fontSize": 40,
-    "_lineHeight": 44,
+    "_string": "answer 3",
+    "_N$string": "answer 3",
+    "_fontSize": 35,
+    "_lineHeight": 38,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "a979e849-2637-420f-873a-2e4cdcdcee7a"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -3053,8 +3071,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 96.68,
-      "height": 55.44
+      "width": 143.36,
+      "height": 47.88
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3104,17 +3122,19 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "答案 4",
-    "_N$string": "答案 4",
-    "_fontSize": 40,
-    "_lineHeight": 44,
+    "_string": "answer 4",
+    "_N$string": "answer 4",
+    "_fontSize": 35,
+    "_lineHeight": 38,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "a979e849-2637-420f-873a-2e4cdcdcee7a"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -3318,8 +3338,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 135,
-      "height": 63
+      "width": 93.52,
+      "height": 56.7
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3369,17 +3389,19 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "下一题",
-    "_N$string": "下一题",
-    "_fontSize": 45,
-    "_lineHeight": 50,
+    "_string": "Next",
+    "_N$string": "Next",
+    "_fontSize": 40,
+    "_lineHeight": 45,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "92820d17-2e6a-47d3-b44a-4c1524cac3ed"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -3609,8 +3631,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 90,
-      "height": 63
+      "width": 140,
+      "height": 56.7
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3660,17 +3682,19 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "提交",
-    "_N$string": "提交",
-    "_fontSize": 45,
-    "_lineHeight": 50,
+    "_string": "Submit",
+    "_N$string": "Submit",
+    "_fontSize": 40,
+    "_lineHeight": 45,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "92820d17-2e6a-47d3-b44a-4c1524cac3ed"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
+    "_styleFlags": 0,
+    "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -4236,6 +4260,7 @@
     "_isAbsHorizontalCenter": true,
     "_isAbsVerticalCenter": true,
     "_originalWidth": 0,
-    "_originalHeight": 0
+    "_originalHeight": 0,
+    "_id": "ffeA5okdVJQq9VwwJPT0HU"
   }
 ]

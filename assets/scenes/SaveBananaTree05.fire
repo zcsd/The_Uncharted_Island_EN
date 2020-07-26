@@ -222,7 +222,7 @@
       "array": [
         0,
         0,
-        559.4435362823926,
+        568.4238927620768,
         0,
         0,
         0,
@@ -510,8 +510,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 325,
-      "height": 88.2
+      "width": 395.91,
+      "height": 60.48
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -561,13 +561,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "救助香蕉树",
-    "_N$string": "救助香蕉树",
-    "_fontSize": 65,
-    "_lineHeight": 70,
+    "_string": "Save Banana Tree",
+    "_N$string": "Save Banana Tree",
+    "_fontSize": 45,
+    "_lineHeight": 48,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "92820d17-2e6a-47d3-b44a-4c1524cac3ed"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -982,8 +982,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 233.31,
-      "height": 63
+      "width": 166.56,
+      "height": 47.88
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1033,18 +1033,18 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "昵称abc      ",
-    "_N$string": "昵称abc      ",
-    "_fontSize": 42,
-    "_lineHeight": 50,
+    "_string": "nickname",
+    "_N$string": "nickname",
+    "_fontSize": 35,
+    "_lineHeight": 38,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
@@ -1078,8 +1078,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100.8,
-      "height": 63
+      "width": 67.72,
+      "height": 47.88
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1091,7 +1091,7 @@
       "ctor": "Float64Array",
       "array": [
         -247,
-        298,
+        297,
         0,
         0,
         0,
@@ -1131,16 +1131,16 @@
     "_useOriginalSize": false,
     "_string": "200",
     "_N$string": "200",
-    "_fontSize": 42,
-    "_lineHeight": 50,
+    "_fontSize": 35,
+    "_lineHeight": 38,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
@@ -1673,8 +1673,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 90,
-      "height": 63
+      "width": 107.19,
+      "height": 60.48
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1724,13 +1724,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "返回",
-    "_N$string": "返回",
+    "_string": "Back",
+    "_N$string": "Back",
     "_fontSize": 45,
-    "_lineHeight": 50,
+    "_lineHeight": 48,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "92820d17-2e6a-47d3-b44a-4c1524cac3ed"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -1898,7 +1898,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 320,
-      "height": 146.7
+      "height": 300
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1909,7 +1909,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        302.454,
+        303.454,
         239.224,
         0,
         0,
@@ -1948,13 +1948,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "正在走出洞穴，恢复正\n常身体大小，回到正常\n世界。",
-    "_N$string": "正在走出洞穴，恢复正\n常身体大小，回到正常\n世界。",
-    "_fontSize": 40,
-    "_lineHeight": 45,
+    "_string": "Going out from hole and back to the real world, body is recovering to normal size.",
+    "_N$string": "Going out from hole and back to the real world, body is recovering to normal size.",
+    "_fontSize": 33,
+    "_lineHeight": 35,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "a979e849-2637-420f-873a-2e4cdcdcee7a"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -1962,9 +1962,9 @@
     "_styleFlags": 0,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 0,
-    "_N$verticalAlign": 1,
+    "_N$verticalAlign": 0,
     "_N$fontFamily": "Arial",
-    "_N$overflow": 0,
+    "_N$overflow": 1,
     "_N$cacheMode": 0,
     "_id": "8aLOukUH5Pt4VlmusRW2rN"
   },
@@ -1993,8 +1993,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 352,
-      "height": 326.7
+      "width": 320,
+      "height": 320
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2005,7 +2005,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        302.454,
+        303.454,
         239.224,
         0,
         0,
@@ -2028,7 +2028,7 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "157CLPMA9NAowCjPLqCDQx"
+    "_id": "cfp10xJ9tGL45G9Q+yFme6"
   },
   {
     "__type__": "cc.Label",
@@ -2044,13 +2044,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "欢迎回到地面世界，香\n蕉树已经恢复了生机，\n感谢你的帮助，你也更\n了解了植物的运输系统，\n现在你可以点击返回按\n钮回到主界面\n",
-    "_N$string": "欢迎回到地面世界，香\n蕉树已经恢复了生机，\n感谢你的帮助，你也更\n了解了植物的运输系统，\n现在你可以点击返回按\n钮回到主界面\n",
-    "_fontSize": 40,
-    "_lineHeight": 45,
+    "_string": "Welcome back to ground, the tree is  recovering now. Thanks for your help, you also know more about the plant transportation system. You can click back button to main menu.",
+    "_N$string": "Welcome back to ground, the tree is  recovering now. Thanks for your help, you also know more about the plant transportation system. You can click back button to main menu.",
+    "_fontSize": 30,
+    "_lineHeight": 35,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "a979e849-2637-420f-873a-2e4cdcdcee7a"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -2058,11 +2058,11 @@
     "_styleFlags": 0,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 0,
-    "_N$verticalAlign": 1,
+    "_N$verticalAlign": 0,
     "_N$fontFamily": "Arial",
-    "_N$overflow": 0,
+    "_N$overflow": 1,
     "_N$cacheMode": 0,
-    "_id": "86znKQ1RFDza0UIzehedPj"
+    "_id": "f6q5dgo5lNBIlApkFPNi/R"
   },
   {
     "__type__": "cc.Node",

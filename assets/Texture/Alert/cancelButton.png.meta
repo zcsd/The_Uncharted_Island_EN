@@ -1,6 +1,6 @@
 {
   "ver": "2.3.4",
-  "uuid": "d96ca16e-c32a-483d-9d03-acc5be5f7b1e",
+  "uuid": "63a905e9-8752-4c1e-ab17-46b442757bda",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -11,10 +11,10 @@
   "height": 82,
   "platformSettings": {},
   "subMetas": {
-    "Cancel": {
+    "cancelButton": {
       "ver": "1.0.4",
-      "uuid": "da741b3b-8a94-481e-bf84-dfcad806c31d",
-      "rawTextureUuid": "d96ca16e-c32a-483d-9d03-acc5be5f7b1e",
+      "uuid": "744187fa-10ed-4582-a78d-3fd172cf7b7b",
+      "rawTextureUuid": "63a905e9-8752-4c1e-ab17-46b442757bda",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,

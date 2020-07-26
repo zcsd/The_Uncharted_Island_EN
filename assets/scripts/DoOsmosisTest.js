@@ -34,6 +34,8 @@ cc.Class({
         sod1Ani: cc.Animation,
         left1Ani: cc.Animation,
         right1Ani: cc.Animation,
+        mask: cc.Node,
+        alertHint: cc.Label,
     },
 
     onLoad: function () {
@@ -47,7 +49,7 @@ cc.Class({
             self.avatarSprite.spriteFrame = spriteFrame;
         });
         // load hints from json
-        cc.loader.loadRes('hints', function (err, data) {
+        cc.loader.loadRes('hints2', function (err, data) {
             if (err) {
                 console.log(err);
             }
@@ -60,16 +62,16 @@ cc.Class({
         insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "init", "na", "na", 0, G.user.coin, G.itemsState);
         
         if(G.isOsmoDone){
-            var introduction = "欢迎来到渗透实验室！恭喜你已经成功完成了扩散实验，再次完成实验将没有奖励。";
-            Alert.show(1.4, "渗透实验", introduction, function(){
+            var introduction = "Welcome to osmosis lab！You have finished osmosis experiment. There is no more reward for finishing the experiment again.";
+            Alert.show(1.3, "Osmosis", introduction, function(){
                 self.coinAnimation(0);
                 self.pressQuizAnimation();
                 self.hintLabel.node.color = new cc.color(150,100,100,255);
-                self.hintLabel.string = "本次完成实验将没有奖励";
+                self.hintLabel.string = "There is no more reward for finishing the experiment again.";
             }, false);
         }else{
-            var introduction = "欢迎来到渗透实验室！接下来请用大烧杯完成一个渗透实验，完成实验将有丰厚金币奖励。实验开始时，你会有250金币，购买、使用材料均需花费金币，考虑后再做选择哦。";
-            Alert.show(1.4, "渗透实验", introduction, function(){
+            var introduction = "Welcome to osmosis lab! Please do a osmosis experiment using beaker. You need to spend coins to buy or use material. Make your choice after consideration.";
+            Alert.show(1.3, "Osmosis", introduction, function(){
                 self.coinAnimation(0);
                 self.pressQuizAnimation();
                 insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "read", "introduction", "na", 0, G.user.coins, G.itemsState);
@@ -77,10 +79,10 @@ cc.Class({
 
             if(G.user.coins <= 0){
                 this.hintLabel.node.color = new cc.color(230,0,0,255);
-                this.hintLabel.string = "金币已不足，无法继续游戏，点击右上角参与答题赢取金币吧";
+                this.hintLabel.string = "Coins are not enough for playing game. Clcik the quiz icon to do quiz to win more coins.";
             }else{
                 this.hintLabel.node.color = new cc.color(83,111,122,255);
-                this.hintLabel.string = "请购买使用合适的仪器和溶质";
+                this.hintLabel.string = "Please buy and use suitable instrument and solute.";
             }
         }
 
@@ -128,6 +130,11 @@ cc.Class({
 
         this.left1Ani.play('left1Ani');
         this.right1Ani.play('right1Ani');
+
+        cc.find("Canvas/hintIconLabel").active = true;
+        cc.find("Canvas/hintLabel").active = true;
+        this.hintLabel.node.color = new cc.color(83,111,122,255);
+        this.hintLabel.string = "More water moves to higher concentration side, osmosis is affected by the difference of solute concentration. Now you can back to main.";
     },
 
     changeHint: function(){
@@ -144,9 +151,49 @@ cc.Class({
             situation = 'utubemembrane';
         }
 
+        //for hints2
+        var finalHint;
+
+        if(G.finalStyle == 'A' || G.finalStyle == 'S'){
+            var keywords = this.hints.json["osmo"][situation]['con'];
+            if(G.finalStyle == 'A'){
+                finalHint = 'How can ' + keywords + ' relate to this?';
+            }else if(G.finalStyle == 'S'){
+                finalHint = 'Think about the realtions to ' + keywords + '.'; 
+            }
+        }else if(G.finalStyle == 'R' || G.finalStyle == 'I'){
+            var keywords = this.hints.json["osmo"][situation]['abs'];
+            if(G.finalStyle == 'R'){
+                finalHint = 'Think about how' + keywords + '.';
+            }else if(G.finalStyle == 'I'){
+                finalHint = 'How can there be ' + keywords + '?'; 
+            }
+        }
+        console.log(finalHint);
+        cc.find("Canvas/hintIconLabel").active = false;
+        cc.find("Canvas/hintLabel").active = false;
+        //this.hintLabel.node.color = new cc.color(83, 111, 122, 255);
+        //this.hintLabel.string = 'Mistake. ' + finalHint;
+
+        G.globalSocket.emit('hintAlert', '操作错误，提示，' + finalHint);
+
+        var self = this;
+        setTimeout(function(){
+            cc.find("Canvas/hintAlert").active = true;
+            finalHint = 'You did wrongly. ' + finalHint;
+            self.alertHint.string = finalHint;
+        }, 600);
+
+        /*
         console.log(this.hints.json["osmo"][situation][G.finalStyle]);
         this.hintLabel.node.color = new cc.color(83, 111, 122, 255);
         this.hintLabel.string = this.hints.json["osmo"][situation][G.finalStyle];
+        */
+    },
+
+    removeHintAlert: function(){
+        this.alertHint.string = '';
+        cc.find("Canvas/hintAlert").active = false;
     },
 
     readyToBuyMaterial: function (event, customEventData) {
@@ -156,13 +203,16 @@ cc.Class({
         var materialCode = Number(materialInfo[2]);
         var materialClass = materialInfo[3];
 
+        cc.find("Canvas/hintIconLabel").active = false;
+        cc.find("Canvas/hintLabel").active = false;
+
         var player = cc.find('player').getComponent('Player');
         if (player.osmoMaterialOwned.has(materialCode)) {
             if (player.osmoMaterialUsed.has(materialCode)) {
                 console.log("is used");
-                var displayInfo = "你要收回" + materialInfo[1]  + "吗？";
+                var displayInfo = "Do you want to take back " + materialInfo[1]  + "?";
                 var self = this;
-                Alert.show(1, "收回", displayInfo, function(){
+                Alert.show(1, "Take Back", displayInfo, function(){
                     self.afterBacking(materialCode, materialClass);
                     insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "takeback", materialInfo[1], "na", 0, G.user.coins, G.itemsState);
                 });
@@ -170,21 +220,23 @@ cc.Class({
             else {
                 if (player.osmoMaterialUsedClass.has(materialClass)) {
                     console.log("owned, can not used");
-                    var displayInfo = "你已使用同类物品，请收回后再使用该物品。";
-                    Alert.show(1, "提示", displayInfo, function(){
+                    var displayInfo = "You have used the item of same category. Please use it after taking the original back.";
+                    Alert.show(1, "Warning", displayInfo, function(){
                         insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "refuseusing", materialInfo[1], "na", 0, G.user.coins, G.itemsState);
                     }, false);
                 }
                 else {
                     console.log("owned, can use, but not used");
-                    var displayInfo = "你要花费10金币使用" + materialInfo[1]  + "吗？";
+                    var displayInfo = "Do you want to spend 10 coins to use " + materialInfo[1]  + "?";
                     var self = this;
-                    Alert.show(1, "使用", displayInfo, function(){
+                    Alert.show(1, "Use", displayInfo, function(){
                         if(self.checkCoinEnough(10)){
                             self.afterUsing(materialCode, materialInfo[1], materialClass);
                         }else{
+                            cc.find("Canvas/hintIconLabel").active = true;
+                            cc.find("Canvas/hintLabel").active = true;
                             self.hintLabel.node.color = new cc.color(230, 0, 0, 255);
-                            self.hintLabel.string = "金币已不足，无法使用材料，点击右上角参与答题赢取金币吧";
+                            self.hintLabel.string = "You don't have enough coins to use material, click quiz icon to win coins.";
                         }  
                     });
                 }
@@ -192,9 +244,9 @@ cc.Class({
         }
         else {
             console.log("Not owned.");
-            var displayInfo = "你要花费" + materialInfo[0] + "金币购买" + materialInfo[1] + "吗？";
+            var displayInfo = "Do you want to spend " + materialInfo[0] + " coins to buy " + materialInfo[1] + "?";
             var self = this;
-            Alert.show(1, "购买", displayInfo, function(){
+            Alert.show(1, "Buy", displayInfo, function(){
                 if(self.checkCoinEnough(50)){
                     self.afterBuying(materialCost, materialCode);
                     insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "buy", materialInfo[1], "penalty", materialCost, G.user.coins, G.itemsState);
@@ -203,8 +255,10 @@ cc.Class({
                         G.isQuizOpen = true;
                         self.pressQuizAnimation();
                     }
+                    cc.find("Canvas/hintIconLabel").active = true;
+                    cc.find("Canvas/hintLabel").active = true;
                     self.hintLabel.node.color = new cc.color(230, 0, 0, 255);
-                    self.hintLabel.string = "金币已不足，无法购买材料，点击右上角参与答题赢取金币吧";
+                    self.hintLabel.string = "You don't have enough coins to buy material, click quiz icon to win coins.";
                 } 
             });
         }
@@ -240,14 +294,15 @@ cc.Class({
                 var nodePath = 'Canvas/container/c' + code.toString();
                 var containerNode = cc.find(nodePath);
                 containerNode.active = true;
-                this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
-                this.hintLabel.string = "请继续挑选使用合适的材料";
+                //this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
+                //this.hintLabel.string = "请继续挑选使用合适的材料";
                 this.progressBar.progress += 0.33;
                 insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "use", material, "penalty", 10, G.user.coins, G.itemsState); 
             }
             else {
-                this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
-                this.hintLabel.string = "此仪器不符合要求，试试其他的吧";
+                //this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
+                //this.hintLabel.string = "此仪器不符合要求，试试其他的吧";
+                this.changeHint();
                 insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
             }
         }
@@ -264,20 +319,22 @@ cc.Class({
                     this.setMaterialUsed(code);
                     var nodePath = 'Canvas/container/c2/membrane';
                     cc.find(nodePath).active = true;
-                    this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
-                    this.hintLabel.string = "请继续挑选使用合适的溶质";
+                    //this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
+                    //this.hintLabel.string = "请继续挑选使用合适的溶质";
                     this.progressBar.progress += 0.33;
                 }
                 else {
                     insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
-                    this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
-                    this.hintLabel.string = "此材料不符合要求，试试其他的吧";
+                    //this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
+                    //this.hintLabel.string = "此材料不符合要求，试试其他的吧";
+                    this.changeHint();
                 }
             }
             else {
                 insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
-                this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
-                this.hintLabel.string = "请先挑选使用合适的实验容器";
+                //this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
+                //this.hintLabel.string = "请先挑选使用合适的实验容器";
+                this.changeHint();
             }
         }
 
@@ -297,29 +354,39 @@ cc.Class({
                         this.progressBar.progress = 1.0;
                         var self = this;
                         if(G.isOsmoRewarded){
-                            Alert.show(1, "实验完成", "做得好,你已经完成渗透实验,本次无奖励！", function(){
+                            Alert.show(1, "Achievement", "Well done! You have finished the experiment, no reward.", function(){
                                 //player.osmoMaterialOwned.clear();
                                 //player.osmoMaterialUsed.clear(); 
                                 //player.osmoMaterialUsedClass.clear();
                                 player.updateInventory('osmo', 'clear', 0);
-                                self.hintLabel.string = "实验已完成";
+                                
+                                cc.find("Canvas/addSalt").active = true;
+                                cc.find("Canvas/hintIconLabel").active = true;
+                                cc.find("Canvas/hintLabel").active = true;
+
+                                self.hintLabel.node.color = new cc.color(83,111,122,255);
+                                self.hintLabel.string = "Now click 'add salt' button to add some salt to left side, observe the change.";
                             }, false);
                         }else{
                             player.updateCoins(400);
                             G.isOsmoRewarded = true;
                             insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "finish", "na", "reward", 400, G.user.coins, G.itemsState);
-                            Alert.show(1, "实验完成", "做得好,你已经完成渗透实验,请点击确定获取你的奖励400金币吧！", function(){
+                            Alert.show(1, "Achievement", "Well done! You have finished the experiment. Click ok to get 400 coins！", function(){
                                 self.coinAnimation(1);
                                 //player.osmoMaterialOwned.clear();
                                 //player.osmoMaterialUsed.clear(); 
                                 //player.osmoMaterialUsedClass.clear();
                                 player.updateInventory('osmo', 'clear', 0);
-                                self.hintLabel.string = "实验已完成";
+
+                                cc.find("Canvas/addSalt").active = true;
+                                cc.find("Canvas/hintIconLabel").active = true;
+                                cc.find("Canvas/hintLabel").active = true;
+
+                                self.hintLabel.node.color = new cc.color(83,111,122,255);
+                                self.hintLabel.string = "Now click 'Add Salt' button to add some salt to left side, observe the change.";
                             }, false);
                         }
                     }, this);
-
-                    
 
                     var sodiAniState = this.sodAni.play("sodiumAni");
                     sodiAniState.wrapMode = cc.WrapMode.Loop;
@@ -331,15 +398,17 @@ cc.Class({
                 else {
                     this.coinAnimation(-1);
                     player.updateCoins(-10);
-                    this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
-                    this.hintLabel.string = "此材料不符合要求，试试其他的吧";
+                    //this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
+                    //this.hintLabel.string = "此材料不符合要求，试试其他的吧";
+                    this.changeHint();
                     insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
                 }
             }
             else {
                 insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
-                this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
-                this.hintLabel.string = "请先挑选使用合适的实验容器或者材料";
+                //this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
+                //this.hintLabel.string = "请先挑选使用合适的实验容器或者材料";
+                this.changeHint();
             }
         }
     },
@@ -474,6 +543,26 @@ cc.Class({
     goToQuizScene: function() {
         this.resetScene();
         cc.director.loadScene("DoQuiz");
+    },
+
+    onEnable : function(){
+        this.mask.on('touchstart',function(event){
+            event.stopPropagation();
+        });
+
+        this.mask.on('touchend', function (event) {
+            event.stopPropagation();
+        });
+    },
+        
+    onDisable : function(){
+
+        this.mask.off('touchstart',function(event){
+            event.stopPropagation();
+        });
+        this.mask.off('touchend', function (event) {
+            event.stopPropagation();
+        });
     },
 
     //start () {},

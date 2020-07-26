@@ -52,7 +52,7 @@ cc.Class({
 
     selectFreeDiff: function(){
         console.log("自由扩散");
-        Alert.show(1.3, "自由扩散", "自由扩散是小分子物质从浓度高的一侧通过细胞膜向浓度低的一侧转运，不需要载体，不需要消耗能量，属于被动运输的一种，是最简单的运输方式之一。", null, false);
+        Alert.show(1.3, "Free Diffusion", "自由扩散是小分子物质从浓度高的一侧通过细胞膜向浓度低的一侧转运，不需要载体，不需要消耗能量，属于被动运输的一种，是最简单的运输方式之一。", null, false);
 
         cc.find("Canvas/freeDiffHole/Background").stopAllActions();
         KT.check['check1'] = true;

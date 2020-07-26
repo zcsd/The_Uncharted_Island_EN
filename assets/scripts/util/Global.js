@@ -14,6 +14,7 @@ window.G = {
     itemsState: '001001001001001001001001001',
     style: 'A_S',
     finalStyle: 'I',
+    hintMethod: 0,
 }
 
 window.KT = {

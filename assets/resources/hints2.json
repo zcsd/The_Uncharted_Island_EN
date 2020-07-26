@@ -1,30 +1,30 @@
 {
   "diff":{
       "zero":{
-        "con": "泡茶",
-        "abs": "溶质分子从高浓度移动到低浓度"
+        "con": "making tea",
+        "abs": "solvte molecules move from higher solute concentration side to the lower"
       },
       "water":{
-        "con": "从水变成茶水",
-        "abs": "改变液体浓度"
+        "con": "water turn to tea",
+        "abs": "change liquid concentration"
       },
       "dye":{
-        "con": "从茶叶变成茶水",
-        "abs": "得到较高浓度的溶质分子"
+        "con": "teabag turn to tea",
+        "abs": "higher concentration of solute molecules"
       }
   },
   "osmo":{
       "zero":{
-        "con": "xxxcon",
-        "abs": "xxxabs"
+        "con": "plant root absorbing water from the soil",
+        "abs": "water molecules moving from low solute concentration side to the higher"
       },
       "utube":{
-        "con": "conxxx",
-        "abs": "absxxx"   
+        "con": "teabag turn to tea",
+        "abs": "block the free movement of solute molecule"   
       },
       "utubemembrane":{
-        "con": "con---",
-        "abs": "abs---"     
+        "con": "placing a red blood cell in water causes it to burst",
+        "abs": "the difference of solute molecules"     
       }
   }
 }

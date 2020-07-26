@@ -273,7 +273,7 @@
       "array": [
         0,
         0,
-        569.2899181658613,
+        567.2466394788073,
         0,
         0,
         0,
@@ -467,8 +467,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 325,
-      "height": 88.2
+      "width": 395.91,
+      "height": 60.48
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -518,13 +518,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "救助香蕉树",
-    "_N$string": "救助香蕉树",
-    "_fontSize": 65,
-    "_lineHeight": 70,
+    "_string": "Save Banana Tree",
+    "_N$string": "Save Banana Tree",
+    "_fontSize": 45,
+    "_lineHeight": 48,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "92820d17-2e6a-47d3-b44a-4c1524cac3ed"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -751,8 +751,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 233.31,
-      "height": 63
+      "width": 215.91,
+      "height": 47.88
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -802,18 +802,18 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "昵称abc      ",
-    "_N$string": "昵称abc      ",
-    "_fontSize": 42,
-    "_lineHeight": 50,
+    "_string": "nickname     ",
+    "_N$string": "nickname     ",
+    "_fontSize": 35,
+    "_lineHeight": 38,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
@@ -847,8 +847,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100.8,
-      "height": 63
+      "width": 67.72,
+      "height": 47.88
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -860,7 +860,7 @@
       "ctor": "Float64Array",
       "array": [
         -247,
-        298,
+        297,
         0,
         0,
         0,
@@ -900,16 +900,16 @@
     "_useOriginalSize": false,
     "_string": "200",
     "_N$string": "200",
-    "_fontSize": 42,
-    "_lineHeight": 50,
+    "_fontSize": 35,
+    "_lineHeight": 38,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
@@ -1503,8 +1503,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -55.992,
-        305.56,
+        -31.299999999999997,
+        306.56,
         0,
         0,
         0,
@@ -1622,7 +1622,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
+      "width": 160,
       "height": 40
     },
     "_anchorPoint": {
@@ -1634,7 +1634,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -10,
+        -5,
         -40,
         0,
         0,
@@ -1673,18 +1673,18 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "知识树",
-    "_N$string": "知识树",
-    "_fontSize": 18,
-    "_lineHeight": 23,
+    "_string": "Knowledge Tree",
+    "_N$string": "Knowledge Tree",
+    "_fontSize": 17,
+    "_lineHeight": 18,
     "_enableWrapText": false,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
@@ -1944,8 +1944,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 160,
-      "height": 56.7
+      "width": 176.4,
+      "height": 41.58
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1995,13 +1995,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "进入根内",
-    "_N$string": "进入根内",
-    "_fontSize": 40,
-    "_lineHeight": 45,
+    "_string": "Go into root",
+    "_N$string": "Go into root",
+    "_fontSize": 30,
+    "_lineHeight": 33,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "92820d17-2e6a-47d3-b44a-4c1524cac3ed"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -3034,8 +3034,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 160,
-      "height": 50.4
+      "width": 174.47,
+      "height": 35.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3046,8 +3046,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -364.266,
-        -55.045,
+        -362.266,
+        -50.045,
         0,
         0,
         0,
@@ -3085,13 +3085,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "自由扩散",
-    "_N$string": "自由扩散",
-    "_fontSize": 40,
-    "_lineHeight": 40,
+    "_string": "Free Diffusion",
+    "_N$string": "Free Diffusion",
+    "_fontSize": 25,
+    "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -3130,8 +3130,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 160,
-      "height": 50.4
+      "width": 248.67,
+      "height": 35.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3143,7 +3143,7 @@
       "ctor": "Float64Array",
       "array": [
         -116.565,
-        4.143,
+        10.143,
         0,
         0,
         0,
@@ -3181,13 +3181,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "协助扩散",
-    "_N$string": "协助扩散",
-    "_fontSize": 40,
-    "_lineHeight": 40,
+    "_string": "Facilitated Diffusion",
+    "_N$string": "Facilitated Diffusion",
+    "_fontSize": 25,
+    "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -3226,8 +3226,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 160,
-      "height": 50.4
+      "width": 205.1,
+      "height": 35.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3239,7 +3239,7 @@
       "ctor": "Float64Array",
       "array": [
         118.185,
-        62.901,
+        69.90100000000001,
         0,
         0,
         0,
@@ -3277,13 +3277,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "主动运输",
-    "_N$string": "主动运输",
-    "_fontSize": 40,
-    "_lineHeight": 40,
+    "_string": "Active Transport",
+    "_N$string": "Active Transport",
+    "_fontSize": 25,
+    "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -3322,8 +3322,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 40,
-      "height": 90.4
+      "width": 116.6,
+      "height": 35.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3334,8 +3334,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        234.131,
-        196.275,
+        229.928,
+        194.874,
         0,
         0,
         0,
@@ -3373,13 +3373,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "根\n毛",
-    "_N$string": "根\n毛",
-    "_fontSize": 40,
-    "_lineHeight": 40,
+    "_string": "Root Hair",
+    "_N$string": "Root Hair",
+    "_fontSize": 25,
+    "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -3422,8 +3422,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 140,
-      "height": 31.5
+      "width": 141.31,
+      "height": 28.98
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3434,8 +3434,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        421.43,
-        -339.837,
+        384.22,
+        -330.62,
         0,
         0,
         0,
@@ -3484,8 +3484,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 120,
-      "height": 50.4
+      "width": 198.86,
+      "height": 51.98
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3496,8 +3496,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        60.452,
-        0,
+        74.706,
+        -12.576,
         0,
         0,
         0,
@@ -3535,20 +3535,20 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "洞内，根毛外",
-    "_N$string": "洞内，根毛外",
-    "_fontSize": 20,
-    "_lineHeight": 40,
+    "_string": "inside of hole,\noutside of root hair",
+    "_N$string": "inside of hole,\noutside of root hair",
+    "_fontSize": 23,
+    "_lineHeight": 23,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
     "_styleFlags": 0,
     "_underlineHeight": 0,
-    "_N$horizontalAlign": 1,
+    "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
@@ -3569,13 +3569,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "我所在的位置：",
-    "_N$string": "我所在的位置：",
-    "_fontSize": 20,
-    "_lineHeight": 25,
+    "_string": "My Position:",
+    "_N$string": "My Position:",
+    "_fontSize": 23,
+    "_lineHeight": 23,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -3614,7 +3614,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 75,
+      "width": 58.67,
       "height": 37.8
     },
     "_anchorPoint": {
@@ -3626,8 +3626,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -550.211,
-        -349.696,
+        -562.211,
+        -351.696,
         0,
         0,
         0,
@@ -3665,18 +3665,18 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "提示：",
-    "_N$string": "提示：",
+    "_string": "Hint:",
+    "_N$string": "Hint:",
     "_fontSize": 25,
     "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
@@ -3710,8 +3710,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 450,
-      "height": 37.8
+      "width": 728.15,
+      "height": 35.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3723,7 +3723,7 @@
       "ctor": "Float64Array",
       "array": [
         -528.452,
-        -350.696,
+        -353.696,
         0,
         0,
         0,
@@ -3761,13 +3761,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "依次点击三种运输方式了解一下它们吧！",
-    "_N$string": "依次点击三种运输方式了解一下它们吧！",
+    "_string": "Click the three transport ways to know more about it one by one.",
+    "_N$string": "Click the three transport ways to know more about it one by one.",
     "_fontSize": 25,
-    "_lineHeight": 30,
+    "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -3938,8 +3938,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 165,
-      "height": 75.6
+      "width": 264.91,
+      "height": 60.48
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3989,18 +3989,18 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "无机盐",
-    "_N$string": "无机盐",
-    "_fontSize": 55,
-    "_lineHeight": 60,
+    "_string": "Mineral Salt",
+    "_N$string": "Mineral Salt",
+    "_fontSize": 45,
+    "_lineHeight": 48,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
@@ -5070,8 +5070,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 12,
-      "height": 18.9
+      "width": 26.81,
+      "height": 16.38
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -5121,13 +5121,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "水",
-    "_N$string": "水",
-    "_fontSize": 12,
-    "_lineHeight": 15,
+    "_string": "Water",
+    "_N$string": "Water",
+    "_fontSize": 10,
+    "_lineHeight": 13,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -6331,8 +6331,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 600,
-      "height": 41.58
+      "width": 817.93,
+      "height": 35.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -6382,13 +6382,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "正确回答下面的问题，就可以成功收集它啦！",
-    "_N$string": "正确回答下面的问题，就可以成功收集它啦！",
-    "_fontSize": 30,
-    "_lineHeight": 33,
+    "_string": "You can collect it by answering the following question correctly.",
+    "_N$string": "You can collect it by answering the following question correctly.",
+    "_fontSize": 26,
+    "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -6427,20 +6427,20 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 810,
-      "height": 41.58
+      "width": 800,
+      "height": 80
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 0.5
+      "y": 1
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
         -415,
-        171,
+        186,
         0,
         0,
         0,
@@ -6478,23 +6478,23 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "问题：水分子主要是通过下列哪种运输方式被植物的根吸收？",
-    "_N$string": "问题：水分子主要是通过下列哪种运输方式被植物的根吸收？",
-    "_fontSize": 30,
-    "_lineHeight": 33,
+    "_string": "Q: This is question template ....?",
+    "_N$string": "Q: This is question template ....?",
+    "_fontSize": 25,
+    "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
-    "_N$horizontalAlign": 1,
-    "_N$verticalAlign": 1,
+    "_N$horizontalAlign": 0,
+    "_N$verticalAlign": 0,
     "_N$fontFamily": "Arial",
-    "_N$overflow": 0,
+    "_N$overflow": 1,
     "_N$cacheMode": 0,
     "_id": "20F+jj8KpNpor6qHQByvsT"
   },
@@ -6523,8 +6523,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 209.25,
-      "height": 35.28
+      "width": 221.01,
+      "height": 31.5
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -6574,13 +6574,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "答案提示ABC123",
-    "_N$string": "答案提示ABC123",
-    "_fontSize": 25,
-    "_lineHeight": 28,
+    "_string": "Answer hint template",
+    "_N$string": "Answer hint template",
+    "_fontSize": 23,
+    "_lineHeight": 25,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -6951,8 +6951,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 64.8,
-      "height": 41.58
+      "width": 102.4,
+      "height": 35.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -7002,13 +7002,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "答案 1",
-    "_N$string": "答案 1",
-    "_fontSize": 30,
-    "_lineHeight": 33,
+    "_string": "answer 1",
+    "_N$string": "answer 1",
+    "_fontSize": 25,
+    "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "a979e849-2637-420f-873a-2e4cdcdcee7a"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -7379,8 +7379,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 72.66,
-      "height": 41.58
+      "width": 102.4,
+      "height": 35.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -7430,13 +7430,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "答案 2",
-    "_N$string": "答案 2",
-    "_fontSize": 30,
-    "_lineHeight": 33,
+    "_string": "answer 2",
+    "_N$string": "answer 2",
+    "_fontSize": 25,
+    "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "a979e849-2637-420f-873a-2e4cdcdcee7a"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -7807,8 +7807,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 72.12,
-      "height": 41.58
+      "width": 102.4,
+      "height": 35.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -7858,13 +7858,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "答案 3",
-    "_N$string": "答案 3",
-    "_fontSize": 30,
-    "_lineHeight": 33,
+    "_string": "answer 3",
+    "_N$string": "answer 3",
+    "_fontSize": 25,
+    "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "a979e849-2637-420f-873a-2e4cdcdcee7a"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -8074,8 +8074,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 60,
-      "height": 44.1
+      "width": 87.5,
+      "height": 35.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -8087,7 +8087,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        4,
+        1,
         0,
         0,
         0,
@@ -8125,18 +8125,18 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "提交",
-    "_N$string": "提交",
-    "_fontSize": 30,
-    "_lineHeight": 35,
+    "_string": "Submit",
+    "_N$string": "Submit",
+    "_fontSize": 25,
+    "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "92820d17-2e6a-47d3-b44a-4c1524cac3ed"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,

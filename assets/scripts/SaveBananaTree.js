@@ -38,7 +38,7 @@ cc.Class({
     },
 
     shrinkBody: function () {
-        this.hintLabel.string = "即将缩小身体进入洞穴";
+        this.hintLabel.string = "Shrinking body size to go into the hole...";
         cc.find('Canvas/shrinkButton').active = false;
         //cc.find('Canvas/shrinkButton').getComponent(cc.Button).interactable = false;
         var seq = cc.sequence(cc.scaleTo(0.7, 0.85), cc.scaleTo(0.5, 0.7), cc.scaleTo(0.5, 0.55), cc.scaleTo(0.4, 0.4),
@@ -50,11 +50,6 @@ cc.Class({
                     cc.director.loadScene("SaveBananaTree01");
                 }, 800);
                 
-                /*
-                Alert.show(1, "即将进入洞穴", "准备进入微观世界，救活这棵香蕉树吧！", function(){
-                    cc.director.loadScene("SaveBananaTree01");
-                }, false);
-                */
             }, this);
             walkAniComponent.play("walkAni");
         }, this));

@@ -29,7 +29,7 @@ cc.Class({
         this.nameLabel.string = player.nickName;
         this.coinLabel.string = player.coinsOwned.toString();
 
-        if (G.user.coins > 100) {
+        if (G.user.coins > 50) {
             G.isQuizOpen = false;
         }
         else {
@@ -46,8 +46,7 @@ cc.Class({
         });
         
         if(G.isNewUser){
-            console.log("fsdfsdf");
-            Alert.show(1.4, "欢迎来到无尽之岛", "无尽之岛包含三个关卡，请从扩散实验开始玩起，赚取你的金币吧，点击关卡图标开启游戏。如金币不够，可以做测验得金币哦。", null, false);
+            Alert.show(1.4, "Welcome to Uncharted Island", "There are three levels in game, you can learn the knowledge about plant transporatation system. Please start from diffusion lab, click the icon to start game.", null, false);
         }
 
         KT.lastScene = 'LevelMap';
@@ -68,7 +67,7 @@ cc.Class({
         if(!G.isDiffDone){
             levelNode = "Canvas/diffButton/Background";
             cc.find('Canvas/diffButton').getComponent(cc.Button).interactable = true;
-            cc.find('Canvas/osButton').getComponent(cc.Button).interactable = false;
+            cc.find('Canvas/osButton').getComponent(cc.Button).interactable = true; //edit here
             cc.find('Canvas/bananaButton').getComponent(cc.Button).interactable = true;//edit here
         }else if (!G.isOsmoDone){
             cc.find("Canvas/diffButton/done").active = true;
@@ -118,13 +117,14 @@ cc.Class({
 
     goToOsmosisScene: function () {
         var player = cc.find('player').getComponent('Player');
-        /* TEMP CHANGE */ 
+        
         // force coins to 250 for osmosis
+        /*
         if(!G.isOsmoDone && !G.isOsmoEnter){
             player.coinsOwned = 250;
             G.user.coins = player.coinsOwned;
         }
-        /* TEMP CHANGE */ 
+        */
         cc.director.loadScene("DoOsmosisTest");
     },
 

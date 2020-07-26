@@ -21,7 +21,7 @@ cc.Class({
 
         G.globalSocket.on('connect_error', function(){
             console.log('connect_error');
-            Alert.show(1, "网络错误", "后台服务器已关闭，请联系管理员", null, false);
+            Alert.show(1, "Network Error", "Backend Server is closed，please contact admin.", null, false);
         });
 
         G.globalSocket.on('disconnect', function(){
@@ -118,6 +118,13 @@ cc.Class({
                 cc.director.loadScene("LevelMap");
             }
         });
+
+        if(cc.sys.localStorage.getItem('learningStyle') != null) {
+            G.style = cc.sys.localStorage.getItem('learningStyle');
+            cc.sys.localStorage.removeItem('learningStyle');
+            console.log('Learning Style - ', G.style[0], ': ',G.style[1], ' ', G.style[3], ': ', G.style[4]); //A R S I 
+            this.checkStyle();
+        }
     },
 
     start () {

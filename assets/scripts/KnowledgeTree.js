@@ -67,13 +67,13 @@ cc.Class({
 
     pressButton: function(event, customData){
         if (event.target._name.includes('start')){
-            Alert.show(1.2, customData, '你还未学习相关知识点', null, false);
+            Alert.show(1.2, customData, 'You have not studied the related knowledge.', null, false);
 
         }else if (event.target._name.includes('check')) {
-            Alert.show(1.2, customData, '你已掌握相关知识点', null, false);
+            Alert.show(1.2, customData, 'You have studied the related knowledge well.', null, false);
 
         }else if (event.target._name.includes('attention')){
-            Alert.show(1.2, customData, '你对于该知识点掌握的不太好，建议加强', null, false);
+            Alert.show(1.2, customData, 'You need to pay more time to study this knowledge.', null, false);
         }
 
     },

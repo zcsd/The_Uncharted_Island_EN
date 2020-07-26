@@ -59,8 +59,8 @@ cc.Class({
             }
         });
 
-        var introduction = "欢迎来到答题赢金币！请开始做你的小测验吧，答对题目有奖励哦。";
-        Alert.show(1.2, "答题赢金币", introduction, function(){
+        var introduction = "Welcome to quiz to win coins! Please start your quiz now, you will get coins reward for answering correctly.";
+        Alert.show(1.2, "Quiz to Win Coins", introduction, function(){
             self.coinAnimation(0);
         }, false);
     },
@@ -94,7 +94,7 @@ cc.Class({
             cc.find("Canvas/submitButton").getComponent(cc.Button).interactable = false;
         }
         else if (this.userAnswerChoice == 0) {
-            Alert.show(1, "提示", "请选择一个答案", null, false);
+            Alert.show(1, "Hint", "Please choose an option.", null, false);
         } else {
             //console.log("答错了");
             this.hintLabel.string = this.mcqData.json[this.currentOrder].wrongHint;

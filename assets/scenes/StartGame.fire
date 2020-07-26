@@ -276,7 +276,7 @@
       "array": [
         0,
         0,
-        569.8357581210633,
+        559.4524108447474,
         0,
         0,
         0,
@@ -454,8 +454,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 300,
-      "height": 107.1
+      "width": 723.73,
+      "height": 94.5
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -467,7 +467,7 @@
       "ctor": "Float64Array",
       "array": [
         0,
-        300,
+        313,
         0,
         0,
         0,
@@ -505,18 +505,18 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "无尽之岛",
-    "_N$string": "无尽之岛",
-    "_fontSize": 75,
-    "_lineHeight": 85,
+    "_string": "The uncharted island",
+    "_N$string": "The uncharted island",
+    "_fontSize": 70,
+    "_lineHeight": 75,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "92820d17-2e6a-47d3-b44a-4c1524cac3ed"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
-    "_styleFlags": 0,
+    "_styleFlags": 1,
     "_underlineHeight": 0,
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
@@ -743,8 +743,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 220,
-      "height": 81.9
+      "width": 272.75,
+      "height": 69.3
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -794,13 +794,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "开始游戏",
-    "_N$string": "开始游戏",
-    "_fontSize": 55,
-    "_lineHeight": 65,
+    "_string": "Start Game",
+    "_N$string": "Start Game",
+    "_fontSize": 50,
+    "_lineHeight": 55,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "92820d17-2e6a-47d3-b44a-4c1524cac3ed"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -1107,7 +1107,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -268,
+        -270,
         40,
         0,
         0,
@@ -1148,11 +1148,11 @@
     "_useOriginalSize": true,
     "_string": "",
     "_N$string": "",
-    "_fontSize": 50,
-    "_lineHeight": 55,
+    "_fontSize": 40,
+    "_lineHeight": 45,
     "_enableWrapText": false,
     "_N$file": {
-      "__uuid__": "a979e849-2637-420f-873a-2e4cdcdcee7a"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -1203,7 +1203,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -268,
+        -270,
         40,
         0,
         0,
@@ -1242,13 +1242,13 @@
       }
     ],
     "_useOriginalSize": true,
-    "_string": "点击这里输入...",
-    "_N$string": "点击这里输入...",
-    "_fontSize": 50,
-    "_lineHeight": 55,
+    "_string": "Click here to enter...",
+    "_N$string": "Click here to enter...",
+    "_fontSize": 40,
+    "_lineHeight": 45,
     "_enableWrapText": false,
     "_N$file": {
-      "__uuid__": "a979e849-2637-420f-873a-2e4cdcdcee7a"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -1346,8 +1346,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 150,
-      "height": 68.04
+      "width": 145.92,
+      "height": 44.1
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1358,7 +1358,7 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -544.145,
+        -537.145,
         -273.7,
         0,
         0,
@@ -1397,13 +1397,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "用户名",
-    "_N$string": "用户名",
-    "_fontSize": 50,
-    "_lineHeight": 54,
+    "_string": "username",
+    "_N$string": "username",
+    "_fontSize": 30,
+    "_lineHeight": 35,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "5744fa07-bd08-47ac-aa8d-43476c943211"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
@@ -1442,8 +1442,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 507.48,
-      "height": 45.36
+      "width": 526.04,
+      "height": 32.76
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1454,8 +1454,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -210.467,
-        -342.406,
+        -196.467,
+        -338.406,
         0,
         0,
         0,
@@ -1493,13 +1493,13 @@
       }
     ],
     "_useOriginalSize": false,
-    "_string": "只允许字母数字，最短4位，最长10位",
-    "_N$string": "只允许字母数字，最短4位，最长10位",
-    "_fontSize": 30,
-    "_lineHeight": 36,
+    "_string": "Use 4-10  characters with  a mix of letters & numbers",
+    "_N$string": "Use 4-10  characters with  a mix of letters & numbers",
+    "_fontSize": 22,
+    "_lineHeight": 26,
     "_enableWrapText": true,
     "_N$file": {
-      "__uuid__": "535a6cad-1b0f-4aba-a150-e54d27755444"
+      "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
     },
     "_isSystemFontUsed": false,
     "_spacingX": 0,
