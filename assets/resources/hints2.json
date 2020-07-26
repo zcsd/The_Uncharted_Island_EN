@@ -2,11 +2,59 @@
   "diff":{
       "zero":{
         "con": "making tea",
-        "abs": "solvte molecules move from higher solute concentration side to the lower"
+        "abs": "solvte molecules move from higher solute concentration side to the lower",
+        "A": {
+          "0": "How can making tea relate to this experiment?",
+          "1": "What are the basic ingredients you need to make tea?",
+          "2": "Which equipment is similar to the ingredient you need in making tea?",
+          "3": "U-tube with Water is essential in making tea. It is the first equipment you need."
+        },
+        "S": {
+          "0": "Think about the relations to making tea.",
+          "1": "Think about the basic ingredients you need to make tea. ",
+          "2": "Think about the equipment that is similar to the ingredient you need in making tea.",
+          "3": "U-tube with Water is essential in making tea. It is the first equipment you need."
+        },
+        "I": {
+          "0": "How can molecules move from higher concentration to lower concentration?",
+          "1": "How many different molecules are needed to have a difference in concentration?",
+          "2": "Which equipment contains molecules in a liquid that can serve as a base?",
+          "3": "Water molecules can serve as the base for diffusion. U-tube with Water is the first equipment you need."
+        },
+        "R": {
+          "0": "Think about how molecules move from higher concentration to lower concentration.",
+          "1": "Think about how many different molecules are needed to have a difference in concentration.",
+          "2": "Think about which equipment contains molecules in a liquid that can serve as a base.",
+          "3": "Water molecules can serve as the base for diffusion. U-tube with Water is the first equipment you need."
+        }
       },
       "water":{
         "con": "water turn to tea",
-        "abs": "change liquid concentration"
+        "abs": "change liquid concentration",
+        "A": {
+          "0": "How can water turn into tea relate to this experiment?",
+          "1": "In tea, diffusion occurs when tea leaves is added to water to turn into tea. How can this process be replicated in the experiement? ",
+          "2": "Which equipment is similar to the function of tea leaves?",
+          "3": "Green/Red dye is comparable to tea leaves. It is added to water to become color water. "
+        },
+        "S": {
+          "0": "Think about the relations to how water turn into tea.",
+          "1": "In tea, diffusion occurs when tea leaves is added to water to turn into tea. Think about how this process can be replicated in the experiement. ",
+          "2": "Think about which equipment is similar to the function of tea leaves.",
+          "3": "Green/Red dye is comparable to tea leaves. It is added to water to become color water. "
+        },
+        "I": {
+          "0": "How can there be a  higher concentration of water molecule?",
+          "1": "What can be added in water to create a concentration difference?",
+          "2": "Which equipment allows the visual movement of molecules achieving uniform concentration to be seen?",
+          "3": "Green/Red dye can be added to water to showcase a visual transformation of diffusion. The water and color dye will mix and become color water."
+        },
+        "R": {
+          "0": "Think about how there is a higher concentration of water molecules. ",
+          "1": "Think about what can be added in water to create a concentration difference.",
+          "2": "Think about which equipment allows the visual movement of molecules achieving uniform concentration to be seen.",
+          "3": "Green/Red dye can be added to water to showcase a visual transformation of diffusion. The water and color dye will mix and become color water."
+        }
       },
       "dye":{
         "con": "teabag turn to tea",

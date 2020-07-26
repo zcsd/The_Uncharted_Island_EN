@@ -35,6 +35,12 @@ cc.Class({
         currentAniChoice: 'ugreen',
         mask: cc.Node,
         alertHint: cc.Label,
+
+        animSpeed: 0.4,
+
+        kgScale: 0,
+
+        errorCount: null,
     },
 
     onLoad () {
@@ -73,11 +79,15 @@ cc.Class({
                 self.coinAnimation(0);
                 self.pressQuizAnimation();
                 insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "read", "introduction", "na", 0, G.user.coins, G.itemsState);
+
                 if(G.user.coins <= 0){
                     self.showHint(0, "Coins are not enough for playing game, click the quiz icon to do quiz to win more coins.");                                                                                                                                   
                 }else{
+                    setTimeout(function(){
+                        cc.find("Canvas/kgLevelSurvey").active = true;
+                    }, 200);
                     self.showHint(0, "Please buy or use suitable instrument and solute.");
-                }
+                }       
             }, false);
         }
 
@@ -106,6 +116,9 @@ cc.Class({
         this.progressBar.progress = 0;
         this.checkMaterial();
         G.isDiffEnter = true;
+
+        this.errorCount = [0, 0];
+
     },
 
     showHint: function(method, content) {
@@ -118,7 +131,7 @@ cc.Class({
             cc.find("Canvas/hintLabel").active = true;
             this.hintLabel.node.color = new cc.color(0,0,0,255);
             this.hintLabel.string = content;
-            var blink = cc.blink(3, 4);
+            var blink = cc.blink(2, 2);
             this.hintLabel.node.runAction(blink);   
         }else if (method == 1){
             cc.find("Canvas/hintIconLabel").active = false;
@@ -128,6 +141,9 @@ cc.Class({
             setTimeout(function(){
                 cc.find("Canvas/hintAlert").active = true;
                 self.alertHint.string = content;
+                cc.find('Canvas/hintAlert/contentBg/surveyToggleContainer/toggle1').getComponent(cc.Toggle).isChecked = false;
+                cc.find('Canvas/hintAlert/contentBg/surveyToggleContainer/toggle2').getComponent(cc.Toggle).isChecked = false;
+                cc.find('Canvas/hintAlert/contentBg/surveyToggleContainer/toggle3').getComponent(cc.Toggle).isChecked = false;
             }, 600);
         }else if(method == 2){
             console.log('22');
@@ -135,37 +151,125 @@ cc.Class({
     },
 
     changeToCold: function() {
-        cc.find('Canvas/hightempature').active = false;
-        cc.find('Canvas/lowtempature').active = true;
+        this.animSpeed = this.animSpeed - 0.15;
 
         if(this.currentAniChoice == 'ugreen'){
             this.freemoveAniComponent.stop("freemoveAni");
             var animState = this.freemoveAniComponent.play("freemoveAni");
-            animState.speed = 0.15;
+            animState.speed = this.animSpeed;
         }else if(this.currentAniChoice == 'ured'){
             this.red_freemoveAniComponent.stop("redFreemoveAni");
             var animState = this.red_freemoveAniComponent.play("redFreemoveAni");
-            animState.speed = 0.15;
+            animState.speed = this.animSpeed;
         }
 
-        this.showHint(0,"The rate of diffusion is lower at colder temperature, molecules move slower. Now you can try hotter or back to main." );
+        if(this.animSpeed > 0.4){ // hot
+            var currentTemp = 27 + (this.animSpeed-0.4)/0.15*10;
+            var tempString = "Temperature: " + Math.ceil(currentTemp).toString() + "℃";
+            var tempLabel = cc.find("Canvas/tempLabel").getComponent(cc.Label);
+            tempLabel.string = tempString;
+            var blink = cc.blink(1, 2);
+            tempLabel.node.runAction(blink);   
+
+            cc.find('Canvas/hightempature').active = true;
+            cc.find('Canvas/lowtempature').active = false;
+            cc.find("Canvas/Hot").getComponent(cc.Button).interactable = true;
+            cc.find("Canvas/Cold").getComponent(cc.Button).interactable = true;
+            this.showHint(0, "You can continue to click hotter or colder to see the diffusion speed." );
+            if(this.animSpeed >= 0.68){
+                cc.find("Canvas/Hot").getComponent(cc.Button).interactable = false;
+                this.showHint(0, "The rate of diffusion is higher at higher temperature, now you can try colder or back to main." );
+            }
+        }else if(this.animSpeed < 0.4){ // cold
+            var currentTemp = 27 - (0.4-this.animSpeed)/0.15*10;
+            var tempString = "Temperature: " + Math.ceil(currentTemp).toString() + "℃";
+            var tempLabel = cc.find("Canvas/tempLabel").getComponent(cc.Label);
+            tempLabel.string = tempString;
+            var blink = cc.blink(1, 2);
+            tempLabel.node.runAction(blink); 
+
+            cc.find('Canvas/hightempature').active = false;
+            cc.find('Canvas/lowtempature').active = true;
+            cc.find("Canvas/Cold").getComponent(cc.Button).interactable = true;
+            cc.find("Canvas/Hot").getComponent(cc.Button).interactable = true;
+            this.showHint(0, "You can continue to click colder or hotter to see the diffusion speed." );
+            if(this.animSpeed <= 0.12){
+                cc.find("Canvas/Cold").getComponent(cc.Button).interactable = false;
+                this.showHint(0, "The rate of diffusion is lower at lower temperature, now you can try hotter or back to main." );
+            }
+        }else if(this.animSpeed == 0.4){ // normal temperature
+            var tempLabel = cc.find("Canvas/tempLabel").getComponent(cc.Label);
+            tempLabel.string = "Temperature: 27℃";
+            var blink = cc.blink(1, 2);
+            tempLabel.node.runAction(blink); 
+
+            cc.find('Canvas/hightempature').active = false;
+            cc.find('Canvas/lowtempature').active = false;
+            cc.find("Canvas/Cold").getComponent(cc.Button).interactable = true;
+            cc.find("Canvas/Hot").getComponent(cc.Button).interactable = true;
+            this.showHint(0,"Molecules move slower at lower temperature, faster at higher temperature. You can try hotter or colder." );
+        }
     },
 
     changeToHot: function() {
-        cc.find('Canvas/hightempature').active = true;
-        cc.find('Canvas/lowtempature').active = false;
+        this.animSpeed = this.animSpeed + 0.15;
 
         if(this.currentAniChoice == 'ugreen'){
             this.freemoveAniComponent.stop("freemoveAni");
             var animState = this.freemoveAniComponent.play("freemoveAni");
-            animState.speed = 0.8;
+            animState.speed = this.animSpeed;
         }else if(this.currentAniChoice == 'ured'){
             this.red_freemoveAniComponent.stop("redFreemoveAni");
             var animState = this.red_freemoveAniComponent.play("redFreemoveAni");
-            animState.speed = 0.8;
+            animState.speed = this.animSpeed;
         }
 
-        this.showHint(0, "The rate of diffusion is higher at hotter temperature, molecules move faster. Now you can try colder or back to main.");
+        if(this.animSpeed > 0.4){ // hot
+            var currentTemp = 27 + (this.animSpeed-0.4)/0.15*10;
+            var tempString = "Temperature: " + Math.ceil(currentTemp).toString() + "℃";
+            var tempLabel = cc.find("Canvas/tempLabel").getComponent(cc.Label);
+            tempLabel.string = tempString;
+            var blink = cc.blink(1, 2);
+            tempLabel.node.runAction(blink);   
+
+            cc.find('Canvas/hightempature').active = true;
+            cc.find('Canvas/lowtempature').active = false;
+            cc.find("Canvas/Hot").getComponent(cc.Button).interactable = true;
+            cc.find("Canvas/Cold").getComponent(cc.Button).interactable = true;
+            this.showHint(0, "You can continue to click hotter or colder to see the diffusion speed." );
+            if(this.animSpeed >= 0.68){
+                cc.find("Canvas/Hot").getComponent(cc.Button).interactable = false;
+                this.showHint(0, "The rate of diffusion is higher at higher temperature, now you can try colder or back to main." );
+            }
+        }else if(this.animSpeed < 0.4){ // cold
+            var currentTemp = 27 - (0.4-this.animSpeed)/0.15*10;
+            var tempString = "Temperature: " + Math.ceil(currentTemp).toString() + "℃";
+            var tempLabel = cc.find("Canvas/tempLabel").getComponent(cc.Label);
+            tempLabel.string = tempString;
+            var blink = cc.blink(1, 2);
+            tempLabel.node.runAction(blink); 
+
+            cc.find('Canvas/hightempature').active = false;
+            cc.find('Canvas/lowtempature').active = true;
+            cc.find("Canvas/Cold").getComponent(cc.Button).interactable = true;
+            cc.find("Canvas/Hot").getComponent(cc.Button).interactable = true;
+            this.showHint(0, "You can continue to click colder or hotter to see the diffusion speed." );
+            if(this.animSpeed <= 0.12){
+                cc.find("Canvas/Cold").getComponent(cc.Button).interactable = false;
+                this.showHint(0, "The rate of diffusion is lower at lower temperature, now you can try hotter or back to main." );
+            }
+        }else if(this.animSpeed == 0.4){ // normal temperature
+            var tempLabel = cc.find("Canvas/tempLabel").getComponent(cc.Label);
+            tempLabel.string = "Temperature: 27℃";
+            var blink = cc.blink(1, 2);
+            tempLabel.node.runAction(blink); 
+
+            cc.find('Canvas/hightempature').active = false;
+            cc.find('Canvas/lowtempature').active = false;
+            cc.find("Canvas/Cold").getComponent(cc.Button).interactable = true;
+            cc.find("Canvas/Hot").getComponent(cc.Button).interactable = true;
+            this.showHint(0,"Molecules move slower at lower temperature, faster at higher temperature. You can try hotter or colder." );
+        }
     },
 
     changeHint: function(){
@@ -184,7 +288,15 @@ cc.Class({
         
         //for hints2
         var finalHint;
+        if(situation == 'zero'){
+            finalHint = this.hints.json["diff"][situation][G.finalStyle][this.errorCount[0].toString()];
+            this.errorCount[0] += 1;
+        }else if(situation == 'water'){
+            finalHint = this.hints.json["diff"][situation][G.finalStyle][this.errorCount[1].toString()];
+            this.errorCount[1] += 1;
+        }
 
+        /*
         if(G.finalStyle == 'A' || G.finalStyle == 'S'){
             var keywords = this.hints.json["diff"][situation]['con'];
             if(G.finalStyle == 'A'){
@@ -199,19 +311,30 @@ cc.Class({
             }else if(G.finalStyle == 'I'){
                 finalHint = 'How can there be ' + keywords + '?'; 
             }
-        }
-        //console.log(finalHint);
+        }*/
+        console.log(finalHint);
         
         G.globalSocket.emit('hintAlert', '操作错误，提示，' + finalHint);
 
         finalHint = 'You did wrongly. ' + finalHint;
 
-        this.showHint(1, finalHint);
+        this.showHint(G.hintMethod, finalHint);
     },
 
     removeHintAlert: function(){
         this.alertHint.string = '';
         cc.find("Canvas/hintAlert").active = false;
+    },
+
+    getKgScale: function(){
+        var scale = cc.find("Canvas/kgLevelSurvey/contentBg/scaleEditBox/TEXT_LABEL").getComponent(cc.Label).string;
+        console.log('scale: ' + scale);
+        this.kgScale = scale;
+        cc.find("Canvas/kgLevelSurvey").active = false;
+    },
+
+    getHintFeedback: function(event, customEventData){
+        console.log("Hint quality: " + customEventData);
     },
 
     readyToBuyMaterial: function (event, customEventData) {
@@ -239,8 +362,6 @@ cc.Class({
                 if (player.diffMaterialUsedClass.has(materialClass)) {
                     console.log("owned, can not used");
                     var displayInfo = "You have used the item of same category. Please use it after taking the original back.";
-                    //this.changeHint();
-                    //var self = this;
                     Alert.show(1, "Warning", displayInfo, function(){
                         insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "refuseusing", materialInfo[1], "na", 0, G.user.coins, G.itemsState);
                     }, false);
@@ -253,10 +374,7 @@ cc.Class({
                         if(self.checkCoinEnough(10)){
                             self.afterUsing(materialCode, materialInfo[1], materialClass);
                         }else{
-                            cc.find("Canvas/hintIconLabel").active = true;
-                            cc.find("Canvas/hintLabel").active = true;
-                            self.hintLabel.node.color = new cc.color(230, 0, 0, 255);
-                            self.hintLabel.string = "You don't have enough coins to use material, click quiz icon to win coins.";
+                            self.showHint(0, "You don't have enough coins to use material, click quiz icon to win coins.");
                         }            
                     });
                 }
@@ -275,10 +393,7 @@ cc.Class({
                         G.isQuizOpen = true;
                         self.pressQuizAnimation();
                     }
-                    cc.find("Canvas/hintIconLabel").active = true;
-                    cc.find("Canvas/hintLabel").active = true;
-                    self.hintLabel.node.color = new cc.color(230, 0, 0, 255);
-                    self.hintLabel.string = "You don't have enough coins to buy material, click quiz icon to win coins.";
+                    self.showHint(0, "You don't have enough coins to buy material, click quiz icon to win coins.");
                 } 
             });
         }
@@ -295,10 +410,10 @@ cc.Class({
         this.coinAnimation(-1);
         var player = cc.find('player').getComponent('Player');
         player.updateCoins(cost*(-1));
-        //player.diffMaterialOwned.add(code);
         player.updateInventory('diff', 'buy', code);
 
         this.setMaterialOwned(code);
+        this.showHint(0, "You bought the material and haven't used, now you can click the icon to use it.");
     },
 
     afterUsing: function(code, material, mClass) {
@@ -309,20 +424,14 @@ cc.Class({
             player.updateCoins(-10);
             if (code == 1) {
                 this.setMaterialUsed(code);
-                //player.diffMaterialUsed.add(code);
-                //player.diffMaterialUsedClass.add(mClass);
                 player.updateInventory('diff', 'use', code, mClass);
                 var nodePath = 'Canvas/container/c' + code.toString();
                 var containerNode = cc.find(nodePath);
                 containerNode.active = true;
-                //this.hintLabel.node.color = new cc.color(4, 84, 114, 255);
-                //this.hintLabel.string = "请继续挑选使用合适的溶质";
                 this.progressBar.progress += 0.5;
                 insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "use", material, "penalty", 10, G.user.coins, G.itemsState); 
             }
             else {
-                //this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
-                //this.hintLabel.string = "This instrument is not suitable, Please try another one.";
                 this.changeHint();
                 insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
             }
@@ -335,8 +444,6 @@ cc.Class({
                     this.coinAnimation(-1);
                     player.updateCoins(-10);
                     this.setMaterialUsed(code);
-                    //player.diffMaterialUsed.add(code);
-                    //player.diffMaterialUsedClass.add(mClass);
                     player.updateInventory('diff', 'use', code, mClass);
                     insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "use", material, "penalty", 10, G.user.coins, G.itemsState); 
                     
@@ -356,18 +463,13 @@ cc.Class({
                             var self = this;
                             if(G.isDiffRewarded){
                                 Alert.show(1.2, "Achievement", "Well done! You have finised the experiment, no reward.", function(){
-                                    //player.diffMaterialOwned.clear();
-                                    //player.diffMaterialUsed.clear(); 
-                                    //player.diffMaterialUsedClass.clear();
                                     player.updateInventory('diff', 'clear', 0);
 
                                     cc.find("Canvas/Cold").active = true;
                                     cc.find("Canvas/Hot").active = true;
-                                    cc.find("Canvas/hintIconLabel").active = true;
-                                    cc.find("Canvas/hintLabel").active = true;
+                                    cc.find("Canvas/tempLabel").active = true;
 
-                                    self.hintLabel.node.color = new cc.color(83,111,122,255);
-                                    self.hintLabel.string = "Now click below button to select Colder or Hotter temperature for experiment, observe the change.";
+                                    self.showHint(0, "Now click below button to select Colder or Hotter temperature for experiment, observe the change.");
                                 }, false);
                             }else{
                                 player.updateCoins(300);
@@ -375,18 +477,13 @@ cc.Class({
                                 insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "finish", "na", "reward", 300, G.user.coins, G.itemsState);
                                 Alert.show(1.2, "Achievement", "Well done! You have finished the experiment, click ok to get 300 coins！", function(){
                                     self.coinAnimation(1);
-                                    //player.diffMaterialOwned.clear();
-                                    //player.diffMaterialUsed.clear(); 
-                                    //player.diffMaterialUsedClass.clear();
                                     player.updateInventory('diff', 'clear', 0);
 
                                     cc.find("Canvas/Cold").active = true;
                                     cc.find("Canvas/Hot").active = true;
-                                    cc.find("Canvas/hintIconLabel").active = true;
-                                    cc.find("Canvas/hintLabel").active = true;
+                                    cc.find("Canvas/tempLabel").active = true;
 
-                                    self.hintLabel.node.color = new cc.color(83,111,122,255);
-                                    self.hintLabel.string = "Now click below button to select Colder or Hotter temperature for experiment, observe the change.";
+                                    self.showHint(0, "Now click below button to select Colder or Hotter temperature for experiment, observe the change.");
                                 }, false);
                             }
                         }, this);
@@ -408,18 +505,13 @@ cc.Class({
                             var self = this;
                             if(G.isDiffRewarded){
                                 Alert.show(1, "Achievement", "Well done, you have finised the experiment, no reward.", function(){
-                                    //player.diffMaterialOwned.clear();
-                                    //player.diffMaterialUsed.clear(); 
-                                    //player.diffMaterialUsedClass.clear();
                                     player.updateInventory('diff', 'clear', 0);
 
                                     cc.find("Canvas/Cold").active = true;
                                     cc.find("Canvas/Hot").active = true;
-                                    cc.find("Canvas/hintIconLabel").active = true;
-                                    cc.find("Canvas/hintLabel").active = true;
+                                    cc.find("Canvas/tempLabel").active = true;
 
-                                    self.hintLabel.node.color = new cc.color(83,111,122,255);
-                                    self.hintLabel.string = "Now click below button to select Colder or Hotter temperature for experiment, observe the change.";
+                                    self.showHint(0, "Now click below button to select Colder or Hotter temperature for experiment, observe the change.");
                                 }, false);
                             }else{
                                 player.updateCoins(300);
@@ -427,18 +519,13 @@ cc.Class({
                                 insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "finish", "na", "reward", 300, G.user.coins, G.itemsState);
                                 Alert.show(1, "Achievement", "Well done, you have finished the experiment. Click ok to get 300 coins！", function(){
                                     self.coinAnimation(1);
-                                    //player.diffMaterialOwned.clear();
-                                    //player.diffMaterialUsed.clear(); 
-                                    //player.diffMaterialUsedClass.clear();
                                     player.updateInventory('diff', 'clear', 0);
 
                                     cc.find("Canvas/Cold").active = true;
                                     cc.find("Canvas/Hot").active = true;
-                                    cc.find("Canvas/hintIconLabel").active = true;
-                                    cc.find("Canvas/hintLabel").active = true;
+                                    cc.find("Canvas/tempLabel").active = true;
 
-                                    self.hintLabel.node.color = new cc.color(83,111,122,255);
-                                    self.hintLabel.string = "Now click below button to select Colder or Hotter temperature for experiment, observe the change.";
+                                    self.showHint(0, "Now click below button to select Colder or Hotter temperature for experiment, observe the change.");
                                 }, false);
                             }
                         }, this);
@@ -449,16 +536,14 @@ cc.Class({
                 else {
                     this.coinAnimation(-1);
                     player.updateCoins(-10);
-                    //this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
-                    //this.hintLabel.string = "This material is not suitable, Please try another one.";
+
                     this.changeHint();
                     insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
                 }
             }
             else {
                 insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
-                //this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
-                //this.hintLabel.string = "Please choose to use suitable instrument.";
+
                 this.changeHint();
             }           
         }
@@ -466,8 +551,7 @@ cc.Class({
         if (mClass == 'b') {
             this.coinAnimation(-1);
             player.updateCoins(-10);
-            //this.hintLabel.node.color = new cc.color(255, 50, 50, 255);
-            //this.hintLabel.string = "The experiment doesn't require this material.";
+
             this.changeHint();
             insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
         }
@@ -479,8 +563,7 @@ cc.Class({
         isOwnedNode.getComponent(cc.Sprite).setState(0);
 
         var player = cc.find('player').getComponent('Player');
-        //player.diffMaterialUsed.delete(code);
-        //player.diffMaterialUsedClass.delete(mClass);
+
         player.updateInventory('diff', 'takeback', code, mClass);
 
         if (mClass == 'a') {
@@ -594,8 +677,6 @@ cc.Class({
         G.globalSocket.removeAllListeners("diffusion");
         G.globalSocket.removeAllListeners("command");
         var player = cc.find('player').getComponent('Player');
-        //player.diffMaterialUsed.clear(); 
-        //player.diffMaterialUsedClass.clear();
         player.updateInventory('diff', 'clear', 0);
         insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "reset", "na", "na", 0, G.user.coins, G.itemsState);
     },
@@ -628,6 +709,7 @@ cc.Class({
     //start () {},
 
     update: function () {
+        /*
         if (this.showCount >= 150){
             this.isShowCongra = false;
             this.showCount = 0;
@@ -635,6 +717,6 @@ cc.Class({
             //cc.find("Canvas/congraluation").active = false;
         }else if (this.showCount < 150 && this.isShowCongra == true) {
             this.showCount++;
-        }
+        }*/
     },
 });

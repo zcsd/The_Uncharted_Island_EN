@@ -57,8 +57,10 @@ cc.Class({
         var style = G.style;
         if (parseInt(style[1]) >= parseInt(style[4])) {
             G.finalStyle = style[0];
+            G.hintMethod = 1;
         }else {
             G.finalStyle = style[3];
+            G.hintMethod = 1;
         }
         console.log(G.finalStyle, ' is used.');
     },
