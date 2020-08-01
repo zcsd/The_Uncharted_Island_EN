@@ -84,8 +84,9 @@ cc.Class({
                     self.showHint(0, "Coins are not enough for playing game, click the quiz icon to do quiz to win more coins.");                                                                                                                                   
                 }else{
                     setTimeout(function(){
-                        cc.find("Canvas/kgLevelSurvey").active = true;
-                    }, 200);
+                        cc.find("Canvas/popup").active = true;
+                        cc.find("Canvas/popup/kgLevelSurvey").active = true;
+                    }, 300);
                     self.showHint(0, "Please buy or use suitable instrument and solute.");
                 }       
             }, false);
@@ -139,11 +140,12 @@ cc.Class({
 
             var self = this;
             setTimeout(function(){
-                cc.find("Canvas/hintAlert").active = true;
+                cc.find("Canvas/popup").active = true;
+                cc.find("Canvas/popup/hintAlert").active = true;
                 self.alertHint.string = content;
-                cc.find('Canvas/hintAlert/contentBg/surveyToggleContainer/toggle1').getComponent(cc.Toggle).isChecked = false;
-                cc.find('Canvas/hintAlert/contentBg/surveyToggleContainer/toggle2').getComponent(cc.Toggle).isChecked = false;
-                cc.find('Canvas/hintAlert/contentBg/surveyToggleContainer/toggle3').getComponent(cc.Toggle).isChecked = false;
+                cc.find('Canvas/popup/hintAlert/contentBg/surveyToggleContainer/toggle1').getComponent(cc.Toggle).isChecked = false;
+                cc.find('Canvas/popup/hintAlert/contentBg/surveyToggleContainer/toggle2').getComponent(cc.Toggle).isChecked = false;
+                cc.find('Canvas/popup/hintAlert/contentBg/surveyToggleContainer/toggle3').getComponent(cc.Toggle).isChecked = false;
             }, 600);
         }else if(method == 2){
             console.log('22');
@@ -323,14 +325,16 @@ cc.Class({
 
     removeHintAlert: function(){
         this.alertHint.string = '';
-        cc.find("Canvas/hintAlert").active = false;
+        cc.find("Canvas/popup").active = false;
+        cc.find("Canvas/popup/hintAlert").active = false;
     },
 
     getKgScale: function(){
-        var scale = cc.find("Canvas/kgLevelSurvey/contentBg/scaleEditBox/TEXT_LABEL").getComponent(cc.Label).string;
+        var scale = cc.find("Canvas/popup/kgLevelSurvey/contentBg/scaleEditBox/TEXT_LABEL").getComponent(cc.Label).string;
         console.log('scale: ' + scale);
         this.kgScale = scale;
-        cc.find("Canvas/kgLevelSurvey").active = false;
+        cc.find("Canvas/popup").active = false;
+        cc.find("Canvas/popup/kgLevelSurvey").active = false;
     },
 
     getHintFeedback: function(event, customEventData){
