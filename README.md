@@ -1,6 +1,6 @@
 # The Uncharted Island
 
-Game Engine: Cocos Creator 2.3.4
+Game Engine: Cocos Creator 2.4.2
 
 > **Note:** This work is under **LICENSE** { Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) }.
 

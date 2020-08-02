@@ -64,15 +64,87 @@
   "osmo":{
       "zero":{
         "con": "plant root absorbing water from the soil",
-        "abs": "water molecules moving from low solute concentration side to the higher"
+        "abs": "water molecules moving from low solute concentration side to the higher",
+        "A": {
+          "0": "What is the similarity of plant root absorbing water from the soil and this experiment?",
+          "1": "What are the basic ingredients for plant root absorbing water from the soil?",
+          "2": "Which equipment is similar to the basic ingredient you need in this condition?",
+          "3": "Water molecules can serve as the base for osmosis. Beaker with water is the first equipment you need."
+        },
+        "S": {
+          "0": "Think about the similarity of plant root absorbing water from the soil and this experiment.",
+          "1": "Think about the basic ingredients for plant root absorbing water from the soil.",
+          "2": "Think about the equipment that is similar to the basic ingredient you need in this condition.",
+          "3": "Water molecules can serve as the base for osmosis. Beaker with water is the first equipment you need."
+        },
+        "I": {
+          "0": "How can the movement of solvent molecules move down the concentration gradient?",
+          "1": "Base solvent is the the basic ingredients to produce concentration gradient.",
+          "2": "Select the most suitable equipment which can serve as base solvent.",
+          "3": "Water molecules can serve as the base for osmosis. Beaker with water is the first equipment you need."
+        },
+        "R": {
+          "0": "Think about the movement of solvent molecules move down the concentration gradient.",
+          "1": "Base solvent is the the basic ingredients to produce concentration gradient.",
+          "2": "Select the most suitable equipment which can serve as base solvent.",
+          "3": "Water molecules can serve as the base for osmosis. Beaker with water is the first equipment you need."
+        }
       },
       "utube":{
         "con": "teabag turn to tea",
-        "abs": "block the free movement of solute molecule"   
+        "abs": "block the free movement of solute molecule",
+        "A": {
+          "0": "How does a teabag turn into tea relate to this experiment?",
+          "1": "The tea bag don't allow leaf move out the bag, so there is concentration difference.",
+          "2": "Which equipment can have the same function as the bag of tea, block the big molecule movement.",
+          "3": "Semipermeable membrane can block the free movement of solute molecule, that's what you need."
+        },
+        "S": {
+          "0": "Think about the relations to how a teabag turn into tea.",
+          "1": "Think about the tea bag don't allow leaf move out the bag, so there is concentration difference.",
+          "2": "Think about which equipment can have the same function as the bag of tea, block the big molecule movement.",
+          "3": "Semipermeable membrane can block the free movement of solute molecule, that's what you need."
+        },
+        "I": {
+          "0": "How do solvent and solute molecules act in osmosis?",
+          "1": "The solvent can move free in the beaker, how can block free movement of solute.",
+          "2": "Which equipment can block free movement of solute molecules?",
+          "3": "Semipermeable membrane can block the free movement of solute molecule, that's what you need."
+        },
+        "R": {
+          "0": "Think about how solvent and solute molecules act in osmosis.",
+          "1": "The solvent can move free in the beaker, how can block free movement of solute.",
+          "2": "Which equipment can block free movement of solute molecules?",
+          "3": "Semipermeable membrane can block the free movement of solute molecule, that's what you need."
+        }   
       },
       "utubemembrane":{
         "con": "placing a red blood cell in water causes it to burst",
-        "abs": "the difference of solute molecules"     
+        "abs": "the difference of solute molecules" ,
+        "A": {
+          "0": "Why does placing a red blood cell in water causes it to burst?",
+          "1": "Concentration difference of solute cause the red blood cell burst.",
+          "2": "You need to select a suitable solute whcih can not go through semipermeable membrane, to produce Concentration difference.",
+          "3": "Salt molecules can not go through semipermeable membrane, it can make concentration difference, that's what you need."
+        },
+        "S": {
+          "0": "Think about the reason why placing a red blood cell in water causes it to burst.",
+          "1": "Concentration difference of solute cause the red blood cell burst.",
+          "2": "You need to select a suitable solute whcih can not go through semipermeable membrane, to produce Concentration difference.",
+          "3": "Salt molecules can not go through semipermeable membrane, it can make concentration difference, that's what you need."
+        },
+        "I": {
+          "0": "Which molecules can not go though the semi-permeable membrane?",
+          "1": "Concentration difference of solute is the basis of osmosis.",
+          "2": "You need to select a suitable solute whcih can not go through semipermeable membrane, to produce Concentration difference.",
+          "3": "Salt molecules can not go through semipermeable membrane, it can make concentration difference, that's what you need."
+        },
+        "R": {
+          "0": "Think about which molecules can not go though the semi-permeable membrane.",
+          "1": "Concentration difference of solute is the basis of osmosis.",
+          "2": "You need to select a suitable solute whcih can not go through semipermeable membrane, to produce Concentration difference.",
+          "3": "Salt molecules can not go through semipermeable membrane, it can make concentration difference, that's what you need."
+        }    
       }
   }
 }

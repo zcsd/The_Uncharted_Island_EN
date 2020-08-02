@@ -119,7 +119,6 @@ cc.Class({
         G.isDiffEnter = true;
 
         this.errorCount = [0, 0];
-
     },
 
     showHint: function(method, content) {
@@ -145,7 +144,6 @@ cc.Class({
                 self.alertHint.string = content;
                 cc.find('Canvas/popup/hintAlert/contentBg/surveyToggleContainer/toggle1').getComponent(cc.Toggle).isChecked = false;
                 cc.find('Canvas/popup/hintAlert/contentBg/surveyToggleContainer/toggle2').getComponent(cc.Toggle).isChecked = false;
-                cc.find('Canvas/popup/hintAlert/contentBg/surveyToggleContainer/toggle3').getComponent(cc.Toggle).isChecked = false;
             }, 600);
         }else if(method == 2){
             console.log('22');
