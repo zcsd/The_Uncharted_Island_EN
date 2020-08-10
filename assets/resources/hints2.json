@@ -66,28 +66,28 @@
         "con": "plant root absorbing water from the soil",
         "abs": "water molecules moving from low solute concentration side to the higher",
         "A": {
-          "0": "What is the similarity of plant root absorbing water from the soil and this experiment?",
-          "1": "What are the basic ingredients for plant root absorbing water from the soil?",
-          "2": "Which equipment is similar to the basic ingredient you need in this condition?",
-          "3": "Water molecules can serve as the base for osmosis. Beaker with water is the first equipment you need."
+          "0": "Osmosis occurs between plant roots and the soil. What is the similarity to this experiment?",
+          "1": "What does the roots absorb from the soil?",
+          "2": "Which equipment contains this substance?",
+          "3": "In osmosis, the plant roots absorb water from the soil! It is inside the beaker which is the first equipment you need!"
         },
         "S": {
-          "0": "Think about the similarity of plant root absorbing water from the soil and this experiment.",
-          "1": "Think about the basic ingredients for plant root absorbing water from the soil.",
-          "2": "Think about the equipment that is similar to the basic ingredient you need in this condition.",
-          "3": "Water molecules can serve as the base for osmosis. Beaker with water is the first equipment you need."
+          "0": "Osmosis occurs between plant roots and the soil. Think about the similarity to this experiment.",
+          "1": "Think about what does the roots absorb from the soil.",
+          "2": "Think about which equipment contains this substance?",
+          "3": "In osmosis, the plant roots absorb water from the soil! It is inside the beaker which is the first equipment you need!"
         },
         "I": {
-          "0": "How can the movement of solvent molecules move down the concentration gradient?",
-          "1": "Base solvent is the the basic ingredients to produce concentration gradient.",
-          "2": "Select the most suitable equipment which can serve as base solvent.",
-          "3": "Water molecules can serve as the base for osmosis. Beaker with water is the first equipment you need."
+          "0": "How can the movement of solvent molecules move down the concentration gradient? ",
+          "1": "Osmosis involves solvent molecules. Which is that?",
+          "2": "Select the most suitable equipment which can serve as base solvent and dissolve other substance?",
+          "3": "Water is a solvent as it can dissovle other substance. It is inside the beaker which is the first equipment you need!"
         },
         "R": {
           "0": "Think about the movement of solvent molecules move down the concentration gradient.",
-          "1": "Base solvent is the the basic ingredients to produce concentration gradient.",
-          "2": "Select the most suitable equipment which can serve as base solvent.",
-          "3": "Water molecules can serve as the base for osmosis. Beaker with water is the first equipment you need."
+          "1": "Osmosis invovles solvent molecules. Think about which is that.",
+          "2": "Think about which equipment contains something that can serve as base solvent and dissolve other substance?",
+          "3": "Water is a solvent as it can dissovle other substance. It is inside the beaker which is the first equipment you need!"
         }
       },
       "utube":{
@@ -96,25 +96,25 @@
         "A": {
           "0": "How does a teabag turn into tea relate to this experiment?",
           "1": "The tea bag don't allow leaf move out the bag, so there is concentration difference.",
-          "2": "Which equipment can have the same function as the bag of tea, block the big molecule movement.",
-          "3": "Semipermeable membrane can block the free movement of solute molecule, that's what you need."
+          "2": "Which equipment is similar to the teabag? It can block the big molecule movement.",
+          "3": "A teabag is like a semi-permeable membrane! It only allows water to enter but blocks the tea leaves from leaving. This is the second equipment you need."
         },
         "S": {
-          "0": "Think about the relations to how a teabag turn into tea.",
+          "0": "Consider the relations to how a teabag turn into tea.",
           "1": "Think about the tea bag don't allow leaf move out the bag, so there is concentration difference.",
           "2": "Think about which equipment can have the same function as the bag of tea, block the big molecule movement.",
           "3": "Semipermeable membrane can block the free movement of solute molecule, that's what you need."
         },
         "I": {
-          "0": "How do solvent and solute molecules act in osmosis?",
-          "1": "The solvent can move free in the beaker, how can block free movement of solute.",
+          "0": "What does osmosis need but diffusion do not?",
+          "1": "Why can only solvent molecules move down a concentration gradient?",
           "2": "Which equipment can block free movement of solute molecules?",
-          "3": "Semipermeable membrane can block the free movement of solute molecule, that's what you need."
+          "3": "A semi-permeable membrane only allows certain molecules to pass through it! It is necessary in osmosis but not in diffusion. This is the second equipment you need."
         },
         "R": {
-          "0": "Think about how solvent and solute molecules act in osmosis.",
+          "0": "Consider what does osmosis need but diffusion do not.",
           "1": "The solvent can move free in the beaker, how can block free movement of solute.",
-          "2": "Which equipment can block free movement of solute molecules?",
+          "2": "Consider which equipment allows selective movement of molecules.",
           "3": "Semipermeable membrane can block the free movement of solute molecule, that's what you need."
         }   
       },
@@ -124,26 +124,26 @@
         "A": {
           "0": "Why does placing a red blood cell in water causes it to burst?",
           "1": "Concentration difference of solute cause the red blood cell burst.",
-          "2": "You need to select a suitable solute whcih can not go through semipermeable membrane, to produce Concentration difference.",
-          "3": "Salt molecules can not go through semipermeable membrane, it can make concentration difference, that's what you need."
+          "2": "You need to select a suitable solute whcih can not go through semipermeable membrane, to produce concentration difference.",
+          "3": "Salt molecules can not go through semipermeable membrane, it can cause concentration difference, that's what you need."
         },
         "S": {
           "0": "Think about the reason why placing a red blood cell in water causes it to burst.",
           "1": "Concentration difference of solute cause the red blood cell burst.",
-          "2": "You need to select a suitable solute whcih can not go through semipermeable membrane, to produce Concentration difference.",
-          "3": "Salt molecules can not go through semipermeable membrane, it can make concentration difference, that's what you need."
+          "2": "Think about which equipment can cause a difference in concentration of water.",
+          "3": "Salt molecules can not go through semipermeable membrane, it can cause concentration difference, that's what you need."
         },
         "I": {
           "0": "Which molecules can not go though the semi-permeable membrane?",
-          "1": "Concentration difference of solute is the basis of osmosis.",
-          "2": "You need to select a suitable solute whcih can not go through semipermeable membrane, to produce Concentration difference.",
-          "3": "Salt molecules can not go through semipermeable membrane, it can make concentration difference, that's what you need."
+          "1": "Which molecules cannot go though the semi-permeable membrane?",
+          "2": "Which material will dissolve in the solvent?",
+          "3": "Salt can dissolve in water, it can cause concentration difference, that's what you need."
         },
         "R": {
           "0": "Think about which molecules can not go though the semi-permeable membrane.",
-          "1": "Concentration difference of solute is the basis of osmosis.",
-          "2": "You need to select a suitable solute whcih can not go through semipermeable membrane, to produce Concentration difference.",
-          "3": "Salt molecules can not go through semipermeable membrane, it can make concentration difference, that's what you need."
+          "1": "Think about which molecules cannot go though the semi-permeable membrane",
+          "2": "Think about which material will dissolve in the solvent?",
+          "3": "Salt can dissolve in water, it can cause concentration difference, that's what you need."
         }    
       }
   }

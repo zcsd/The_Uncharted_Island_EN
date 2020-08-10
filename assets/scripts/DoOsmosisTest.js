@@ -72,7 +72,7 @@ cc.Class({
                 self.showHint(0, "There is no more reward for finishing the experiment again.");
             }, false);
         }else{
-            var introduction = "Welcome to osmosis lab! Please do a osmosis experiment using beaker. You need to spend coins to buy or use material. Make your choice after consideration.";
+            var introduction = "Welcome to osmosis lab! Please do a osmosis experiment using beaker. You need to spend coins to use material. Make your choice after consideration.";
             Alert.show(1.3, "Osmosis", introduction, function(){
                 self.coinAnimation(0);
                 self.pressQuizAnimation();
@@ -85,7 +85,7 @@ cc.Class({
                         cc.find("Canvas/popup").active = true;
                         cc.find("Canvas/popup/kgLevelSurvey").active = true;
                     }, 300);
-                    self.showHint(0, "Please buy or use suitable instrument and solute.");
+                    self.showHint(0, "Please click to use suitable instrument and solute.");
                 }
             }, false);
         }
@@ -114,7 +114,7 @@ cc.Class({
         });
 
         this.progressBar.progress = 0;
-        this.checkMaterial();
+        //this.checkMaterial();
         G.isOsmoEnter = true;
 
         this.errorCount = [0, 0, 0];
@@ -264,17 +264,27 @@ cc.Class({
             else {
                 if (player.osmoMaterialUsedClass.has(materialClass)) {
                     console.log("owned, can not used");
+                    /*
                     var displayInfo = "You have used the item of same category. Please use it after taking the original back.";
                     Alert.show(1, "Warning", displayInfo, function(){
                         insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "refuseusing", materialInfo[1], "na", 0, G.user.coins, G.itemsState);
-                    }, false);
+                    }, false);*/
+                    var displayInfo = "Do you want to spend 50 coins to use " + materialInfo[1]  + "?";
+                    var self = this;
+                    Alert.show(1, "Use", displayInfo, function(){
+                        if(self.checkCoinEnough(50)){
+                            self.afterUsing(materialCode, materialInfo[1], materialClass);
+                        }else{
+                            self.showHint(0, "You don't have enough coins to use material, click quiz icon to win coins.");
+                        }  
+                    });
                 }
                 else {
                     console.log("owned, can use, but not used");
-                    var displayInfo = "Do you want to spend 10 coins to use " + materialInfo[1]  + "?";
+                    var displayInfo = "Do you want to spend 50 coins to use " + materialInfo[1]  + "?";
                     var self = this;
                     Alert.show(1, "Use", displayInfo, function(){
-                        if(self.checkCoinEnough(10)){
+                        if(self.checkCoinEnough(50)){
                             self.afterUsing(materialCode, materialInfo[1], materialClass);
                         }else{
                             self.showHint(0, "You don't have enough coins to use material, click quiz icon to win coins.");
@@ -317,7 +327,7 @@ cc.Class({
 
         if (mClass == 'a') {
             this.coinAnimation(-1);
-            player.updateCoins(-10);
+            player.updateCoins(-50);
             if (code == 2) {
                 this.setMaterialUsed(code);
                 player.updateInventory('osmo', 'use', code, mClass);
@@ -336,7 +346,7 @@ cc.Class({
         if (mClass == 'b') {
             if(player.osmoMaterialUsed.has(2)) {
                 this.coinAnimation(-1);
-                player.updateCoins(-10);
+                player.updateCoins(-50);
                 if (code == 6) {
                     player.updateInventory('osmo', 'use', code, mClass);
                     insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "use", material, "penalty", 10, G.user.coins, G.itemsState); 
@@ -361,7 +371,7 @@ cc.Class({
                 if (code == 7) {
                     G.isOsmoDone = true;
                     this.coinAnimation(-1);
-                    player.updateCoins(-10);
+                    player.updateCoins(-50);
                     this.setMaterialUsed(code);
 
                     player.updateInventory('osmo', 'use', code, mClass);
@@ -403,7 +413,7 @@ cc.Class({
                 }
                 else {
                     this.coinAnimation(-1);
-                    player.updateCoins(-10);
+                    player.updateCoins(-50);
                     this.changeHint();
                     insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "osmosis", "wronguse", material, "penalty", 10, G.user.coins, G.itemsState); 
                 }
@@ -447,12 +457,13 @@ cc.Class({
     setMaterialOwned: function(code) {
         var materialNodePath = 'Canvas/materialBackground/m' + code.toString() + 'Button';
         var isOwnedNode = cc.find((materialNodePath + '/isOwned'));
-        isOwnedNode.active = true;
+        //isOwnedNode.active = true;
     },
 
     setMaterialUsed: function(code) {
         var materialNodePath = 'Canvas/materialBackground/m' + code.toString() + 'Button';
         var isOwnedNode = cc.find((materialNodePath + '/isOwned'));
+        isOwnedNode.active = true;
         isOwnedNode.getComponent(cc.Sprite).setMaterial(1);
     },
 

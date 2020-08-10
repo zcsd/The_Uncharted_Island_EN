@@ -33,10 +33,22 @@ cc.Class({
         this.osmoMaterialUsed = new Set();
         this.osmoMaterialUsedClass = new Set();
         this.osmoMaterialState = ['001','001','001','001','001','001','001','001','001'];
+
+        this.initInventory();
     },
 
     start () {
 
+    },
+
+    initInventory: function(){
+        for (i = 1; i < 10; i ++){
+            this.diffMaterialOwned.add(i);
+            this.diffMaterialState[i-1] = '010';
+
+            this.osmoMaterialOwned.add(i);
+            this.osmoMaterialState[i-1] = '010';
+        }
     },
 
     updateInventory: function(stage, action, code, mclass = 'none'){
