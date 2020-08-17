@@ -282,7 +282,7 @@
       "array": [
         0,
         0,
-        567.2466394788073,
+        568.1126648825917,
         0,
         0,
         0,
@@ -2383,7 +2383,7 @@
     "component": "",
     "_componentId": "7f3d8aEJl9GmrTCiwVDYKcA",
     "handler": "readyToBuyMaterial",
-    "customEventData": "50_U-Tube_1_a"
+    "customEventData": "50_U-Tube(water)_1_a"
   },
   {
     "__type__": "cc.Node",
@@ -7599,7 +7599,7 @@
     "component": "",
     "_componentId": "7f3d8aEJl9GmrTCiwVDYKcA",
     "handler": "readyToBuyMaterial",
-    "customEventData": "50_Small Stone_9_b"
+    "customEventData": "50_Sands_9_b"
   },
   {
     "__type__": "cc.Sprite",

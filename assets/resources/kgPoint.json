@@ -1,0 +1,59 @@
+{
+"1":{
+    "type": "Reading",
+    "label": "Diffusion_Transport",
+    "content": "Diffusion is the process of movement of molecules from a region of higher concentration to a region of lower concentration."
+},
+"2":{
+    "type": "Reading",
+    "label": "Diffusion",
+    "content": "Diffusion is a very important process for photosynthesis where carbon dioxide from the stomata diffuses into the leaves and finally into the cells. Also, during transpiration, the water and oxygen diffuse from the leaves into the environment."
+},
+"3":{
+    "type": "MCQ",
+    "label": "Diffusion",
+    "content": "The rate of diffusion is NOT determined by",
+    "option_1": "the difference in the diffusion pressure",
+    "option_2": "humidity",
+    "option_3": "temperature",
+    "answer": "2"
+},
+"4":{
+    "type": "Reading",
+    "label": "xx_yy",
+    "content": "zzzz"
+},
+"5":{
+    "type": "Reading",
+    "label": "xx_yy",
+    "content": "zzzz"
+},
+"6":{
+    "type": "MCQ",
+    "label": "Osmosis",
+    "content": "qqqqqqq",
+    "option_1": "aaaa",
+    "option_2": "bbbb",
+    "option_3": "cccv",
+    "answer": "1"
+},
+"7":{
+    "type": "Reading",
+    "label": "xx_yy",
+    "content": "zzzz"
+},
+"8":{
+    "type": "Reading",
+    "label": "xx_yy",
+    "content": "zzzz"
+},
+"9":{
+    "type": "MCQ",
+    "label": "Osmosis",
+    "content": "qqqqqqq",
+    "option_1": "aaaa",
+    "option_2": "bbbb",
+    "option_3": "cccv",
+    "answer": "1"
+}
+}

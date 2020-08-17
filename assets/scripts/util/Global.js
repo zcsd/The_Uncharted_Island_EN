@@ -15,6 +15,8 @@ window.G = {
     style: 'A_S',
     finalStyle: 'I',
     hintMethod: 1,
+    kgPoint: cc.JsonAsset,
+    lastKg: 0,
 }
 
 window.KT = {

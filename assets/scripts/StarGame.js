@@ -117,7 +117,7 @@ cc.Class({
                 player.gender = G.user.sex;
                 player.coinsOwned = Number(G.user.coins);
                 player.avatarImgDir = player.gender + '_' + G.user.whichavatar;
-                cc.director.loadScene("LevelMap");
+                cc.director.loadScene("CardEntry");
             }
         });
 

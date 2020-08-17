@@ -113,7 +113,7 @@ cc.Class({
 
             G.globalSocket.on('newUser', function(msg) {
                 if (msg == "success"){
-                    cc.director.loadScene("LevelMap");
+                    cc.director.loadScene("CardEntry");
                 }else if (msg == "failure"){
                     cc.log("Fail to register, try again later.");
                 }

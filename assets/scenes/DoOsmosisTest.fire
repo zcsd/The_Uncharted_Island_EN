@@ -2825,7 +2825,7 @@
     "component": "",
     "_componentId": "643fdDwJdxFvLqYaBj6333z",
     "handler": "readyToBuyMaterial",
-    "customEventData": "50_Beaker_2_a"
+    "customEventData": "50_Beaker(water)_2_a"
   },
   {
     "__type__": "cc.Node",
