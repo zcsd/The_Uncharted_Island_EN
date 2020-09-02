@@ -33,7 +33,14 @@ cc.Class({
         cc.find("Canvas/contentBg/label3Bg").active = false;
 
         console.log(customData);
-        this.loadContent();
+        if (G.lastKg+1 > G.totalKg){
+            var content = "Congratulations, you have finsihed all the study card. You can go back to the main page.";
+            Alert.show(1.3, "Finished", content, function(){
+                //self.coinAnimation(0);
+            }, false);
+        }else{
+            this.loadContent();
+        }
     },
 
     loadContent: function (){
@@ -65,15 +72,19 @@ cc.Class({
             cc.find("Canvas/mcq/submitButton").getComponent(cc.Button).interactable = true;
             cc.find("Canvas/mcq/nextButton").active = false;
             cc.find("Canvas/mcq/nextButton").getComponent(cc.Button).interactable = false;
+            cc.find("Canvas/mcq/correctIcon").active = false;
+            cc.find("Canvas/mcq/wrongIcon").active = false;
             cc.find("Canvas/mcq/hintLabel").getComponent(cc.Label).string = "";
             this.questionLabel.string = G.kgPoint.json[order].content;
             this.correctAnswer = G.kgPoint.json[order].answer;
             cc.find('Canvas/mcq/answerToggleContainer/toggle1').getComponent(cc.Toggle).isChecked = false;
             cc.find('Canvas/mcq/answerToggleContainer/toggle2').getComponent(cc.Toggle).isChecked = false;
             cc.find('Canvas/mcq/answerToggleContainer/toggle3').getComponent(cc.Toggle).isChecked = false;
+            cc.find('Canvas/mcq/answerToggleContainer/toggle4').getComponent(cc.Toggle).isChecked = false;
             cc.find("Canvas/mcq/answerToggleContainer/toggle1/answerLabel").getComponent(cc.Label).string = G.kgPoint.json[order]["option_1"];
             cc.find("Canvas/mcq/answerToggleContainer/toggle2/answerLabel").getComponent(cc.Label).string = G.kgPoint.json[order]["option_2"];
             cc.find("Canvas/mcq/answerToggleContainer/toggle3/answerLabel").getComponent(cc.Label).string = G.kgPoint.json[order]["option_3"];
+            cc.find("Canvas/mcq/answerToggleContainer/toggle4/answerLabel").getComponent(cc.Label).string = G.kgPoint.json[order]["option_4"];
         }
 
     },
@@ -90,6 +101,8 @@ cc.Class({
             cc.find("Canvas/mcq/submitButton").getComponent(cc.Button).interactable = false;
             cc.find("Canvas/mcq/nextButton").active = true;
             cc.find("Canvas/mcq/nextButton").getComponent(cc.Button).interactable = true;
+            cc.find("Canvas/mcq/correctIcon").active = true;
+            cc.find("Canvas/mcq/wrongIcon").active = false;
         }
         else if (this.userAnswer == 0) {
             Alert.show(1, "Hint", "Please choose an option.", null, false);
@@ -97,6 +110,8 @@ cc.Class({
             console.log("答错了");
             cc.find("Canvas/mcq/hintLabel").getComponent(cc.Label).string = "You select wrong answer, please try again.";
             cc.find("Canvas/mcq/submitButton").getComponent(cc.Button).interactable = true;
+            cc.find("Canvas/mcq/wrongIcon").active = true;
+            cc.find("Canvas/mcq/correctIcon").active = false;
         }
     },
 

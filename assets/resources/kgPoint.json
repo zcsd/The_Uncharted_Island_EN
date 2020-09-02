@@ -1,59 +1,102 @@
 {
 "1":{
     "type": "Reading",
-    "label": "Diffusion_Transport",
-    "content": "Diffusion is the process of movement of molecules from a region of higher concentration to a region of lower concentration."
+    "label": "Plants_Transport",
+    "content": "Transportation is a vital process in plants. Plants need water, minerals, and food for their growth and survival. Water and minerals are taken up by roots and leaves prepare the food. These are then transported to the other parts of the plants."
 },
 "2":{
+    "type": "Reading",
+    "label": "Diffusion_Definition",
+    "content": "Diffusion is the main pathway of transportation in plants. Diffusion is the movement of molecules from a region of higher concentration to a region of lower concentration down the concentration gradient without the expenditure of energy."
+},
+"3":{
     "type": "Reading",
     "label": "Diffusion",
     "content": "Diffusion is a very important process for photosynthesis where carbon dioxide from the stomata diffuses into the leaves and finally into the cells. Also, during transpiration, the water and oxygen diffuse from the leaves into the environment."
 },
-"3":{
+"4":{
     "type": "MCQ",
     "label": "Diffusion",
-    "content": "The rate of diffusion is NOT determined by",
-    "option_1": "the difference in the diffusion pressure",
+    "content": "The process of diffusion is NOT affected by",
+    "option_1": "the difference of concentration gradient",
     "option_2": "humidity",
     "option_3": "temperature",
+    "option_4": "size of particle",
     "answer": "2"
 },
-"4":{
-    "type": "Reading",
-    "label": "xx_yy",
-    "content": "zzzz"
-},
 "5":{
-    "type": "Reading",
-    "label": "xx_yy",
-    "content": "zzzz"
+    "type": "MCQ",
+    "label": "Diffusion",
+    "content": "Which of the following statement about diffusion is wrong?",
+    "option_1": "Diffusion occurs everywhere, but mostly in gases and liquids.",
+    "option_2": "Diffusion includes the movement of particles from the region of its higher concentration to the region of its lower concentration.",
+    "option_3": "The expenditure of energy is necessary in diffusion process.",
+    "option_4": "Water are taken by the roots of plants, this is a diffusion process.",
+    "answer": "3"
 },
 "6":{
-    "type": "MCQ",
-    "label": "Osmosis",
-    "content": "qqqqqqq",
-    "option_1": "aaaa",
-    "option_2": "bbbb",
-    "option_3": "cccv",
-    "answer": "1"
+    "type": "Reading",
+    "label": "Diffusion",
+    "content": "Diffusion is widely used in various fields such as biology, physics and chemistry. Diffusion can be classified into two main types: free diffusion and facilitated diffusion. Brownian motion is the force behind the diffusion of fluids. "
 },
 "7":{
     "type": "Reading",
-    "label": "xx_yy",
-    "content": "zzzz"
+    "label": "Diffusion",
+    "content": "Free diffusion is a process in which the substance moves through a semipermeable membrane or in a solution without any help from transport proteins. Facilitated diffusion is a passive movement of molecules across the semipermeable membrane from the region of higher concentration to the region of lower concentration by means of a carrier molecule."
 },
 "8":{
-    "type": "Reading",
-    "label": "xx_yy",
-    "content": "zzzz"
+    "type": "MCQ",
+    "label": "Diffusion",
+    "content": "Which of the following statement is NOT a example of diffusion?",
+    "option_1": "A tea bag immersed in a cup of hot water will diffuse into the water and change its colour.",
+    "option_2": "Cold air sinks, hot air rises.",
+    "option_3": "Sugar gets dissolved evenly and sweetens the water without having to stir it.",
+    "option_4": "A spray of room freshener will get diffused into the air by which we can sense the odour.",
+    "answer": "2"
 },
 "9":{
+    "type": "Reading",
+    "label": "Diffusion_Osmosis",
+    "content": "Since water is solvent in every living being, biologists define osmosis as the diffusion of water across a semipermeable membrane, osmosis is limited only to the liquid medium. For example, plants take minerals from roots with the help of osmosis."
+},
+"10":{
     "type": "MCQ",
-    "label": "Osmosis",
-    "content": "qqqqqqq",
-    "option_1": "aaaa",
-    "option_2": "bbbb",
-    "option_3": "cccv",
+    "label": "Diffusion_Osmosis",
+    "content": "Which of the following is wrong regarding free diffusion and osmosis?",
+    "option_1": "The temperature is higher, the rate of diffusion is higher.",
+    "option_2": "Free diffusion doesn't need energy consumption and carrier.",
+    "option_3": "Osmosis need energy consumption.",
+    "option_4": "The difference of concentration gradient is higner, the rate of osmosis is higher.",
+    "answer": "3"
+},
+"11":{
+    "type": "MCQ",
+    "label": "Diffusion_Osmosis",
+    "content": "A semipermeable membrane is a layer that only certain molecules can pass through. Which of the following item is NOT a semipermeable membrane?",
+    "option_1": "Carbon filter mesh",
+    "option_2": "Egg membrane",
+    "option_3": "Cellophane",
+    "option_4": "Cell membrane",
     "answer": "1"
+},
+"12":{
+    "type": "MCQ",
+    "label": "Diffusion_Osmosis",
+    "content": "Not every molecule can cross the semipermeable membranes. Which of the following item can NOT diffuse across the semipermeable membrane(e.g., cell membrane)?",
+    "option_1": "Glucose",
+    "option_2": "Sodium ions",
+    "option_3": "Calcium ions",
+    "option_4": "All of the above",
+    "answer": "4"
+},
+"13":{
+    "type": "MCQ",
+    "label": "Diffusion_Osmosis",
+    "content": "Osmosis and diffusion are the two different types of passive transport. Which of the following statement is wrong?",
+    "option_1": "Osmosis is limited only to the liquid medium. Diffusion occurs in liquid, gas and even solids.",
+    "option_2": "The intake of water in plants is an example of osmosis. ",
+    "option_3": "Both osmosis and facilitated diffusion require a semipermeable membrane.",
+    "option_4": "Osmosis helps in the uptake of minerals in plant root.",
+    "answer": "4"
 }
 }
