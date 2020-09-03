@@ -98,5 +98,10 @@
     "option_3": "Both osmosis and facilitated diffusion require a semipermeable membrane.",
     "option_4": "Osmosis helps in the uptake of minerals in plant root.",
     "answer": "4"
+},
+"14":{
+    "type": "Reading",
+    "label": "Diffusion",
+    "content": "xxx"
 }
 }

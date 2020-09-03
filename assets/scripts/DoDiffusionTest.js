@@ -83,10 +83,11 @@ cc.Class({
                 if(G.user.coins <= 0){
                     self.showHint(0, "Coins are not enough for playing game, click the quiz icon to do quiz to win more coins.");                                                                                                                                   
                 }else{
+                    /*
                     setTimeout(function(){
                         cc.find("Canvas/popup").active = true;
                         cc.find("Canvas/popup/kgLevelSurvey").active = true;
-                    }, 300);
+                    }, 300);*/
                     self.showHint(0, "Please click to use suitable instrument and solute.");
                 }       
             }, false);
@@ -685,7 +686,8 @@ cc.Class({
     backToMapScene: function () {
         this.resetScene();
         insertNewAction(G.globalSocket, G.user.username, G.sequenceCnt, "diffusion", "back", "na", "na", 0, G.user.coins, G.itemsState);
-		 cc.director.loadScene("LevelMap");
+        //cc.director.loadScene("LevelMap");
+        cc.director.loadScene("CardStudy");
 	},
 
     resetScene: function () {

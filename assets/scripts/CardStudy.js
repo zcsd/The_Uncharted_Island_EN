@@ -10,6 +10,8 @@ cc.Class({
         typeLabel: cc.Label,
         correctAnswer: "0",
         userAnswer: "0",
+
+        mask: cc.Node,
     },
 
     onLoad: function () {
@@ -23,8 +25,8 @@ cc.Class({
             self.avatarSprite.spriteFrame = spriteFrame;
         });
 
-        console.log(G.kgPoint.json["1"]["type"]);
-        this.loadContent();
+        //this.loadContent();
+        this.toNextContent("null", "null");
     },
 
     toNextContent: function (event, customData){
@@ -39,7 +41,27 @@ cc.Class({
                 //self.coinAnimation(0);
             }, false);
         }else{
-            this.loadContent();
+            if(G.lastKg == 8){
+                cc.find("Canvas/popup").active = true;
+                cc.find("Canvas/popup/hintAlert/contentBg/titleLabel").getComponent(cc.Label).string = "Diffusion";
+                cc.find("Canvas/popup/hintAlert/contentBg/hintLabel").getComponent(cc.Label).string = "You have finished most cards study about diffusion, let's go to play a game.";
+            }else if(G.lastKg == 13){
+                cc.find("Canvas/popup").active = true;
+                cc.find("Canvas/popup/hintAlert/contentBg/titleLabel").getComponent(cc.Label).string = "Osmosis";
+                cc.find("Canvas/popup/hintAlert/contentBg/hintLabel").getComponent(cc.Label).string = "You have finished most study cards about osmosis, let's go to play a game.";
+            }else{
+                this.loadContent();
+            }
+        }
+    },
+
+    toWhichScene: function(){
+        if(G.lastKg == 8){
+            G.lastKg += 1;
+            cc.director.loadScene("DoDiffusionTest");
+        }else if(G.lastKg == 13){
+            G.lastKg += 1;
+            cc.director.loadScene("DoOsmosisTest");
         }
     },
 
@@ -61,13 +83,19 @@ cc.Class({
             cc.find(nodeStr+"/label").getComponent(cc.Label).string = labels[i] ;
         }
 
+        var fadeAction = cc.fadeIn(2.5);
+
         if (type == "Reading"){
+            cc.find("Canvas/reading").opacity = 0;
             cc.find("Canvas/mcq").active = false;
             cc.find("Canvas/reading").active = true;
+            cc.find("Canvas/reading").runAction(fadeAction);
             this.contentLabel.string = G.kgPoint.json[order].content;
         }else if (type == "MCQ"){
+            cc.find("Canvas/mcq").opacity = 0;
             cc.find("Canvas/reading").active = false;
             cc.find("Canvas/mcq").active = true;
+            cc.find("Canvas/mcq").runAction(fadeAction);
             this.userAnswer = "0";
             cc.find("Canvas/mcq/submitButton").getComponent(cc.Button).interactable = true;
             cc.find("Canvas/mcq/nextButton").active = false;
@@ -141,6 +169,26 @@ cc.Class({
 
     goToQuizScene: function () {
         cc.director.loadScene("DoQuiz");
+    },
+
+    onEnable : function(){
+        this.mask.on('touchstart',function(event){
+            event.stopPropagation();
+        });
+
+        this.mask.on('touchend', function (event) {
+            event.stopPropagation();
+        });
+    },
+        
+    onDisable : function(){
+
+        this.mask.off('touchstart',function(event){
+            event.stopPropagation();
+        });
+        this.mask.off('touchend', function (event) {
+            event.stopPropagation();
+        });
     },
 
     /*
