@@ -25,6 +25,8 @@ cc.Class({
             self.avatarSprite.spriteFrame = spriteFrame;
         });
 
+        KT.lastScene = 'CardStudy';
+
         //this.loadContent();
         this.toNextContent("null", "null");
     },
@@ -49,6 +51,10 @@ cc.Class({
                 cc.find("Canvas/popup").active = true;
                 cc.find("Canvas/popup/hintAlert/contentBg/titleLabel").getComponent(cc.Label).string = "Osmosis";
                 cc.find("Canvas/popup/hintAlert/contentBg/hintLabel").getComponent(cc.Label).string = "You have finished most study cards about osmosis, let's go to play a game.";
+            }else if(G.lastKg == 22){
+                cc.find("Canvas/popup").active = true;
+                cc.find("Canvas/popup/hintAlert/contentBg/titleLabel").getComponent(cc.Label).string = "Save Banana Tree";
+                cc.find("Canvas/popup/hintAlert/contentBg/hintLabel").getComponent(cc.Label).string = "You have finished most study cards, let's go to play a game.";
             }else{
                 this.loadContent();
             }
@@ -62,6 +68,9 @@ cc.Class({
         }else if(G.lastKg == 13){
             G.lastKg += 1;
             cc.director.loadScene("DoOsmosisTest");
+        }else if(G.lastKg == 22){
+            G.lastKg += 1;
+            cc.director.loadScene("SaveBananaTree");
         }
     },
 

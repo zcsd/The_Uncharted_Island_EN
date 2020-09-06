@@ -17,10 +17,10 @@
 "4":{
     "type": "MCQ",
     "label": "Diffusion",
-    "content": "The process of diffusion is NOT affected by",
+    "content": "The process of diffusion for liquid is NOT affected by",
     "option_1": "the difference of concentration gradient",
-    "option_2": "humidity",
-    "option_3": "temperature",
+    "option_2": "environment humidity",
+    "option_3": "environment temperature",
     "option_4": "size of particle",
     "answer": "2"
 },
@@ -101,7 +101,62 @@
 },
 "14":{
     "type": "Reading",
-    "label": "Diffusion",
+    "label": "Plants_Transport",
+    "content": "Plants contain a vast network of conduits which consist of xylem and phloem, the xylem and phloem tissues extend throughout the plant. These conducting tissues originate from the roots and move up through the trunks of trees. Later they branch off into the branches and then branching even further into every leaf."
+},
+"15":{
+    "type": "Reading",
+    "label": "Plants_Transport",
+    "content": "Xylem is a long, non-living tube running from the roots to the leaves through the stem. The water is absorbed by the root hair and undergoes cell to cell movement by osmosis until it reaches the xylem. This water is then transported through the xylem vessels to the leaves and is evaporated by the process of transpiration."
+},
+"16":{
+    "type": "Reading",
+    "label": "Plants_Transport",
+    "content": "The phloem is responsible for translocation of nutrients and sugar like carbohydrates, produced by the leaves to areas of the plant that are metabolically active.  It is made up of living cells. The cells walls of these cells form small holes at the ends of the cells known as sieve plates."
+},
+"17":{
+    "type": "MCQ",
+    "label": "Diffusion_Transport",
+    "content": "Xylem and Phloem are two different types of vascular tissues. Which of the following statement is wrong?",
+    "option_1": "Xylem cells are considered dead, but phloem cells is live.",
+    "option_2": "The movement of phloem is bidirectional(both ways – up and down).",
+    "option_3": "The main activity of phloem is to transport minerals and water.",
+    "option_4": "Xylem is located in the centre of the vascular bundle.",
+    "answer": "3"
+},
+"18":{
+    "type": "Reading",
+    "label": "Plants_Transport",
+    "content": "Passive absorption(diffusion) is the main way to absorb water in plant roots, water is absorbed due to transpiration pull and it is created due to the stress created in xylem sap. The rate of absorption significantly depends upon the rate of transpiration. The force required for the absorption of water is mainly generated in the mesophyll cells."
+},
+"19":{
+    "type": "Reading",
+    "label": "Plants_Transport",
+    "content": "Transpiration is the driving force behind uptake and transport of water. It is the process of water evaporation through openings called stomata. This creates a pull by replacing the water that has evaporated. This pull in the xylem tissues extends all the way down due to the cohesive forces. This negative water pressure that occurs in the roots will eventually result in an increase of water uptake from the soil."
+},
+"20":{
+    "type": "Reading",
+    "label": "Plants_Transport",
+    "content": "Transportation in plants is by three means: diffusion, facilitated diffusion and active transport. Active transport pumps molecules against the concentration gradient. Here the energy of ATP is used to drive the pump. The ATP donates a phosphate to a particular gateway molecule which then pumps the desired molecule across the membrane."
+},
+"21":{
+    "type": "Reading",
+    "label": "Plants_Transport",
+    "content": "The driving forces responsible for the transportation of water and minerals in plants include: transpiration, force of surface tension, water potential gradient and the force of hydrogen bonding between water molecules."
+},
+"22":{
+    "type": "MCQ",
+    "label": "Diffusion_Transport",
+    "content": "Absorption of minerals in root is (  ), transporation of sugar in phloem is (  ).",
+    "option_1": "active transport, active transport",
+    "option_2": "facilitated diffusion, active transport",
+    "option_3": "active transport, facilitated diffusion",
+    "option_4": "diffusion, facilitated diffusion ",
+    "answer": "2"
+},
+"23":{
+    "type": "Reading",
+    "label": "Plants_Transport",
     "content": "xxx"
 }
 }

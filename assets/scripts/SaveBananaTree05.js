@@ -54,7 +54,8 @@ cc.Class({
     },
 
     backToMapScene: function () {
-        cc.director.loadScene("LevelMap");
+        //cc.director.loadScene("LevelMap");
+        cc.director.loadScene("CardStudy");
     },
 
     start: function() {
