@@ -52,7 +52,7 @@ cc.Class({
 
     selectFreeDiff: function(){
         console.log("自由扩散");
-        Alert.show(1.3, "Free Diffusion", "自由扩散是小分子物质从浓度高的一侧通过细胞膜向浓度低的一侧转运，不需要载体，不需要消耗能量，属于被动运输的一种，是最简单的运输方式之一。", null, false);
+        Alert.show(1.3, "Free Diffusion", "Free diffusion is a process in which the substance moves through a semipermeable membrane or in a solution without any help from transport proteins, and no energy required too.", null, false);
 
         cc.find("Canvas/freeDiffHole/Background").stopAllActions();
         KT.check['check1'] = true;
@@ -66,13 +66,13 @@ cc.Class({
         console.log(this.binRead);
         if((this.binRead & 0b111) == 0b111) {
             this.setMolecueStatus(true);
-            this.hintLabel.string = "开始点击水分子和无机盐来收集它们吧，请收集全部，植物生长需要它们。";
+            this.hintLabel.string = "Please click all water molecules and minerals to collect all of them, plants need them for growth.";
         }
     },
 
     selectFaciDiff: function(){
         console.log("协助扩散");
-        Alert.show(1.3, "协助扩散", "协助扩散也称促进扩散，是大分子物质从浓度高的一侧通过细胞膜上的特殊载体向浓度低的一侧转运，不需要消耗能量，属于被动运输的一种。", null, false);
+        Alert.show(1.3, "Facilitated Diffusion", "Facilitated diffusion is a passive movement of molecules across the semipermeable membrane from the region of higher concentration to the region of lower concentration by means of a carrier molecule.", null, false);
         
         cc.find("Canvas/faciDiffHole/Background").stopAllActions();
         KT.check['check7'] = true;
@@ -86,13 +86,13 @@ cc.Class({
         console.log(this.binRead);
         if((this.binRead & 0b111) == 0b111) {
             this.setMolecueStatus(true);
-            this.hintLabel.string = "开始点击水分子和无机盐来收集它们吧，请收集全部，植物生长需要它们。";
+            this.hintLabel.string = "Please click all water molecules and minerals to collect all of them, plants need them for growth.";
         }
     },
 
     selectActTran: function(){
         console.log("主动运输");
-        Alert.show(1.3, "主动运输", "主动运输是物质从浓度低的一侧通过细胞膜上的特殊载体向浓度高的一侧转运, 需要消耗能量，常见的有钠离子钾离子进出细胞膜。", null, false);
+        Alert.show(1.3, "Active Transport", "Active Transport is defined as a process that involves the movement of molecules from a region of lower concentration to a region of higher concentration against a gradient or an obstacle with the use of external energy.", null, false);
         
         cc.find("Canvas/actTranHole/Background").stopAllActions();
         KT.check['check9'] = true;
@@ -106,7 +106,7 @@ cc.Class({
         console.log(this.binRead);
         if((this.binRead & 0b111) == 0b111) {
             this.setMolecueStatus(true);
-            this.hintLabel.string = "开始点击水分子和无机盐来收集它们吧，植物生长需要它们。";
+            this.hintLabel.string = "Please click all water molecules and minerals to collect all of them, plants need them for growth.";
         }
     },
 
@@ -121,10 +121,10 @@ cc.Class({
             if (this.isMinsaltFirst){
                 cc.find("Canvas/questionAlert").active = true;
                 cc.find("Canvas/questionAlert/contentBg/submitButton").getComponent(cc.Button).interactable = true;
-                this.questionLabel.string = "问题：无机盐主要是通过下列哪种方式被植物的根吸收？";
-                this.qanswer1Label.string = "自由扩散";
-                this.qanswer2Label.string = "协助扩散";
-                this.qanswer3Label.string = "主动运输";
+                this.questionLabel.string = "Question：Minerals are mainly absorbed by roots of plants with the help of ( )";
+                this.qanswer1Label.string = "Free Diffusion";
+                this.qanswer2Label.string = "Facilitated Diffusion";
+                this.qanswer3Label.string = "Active Transport";
                 cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle1').getComponent(cc.Toggle).isChecked = false;
                 cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle2').getComponent(cc.Toggle).isChecked = false;
                 cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle3').getComponent(cc.Toggle).isChecked = false;
@@ -140,10 +140,10 @@ cc.Class({
             if (this.isH2OFirst){
                 cc.find("Canvas/questionAlert").active = true;
                 cc.find("Canvas/questionAlert/contentBg/submitButton").getComponent(cc.Button).interactable = true;
-                this.questionLabel.string = "问题：水分子主要是通过下列哪种方式被植物的根吸收?";
-                this.qanswer1Label.string = "自由扩散";
-                this.qanswer2Label.string = "协助扩散";
-                this.qanswer3Label.string = "主动运输";
+                this.questionLabel.string = "Question：Water is mainly absorbed by roots of plants with the help of ( )";
+                this.qanswer1Label.string = "Free Diffusion";
+                this.qanswer2Label.string = "Facilitated Diffusion";
+                this.qanswer3Label.string = "Active Transport";
                 cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle1').getComponent(cc.Toggle).isChecked = false;
                 cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle2').getComponent(cc.Toggle).isChecked = false;
                 cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle3').getComponent(cc.Toggle).isChecked = false;
@@ -158,7 +158,7 @@ cc.Class({
 
         this.numCollect += 1;
         if(this.numCollect >= 7 ){
-            this.hintLabel.string = "收集完成，现在带着水和无机盐准备进入根毛里面吧!";
+            this.hintLabel.string = "Collection done, now you can take minerals and water to go into the root hair.";
             cc.find("Canvas/gotoinsiderootButton").interactable = true;
             cc.find("Canvas/gotoinsiderootButton").active = true;
         }
@@ -196,7 +196,7 @@ cc.Class({
         
         if (this.userAnswerChoice == this.qanswer) {
             cc.find("Canvas/questionAlert/contentBg/submitButton").getComponent(cc.Button).interactable = false;
-            this.qhintLabel.string = "恭喜你答对了";
+            this.qhintLabel.string = "Congratulations, it's correct.";
             this.coinAnimation(1);
             player.updateCoins(50);
             self = this;
@@ -210,12 +210,12 @@ cc.Class({
             }, 1200);
         }
         else if (this.userAnswerChoice == 0) {
-            this.qhintLabel.string = "请选择一个答案";
+            this.qhintLabel.string = "Please choose one answer.";
             cc.find("Canvas/questionAlert/contentBg/submitButton").getComponent(cc.Button).interactable = true;
         } else {
             this.coinAnimation(-1);
             player.updateCoins(-50);
-            this.qhintLabel.string = "选择错误，重新选择一个答案吧！";
+            this.qhintLabel.string = "Wrong choice, please choose again.";
             cc.find("Canvas/questionAlert/contentBg/submitButton").getComponent(cc.Button).interactable = true;
             if (this.currentQStage == 'h2o'){
                 KT.check['check1'] = false;

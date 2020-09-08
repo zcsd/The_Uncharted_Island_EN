@@ -44,14 +44,14 @@ cc.Class({
         KT.lastScene = 'SaveBananaTree02';
 
         this.floatingAction();
-        this.hintLabel.string = "现在点击跳动的导管和筛管，了解一下它们吧！";
+        this.hintLabel.string = "Please click the beating xylem vessel and phloem sieve tube, to know more about them.";
         //this.guide();
     },
 
     selectDaoguan: function(){
         console.log("导管");
-        Alert.show(1.3, "导管", "导管位于木质部里面，是木质部的主要组成部分，属于植物的输导组织，是由长管状死细胞纵向连接而形成的。该细胞的细胞壁非常坚硬，上下相接处的细胞壁消失，形成中空管道即导管。", null, false);
-
+        Alert.show(1.3, "Xylem Vessel", "Xylem vessels are long hollow chains of tough long dead xylem cells, it's transport tissue in vascular plants. Xylem tissue is the water transporter cells of plants. It carries water and minerals around a plant.", null, false);
+        
         cc.find("Canvas/allParts/daoguanButton/Background").stopAllActions();
 
         if ((this.binRead & 0b01) == 0b00) {
@@ -60,7 +60,7 @@ cc.Class({
         console.log(this.binRead);
         if((this.binRead & 0b11) == 0b11) {
             //this.setMolecueStatus(true);
-            this.hintLabel.string = "现在对导管和筛管有所了解了。马上点击答题按钮然后继续任务吧！";
+            this.hintLabel.string = "You have known xylem vessel and sieve tube, please click 'start quiz' buuton to continue game.";
             cc.find("Canvas/goToQuizButton").active = true;
             cc.find("Canvas/walkingButton").active = false;
         }
@@ -68,8 +68,8 @@ cc.Class({
 
     selectShaiguan: function(){
         console.log("筛管");
-        Alert.show(1.3, "筛管", "筛管位于韧皮部(环绕木质部)，属于植物的输导组织，是由长管状活细胞纵向连接而成。上下连接处的细胞壁上有许多小孔(筛孔), 筛管细胞间的细胞质可经筛孔相连通。", null, false); 
-
+        Alert.show(1.3, "Sieve Tube", "Sieve tube, elongated living cells (sieve-tube elements) of the phloem, the nuclei of which have fragmented and disappeared and the transverse end walls of which are pierced by sievelike groups of pores (sieve plates).They are the conduits of food transport", null, false); 
+        
         cc.find("Canvas/allParts/shaiguanButton/Background").stopAllActions();
 
         if ((this.binRead & 0b10) == 0b00) {
@@ -78,7 +78,7 @@ cc.Class({
         console.log(this.binRead);
         if((this.binRead & 0b11) == 0b11) {
             //this.setMolecueStatus(true);
-            this.hintLabel.string = "现在对导管和筛管有所了解了。马上点击答题按钮然后继续任务吧！";
+            this.hintLabel.string = "You have known xylem vessel and sieve tube, please click 'start quiz' buuton to continue game.";
             cc.find("Canvas/goToQuizButton").active = true;
             cc.find("Canvas/walkingButton").active = false;
         }
@@ -90,10 +90,10 @@ cc.Class({
         cc.find("Canvas/questionAlert/contentBg/submitButton").getComponent(cc.Button).interactable = true;
         
         if(this.qorder == 0){
-            this.questionLabel.string = "问题：关于植物的运输系统，下列说法错误的是？";
-            this.qanswer1Label.string = "水和无机盐是在导管里自下而上运输的";
-            this.qanswer2Label.string = "有机物是通过筛管运输到各个部位的";
-            this.qanswer3Label.string = "导管需要消耗有机物产生能量来运输物质";
+            this.questionLabel.string = "Question：Which of following is wrong regarding the plant transportation?";
+            this.qanswer1Label.string = "Water and minerals are transported upward in xylem vessel.";
+            this.qanswer2Label.string = "Sugar is transported to parts of plants in sieve tube.";
+            this.qanswer3Label.string = "Transportation in xylem vessel need consume energy.";
             cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle1').getComponent(cc.Toggle).isChecked = false;
             cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle2').getComponent(cc.Toggle).isChecked = false;
             cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle3').getComponent(cc.Toggle).isChecked = false;
@@ -101,10 +101,10 @@ cc.Class({
             this.qanswer = 3;
             this.userAnswerChoice = 0;
         }else if(this.qorder == 1){
-            this.questionLabel.string = "问题：导管运输水和无机盐的动力主要来自于？";
-            this.qanswer1Label.string = "消耗有机物产生的能量";
-            this.qanswer2Label.string = "蒸腾作用";
-            this.qanswer3Label.string = "光合作用";
+            this.questionLabel.string = "Question：The force that xylem vessel use to transport water and minerals is from";
+            this.qanswer1Label.string = "energy released by organic/sugar consumption";
+            this.qanswer2Label.string = "transpiration";
+            this.qanswer3Label.string = "photosynthesis";
             cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle1').getComponent(cc.Toggle).isChecked = false;
             cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle2').getComponent(cc.Toggle).isChecked = false;
             cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle3').getComponent(cc.Toggle).isChecked = false;
@@ -123,7 +123,7 @@ cc.Class({
         
         if (this.userAnswerChoice == this.qanswer) {
             cc.find("Canvas/questionAlert/contentBg/submitButton").getComponent(cc.Button).interactable = false;
-            this.qhintLabel.string = "恭喜你答对了";
+            this.qhintLabel.string = "Congratulations, it's correct.";
             this.coinAnimation(1);
             player.updateCoins(50);
             self = this;
@@ -137,29 +137,29 @@ cc.Class({
                     cc.find("Canvas/questionAlert").active = false;
                     cc.find("Canvas/goToQuizButton").active = false;
                     cc.find("Canvas/walkingButton").active = true;
-                    self.hintLabel.string = "现在点击进入导管按钮开始下一旅程吧!";
+                    self.hintLabel.string = "Please click 'go into verssel' button to continue the game.";
                 }, 1200);
             }
         }
         else if (this.userAnswerChoice == 0) {
-            this.qhintLabel.string = "请选择一个答案";
+            this.qhintLabel.string = "Please choose one answer.";
             cc.find("Canvas/questionAlert/contentBg/submitButton").getComponent(cc.Button).interactable = true;
         } else {
             this.coinAnimation(-1);
             player.updateCoins(-50);
-            this.qhintLabel.string = "选择错误，重新选择一个答案吧！";
+            this.qhintLabel.string = "Wrong choice, please choose again.";
             cc.find("Canvas/questionAlert/contentBg/submitButton").getComponent(cc.Button).interactable = true;
         }
     },
 
     startWalking: function(){
         cc.find("Canvas/walkingButton").active = false;
-        this.hintLabel.string = "正在导管内运输，即将到达叶子";
+        this.hintLabel.string = "It's transporting in xylem verssel, will arrive leaf soon.";
 
         var finished = cc.callFunc(function(){
             cc.find("Canvas/background_daoguan").active = true;
             cc.find("Canvas/allParts").active = false;
-            this.posDetailLabel.string = "导管内";
+            this.posDetailLabel.string = "inside of verssel";
             var t = 4.92;
     
             var moveSeq = cc.spawn(cc.scaleBy(t, 0.6, 0.6), cc.moveTo(t, cc.v2(350,150)));
