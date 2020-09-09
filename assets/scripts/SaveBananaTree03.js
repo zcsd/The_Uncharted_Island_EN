@@ -46,18 +46,18 @@ cc.Class({
         this.resetToOriPos();
         this.floatingAction();
         this.setMolecueStatus(false);
-        this.hintLabel.string = "现在点击叶绿体，了解一下它吧！";
+        this.hintLabel.string = "Please click chloroplast to know more about it.";
     },
 
     pressYelvti: function(){
         cc.find("Canvas/yelvtiButton/Background").stopAllActions();
-        Alert.show(1.3, "叶绿体", "叶绿体是含有绿色色素(比如：叶绿素)的质体，是绿色植物进行光合作用的场所，是植物的能量转换器。光合作用是叶绿体吸收光能，利用简单的无机物制造有机物的过程。", null, false);
+        Alert.show(1.3, "Chloroplast", "The chloroplast, is a cell organelle that produces energy through photosynthesis, the process by which light energy is converted to chemical energy, resulting in the production of oxygen and energy-rich organic compounds.", null, false);
         this.setMolecueStatus(true);
-        this.hintLabel.string = "现在通过点击漂浮的小分子，选择光合作用所需要的原料吧";
+        this.hintLabel.string = "Please click the floating molecules, to choose all suitable materials that photosynthesis need.";
     },
 
     readyToMake: function(event, btnName){
-        this.hintLabel.string = "先点击选择光合作用需要的所有原料，然后再点击开始合成。";
+        this.hintLabel.string = "Click to choose all suitable materials that photosynthesis need, then click 'Produce' button.";
         cc.find("Canvas/walkingButton").active = true;
         if (btnName.includes('co2')){
             this.binReady = this.binReady | 0b1000;
@@ -109,7 +109,7 @@ cc.Class({
             this.coinAnimation(1);
             player.updateCoins(100);
             console.log("光合作用选择材料正确");
-            this.hintLabel.string = "正在进行光合作用";
+            this.hintLabel.string = "Photosynthesis is processing...";
             this.binReady = 0b0000;
             cc.find("Canvas/walkingButton").active = false;
             cc.find('Canvas/lighting').active = true;
@@ -119,7 +119,7 @@ cc.Class({
                 cc.find("Canvas/h2oinside").runAction(cc.fadeOut(1.8));
 
                 var finished4 = cc.callFunc(function(){
-                    this.hintLabel.string = "光合作用生产出了氧气和有机物。点击开始答题让我们做个小测试吧!";
+                    this.hintLabel.string = "Photosynthesis produced oxygen and organic. Click 'start quiz' button to do a test.";
                     cc.find('Canvas/goToQuizButton').active = true;
                     var seq5 = cc.repeatForever(cc.sequence(cc.moveBy(2.0, cc.v2(-8,6)), cc.moveBy(1.8, cc.v2(8, -6))));
                     var seq6 = cc.repeatForever(cc.sequence(cc.moveBy(1.6, cc.v2(5,6)), cc.moveBy(1.8, cc.v2(-5, -6))));
@@ -145,7 +145,7 @@ cc.Class({
             this.binReady = 0b0000;
             cc.find("Canvas/walkingButton").active = false;
             self = this;
-            Alert.show(1, "原料选择错误", "你选择了错误的光合作用原料组合，请重新选择！", function(){
+            Alert.show(1, "Material Error", "You choose wrong materials for photosynthesis, please choose again.", function(){
                 cc.find("Canvas/co2inside").active = false;
                 cc.find("Canvas/h2oinside").active = false;
                 cc.find("Canvas/o2inside").active = false;
@@ -162,10 +162,10 @@ cc.Class({
         cc.find("Canvas/questionAlert/contentBg/submitButton").getComponent(cc.Button).interactable = true;
         
         if(this.qorder == 0){
-            this.questionLabel.string = "问题：关于植物的光合作用，下列说法错误的是？";
-            this.qanswer1Label.string = "光合作用使无机物转化成有机物，释放出氧";
-            this.qanswer2Label.string = "光合作用储存在有机物中的能量来自于叶绿体";
-            this.qanswer3Label.string = "光合作用为地球上的生物提供了氧气";
+            this.questionLabel.string = "Question: Which of the following is wrong regarding the photosynthesis?";
+            this.qanswer1Label.string = "Photosynthesis produce oxygen and organic using inorganic.";
+            this.qanswer2Label.string = "The energy that store in organic produced in photosynthesis is from chloroplast.";
+            this.qanswer3Label.string = "Photosynthesis provide the most oxygen for animals in earth.";
             cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle1').getComponent(cc.Toggle).isChecked = false;
             cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle2').getComponent(cc.Toggle).isChecked = false;
             cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle3').getComponent(cc.Toggle).isChecked = false;
@@ -173,10 +173,10 @@ cc.Class({
             this.qanswer = 2;
             this.userAnswerChoice = 0;
         }else if(this.qorder == 1){
-            this.questionLabel.string = "问题：光合作用储存在有机物中的能量来自？";
-            this.qanswer1Label.string = "水";
-            this.qanswer2Label.string = "氧气";
-            this.qanswer3Label.string = "光";
+            this.questionLabel.string = "Question: The energy that store in organic produced in photosynthesis is from ( )";
+            this.qanswer1Label.string = "water";
+            this.qanswer2Label.string = "carbon dioxide";
+            this.qanswer3Label.string = "light";
             cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle1').getComponent(cc.Toggle).isChecked = false;
             cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle2').getComponent(cc.Toggle).isChecked = false;
             cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle3').getComponent(cc.Toggle).isChecked = false;
@@ -195,7 +195,7 @@ cc.Class({
         
         if (this.userAnswerChoice == this.qanswer) {
             cc.find("Canvas/questionAlert/contentBg/submitButton").getComponent(cc.Button).interactable = false;
-            this.qhintLabel.string = "恭喜你答对了";
+            this.qhintLabel.string = "Congratulations, it's correct.";
             this.coinAnimation(1);
             player.updateCoins(50);
             self = this;
@@ -209,17 +209,17 @@ cc.Class({
                     cc.find("Canvas/questionAlert").active = false;
                     cc.find("Canvas/goToQuizButton").active = false;
                     cc.find("Canvas/goToNextScene").active = true;
-                    self.hintLabel.string = "点击运输有机物按钮，来帮忙运输刚刚生成的有机物吧，然后回到地面吧";
+                    self.hintLabel.string = "Click 'Transport Organic' button to continue, then go back to the ground.";
                 }, 1200);
             }
         }
         else if (this.userAnswerChoice == 0) {
-            this.qhintLabel.string = "请选择一个答案";
+            this.qhintLabel.string = "Please choose one answer.";
             cc.find("Canvas/questionAlert/contentBg/submitButton").getComponent(cc.Button).interactable = true;
         } else {
             this.coinAnimation(-1);
             player.updateCoins(-50);
-            this.qhintLabel.string = "选择错误，重新选择一个答案吧！";
+            this.qhintLabel.string = "Wrong choice, please choose again.";
             cc.find("Canvas/questionAlert/contentBg/submitButton").getComponent(cc.Button).interactable = true;
         }
     },

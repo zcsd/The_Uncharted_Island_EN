@@ -41,7 +41,7 @@ cc.Class({
         KT.lastScene = 'SaveBananaTree04';
 
         this.floatingAction();
-        this.hintLabel.string = "你现在要帮忙把有机物从叶子运输到其他部位，请点击选择它要经过的通道：导管或筛管。";
+        this.hintLabel.string = "Now you help to tranport organic from leaf to other parts, please click to choose correct channel: xylem verssel or sieve tube.";
         //this.guide();
     },
 
@@ -50,8 +50,8 @@ cc.Class({
         var player = cc.find('player').getComponent('Player');
         cc.find("Canvas/allParts/daoguanButton").stopAllActions();
         var self = this;
-        Alert.show(1, "导管", "你要带着有机物在导管里运输吗？", function(){
-            self.hintLabel.string = '选择错误，有机物不是在导管里运输的，请重新选择。';
+        Alert.show(1, "Xylem Verssel", "Would you like to carry organic to transport in verssel?", function(){
+            self.hintLabel.string = 'Wrong choice, organic is not transported in xylem verssel, please choose again.';
             self.coinAnimation(-1);
             player.updateCoins(-50);
         });
@@ -62,8 +62,8 @@ cc.Class({
         cc.find("Canvas/allParts/shaiguanButton").stopAllActions();
         var player = cc.find('player').getComponent('Player');
         var self = this;
-        Alert.show(1, "筛管", "你要带着有机物在筛管里运输吗？", function(){
-            self.hintLabel.string = '选择正确。现在点击开始答题按钮完成任务以进入筛管。';
+        Alert.show(1, "Sieve Tube", "Would you like to carry organic to transport in sieve tube?", function(){
+            self.hintLabel.string = "Correct. Now click 'Start quiz' button to continue, to go into sieve tube.";
             cc.find("Canvas/goToQuizButton").active = true;
             cc.find("Canvas/walkingButton").active = false;
             self.coinAnimation(1);
@@ -77,10 +77,9 @@ cc.Class({
         cc.find("Canvas/questionAlert/contentBg/submitButton").getComponent(cc.Button).interactable = true;
         
         if(this.qorder == 0){
-            this.questionLabel.string = "问题：关于植物的筛管，下列说法错误的是？";
-            this.qanswer1Label.string = "有机物在筛管里运输需要消耗能量";
-            this.qanswer2Label.string = "有机物在筛管里的运输不属于主动运输";
-            this.qanswer3Label.string = "组成筛管的细胞是活细胞";
+            this.questionLabel.string = "Question: Which of the following is wrong regarding the sieve tube?";
+            this.qanswer1Label.string = "Transportation of organic in sieve tube need consume energy.";
+            this.qanswer3Label.string = "The cells of sieve tube are live.";
             cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle1').getComponent(cc.Toggle).isChecked = false;
             cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle2').getComponent(cc.Toggle).isChecked = false;
             cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle3').getComponent(cc.Toggle).isChecked = false;
@@ -88,10 +87,10 @@ cc.Class({
             this.qanswer = 2;
             this.userAnswerChoice = 0;
         }else if(this.qorder == 1){
-            this.questionLabel.string = "问题：呼吸作用中有机物分解所释放的能量的最终源头是";
-            this.qanswer1Label.string = "有机物中的化学能";
-            this.qanswer2Label.string = "植物细胞来自光能，动物细胞来自食物";
-            this.qanswer3Label.string = "叶绿体中的色素吸收的光能";
+            this.questionLabel.string = "Question：The energy that released in respiration process is originally from ( )";
+            this.qanswer1Label.string = "Chemical energy in organic";
+            this.qanswer2Label.string = "Water and carbon dioxide";
+            this.qanswer3Label.string = "Light energy";
             cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle1').getComponent(cc.Toggle).isChecked = false;
             cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle2').getComponent(cc.Toggle).isChecked = false;
             cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle3').getComponent(cc.Toggle).isChecked = false;
@@ -110,7 +109,7 @@ cc.Class({
         
         if (this.userAnswerChoice == this.qanswer) {
             cc.find("Canvas/questionAlert/contentBg/submitButton").getComponent(cc.Button).interactable = false;
-            this.qhintLabel.string = "恭喜你答对了";
+            this.qhintLabel.string = "Congratulations, it's correct.";
             this.coinAnimation(1);
             player.updateCoins(50);
             self = this;
@@ -124,24 +123,24 @@ cc.Class({
                     cc.find("Canvas/questionAlert").active = false;
                     cc.find("Canvas/goToQuizButton").active = false;
                     cc.find("Canvas/walkingButton").active = true;
-                    self.hintLabel.string = "现在点击进入筛管按钮开始最后的旅程吧!";
+                    self.hintLabel.string = "Please click ‘Go into sieve tube’ button to final journey.";
                 }, 1200);
             }
         }
         else if (this.userAnswerChoice == 0) {
-            this.qhintLabel.string = "请选择一个答案";
+            this.qhintLabel.string = "Please choose one answer.";
             cc.find("Canvas/questionAlert/contentBg/submitButton").getComponent(cc.Button).interactable = true;
         } else {
             this.coinAnimation(-1);
             player.updateCoins(-50);
-            this.qhintLabel.string = "选择错误，重新选择一个答案吧！";
+            this.qhintLabel.string = "Wrong choice, please choose again.";
             cc.find("Canvas/questionAlert/contentBg/submitButton").getComponent(cc.Button).interactable = true;
         }
     },
 
     startWalking: function() {
         cc.find("Canvas/walkingButton").active = false;
-        this.hintLabel.string = "有机物正在筛管内运输，会分发到各个部位，香蕉树即将重现生机。";
+        this.hintLabel.string = "Organic is transporting in sieve tube to all parts, banana tree will get vitality.";
 
         var finished = cc.callFunc(function(){
             cc.find("Canvas/background_shaiguan").active = true;
