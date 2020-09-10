@@ -46,18 +46,38 @@ cc.Class({
         this.resetToOriPos();
         this.floatingAction();
         this.setMolecueStatus(false);
-        this.hintLabel.string = "Please click chloroplast to know more about it.";
+        this.showHint(0, "Please click chloroplast to know more about it.");
+        //this.hintLabel.string = "Please click chloroplast to know more about it.";
+    },
+
+    showHint: function(method, content) {
+        //method: how to show hint content
+        //        0 - default
+        //        1 - popup window
+        //        2 - speech T2S
+        if(method == 0){
+            cc.find("Canvas/hintLabel").active = true;
+            this.hintLabel.string = content;
+            var blink = cc.blink(2, 2);
+            this.hintLabel.node.runAction(blink);   
+        }else if (method == 1){
+            cc.find("Canvas/hintLabel").active = false;
+        }else if(method == 2){
+            console.log('22');
+        }
     },
 
     pressYelvti: function(){
         cc.find("Canvas/yelvtiButton/Background").stopAllActions();
         Alert.show(1.3, "Chloroplast", "The chloroplast, is a cell organelle that produces energy through photosynthesis, the process by which light energy is converted to chemical energy, resulting in the production of oxygen and energy-rich organic compounds.", null, false);
         this.setMolecueStatus(true);
-        this.hintLabel.string = "Please click the floating molecules, to choose all suitable materials that photosynthesis need.";
+        this.showHint(0, "Please click the floating molecules, to choose all suitable materials that photosynthesis need.");
+        //this.hintLabel.string = "Please click the floating molecules, to choose all suitable materials that photosynthesis need.";
     },
 
     readyToMake: function(event, btnName){
-        this.hintLabel.string = "Click to choose all suitable materials that photosynthesis need, then click 'Produce' button.";
+        this.showHint(0, "Click to choose all suitable materials that photosynthesis need, then click 'Produce' button.");
+        //this.hintLabel.string = "Click to choose all suitable materials that photosynthesis need, then click 'Produce' button.";
         cc.find("Canvas/walkingButton").active = true;
         if (btnName.includes('co2')){
             this.binReady = this.binReady | 0b1000;
@@ -109,7 +129,8 @@ cc.Class({
             this.coinAnimation(1);
             player.updateCoins(100);
             console.log("光合作用选择材料正确");
-            this.hintLabel.string = "Photosynthesis is processing...";
+            this.showHint(0, "Photosynthesis is processing...");
+            //this.hintLabel.string = "Photosynthesis is processing...";
             this.binReady = 0b0000;
             cc.find("Canvas/walkingButton").active = false;
             cc.find('Canvas/lighting').active = true;
@@ -119,7 +140,8 @@ cc.Class({
                 cc.find("Canvas/h2oinside").runAction(cc.fadeOut(1.8));
 
                 var finished4 = cc.callFunc(function(){
-                    this.hintLabel.string = "Photosynthesis produced oxygen and organic. Click 'start quiz' button to do a test.";
+                    this.showHint(0, "Photosynthesis produced oxygen and organic. Click 'start quiz' button to do a test.");
+                    //this.hintLabel.string = "Photosynthesis produced oxygen and organic. Click 'start quiz' button to do a test.";
                     cc.find('Canvas/goToQuizButton').active = true;
                     var seq5 = cc.repeatForever(cc.sequence(cc.moveBy(2.0, cc.v2(-8,6)), cc.moveBy(1.8, cc.v2(8, -6))));
                     var seq6 = cc.repeatForever(cc.sequence(cc.moveBy(1.6, cc.v2(5,6)), cc.moveBy(1.8, cc.v2(-5, -6))));
@@ -209,7 +231,8 @@ cc.Class({
                     cc.find("Canvas/questionAlert").active = false;
                     cc.find("Canvas/goToQuizButton").active = false;
                     cc.find("Canvas/goToNextScene").active = true;
-                    self.hintLabel.string = "Click 'Transport Organic' button to continue, then go back to the ground.";
+                    self.showHint(0, "Click 'Transport Organic' button to continue, then go back to the ground.");
+                    //self.hintLabel.string = "Click 'Transport Organic' button to continue, then go back to the ground.";
                 }, 1200);
             }
         }

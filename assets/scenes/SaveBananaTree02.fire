@@ -261,7 +261,7 @@
       "array": [
         0,
         0,
-        565.5145886712385,
+        574.1748427090829,
         0,
         0,
         0,
@@ -4594,8 +4594,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 52.87,
-      "height": 37.8
+      "width": 50.76,
+      "height": 35.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4606,8 +4606,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -565.211,
-        -349.295,
+        -627,
+        -333,
         0,
         0,
         0,
@@ -4649,8 +4649,8 @@
     "_useOriginalSize": false,
     "_string": "Hint:",
     "_N$string": "Hint:",
-    "_fontSize": 25,
-    "_lineHeight": 30,
+    "_fontSize": 24,
+    "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
@@ -4692,8 +4692,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 739.32,
-      "height": 35.28
+      "width": 850,
+      "height": 50
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4704,8 +4704,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -533.452,
-        -350.696,
+        -598.452,
+        -348.696,
         0,
         0,
         0,
@@ -4747,8 +4747,8 @@
     "_useOriginalSize": false,
     "_string": "Click the beating vessel and sieve tube, to know more about them.",
     "_N$string": "Click the beating vessel and sieve tube, to know more about them.",
-    "_fontSize": 25,
-    "_lineHeight": 28,
+    "_fontSize": 23,
+    "_lineHeight": 25,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
@@ -4758,10 +4758,10 @@
     "_batchAsBitmap": false,
     "_styleFlags": 0,
     "_underlineHeight": 0,
-    "_N$horizontalAlign": 1,
-    "_N$verticalAlign": 1,
+    "_N$horizontalAlign": 0,
+    "_N$verticalAlign": 0,
     "_N$fontFamily": "Arial",
-    "_N$overflow": 0,
+    "_N$overflow": 1,
     "_N$cacheMode": 0,
     "_id": "48cXd04NRPgrshupuDXCOx"
   },

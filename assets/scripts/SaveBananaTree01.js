@@ -66,7 +66,8 @@ cc.Class({
         console.log(this.binRead);
         if((this.binRead & 0b111) == 0b111) {
             this.setMolecueStatus(true);
-            this.hintLabel.string = "Please click all water molecules and minerals to collect all of them, plants need them for growth.";
+            this.showHint(0, "Please click all water molecules and minerals to collect all of them, plants need them for growth.");
+            //this.hintLabel.string = "Please click all water molecules and minerals to collect all of them, plants need them for growth.";
         }
     },
 
@@ -86,7 +87,8 @@ cc.Class({
         console.log(this.binRead);
         if((this.binRead & 0b111) == 0b111) {
             this.setMolecueStatus(true);
-            this.hintLabel.string = "Please click all water molecules and minerals to collect all of them, plants need them for growth.";
+            this.showHint(0, "Please click all water molecules and minerals to collect all of them, plants need them for growth.");
+            //this.hintLabel.string = "Please click all water molecules and minerals to collect all of them, plants need them for growth.";
         }
     },
 
@@ -106,7 +108,25 @@ cc.Class({
         console.log(this.binRead);
         if((this.binRead & 0b111) == 0b111) {
             this.setMolecueStatus(true);
-            this.hintLabel.string = "Please click all water molecules and minerals to collect all of them, plants need them for growth.";
+            this.showHint(0, "Please click all water molecules and minerals to collect all of them, plants need them for growth.");
+            //this.hintLabel.string = "Please click all water molecules and minerals to collect all of them, plants need them for growth.";
+        }
+    },
+
+    showHint: function(method, content) {
+        //method: how to show hint content
+        //        0 - default
+        //        1 - popup window
+        //        2 - speech T2S
+        if(method == 0){
+            cc.find("Canvas/hintLabel").active = true;
+            this.hintLabel.string = content;
+            var blink = cc.blink(2, 2);
+            this.hintLabel.node.runAction(blink);   
+        }else if (method == 1){
+            cc.find("Canvas/hintLabel").active = false;
+        }else if(method == 2){
+            console.log('22');
         }
     },
 
@@ -158,7 +178,8 @@ cc.Class({
 
         this.numCollect += 1;
         if(this.numCollect >= 7 ){
-            this.hintLabel.string = "Collection done, now you can take minerals and water to go into the root hair.";
+            this.showHint(0, "Collection done, now you can take minerals and water to go into the root hair.");
+            //this.hintLabel.string = "Collection done, now you can take minerals and water to go into the root hair.";
             cc.find("Canvas/gotoinsiderootButton").interactable = true;
             cc.find("Canvas/gotoinsiderootButton").active = true;
         }

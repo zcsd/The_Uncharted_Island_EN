@@ -331,7 +331,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 460,
-      "height": 45.36
+      "height": 37.8
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -385,8 +385,8 @@
     "_useOriginalSize": false,
     "_string": "ABC",
     "_N$string": "ABC",
-    "_fontSize": 30,
-    "_lineHeight": 36,
+    "_fontSize": 28,
+    "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
@@ -416,7 +416,7 @@
     "_alignFlags": 41,
     "_left": 29.999999999999886,
     "_right": 30.000000000000114,
-    "_top": 101.08999999999989,
+    "_top": 104.86999999999989,
     "_bottom": 0,
     "_verticalCenter": 0,
     "_horizontalCenter": 0,
@@ -1118,8 +1118,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 82.57,
-      "height": 54.18
+      "width": 68.81,
+      "height": 47.88
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1131,7 +1131,7 @@
       "ctor": "Float64Array",
       "array": [
         -9.100000000000136,
-        118.80000000000007,
+        122.80000000000007,
         0,
         0,
         0,
@@ -1173,8 +1173,8 @@
     "_useOriginalSize": false,
     "_string": "Buy",
     "_N$string": "Buy",
-    "_fontSize": 42,
-    "_lineHeight": 43,
+    "_fontSize": 35,
+    "_lineHeight": 38,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "92820d17-2e6a-47d3-b44a-4c1524cac3ed"

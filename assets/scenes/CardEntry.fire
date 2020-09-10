@@ -17,7 +17,7 @@
         "__id__": 2
       }
     ],
-    "_active": true,
+    "_active": false,
     "_components": [],
     "_prefab": null,
     "_opacity": 255,
@@ -222,7 +222,7 @@
       "array": [
         0,
         0,
-        568.1126648825917,
+        574.1748427090829,
         0,
         0,
         0,
@@ -1611,7 +1611,7 @@
         "__id__": 36
       }
     ],
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 41
@@ -2038,7 +2038,7 @@
         1,
         1,
         1,
-        0
+        1
       ]
     },
     "_eulerAngles": {
@@ -2335,7 +2335,7 @@
         1,
         1,
         1,
-        0
+        1
       ]
     },
     "_eulerAngles": {

@@ -243,7 +243,7 @@
       "array": [
         0,
         0,
-        559.8718918997055,
+        574.1748427090829,
         0,
         0,
         0,
@@ -5217,8 +5217,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 52.87,
-      "height": 37.8
+      "width": 50.76,
+      "height": 35.28
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -5229,8 +5229,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -561.211,
-        -326.696,
+        -627,
+        -333,
         0,
         0,
         0,
@@ -5272,8 +5272,8 @@
     "_useOriginalSize": false,
     "_string": "Hint:",
     "_N$string": "Hint:",
-    "_fontSize": 25,
-    "_lineHeight": 30,
+    "_fontSize": 24,
+    "_lineHeight": 28,
     "_enableWrapText": true,
     "_N$file": {
       "__uuid__": "c20f3c17-0987-4a28-b148-f7b5b97a3e32"
@@ -5315,20 +5315,20 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 900,
-      "height": 60
+      "width": 850,
+      "height": 50
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 1
+      "y": 0.5
     },
     "_trs": {
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        -528.452,
-        -316.696,
+        -598,
+        -348,
         0,
         0,
         0,
@@ -5370,7 +5370,7 @@
     "_useOriginalSize": false,
     "_string": "You need to help to transport organic from leaf to other parts, click to choose vessel or sieve tube to pass.",
     "_N$string": "You need to help to transport organic from leaf to other parts, click to choose vessel or sieve tube to pass.",
-    "_fontSize": 25,
+    "_fontSize": 23,
     "_lineHeight": 25,
     "_enableWrapText": true,
     "_N$file": {

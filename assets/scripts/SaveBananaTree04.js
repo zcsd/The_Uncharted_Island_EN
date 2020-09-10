@@ -41,7 +41,8 @@ cc.Class({
         KT.lastScene = 'SaveBananaTree04';
 
         this.floatingAction();
-        this.hintLabel.string = "Now you help to tranport organic from leaf to other parts, please click to choose correct channel: xylem verssel or sieve tube.";
+        this.showHint(0, "Now you help to tranport organic from leaf to other parts, please click to choose correct channel: xylem verssel or sieve tube.");
+        //this.hintLabel.string = "Now you help to tranport organic from leaf to other parts, please click to choose correct channel: xylem verssel or sieve tube.";
         //this.guide();
     },
 
@@ -51,7 +52,8 @@ cc.Class({
         cc.find("Canvas/allParts/daoguanButton").stopAllActions();
         var self = this;
         Alert.show(1, "Xylem Verssel", "Would you like to carry organic to transport in verssel?", function(){
-            self.hintLabel.string = 'Wrong choice, organic is not transported in xylem verssel, please choose again.';
+            self.showHint(0, 'Wrong choice, organic is not transported in xylem verssel, please choose again.');
+            //self.hintLabel.string = 'Wrong choice, organic is not transported in xylem verssel, please choose again.';
             self.coinAnimation(-1);
             player.updateCoins(-50);
         });
@@ -63,12 +65,30 @@ cc.Class({
         var player = cc.find('player').getComponent('Player');
         var self = this;
         Alert.show(1, "Sieve Tube", "Would you like to carry organic to transport in sieve tube?", function(){
-            self.hintLabel.string = "Correct. Now click 'Start quiz' button to continue, to go into sieve tube.";
+            self.showHint(0, "Correct. Now click 'Start quiz' button to continue, to go into sieve tube.");
+            //self.hintLabel.string = "Correct. Now click 'Start quiz' button to continue, to go into sieve tube.";
             cc.find("Canvas/goToQuizButton").active = true;
             cc.find("Canvas/walkingButton").active = false;
             self.coinAnimation(1);
             player.updateCoins(50);
         }); 
+    },
+
+    showHint: function(method, content) {
+        //method: how to show hint content
+        //        0 - default
+        //        1 - popup window
+        //        2 - speech T2S
+        if(method == 0){
+            cc.find("Canvas/hintLabel").active = true;
+            this.hintLabel.string = content;
+            var blink = cc.blink(2, 2);
+            this.hintLabel.node.runAction(blink);   
+        }else if (method == 1){
+            cc.find("Canvas/hintLabel").active = false;
+        }else if(method == 2){
+            console.log('22');
+        }
     },
 
     goToQuiz: function(){
@@ -123,7 +143,8 @@ cc.Class({
                     cc.find("Canvas/questionAlert").active = false;
                     cc.find("Canvas/goToQuizButton").active = false;
                     cc.find("Canvas/walkingButton").active = true;
-                    self.hintLabel.string = "Please click ‘Go into sieve tube’ button to final journey.";
+                    self.showHint(0, "Please click ‘Go into sieve tube’ button to final journey.");
+                    //self.hintLabel.string = "Please click ‘Go into sieve tube’ button to final journey.";
                 }, 1200);
             }
         }
@@ -140,7 +161,8 @@ cc.Class({
 
     startWalking: function() {
         cc.find("Canvas/walkingButton").active = false;
-        this.hintLabel.string = "Organic is transporting in sieve tube to all parts, banana tree will get vitality.";
+        this.showHint(0, "Organic is transporting in sieve tube to all parts, banana tree will get vitality.");
+        //this.hintLabel.string = "Organic is transporting in sieve tube to all parts, banana tree will get vitality.";
 
         var finished = cc.callFunc(function(){
             cc.find("Canvas/background_shaiguan").active = true;

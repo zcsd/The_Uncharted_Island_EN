@@ -44,7 +44,8 @@ cc.Class({
         KT.lastScene = 'SaveBananaTree02';
 
         this.floatingAction();
-        this.hintLabel.string = "Please click the beating xylem vessel and phloem sieve tube, to know more about them.";
+        this.showHint(0, "Please click the beating xylem vessel and phloem sieve tube, to know more about them.");
+        //this.hintLabel.string = "Please click the beating xylem vessel and phloem sieve tube, to know more about them.";
         //this.guide();
     },
 
@@ -60,7 +61,8 @@ cc.Class({
         console.log(this.binRead);
         if((this.binRead & 0b11) == 0b11) {
             //this.setMolecueStatus(true);
-            this.hintLabel.string = "You have known xylem vessel and sieve tube, please click 'start quiz' buuton to continue game.";
+            this.showHint(0, "You have known xylem vessel and sieve tube, please click 'start quiz' buuton to continue game.");
+            //this.hintLabel.string = "You have known xylem vessel and sieve tube, please click 'start quiz' buuton to continue game.";
             cc.find("Canvas/goToQuizButton").active = true;
             cc.find("Canvas/walkingButton").active = false;
         }
@@ -78,9 +80,27 @@ cc.Class({
         console.log(this.binRead);
         if((this.binRead & 0b11) == 0b11) {
             //this.setMolecueStatus(true);
-            this.hintLabel.string = "You have known xylem vessel and sieve tube, please click 'start quiz' buuton to continue game.";
+            this.showHint(0, "You have known xylem vessel and sieve tube, please click 'start quiz' buuton to continue game.");
+            //this.hintLabel.string = "You have known xylem vessel and sieve tube, please click 'start quiz' buuton to continue game.";
             cc.find("Canvas/goToQuizButton").active = true;
             cc.find("Canvas/walkingButton").active = false;
+        }
+    },
+    
+    showHint: function(method, content) {
+        //method: how to show hint content
+        //        0 - default
+        //        1 - popup window
+        //        2 - speech T2S
+        if(method == 0){
+            cc.find("Canvas/hintLabel").active = true;
+            this.hintLabel.string = content;
+            var blink = cc.blink(2, 2);
+            this.hintLabel.node.runAction(blink);   
+        }else if (method == 1){
+            cc.find("Canvas/hintLabel").active = false;
+        }else if(method == 2){
+            console.log('22');
         }
     },
 
@@ -137,7 +157,8 @@ cc.Class({
                     cc.find("Canvas/questionAlert").active = false;
                     cc.find("Canvas/goToQuizButton").active = false;
                     cc.find("Canvas/walkingButton").active = true;
-                    self.hintLabel.string = "Please click 'go into verssel' button to continue the game.";
+                    self.showHint(0, "Please click 'go into verssel' button to continue the game.");
+                    //self.hintLabel.string = "Please click 'go into verssel' button to continue the game.";
                 }, 1200);
             }
         }
@@ -154,7 +175,8 @@ cc.Class({
 
     startWalking: function(){
         cc.find("Canvas/walkingButton").active = false;
-        this.hintLabel.string = "It's transporting in xylem verssel, will arrive leaf soon.";
+        this.showHint(0, "It's transporting in xylem verssel, will arrive leaf soon.");
+        //this.hintLabel.string = "It's transporting in xylem verssel, will arrive leaf soon.";
 
         var finished = cc.callFunc(function(){
             cc.find("Canvas/background_daoguan").active = true;
