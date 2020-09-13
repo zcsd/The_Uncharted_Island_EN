@@ -159,6 +159,12 @@
         "__id__": 135
       },
       {
+        "__id__": 136
+      },
+      {
+        "__id__": 138
+      },
+      {
         "__id__": 140
       }
     ],
@@ -261,7 +267,7 @@
       "array": [
         0,
         0,
-        574.1748427090829,
+        570.7107410939451,
         0,
         0,
         0,
@@ -6571,20 +6577,13 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "guide",
+    "_name": "guideMask",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
     },
-    "_children": [
-      {
-        "__id__": 136
-      },
-      {
-        "__id__": 138
-      }
-    ],
-    "_active": false,
+    "_children": [],
+    "_active": true,
     "_components": [],
     "_prefab": null,
     "_opacity": 255,
@@ -6597,8 +6596,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
-      "height": 0
+      "width": 1334,
+      "height": 750
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -6609,8 +6608,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        187.358,
-        109.879,
+        0,
+        0,
         0,
         0,
         0,
@@ -6632,14 +6631,14 @@
     "_is3DNode": false,
     "_groupIndex": 0,
     "groupIndex": 0,
-    "_id": "c3eDmE5m1NjIeIfv1A7JNj"
+    "_id": "1afRK4poNAJZUDx1xiuE5P"
   },
   {
     "__type__": "cc.Node",
     "_name": "pointer",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 135
+      "__id__": 2
     },
     "_children": [],
     "_active": true,
@@ -6671,8 +6670,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        0,
-        0,
+        97.13,
+        0.235,
         0,
         0,
         0,
@@ -6733,7 +6732,7 @@
     "_name": "finger",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 135
+      "__id__": 2
     },
     "_children": [],
     "_active": true,
@@ -6765,8 +6764,8 @@
       "__type__": "TypedArray",
       "ctor": "Float64Array",
       "array": [
-        19.722,
-        -39.444,
+        115.71,
+        -47.204,
         0,
         0,
         0,
@@ -9117,6 +9116,9 @@
     },
     "coinBlink": {
       "__id__": 29
+    },
+    "guideMask": {
+      "__id__": 135
     },
     "mask": {
       "__id__": 141

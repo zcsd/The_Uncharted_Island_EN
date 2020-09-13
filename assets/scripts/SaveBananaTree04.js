@@ -99,6 +99,7 @@ cc.Class({
         if(this.qorder == 0){
             this.questionLabel.string = "Question: Which of the following is wrong regarding the sieve tube?";
             this.qanswer1Label.string = "Transportation of organic in sieve tube need consume energy.";
+            this.qanswer2Label.string = "Transportation of organic in sieve tube is passive transportation.";
             this.qanswer3Label.string = "The cells of sieve tube are live.";
             cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle1').getComponent(cc.Toggle).isChecked = false;
             cc.find('Canvas/questionAlert/contentBg/answerToggleContainer/toggle2').getComponent(cc.Toggle).isChecked = false;

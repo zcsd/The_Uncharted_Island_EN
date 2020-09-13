@@ -11,6 +11,7 @@ cc.Class({
         coinShine: cc.Node,
         coinBlink: cc.Node,
 
+        guideMask: cc.Node,
         mask: cc.Node,
         manwalk: cc.Node,
 
@@ -31,6 +32,10 @@ cc.Class({
     },
 
     onLoad: function () {
+        this.guideStep = 1;
+        this.guideMask.on('touchstart', this.onTouchStart, this);
+        this.showGuide();
+
         var player = cc.find('player').getComponent('Player');
         this.nameLabel.string = player.nickName;
         this.coinLabel.string = player.coinsOwned.toString();
@@ -298,6 +303,78 @@ cc.Class({
             event.stopPropagation();
         });
     },
+
+    showGuide: function(){
+        if (this.guideStep == 1) {
+            this.setHand(cc.find("Canvas/allParts/daoguanButton").position);
+        }
+        else if (this.guideStep == 2) {
+            this.setHand(cc.find("Canvas/allParts/shaiguanButton").position);
+        }
+    },
+
+    setHand (pos) {
+        // 设置引导手
+        //cc.find("Canvas/pointer").setPosition(cc.v2(pos.x, pos.y));
+        cc.find("Canvas/finger").setPosition(cc.v2(pos.x+15, pos.y-80));
+        
+        let moveForward = cc.moveBy(0.8, cc.v2(0, 50));
+        let moveBack = cc.moveBy(0.8, cc.v2(0, -50));
+        let repeatAction = cc.repeatForever(cc.sequence(moveForward, moveBack));
+        cc.find("Canvas/finger").stopAllActions();             // 记得停止之前的动作
+        cc.find("Canvas/finger").runAction(repeatAction);
+
+        cc.find("Canvas/pointer").setPosition(cc.v2(pos.x, pos.y));
+        
+        let scaleUp = cc.scaleTo(0.8, 1.0);
+        let scaleDown = cc.scaleTo(0.8, 0.65);
+        let repeatAction_scale = cc.repeatForever(cc.sequence(scaleUp, scaleDown));
+        cc.find("Canvas/pointer").stopAllActions();             // 记得停止之前的动作
+        cc.find("Canvas/pointer").runAction(repeatAction_scale);
+    },
+
+    onTouchStart: function(event) {
+        if(this.guideStep) {
+            // 获取触摸点，转为Canvas画布上的坐标
+            let pos = this.guideMask.parent.convertToNodeSpaceAR(event.getLocation());
+            
+            // 获取相应按钮的大小范围
+            let btn;
+            if (this.guideStep == 1)
+                btn = cc.find("Canvas/allParts/daoguanButton");
+            else if(this.guideStep == 2)
+                btn = cc.find("Canvas/allParts/shaiguanButton");
+
+            let rect = btn.getBoundingBox();
+
+            // 判断触摸点是否在按钮上
+            if (rect.contains(pos)) {
+                // 允许触摸事件传递给按钮(允许冒泡)
+                this.guideMask._touchListener.setSwallowTouches(false);
+                this.guideStep++;
+                
+                // 如果三个按钮都点击了，则将guideStep设置为0，并隐藏所有相关节点
+                if (this.guideStep > 2) {
+                    this.guideStep = 0;
+
+                    cc.find("Canvas/pointer").active = false;
+                    cc.find("Canvas/finger").active = false;
+                }
+                else{
+                    this.showGuide();
+                }     
+            } 
+            else {
+                // 吞噬触摸，禁止触摸事件传递给按钮(禁止冒泡)
+                this.guideMask._touchListener.setSwallowTouches(true);
+            }
+        }
+    },
+
+    onDestroy: function() {
+        // 取消监听
+        this.guideMask.off('touchstart', this.onTouchStart, this);
+    },    
 
     start () {
 
