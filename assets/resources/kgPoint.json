@@ -156,7 +156,42 @@
 },
 "23":{
     "type": "Reading",
-    "label": "Plants_Transport",
-    "content": "xxx"
+    "label": "Plants",
+    "content": "Photosynthesis is a process by which produce oxygen and phototrophs convert light energy into chemical energy, which is later used to fuel cellular activities. The chemical energy is stored in the form of sugars, which are created from water and carbon dioxide."
+},
+"24":{
+    "type": "MCQ",
+    "label": "Plants",
+    "content": "Photosynthesis process is affected by ( )",
+    "option_1": "light intensity and the concentration of carbon dioxide",
+    "option_2": "temperature",
+    "option_3": "water",
+    "option_4": "all of the above",
+    "answer": "4"
+},
+"25":{
+    "type": "MCQ",
+    "label": "Plants",
+    "content": "Which of the following is wrong regarding photosynthesis?",
+    "option_1": "Photosynthesis serves a crucial role in the food chain, forming the primary producers.",
+    "option_2": "Photosynthesis is responsible for the production of oxygen on earth.",
+    "option_3": "Increased light intensity results in a lower rate of photosynthesis.",
+    "option_4": "Higher concentration of carbon dioxide helps in increasing the rate of photosynthesis.",
+    "answer": "3"
+},
+"26":{
+    "type": "Reading",
+    "label": "Plants",
+    "content": "Respiration is a chain of chemical reactions that enables all living entities to synthesize energy required to sustain. All plants respire to provide energy for their cells to be active or alive, inhalation of oxygen and exhalation of carbon dioxide gas takes place."
+},
+"27":{
+    "type": "MCQ",
+    "label": "Plants",
+    "content": "Which of the following is wrong regarding respiration process?",
+    "option_1": "This process is common to all living things, including plants, animals, birds, etc.",
+    "option_2": "Both photosynthesis and respiration stop at night.",
+    "option_3": "Energy is released.",
+    "option_4": "In many ways, respiration is the opposite of photosynthesis",
+    "answer": "2"
 }
 }

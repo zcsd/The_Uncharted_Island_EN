@@ -17,7 +17,7 @@ window.G = {
     hintMethod: 1,
     kgPoint: cc.JsonAsset,
     lastKg: 0,
-    totalKg: 23,
+    totalKg: 27,
 }
 
 window.KT = {
