@@ -38,6 +38,8 @@ cc.Class({
 
         var User = require('user');
         G.user = new User('', '', '', '', '');
+
+        G.kgLibrary = new Set();
         // For browser, automaticlly fill in username
         if(cc.sys.isBrowser && cc.sys.localStorage.getItem('gameID') != null){
             cc.find('Canvas/usernameEditBox').getComponent(cc.EditBox).string = cc.sys.localStorage.getItem('gameID');

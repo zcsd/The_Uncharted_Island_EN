@@ -36,22 +36,45 @@ cc.Class({
         cc.find("Canvas/contentBg/label2Bg").active = false;
         cc.find("Canvas/contentBg/label3Bg").active = false;
 
-        console.log(customData);
+        if(G.lastKg <= G.lastDiffKg){
+            if(customData == 'good'){
+                G.diffMark += 1;
+            }else if(customData == 'bad'){
+                G.kgLibrary.add(G.lastKg);
+            }
+        }else if(G.lastKg <= G.lastOsmoKg){
+            if(customData == 'good'){
+                G.osmoMark += 1;
+            }else if(customData == 'bad'){
+                G.kgLibrary.add(G.lastKg);
+            }
+        }else if(G.lastKg <= G.lastBanaKg){
+            if(customData == 'good'){
+                G.bananaMark += 1;
+            }else if(customData == 'bad'){
+                G.kgLibrary.add(G.lastKg);
+            }
+        }
+
+        if(customData == 'good' && G.kgLibrary.has(G.lastKg)){
+            G.kgLibrary.delete(G.lastKg);
+        }
+
         if (G.lastKg+1 > G.totalKg){
             var content = "Congratulations, you have finsihed all the study card. You can go back to the main page.";
             Alert.show(1.3, "Finished", content, function(){
                 //self.coinAnimation(0);
             }, false);
         }else{
-            if(G.lastKg == 8){
+            if(G.lastKg == G.lastDiffKg){
                 cc.find("Canvas/popup").active = true;
                 cc.find("Canvas/popup/hintAlert/contentBg/titleLabel").getComponent(cc.Label).string = "Diffusion";
                 cc.find("Canvas/popup/hintAlert/contentBg/hintLabel").getComponent(cc.Label).string = "You have finished most cards study about diffusion, let's go to play a game.";
-            }else if(G.lastKg == 13){
+            }else if(G.lastKg == G.lastOsmoKg){
                 cc.find("Canvas/popup").active = true;
                 cc.find("Canvas/popup/hintAlert/contentBg/titleLabel").getComponent(cc.Label).string = "Osmosis";
                 cc.find("Canvas/popup/hintAlert/contentBg/hintLabel").getComponent(cc.Label).string = "You have finished most study cards about osmosis, let's go to play a game.";
-            }else if(G.lastKg == 22){
+            }else if(G.lastKg == G.lastBanaKg){
                 cc.find("Canvas/popup").active = true;
                 cc.find("Canvas/popup/hintAlert/contentBg/titleLabel").getComponent(cc.Label).string = "Save Banana Tree";
                 cc.find("Canvas/popup/hintAlert/contentBg/hintLabel").getComponent(cc.Label).string = "You have finished most study cards, let's go to play a game.";
@@ -59,16 +82,18 @@ cc.Class({
                 this.loadContent();
             }
         }
+
+        console.log(G.kgLibrary);
     },
 
     toWhichScene: function(){
-        if(G.lastKg == 8){
+        if(G.lastKg == G.lastDiffKg){
             G.lastKg += 1;
             cc.director.loadScene("DoDiffusionTest");
-        }else if(G.lastKg == 13){
+        }else if(G.lastKg == G.lastOsmoKg){
             G.lastKg += 1;
             cc.director.loadScene("DoOsmosisTest");
-        }else if(G.lastKg == 22){
+        }else if(G.lastKg == G.lastBanaKg){
             G.lastKg += 1;
             cc.director.loadScene("SaveBananaTree");
         }
@@ -140,8 +165,19 @@ cc.Class({
             cc.find("Canvas/mcq/nextButton").getComponent(cc.Button).interactable = true;
             cc.find("Canvas/mcq/correctIcon").active = true;
             cc.find("Canvas/mcq/wrongIcon").active = false;
-        }
-        else if (this.userAnswer == 0) {
+
+            if(G.lastKg <= G.lastDiffKg){
+                G.diffMark += 2;
+            }else if(G.lastKg <= G.lastOsmoKg){
+                G.osmoMark += 2;
+            }else if(G.lastKg <= G.lastBanaKg){
+                G.bananaMark += 2;
+            }
+
+            if (G.kgLibrary.has(G.lastKg)){
+                G.kgLibrary.delete(G.lastKg);
+            }
+        }else if (this.userAnswer == 0) {
             Alert.show(1, "Hint", "Please choose an option.", null, false);
         } else {
             console.log("答错了");
@@ -149,7 +185,20 @@ cc.Class({
             cc.find("Canvas/mcq/submitButton").getComponent(cc.Button).interactable = true;
             cc.find("Canvas/mcq/wrongIcon").active = true;
             cc.find("Canvas/mcq/correctIcon").active = false;
+
+            if(G.lastKg <= G.lastDiffKg){
+                G.diffMark -= 1;
+                G.kgLibrary.add(G.lastKg);
+            }else if(G.lastKg <= G.lastOsmoKg){
+                G.osmoMark -= 1;
+                G.kgLibrary.add(G.lastKg);
+            }else if(G.lastKg <= G.lastBanaKg){
+                G.bananaMark -= 1;
+                G.kgLibrary.add(G.lastKg);
+            }
         }
+
+        console.log(G.kgLibrary);
     },
 
     goToEntryScene: function () {

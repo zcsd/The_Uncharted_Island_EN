@@ -16,8 +16,15 @@ window.G = {
     finalStyle: 'I',
     hintMethod: 1,
     kgPoint: cc.JsonAsset,
-    lastKg: 0,
-    totalKg: 27,
+    lastKg: 0, 
+    totalKg: 30,
+    lastDiffKg: 10,
+    lastOsmoKg: 15,
+    lastBanaKg: 30,
+    diffMark: 0,
+    osmoMark: 0,
+    bananaMark: 0,
+    kgLibrary: null
 }
 
 window.KT = {

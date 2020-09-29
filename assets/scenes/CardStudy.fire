@@ -216,7 +216,7 @@
       "array": [
         0,
         0,
-        570.7020581773631,
+        570.1559435696457,
         0,
         0,
         0,
@@ -5821,7 +5821,7 @@
     "component": "",
     "_componentId": "99068oBqvRCB6neUqolHa0W",
     "handler": "toNextContent",
-    "customEventData": ""
+    "customEventData": "mcq"
   },
   {
     "__type__": "cc.Node",
